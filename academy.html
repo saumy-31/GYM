@@ -812,5 +812,216 @@
         // Trigger on load
         revealOnScroll();
     </script>
+    <script>
+
+/*=========================================
+STICKY HEADER
+=========================================*/
+
+const header = document.getElementById("header");
+
+window.addEventListener("scroll",()=>{
+
+    if(window.scrollY > 40){
+
+        header.classList.add("scrolled");
+
+    }else{
+
+        header.classList.remove("scrolled");
+
+    }
+
+});
+
+
+/*=========================================
+SCROLL REVEAL
+=========================================*/
+
+const revealElements=document.querySelectorAll(
+
+".fade-up,.fade-left,.fade-right,.zoom"
+
+);
+
+const revealObserver=new IntersectionObserver(
+
+(entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+},
+
+{
+
+threshold:.18
+
+}
+
+);
+
+revealElements.forEach(el=>{
+
+revealObserver.observe(el);
+
+});
+
+
+/*=========================================
+MOBILE MENU
+=========================================*/
+
+const mobileToggle=document.querySelector(".mobile-toggle");
+
+const navigation=document.querySelector(".main-nav");
+
+if(mobileToggle){
+
+mobileToggle.addEventListener("click",()=>{
+
+navigation.classList.toggle("mobile-open");
+
+});
+
+}
+
+
+/*=========================================
+MOBILE NAV STYLE
+=========================================*/
+
+const mobileStyle=document.createElement("style");
+
+mobileStyle.innerHTML=`
+
+@media(max-width:992px){
+
+.main-nav{
+
+display:block;
+
+position:fixed;
+
+top:128px;
+
+left:0;
+
+width:100%;
+
+background:#ffffff;
+
+box-shadow:0 20px 50px rgba(0,0,0,.08);
+
+transform:translateY(-120%);
+
+transition:.35s ease;
+
+z-index:999;
+
+}
+
+.main-nav.mobile-open{
+
+transform:translateY(0);
+
+}
+
+.nav-menu{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+gap:0;
+
+height:auto;
+
+padding:25px;
+
+}
+
+.nav-item{
+
+width:100%;
+
+}
+
+.nav-link{
+
+padding:18px 0;
+
+justify-content:space-between;
+
+width:100%;
+
+border-bottom:1px solid rgba(0,0,0,.06);
+
+}
+
+.mega-menu{
+
+display:none !important;
+
+}
+
+}
+
+`;
+
+document.head.appendChild(mobileStyle);
+
+
+/*=========================================
+SMOOTH BUTTON EFFECT
+=========================================*/
+
+document.querySelectorAll(".btn").forEach(button=>{
+
+button.addEventListener("mouseenter",()=>{
+
+button.style.transform="translateY(-4px)";
+
+});
+
+button.addEventListener("mouseleave",()=>{
+
+button.style.transform="translateY(0)";
+
+});
+
+});
+
+
+/*=========================================
+SEARCH BOX DEMO
+=========================================*/
+
+const searchInput=document.querySelector(".search-box input");
+
+if(searchInput){
+
+searchInput.addEventListener("keydown",(e)=>{
+
+if(e.key==="Enter"){
+
+alert("Search functionality will be connected to the product catalog.");
+
+}
+
+});
+
+}
+
+</script>
+
 </body>
 </html>
