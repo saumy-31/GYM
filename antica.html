@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antica Pizzeria & Ristorante | Authentic Italian Niagara Falls</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0b0908;
+            color: #f7f4f2;
+        }
+        .font-serif-italian {
+            font-family: 'Cinzel', serif;
+        }
+        .glassmorphism {
+            background: rgba(18, 15, 14, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(219, 68, 68, 0.1);
+        }
+        .glass-card {
+            background: rgba(26, 22, 20, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(220, 38, 38, 0.3);
+            box-shadow: 0 20px 40px -15px rgba(220, 38, 38, 0.15);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #f7f4f2 20%, #ea580c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .italian-gradient {
+            background: linear-gradient(to right, #15803d 33%, #f7f4f2 33%, #f7f4f2 66%, #b91c1c 66%);
+            height: 3px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden selection:bg-red-600 selection:text-white">
+
+    <!-- Italian Flag Top Accent Line -->
+    <div class="fixed top-0 left-0 w-full z-50">
+        <div class="italian-gradient"></div>
+    </div>
+
+    <!-- Modern Sticky Navigation -->
+    <nav class="fixed top-[3px] left-0 w-full z-50 glassmorphism transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <a href="#" class="flex flex-col group">
+                <span class="font-serif-italian text-2xl sm:text-3xl font-bold tracking-widest text-red-600 group-hover:text-red-500 transition-colors">ANTICA</span>
+                <span class="text-[10px] uppercase tracking-[0.4em] text-stone-400 -mt-1 font-light">Pizzeria & Ristorante</span>
+            </a>
+            
+            <!-- Desktop Navigation Links -->
+            <div class="hidden lg:flex items-center gap-8 font-medium text-xs tracking-widest uppercase">
+                <a href="#" class="text-red-500 transition-colors">Home</a>
+                <a href="#about" class="text-stone-300 hover:text-red-500 transition-colors">Our Story</a>
+                <a href="#services" class="text-stone-300 hover:text-red-500 transition-colors">What's New</a>
+                <a href="#menu" class="text-stone-300 hover:text-red-500 transition-colors">Menu</a>
+                <a href="#contact" class="text-stone-300 hover:text-red-500 transition-colors">Location</a>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="hidden sm:flex items-center gap-4">
+                <a href="#contact" class="px-5 py-2.5 rounded-none border border-stone-700 text-xs font-semibold tracking-widest uppercase text-stone-300 hover:bg-stone-900 transition-all">
+                    Reservations
+                </a>
+                <a href="#menu" class="px-5 py-2.5 rounded-none bg-red-600 text-xs font-semibold tracking-widest uppercase text-white hover:bg-red-700 transition-all shadow-lg shadow-red-600/10">
+                    Order Take-Out
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-toggle" class="lg:hidden text-stone-300 hover:text-red-500 focus:outline-none">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Nav Menu Drawer -->
+        <div id="mobile-drawer" class="hidden lg:hidden absolute top-[93px] left-0 w-full bg-stone-950/98 backdrop-blur-xl border-b border-neutral-900 px-6 py-8 flex flex-col gap-5 text-center shadow-2xl">
+            <a href="#" class="text-red-500 font-medium uppercase tracking-widest text-sm py-2">Home</a>
+            <a href="#about" class="text-stone-300 hover:text-red-500 font-medium uppercase tracking-widest text-sm py-2">Our Story</a>
+            <a href="#services" class="text-stone-300 hover:text-red-500 font-medium uppercase tracking-widest text-sm py-2">What's New</a>
+            <a href="#menu" class="text-stone-300 hover:text-red-500 font-medium uppercase tracking-widest text-sm py-2">Menu</a>
+            <a href="#contact" class="text-stone-300 hover:text-red-500 font-medium uppercase tracking-widest text-sm py-2">Location</a>
+            <div class="flex flex-col gap-3 pt-4 border-t border-neutral-900">
+                <a href="#contact" class="w-full py-3 border border-stone-700 text-xs font-semibold tracking-widest uppercase text-stone-300">Reservations</a>
+                <a href="#menu" class="w-full py-3 bg-red-600 text-xs font-semibold tracking-widest uppercase text-white shadow-lg">Order Take-Out</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Premium Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <!-- Professional High Quality Italian Culinary Imagery -->
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1920&q=80" alt="Wood-fired Gourmet Pizza Background" class="w-full h-full object-cover opacity-25 scale-105 transform motion-safe:animate-[pulse_10s_infinite]">
+            <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/70 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-stone-950 via-transparent to-stone-950"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center py-16">
+            <!-- Content Left -->
+            <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-red-600/10 border border-red-600/20 text-red-500 text-xs font-semibold tracking-widest uppercase">
+                    <span class="w-2 h-2 rounded-full bg-green-500"></span> An Authentic, Family Tradition
+                </div>
+                <h1 class="font-serif-italian text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] text-stone-100">
+                    From Our Family <br>To Yours, <br>
+                    <span class="text-gradient">Niagara's Best Kept Secret.</span>
+                </h1>
+                <p class="text-stone-400 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 font-light leading-relaxed">
+                    Located in the heart of Niagara Falls, Antica offers three large, comfortable dining areas serving Niagara's finest wood-oven pizza, traditional home-cooked Italian dishes, and delectable desserts.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                    <a href="#menu" class="w-full sm:w-auto px-8 py-4 bg-red-600 text-white font-semibold tracking-widest uppercase text-xs hover:bg-red-700 transition-all shadow-xl shadow-red-600/20 text-center">
+                        Explore Menu & Photos
+                    </a>
+                    <a href="#contact" class="w-full sm:w-auto px-8 py-4 border border-stone-700 text-stone-200 font-semibold tracking-widest uppercase text-xs hover:bg-stone-900 transition-all text-center">
+                        Book A Table
+                    </a>
+                </div>
+            </div>
+
+            <!-- Graphic Elements Right -->
+            <div class="lg:col-span-5 flex justify-center relative pt-8 lg:pt-0">
+                <div class="relative w-80 h-80 sm:w-96 sm:h-96 rounded-full overflow-hidden border-2 border-stone-800 shadow-2xl shadow-red-600/5 group">
+                    <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=800&q=80" alt="Signature Italian Wood-Oven Pizza Platter" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-stone-950/20 mix-blend-multiply"></div>
+                </div>
+                <!-- Dynamic Floating Highlights -->
+                <div class="absolute -top-4 left-4 sm:left-12 glassmorphism bg-stone-900/90 px-5 py-4 border border-neutral-800 shadow-2xl flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-green-600/20 flex items-center justify-center text-green-500 text-xs">
+                        <i class="fa-solid fa-fire"></i>
+                    </div>
+                    <div>
+                        <p class="text-[10px] text-stone-400 uppercase tracking-widest">Oven Method</p>
+                        <p class="font-serif-italian text-xs font-bold text-stone-100">100% Wood-Oven</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="relative z-20 -mt-12 max-w-6xl mx-auto px-6">
+        <div class="glassmorphism bg-stone-900/80 border border-neutral-800/80 rounded-none p-8 sm:p-10 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center shadow-2xl">
+            <div class="space-y-1">
+                <p class="font-serif-italian text-4xl font-bold text-red-500">3 LARGE</p>
+                <p class="text-[10px] uppercase tracking-widest text-stone-400 font-semibold">Comfortable Dining Areas</p>
+            </div>
+            <div class="space-y-1 border-t sm:border-t-0 sm:border-x border-neutral-800/80 pt-6 sm:pt-0">
+                <p class="font-serif-italian text-4xl font-bold text-red-500">FRESH DAILY</p>
+                <p class="text-[10px] uppercase tracking-widest text-stone-400 font-semibold">Homemade Italian Batches</p>
+            </div>
+            <div class="space-y-1 border-t sm:border-t-0 pt-6 sm:pt-0">
+                <p class="font-serif-italian text-4xl font-bold text-red-500">NIAGARA'S BEST</p>
+                <p class="text-[10px] uppercase tracking-widest text-stone-400 font-semibold">Kept Culinary Secret</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services & What's New Section -->
+    <section id="services" class="py-24 max-w-7xl mx-auto px-6">
+        <div class="text-center space-y-4 mb-16">
+            <div class="text-xs font-semibold tracking-widest uppercase text-red-500 flex items-center justify-center gap-2">
+                <span class="w-6 h-[1px] bg-red-500"></span> Current Updates <span class="w-6 h-[1px] bg-red-500"></span>
+            </div>
+            <h2 class="font-serif-italian text-3xl sm:text-4xl font-bold text-stone-100">What's New At Antica</h2>
+            <p class="text-stone-400 max-w-xl mx-auto font-light text-sm sm:text-base">
+                Discover our latest culinary additions and ongoing special offers crafted purposefully with premium guest satisfaction in mind.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Feature 1 -->
+            <div class="glass-card rounded-none p-8 space-y-5">
+                <div class="w-12 h-12 bg-red-600/10 flex items-center justify-center text-red-500 text-lg">
+                    <i class="fa-solid fa-wheat-awn-circle-exclamation"></i>
+                </div>
+                <h3 class="font-serif-italian text-xl font-bold text-stone-100">Gluten-Free Crust</h3>
+                <p class="text-stone-400 text-sm font-light leading-relaxed">
+                    Now proudly offering completely homemade Gluten-Free pizza dough! Limited culinary batches are made completely fresh daily to accommodate dietary requirements.
+                </p>
+            </div>
+            <!-- Feature 2 -->
+            <div class="glass-card rounded-none p-8 space-y-5">
+                <div class="w-12 h-12 bg-red-600/10 flex items-center justify-center text-red-500 text-lg">
+                    <i class="fa-solid fa-gift"></i>
+                </div>
+                <h3 class="font-serif-italian text-xl font-bold text-stone-100">Gift Certificates</h3>
+                <p class="text-stone-400 text-sm font-light leading-relaxed">
+                    Share the wonderful experience of Niagara's premier wood-oven pizzeria. Digital and physical gift certificates are now fully available! Order seamlessly online or call us today.
+                </p>
+            </div>
+            <!-- Feature 3 -->
+            <div class="glass-card rounded-none p-8 space-y-5">
+                <div class="w-12 h-12 bg-red-600/10 flex items-center justify-center text-red-500 text-lg">
+                    <i class="fa-solid fa-martini-glass-citrus"></i>
+                </div>
+                <h3 class="font-serif-italian text-xl font-bold text-stone-100">Refreshing Cocktails</h3>
+                <p class="text-stone-400 text-sm font-light leading-relaxed">
+                    Elevate your next gathering with our premium bar options, featuring exquisitely balanced traditional Italian cocktails, curated wines, and refreshing seasonal blends.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-stone-900/20 border-y border-neutral-900/60">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            <!-- Visual Grid Left -->
+            <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+                <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=600&q=80" alt="Traditional Italian Pizza Prep" class="h-64 w-full object-cover">
+                <img src="https://images.unsplash.com/photo-1595295333158-4742f28fbe93?auto=format&fit=crop&w=600&q=80" alt="Freshly Cooked Italian Pasta" class="h-64 w-full object-cover mt-8">
+            </div>
+            
+            <!-- Content Right -->
+            <div class="lg:col-span-6 space-y-6">
+                <div class="text-xs font-semibold tracking-widest uppercase text-red-500 flex items-center gap-2">
+                    <span class="w-8 h-[1px] bg-red-500/50"></span> Our Legacy
+                </div>
+                <h2 class="font-serif-italian text-3xl sm:text-4xl font-bold text-stone-100">
+                    Honoring Authentic Italian Recipes Since Day One
+                </h2>
+                <p class="text-stone-400 leading-relaxed font-light text-sm sm:text-base">
+                    At Antica Pizzeria & Ristorante, we cultivate an immersive environment focused purely on deep family tradition. Our specialized wood-burning pizza ovens produce exceptional textures and classical distinct crusts beloved globally.
+                </p>
+                <p class="text-stone-400 leading-relaxed font-light text-sm sm:text-base">
+                    Whether you are gathering family for a celebration across our extensive dining areas or ordering traditional takeout, we treat each dish as an extension of our home kitchen.
+                </p>
+                <div class="pt-4 flex flex-wrap gap-4">
+                    <div class="flex items-center gap-3 bg-stone-900/60 p-4 border border-neutral-800/40 w-full sm:w-auto">
+                        <i class="fa-solid fa-users text-red-500 text-lg"></i>
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-stone-200">Family Heritage</h4>
+                            <p class="text-stone-400 text-xs font-light mt-0.5">Passed down for generations</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 bg-stone-900/60 p-4 border border-neutral-800/40 w-full sm:w-auto">
+                        <i class="fa-solid fa-map-pin text-red-500 text-lg"></i>
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-stone-200">Central Location</h4>
+                            <p class="text-stone-400 text-xs font-light mt-0.5">Located in beautiful Niagara Falls</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Menu Showcase Gallery -->
+    <section id="menu" class="py-24 max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+            <div class="space-y-4 text-center md:text-left">
+                <div class="text-xs font-semibold tracking-widest uppercase text-red-500">The Culinary Selection</div>
+                <h2 class="font-serif-italian text-3xl sm:text-4xl font-bold text-stone-100">Taste True Craftsmanship</h2>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#" class="px-6 py-3 bg-red-600 text-white font-semibold uppercase tracking-widest text-xs hover:bg-red-700 transition-colors shadow-md">
+                    View Complete Menu
+                </a>
+                <a href="#" class="px-6 py-3 border border-stone-700 text-stone-300 font-semibold uppercase tracking-widest text-xs hover:bg-stone-900 transition-colors">
+                    Check Gift Card Balance
+                </a>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Card 1 -->
+            <div class="group glass-card rounded-none overflow-hidden flex flex-col h-full">
+                <div class="h-60 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Wood Oven Special Pizza" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute top-4 right-4 px-3 py-1 bg-stone-950/80 border border-red-500/30 text-[10px] font-bold text-red-400 uppercase tracking-widest">
+                        Wood-Oven Pizza
+                    </div>
+                </div>
+                <div class="p-6 space-y-4 flex-grow flex flex-col justify-between">
+                    <div>
+                        <h4 class="font-serif-italian text-lg font-bold text-stone-100 group-hover:text-red-500 transition-colors">Classic Margherita</h4>
+                        <p class="text-stone-400 text-xs sm:text-sm font-light mt-2 leading-relaxed">
+                            Premium crushed Italian tomatoes, fresh mozzarella Fior di Latte, extra virgin olive oil, and aromatic garden basil baked over premium embers.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="group glass-card rounded-none overflow-hidden flex flex-col h-full">
+                <div class="h-60 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=600&q=80" alt="Gourmet Seafood Pasta Platter" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute top-4 right-4 px-3 py-1 bg-stone-950/80 border border-red-500/30 text-[10px] font-bold text-red-400 uppercase tracking-widest">
+                        Authentic Ristorante
+                    </div>
+                </div>
+                <div class="p-6 space-y-4 flex-grow flex flex-col justify-between">
+                    <div>
+                        <h4 class="font-serif-italian text-lg font-bold text-stone-100 group-hover:text-red-500 transition-colors">Home Cooked Pasta</h4>
+                        <p class="text-stone-400 text-xs sm:text-sm font-light mt-2 leading-relaxed">
+                            Traditional slow-simmered rich sauces prepared meticulously by hand daily with choice herbs, garlic, and fresh seasonal ingredients.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="group glass-card rounded-none overflow-hidden flex flex-col h-full">
+                <div class="h-60 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=600&q=80" alt="Delectable Italian Desserts" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute top-4 right-4 px-3 py-1 bg-stone-950/80 border border-red-500/30 text-[10px] font-bold text-red-400 uppercase tracking-widest">
+                        Dolci Specialty
+                    </div>
+                </div>
+                <div class="p-6 space-y-4 flex-grow flex flex-col justify-between">
+                    <div>
+                        <h4 class="font-serif-italian text-lg font-bold text-stone-100 group-hover:text-red-500 transition-colors">Delectable Desserts</h4>
+                        <p class="text-stone-400 text-xs sm:text-sm font-light mt-2 leading-relaxed">
+                            Conclude your exquisite dining adventure with magnificent traditional treats like creamy handcrafted tiramisu and crisp premium pastries.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials & Awards Section -->
+    <section class="py-24 bg-stone-900/30 border-y border-neutral-900/60 relative">
+        <div class="max-w-7xl mx-auto px-6 text-center space-y-4 mb-16">
+            <div class="text-xs font-semibold tracking-widest uppercase text-red-500">Guest Experience</div>
+            <h2 class="font-serif-italian text-3xl sm:text-4xl font-bold text-stone-100">Acclaimed Hospitality Standards</h2>
+            
+            <!-- Award Badge Display -->
+            <div class="pt-4 flex flex-col items-center justify-center gap-2">
+                <div class="bg-amber-500/10 text-amber-500 border border-amber-500/20 px-4 py-2 text-xs font-semibold uppercase tracking-widest inline-flex items-center gap-2">
+                    <i class="fa-solid fa-trophy"></i> Yelp's Certificate of Excellence Winner
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Review 1 -->
+            <div class="glass-card rounded-none p-8 flex flex-col justify-between space-y-6">
+                <p class="text-stone-300 font-light italic text-sm sm:text-base leading-relaxed">
+                    "Antica remains our absolute absolute favorite whenever we pass through Niagara Falls. The genuine wood-oven pizza crust features perfection you simply cannot mimic elsewhere."
+                </p>
+                <div>
+                    <h5 class="text-xs font-bold uppercase tracking-widest text-stone-200">Niagara Regular Guest</h5>
+                    <div class="flex text-amber-500 text-[10px] gap-1 mt-1">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="glass-card rounded-none p-8 flex flex-col justify-between space-y-6">
+                <p class="text-stone-300 font-light italic text-sm sm:text-base leading-relaxed">
+                    "Phenomenal family environment and immense seating capacities. Their new homemade gluten-free crust selection is an absolute triumph for restrictive diners."
+                </p>
+                <div>
+                    <h5 class="text-xs font-bold uppercase tracking-widest text-stone-200">Verified Local Guide</h5>
+                    <div class="flex text-amber-500 text-[10px] gap-1 mt-1">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="py-20 max-w-5xl mx-auto px-6 text-center">
+        <div class="relative bg-gradient-to-br from-red-700 to-red-900 text-white rounded-none p-8 sm:p-16 space-y-6 shadow-2xl overflow-hidden">
+            <h2 class="font-serif-italian text-3xl sm:text-5xl font-bold tracking-wider">Bring Antica Home Today</h2>
+            <p class="text-stone-100/80 max-w-md mx-auto text-sm sm:text-base font-light">
+                Order our famous wood-oven pizzas, hand-cooked Italian pasta trays, and fine signature items online for easy pickup.
+            </p>
+            <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#menu" class="w-full sm:w-auto px-8 py-4 bg-stone-950 text-white hover:bg-stone-900 font-bold tracking-widest uppercase text-xs shadow-xl transition-colors">
+                    Order Take-Out Online
+                </a>
+                <a href="tel:9053563844" class="w-full sm:w-auto px-8 py-4 border border-white/30 text-white hover:bg-white/10 font-bold tracking-widest uppercase text-xs transition-colors">
+                    Call (905) 356-3844
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Contact Section -->
+    <section id="contact" class="py-24 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <!-- Contact Information Details -->
+        <div class="lg:col-span-5 space-y-8">
+            <div class="space-y-4">
+                <div class="text-xs font-semibold tracking-widest uppercase text-red-500">Visit Our Ristorante</div>
+                <h2 class="font-serif-italian text-3xl sm:text-4xl font-bold text-stone-100">Location & Contact</h2>
+                <p class="text-stone-400 font-light text-sm sm:text-base leading-relaxed">
+                    We are conveniently situated right within the vibrant culinary corridor of Niagara Falls, ON. Plan your visit below.
+                </p>
+            </div>
+
+            <!-- Details Block Stack -->
+            <div class="space-y-4 text-sm">
+                <div class="p-5 bg-stone-900/40 border border-neutral-900 flex gap-4 items-start">
+                    <div class="text-red-500 mt-0.5"><i class="fa-solid fa-map-location-dot"></i></div>
+                    <div>
+                        <h4 class="text-xs font-bold uppercase tracking-widest text-stone-300">Address</h4>
+                        <p class="text-stone-400 font-light mt-1">5785 Victoria Avenue, Niagara Falls, ON, Canada, L2G 3L6</p>
+                    </div>
+                </div>
+
+                <div class="p-5 bg-stone-900/40 border border-neutral-900 flex gap-4 items-start">
+                    <div class="text-red-500 mt-0.5"><i class="fa-solid fa-envelope"></i></div>
+                    <div>
+                        <h4 class="text-xs font-bold uppercase tracking-widest text-stone-300">Digital Channels</h4>
+                        <p class="text-stone-400 font-light mt-1">info@anticapizzeria.ca</p>
+                    </div>
+                </div>
+
+                <div class="p-5 bg-stone-900/40 border border-neutral-900 flex gap-4 items-start">
+                    <div class="text-red-500 mt-0.5"><i class="fa-solid fa-square-p"></i></div>
+                    <div>
+                        <h4 class="text-xs font-bold uppercase tracking-widest text-stone-300">Restaurant Lot Parking Policy</h4>
+                        <p class="text-stone-400 text-xs font-light mt-1 leading-relaxed">
+                            Free parking at restaurant lot available (2-hour maximum). Limited spaces. 
+                            <strong>Must have a minimum of $50 of restaurant purchases per parking ticket.</strong> Bring in your entry ticket for verification.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modern Dynamic Interactive Feedback Form Wrapper -->
+        <div class="lg:col-span-7 glassmorphism bg-stone-900/20 p-8 sm:p-10 border border-neutral-900 shadow-xl">
+            <h3 class="font-serif-italian text-xl font-bold text-stone-100 mb-6">Send A Message</h3>
+            <form action="#" method="POST" class="space-y-6" onsubmit="event.preventDefault();">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="text-[10px] uppercase tracking-widest font-bold text-stone-300">Your Name</label>
+                        <input type="text" required class="w-full bg-stone-950 border border-neutral-800 rounded-none px-4 py-3 text-sm focus:outline-none focus:border-red-500 text-stone-100 transition-colors">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-[10px] uppercase tracking-widest font-bold text-stone-300">Email Address</label>
+                        <input type="email" required class="w-full bg-stone-950 border border-neutral-800 rounded-none px-4 py-3 text-sm focus:outline-none focus:border-red-500 text-stone-100 transition-colors">
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <label class="text-[10px] uppercase tracking-widest font-bold text-stone-300">Message Text</label>
+                    <textarea rows="4" required class="w-full bg-stone-950 border border-neutral-800 rounded-none px-4 py-3 text-sm focus:outline-none focus:border-red-500 text-stone-100 transition-colors resize-none"></textarea>
+                </div>
+                <button type="submit" class="w-full py-4 bg-red-600 text-white text-xs font-bold tracking-widest uppercase hover:bg-red-700 transition-colors shadow-lg">
+                    Submit Message
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Modern Premium Footer Section -->
+    <footer class="bg-stone-950 border-t border-neutral-900/60 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            <!-- Brand Column -->
+            <div class="space-y-4">
+                <div class="flex flex-col">
+                    <span class="font-serif-italian text-xl font-bold tracking-widest text-red-600">ANTICA</span>
+                    <span class="text-[9px] uppercase tracking-[0.4em] text-stone-400 -mt-1">Pizzeria & Ristorante</span>
+                </div>
+                <p class="text-xs text-stone-500 leading-relaxed font-light">
+                    Niagara's best kept culinary secret, serving magnificent wood-oven gourmet options and traditional Italian favorites with authentic hospitality values.
+                </p>
+            </div>
+
+            <!-- Exploration Grid Links -->
+            <div class="space-y-3">
+                <h4 class="text-[10px] font-bold uppercase tracking-widest text-stone-300">Explore</h4>
+                <ul class="text-xs space-y-2 text-stone-500">
+                    <li><a href="#" class="hover:text-red-500 transition-colors">Home Dashboard</a></li>
+                    <li><a href="#about" class="hover:text-red-500 transition-colors">Our Legacy Story</a></li>
+                    <li><a href="#menu" class="hover:text-red-500 transition-colors">Specialties Menu</a></li>
+                    <li><a href="#services" class="hover:text-red-500 transition-colors">Current Additions</a></li>
+                </ul>
+            </div>
+
+            <!-- Social Ecosystem Linkages -->
+            <div class="space-y-3">
+                <h4 class="text-[10px] font-bold uppercase tracking-widest text-stone-300">Connect Online</h4>
+                <p class="text-xs text-stone-500 font-light mb-2">Follow us on social networks via @anticaniagara</p>
+                <div class="flex gap-3">
+                    <a href="#" class="w-9 h-9 rounded-none bg-stone-900 hover:bg-red-600 hover:text-white transition-all flex items-center justify-center text-stone-400 border border-neutral-800">
+                        <i class="fa-brands fa-facebook-f text-xs"></i>
+                    </a>
+                    <a href="#" class="w-9 h-9 rounded-none bg-stone-900 hover:bg-red-600 hover:text-white transition-all flex items-center justify-center text-stone-400 border border-neutral-800">
+                        <i class="fa-brands fa-youtube text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Legal Disclaimers Box -->
+            <div class="space-y-2 text-xs text-stone-500 font-light">
+                <h4 class="text-[10px] font-bold uppercase tracking-widest text-stone-300">Legal Notice</h4>
+                <p class="leading-relaxed">Prices and specific menu items can change at any individual time without explicit warning lines.</p>
+            </div>
+        </div>
+
+        <!-- Lower Metadata Line -->
+        <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-neutral-900/40 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-[11px] text-stone-600">
+            <p>&copy; 2026 Antica Pizzeria. All Rights Reserved. Crafted for high fidelity presentation models.</p>
+            <p class="uppercase tracking-widest font-medium text-[10px]">Website Concept Remastered via vxFusion Guidelines</p>
+        </div>
+    </footer>
+
+    <!-- Toggle Action Script Block -->
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+
+        menuToggle.addEventListener('click', () => {
+            mobileDrawer.classList.toggle('hidden');
+        });
+
+        // Auto-close on choosing interior link element target
+        const drawerLinks = mobileDrawer.querySelectorAll('a');
+        drawerLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileDrawer.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

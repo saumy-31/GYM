@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redberry A Gym | Elite Fitness Center Durgakund</title>
+    <meta name="description" content="Transform your body and mind at Redberry A Gym, Durgakund. Celebrating 12+ years of premium fitness, strength training, and vibrant community in Varanasi.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- DESIGN SYSTEM & CSS VARIABLES --- */
+        :root {
+            --primary: #FF2E44;       /* Vibrant Redberry Red */
+            --primary-dark: #D61C30;
+            --primary-glow: rgba(255, 46, 68, 0.4);
+            --bg-dark: #0A0A0C;       /* Ultra Deep Charcoal */
+            --bg-card: rgba(20, 20, 25, 0.7);
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --text-light: #F3F4F6;
+            --text-muted: #9CA3AF;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+            --font-heading: 'Syne', sans-serif;
+            --transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* --- RESET & BASE STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* --- SCROLLBAR --- */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #222;
+            border-radius: 5px;
+            border: 2px solid var(--bg-dark);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+
+        /* --- REUSABLE UTILITIES & TYPOGRAPHY --- */
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            box-shadow: 0 4px 20px var(--primary-glow);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.6s;
+            z-index: -1;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 30px rgba(255, 46, 68, 0.6);
+            background: var(--primary-dark);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            border: 2px solid var(--border-glass);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            background: rgba(255, 46, 68, 0.05);
+            transform: translateY(-3px);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 80px auto;
+        }
+
+        .tagline {
+            color: var(--primary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: clamp(2.2rem, 4vw, 3.5rem);
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        section {
+            padding: 140px 0;
+            position: relative;
+        }
+
+        /* --- SCROLL ANIMATION CLASSES --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- BLUR GLOB EFFECTS --- */
+        .glow-glob {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,46,68,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* --- HEADER / NAVIGATION --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+            padding: 25px 0;
+        }
+
+        header.scrolled {
+            padding: 15px 0;
+            background: rgba(10, 10, 12, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- HERO SECTION --- */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(180deg, rgba(10,10,12,0.6) 0%, rgba(10,10,12,1) 100%), 
+                        url('hero_bg.jpg') center/cover no-repeat;
+            padding-top: 120px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 7vw, 6rem);
+            line-height: 0.95;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .hero-title span {
+            color: transparent;
+            -webkit-text-stroke: 1.5px rgba(255,255,255,0.8);
+        }
+
+        .hero-desc {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 50px;
+            margin-top: 60px;
+            border-top: 1px solid var(--border-glass);
+            padding-top: 30px;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+
+        .stat-item p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* --- ABOUT SECTION --- */
+        .about-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-img-container {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .about-img-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .about-img-container:hover img {
+            transform: scale(1.03);
+        }
+
+        .experience-badge {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            background: rgba(20, 20, 25, 0.85);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass);
+            padding: 25px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .experience-badge h4 {
+            font-size: 3rem;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .experience-badge p {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-light);
+        }
+
+        /* --- SERVICES / EXPERIENCES --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            padding: 40px;
+            border-radius: 24px;
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, transparent 60%, rgba(255, 46, 68, 0.08) 100%);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 46, 68, 0.3);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-icon {
+            width: 65px;
+            height: 65px;
+            background: rgba(255, 46, 68, 0.1);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--primary);
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- WHY CHOOSE US (COMMUNITY FOCUS) --- */
+        .why-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .features-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 25px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: var(--transition);
+        }
+
+        .feature-item:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255,46,68,0.2);
+            transform: translateX(5px);
+        }
+
+        .feature-item i {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-top: 4px;
+        }
+
+        .feature-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .feature-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- MEMBERSHIP PRICING --- */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 28px;
+            padding: 50px 40px;
+            backdrop-filter: blur(10px);
+            position: relative;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card.popular {
+            border-color: var(--primary);
+            box-shadow: 0 15px 40px rgba(255, 46, 68, 0.15);
+            transform: scale(1.03);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: #fff;
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .pricing-tier {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .pricing-price {
+            margin-bottom: 30px;
+        }
+
+        .pricing-price .amount {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .pricing-price .period {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 40px;
+            flex-grow: 1;
+        }
+
+        .pricing-features li {
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        .pricing-features li i {
+            color: var(--primary);
+            font-size: 1rem;
+        }
+
+        .pricing-features li.disabled {
+            color: var(--text-muted);
+            opacity: 0.5;
+        }
+
+        .pricing-features li.disabled i {
+            color: var(--text-muted);
+        }
+
+        /* --- THE GALLERY --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 1;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, transparent 40%, rgba(10,10,12,0.9) 100%);
+            display: flex;
+            align-items: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-info h4 {
+            font-size: 1.3rem;
+            color: #fff;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-item:hover .gallery-info h4 {
+            transform: translateY(0);
+        }
+
+        /* --- REVIEWS / TESTIMONIALS --- */
+        .testimonials-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 20px 40px;
+            border-radius: 100px;
+            width: max-content;
+            margin: 0 auto 50px auto;
+            border: 1px solid var(--border-glass);
+        }
+
+        .google-rating {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .stars i {
+            color: #FFB800;
+            font-size: 1.2rem;
+        }
+
+        .review-count {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            padding: 40px;
+            border-radius: 24px;
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+
+        .testimonial-card ::before {
+            content: '“';
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            font-family: var(--font-heading);
+            font-size: 6rem;
+            color: rgba(255, 46, 68, 0.08);
+            line-height: 1;
+        }
+
+        .reviewer-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .reviewer-avatar {
+            width: 50px;
+            height: 50px;
+            background: #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #fff;
+            border: 2px solid var(--primary);
+        }
+
+        .reviewer-name h4 {
+            font-size: 1.1rem;
+            font-family: var(--font-body);
+            font-weight: 700;
+        }
+
+        .reviewer-name p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .testimonial-card text {
+            color: var(--text-light);
+            font-size: 1rem;
+            font-style: italic;
+        }
+
+        /* --- CONTACT & LOCATION --- */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+        }
+
+        .contact-info-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .contact-block {
+            display: flex;
+            gap: 20px;
+        }
+
+        .contact-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: rgba(255, 46, 68, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .contact-details p, .contact-details a {
+            color: var(--text-muted);
+            font-size: 1rem;
+            text-decoration: none;
+        }
+
+        .map-frame-container {
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid var(--border-glass);
+            height: 100%;
+            min-height: 400px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #050507;
+            padding: 80px 0 40px 0;
+            border-top: 1px solid var(--border-glass);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            margin-top: 20px;
+            max-width: 350px;
+        }
+
+        .footer-links h4 {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .social-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border-glass);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-btn:hover {
+            background: var(--primary);
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px var(--primary-glow);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* --- MOBILE RESPONSIVE STYLES --- */
+        @media (max-width: 992px) {
+            .menu-toggle {
+                display: block;
+            }
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background: #0E0E12;
+                flex-direction: column;
+                justify-content: center;
+                gap: 40px;
+                transition: 0.5s ease-in-out;
+                border-left: 1px solid var(--border-glass);
+                box-shadow: -10px 0 40px rgba(0,0,0,0.5);
+            }
+            .nav-menu.open {
+                right: 0;
+            }
+            .about-wrapper, .why-wrapper, .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .hero-stats {
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .testimonials-header {
+                flex-direction: column;
+                border-radius: 24px;
+                width: 100%;
+                text-align: center;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- --- HEADER / NAVIGATION --- -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="#hero" class="logo">REDBERRY<span>.</span></a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#hero" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#services" class="nav-link">Experiences</a></li>
+                <li><a href="#pricing" class="nav-link">Memberships</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- --- HERO SECTION --- -->
+    <section id="hero">
+        <div class="glow-glob" style="top: 10%; left: -10%;"></div>
+        <div class="container">
+            <div class="hero-content">
+                <span class="tagline">Welcome to Varanasi's Elite Fitness Hub</span>
+                <h1 class="hero-title">SHAPE YOUR<br><span>DESTINY</span></h1>
+                <p class="hero-desc">Redberry is more than just a gym. We combine standard cutting-edge training spaces with a strong community spirit that keeps you moving forward.</p>
+                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                    <a href="#pricing" class="btn btn-primary">Explore Memberships <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#contact" class="btn btn-secondary">Get Location</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3>12+</h3>
+                        <p>Years of Legacy</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>1.1K+</h3>
+                        <p>Verified Reviews</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>4.7</h3>
+                        <p>Star Google Rating</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- ABOUT SECTION --- -->
+    <section id="about">
+        <div class="container">
+            <div class="about-wrapper">
+                <div class="about-img-container reveal">
+                    <img src="interior_main.jpg" alt="Redberry Gym Interior & Equipment Grid">
+                    <div class="experience-badge">
+                        <h4>12</h4>
+                        <p>Years of<br>Excellence</p>
+                    </div>
+                </div>
+                <div class="about-content reveal">
+                    <span class="tagline">Our Legacy</span>
+                    <h2 class="section-title">Serving Affection & Fitness Since 2014</h2>
+                    <p class="section-desc" style="margin-bottom: 25px;">For over 12 proud years, Redberry A Gym has been Durgakund's premier fitness destination. We have earned your continuous love and trust by building a culture where physical transformations match unforgettable community bonding.</p>
+                    <p class="section-desc" style="margin-bottom: 35px;">Whether you're stepping onto the treadmill for the first time or setting a personal weightlifting record, our structured environment and vibrant atmosphere give you everything you need to succeed.</p>
+                    <a href="#contact" class="btn btn-primary">Join the Redberry Family</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- EXPERIENCES & SERVICES --- -->
+    <section id="services" style="background: rgba(255,255,255,0.01);">
+        <div class="glow-glob" style="bottom: 5%; right: -10%;"></div>
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="tagline">What We Offer</span>
+                <h2 class="section-title">Engineered For Your Growth</h2>
+                <p class="section-desc">Explore curated training spaces designed to push limits, maintain focus, and deliver physical results.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="service-icon"><i class="fa-solid fa-dumbbell"></i></div>
+                    <h3>Strength & Conditioning</h3>
+                    <p>Access our high-end free weight systems, advanced heavy lifting racks, and premium biomechanically correct resistance machines.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <h3>Advanced Cardio Zone</h3>
+                    <p>Elevate cardiovascular health on modern high-grade treadmills, cross-trainers, and smart indoor cycling units.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon"><i class="fa-solid fa-user-ninja"></i></div>
+                    <h3>Personal Coaching</h3>
+                    <p>Work one-on-one with specialized trainers dedicated to tailoring direct plans for weight management and lean muscle gain.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- WHY CHOOSE US --- -->
+    <section id="why">
+        <div class="container">
+            <div class="why-wrapper">
+                <div class="why-content reveal">
+                    <span class="tagline">The Redberry Advantage</span>
+                    <h2 class="section-title">Where Fitness Meets Celebration</h2>
+                    <p class="section-desc" style="margin-bottom: 30px;">We believe true fitness is sustained by enjoyment and community. We consistently blend fitness goals with joyous cultural festivals, celebrating traditional occasions like Teej together right here inside the club.</p>
+                    <a href="#gallery" class="btn btn-secondary">View Life At Redberry</a>
+                </div>
+                <div class="features-list reveal">
+                    <div class="feature-item">
+                        <i class="fa-solid fa-users"></i>
+                        <div>
+                            <h4>Vibrant Member Community</h4>
+                            <p>Train alongside thousands of supportive members in an energetic, festive atmosphere.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fa-solid fa-clock"></i>
+                        <div>
+                            <h4>Convenient Dynamic Hours</h4>
+                            <p>Structured daily schedules running till 10:00 PM accommodate busy professionals and students seamlessly.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fa-solid fa-shirt"></i>
+                        <div>
+                            <h4>Exclusive Brand Gear</h4>
+                            <p>Look the part with high-quality customized Redberry duffel bags and branded gym merchandise.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- MEMBERSHIP PRICING --- -->
+    <section id="pricing" style="background: rgba(255,255,255,0.01);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="tagline">Flexible Tiers</span>
+                <h2 class="section-title">Select Your Membership</h2>
+                <p class="section-desc">Invest in your long-term health with highly affordable options optimized for standard and advanced fitness requirements.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card reveal">
+                    <h3 class="pricing-tier">Standard Pass</h3>
+                    <div class="pricing-price">
+                        <span class="amount">₹1,500</span><span class="period"> / month</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fa-solid fa-check"></i> Full gym floor access</li>
+                        <li><i class="fa-solid fa-check"></i> Advanced Cardio Zone</li>
+                        <li><i class="fa-solid fa-check"></i> Standard locker access</li>
+                        <li class="disabled"><i class="fa-solid fa-xmark"></i> Personal Trainer guidance</li>
+                        <li class="disabled"><i class="fa-solid fa-xmark"></i> Redberry Branded Gym Bag</li>
+                    </ul>
+                    <a href="https://wa.me/919935025557" target="_blank" class="btn btn-secondary">Get Started</a>
+                </div>
+                
+                <div class="pricing-card popular reveal">
+                    <div class="popular-badge">Most Popular</div>
+                    <h3 class="pricing-tier">Annual Premium</h3>
+                    <div class="pricing-price">
+                        <span class="amount">₹12,000</span><span class="period"> / year</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fa-solid fa-check"></i> 365 Days Unrestricted Access</li>
+                        <li><i class="fa-solid fa-check"></i> Personalized Diet Chart Templates</li>
+                        <li><i class="fa-solid fa-check"></i> Free Entry to Gym Festivities & Events</li>
+                        <li><i class="fa-solid fa-check"></i> Complimentary Redberry Gym Bag</li>
+                        <li><i class="fa-solid fa-check"></i> 4 Trainer Assessments per year</li>
+                    </ul>
+                    <a href="https://wa.me/919935025557" target="_blank" class="btn btn-primary">Join Premium Club</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- GALLERY SECTION --- -->
+    <section id="gallery">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="tagline">Inside the Club</span>
+                <h2 class="section-title">Unedited Atmosphere</h2>
+                <p class="section-desc">Take a look inside our gym floor, community gatherings, and standard training setups.</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item reveal">
+                    <img src="gallery_treadmills.jpg" alt="Premium Treadmills Area Redberry Gym">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info"><h4>Cardio & Run Section</h4></div>
+                    </div>
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="gallery_celebration.jpg" alt="Festival Celebration with Gym Members at Redberry">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info"><h4>Community & Festivities</h4></div>
+                    </div>
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="gallery_weights.jpg" alt="Free Weights Strength Area Redberry Gym">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info"><h4>Free Weights Training</h4></div>
+                    </div>
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="gallery_bag.jpg" alt="Exclusive Redberry Gym Premium Merchandise Bag">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info"><h4>Exclusive Merchandise</h4></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- TESTIMONIALS (GOOGLE REVIEWS) --- -->
+    <section id="testimonials" style="background: rgba(255,255,255,0.01);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="tagline">Success Stories</span>
+                <h2 class="section-title">Trusted By Thousands</h2>
+                <p class="section-desc">Read honest testimonials from regular fitness enthusiasts who call Redberry their second home.</p>
+            </div>
+
+            <div class="testimonials-header reveal">
+                <div class="google-rating">4.7</div>
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+                <div class="review-count">(1,126+ Verified Google Reviews)</div>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">A</div>
+                        <div class="reviewer-name">
+                            <h4>Amit Sharma</h4>
+                            <p>Local Guide • 5 Stars</p>
+                        </div>
+                    </div>
+                    <text>"Hands down one of the finest gyms in Varanasi. The ambient red lightning builds pure workout focus, and the crowd quality is brilliant for both students and families."</text>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">P</div>
+                        <div class="reviewer-name">
+                            <h4>Priya Jaiswal</h4>
+                            <p>Member Since 2023 • 5 Stars</p>
+                        </div>
+                    </div>
+                    <text>"I love how they celebrate all festivals like Teej with the members. It creates a safe, warm, and highly professional workout environment for women."</text>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">R</div>
+                        <div class="reviewer-name">
+                            <h4>Rahul Verma</h4>
+                            <p>Fitness Enthusiast • 5 Stars</p>
+                        </div>
+                    </div>
+                    <text>"Amazing value for money. The equipment is updated regularly, and the trainers are highly approachable. 12 years of legacy speaks for itself."</text>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- CONTACT & LOCATION --- -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="tagline">Find Us Fast</span>
+                <h2 class="section-title">Start Your Journey</h2>
+                <p class="section-desc">Drop by today for a trial session or connect directly via call/message to secure seasonal discounts.</p>
+            </div>
+            <div class="contact-wrapper">
+                <div class="contact-info-panel reveal">
+                    <div class="contact-block">
+                        <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="contact-details">
+                            <h4>Our Address</h4>
+                            <p>Deendayal Chauraha, Durgakund, Kabir Nagar Rd, Khojwan, Varanasi, Uttar Pradesh 221005</p>
+                        </div>
+                    </div>
+                    <div class="contact-block">
+                        <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div class="contact-details">
+                            <h4>Call/WhatsApp Helpline</h4>
+                            <p><a href="tel:09935025557">099350 25557</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-block">
+                        <div class="contact-icon"><i class="fa-solid fa-clock"></i></div>
+                        <div class="contact-details">
+                            <h4>Operational Timing</h4>
+                            <p>Open Daily: Closes at 10:00 PM</p>
+                            <p style="font-size: 0.85rem; color: var(--text-muted);">Peak Times: 10:00 AM – 6:00 PM</p>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <a href="https://wa.me/919935025557" class="btn btn-primary" style="background:#25D366; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);"><i class="fa-brands fa-whatsapp"></i> Chat On WhatsApp</a>
+                    </div>
+                </div>
+                <div class="map-container reveal">
+                    <div class="map-frame-container">
+                        <!-- Custom dark-mode style styled embed coordinates matching Durgakund Deendayal Chauraha location -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.472750666352!2d82.9972323!3d25.288339!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e321e257cf02b%3A0xe2130e557b4458d3!2sREDBERRY%20A%20GYM%20DURGAKUND!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" 
+                                width="100%" height="100%" style="border:0; filter: invert(90%) hue-rotate(180deg) grayscale(30%);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- FOOTER --- -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#hero" class="logo">REDBERRY<span>.</span></a>
+                    <p>Elevating personal transformations, premium fitness environments, and community integration for over 12 legacy years in Varanasi.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="social-btn"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Navigation</h4>
+                    <ul>
+                        <li><a href="#about">About Legacy</a></li>
+                        <li><a href="#services">Experiences</a></li>
+                        <li><a href="#pricing">Memberships</a></li>
+                        <li><a href="#gallery">Inside Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal & Trust</h4>
+                    <ul>
+                        <li><a href="#testimonials">Member Reviews</a></li>
+                        <li><a href="#contact">Find Location</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Redberry A Gym Durgakund. All Rights Reserved.</p>
+                <p>Designed with Precision Focus</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- --- VANILLA JAVASCRIPT --- -->
+    <script>
+        // --- MOBILE NAV MENU TOGGLE ---
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+            const icon = menuToggle.querySelector('i');
+            if(navMenu.classList.contains('open')) {
+                icon.classList.replace('fa-bars-staggered', 'fa-xmark');
+            } else {
+                icon.classList.replace('fa-xmark', 'fa-bars-staggered');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('open');
+                menuToggle.querySelector('i').classList.replace('fa-xmark', 'fa-bars-staggered');
+            });
+        });
+
+        // --- STICKY TRANSPARENT NAVBAR EFFECT ---
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // --- SCROLL REVEAL / ANIMATION ON SCROLL ---
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealOnScroll = () => {
+            for (let i = 0; i < revealElements.length; i++) {
+                let windowHeight = window.innerHeight;
+                let elementTop = revealElements[i].getBoundingClientRect().top;
+                let elementVisible = 100; // Activation distance offset
+
+                if (elementTop < windowHeight - elementVisible) {
+                    revealElements[i].classList.add('active');
+                }
+            }
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        // Trigger once initially to show elements already in view
+        window.addEventListener('load', revealOnScroll);
+
+        // --- SPY HIGHLIGHT CURRENT SECTION IN NAVIGATION ---
+        const sections = document.querySelectorAll('section');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

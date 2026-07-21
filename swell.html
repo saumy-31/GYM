@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWELL Fitness | Train with Confidence, Progress with Purpose</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        heading: ['Syne', 'sans-serif'],
+                    },
+                    colors: {
+                        swell: {
+                            teal: '#00C8C8',
+                            cyan: '#00F0FF',
+                            ocean: '#0E7490',
+                            dark: '#0A0F1D',
+                            card: '#121929',
+                            cardBorder: 'rgba(255, 255, 255, 0.08)',
+                            lime: '#10B981'
+                        }
+                    },
+                    backgroundImage: {
+                        'hero-gradient': 'radial-gradient(circle at 50% 0%, rgba(0, 200, 200, 0.2) 0%, rgba(10, 15, 29, 0) 70%)',
+                        'card-gradient': 'linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%)',
+                        'swell-gradient': 'linear-gradient(135deg, #00C8C8 0%, #00F0FF 100%)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/css">
+        .glass-panel {
+            background: rgba(18, 25, 41, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-nav {
+            background: rgba(10, 15, 29, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #FFFFFF 30%, #00F0FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-gradient-teal {
+            background: linear-gradient(135deg, #00C8C8 0%, #00F0FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glow-teal {
+            box-shadow: 0 0 35px -5px rgba(0, 200, 200, 0.35);
+        }
+    </style>
+</head>
+<body class="bg-swell-dark text-slate-100 font-sans antialiased selection:bg-swell-teal selection:text-white">
+
+    <div class="bg-swell-card border-b border-white/5 py-2 px-4 text-xs font-medium text-slate-400 hidden sm:block">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-6">
+                <a href="tel:0424515175" class="hover:text-swell-teal transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-phone text-swell-teal"></i>
+                    <span>0424 515 175</span>
+                </a>
+                <a href="mailto:info@swellfitness.com.au" class="hover:text-swell-teal transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-envelope text-swell-teal"></i>
+                    <span>info@swellfitness.com.au</span>
+                </a>
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-location-dot text-swell-teal"></i>
+                    <span>66A Kalaroo Road, Redhead</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="text-swell-cyan font-semibold">🌊 Beachathalon 2026 Coming Soon!</span>
+                <a href="https://facebook.com" target="_blank" aria-label="Facebook" class="hover:text-white transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <header class="fixed top-0 sm:top-9 left-0 right-0 z-50 transition-all duration-300 glass-nav border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 rounded-xl bg-swell-gradient p-0.5 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
+                        <div class="w-full h-full bg-swell-dark rounded-[10px] flex items-center justify-center">
+                            <i class="fa-solid fa-water text-swell-teal text-lg"></i>
+                        </div>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-heading font-extrabold text-xl tracking-wider text-white leading-none">SWELL</span>
+                        <span class="text-[10px] font-bold tracking-[0.25em] text-swell-cyan uppercase leading-tight">FITNESS</span>
+                    </div>
+                </a>
+
+                <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium">
+                    <a href="#about" class="text-slate-300 hover:text-swell-teal transition-colors">About Us</a>
+                    <a href="#services" class="text-slate-300 hover:text-swell-teal transition-colors">Services</a>
+                    <a href="#why-us" class="text-slate-300 hover:text-swell-teal transition-colors">Why SWELL</a>
+                    <a href="#testimonials" class="text-slate-300 hover:text-swell-teal transition-colors">Member Stories</a>
+                    <a href="#faq" class="text-slate-300 hover:text-swell-teal transition-colors">FAQ</a>
+                    <a href="#contact" class="text-slate-300 hover:text-swell-teal transition-colors">Contact</a>
+                </nav>
+
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="#contact" class="bg-swell-gradient text-swell-dark px-6 py-2.5 rounded-full text-sm font-extrabold tracking-wide hover:opacity-95 transition-all shadow-md glow-teal hover:-translate-y-0.5">
+                        ENQUIRE ONLINE →
+                    </a>
+                </div>
+
+                <button id="mobile-menu-btn" type="button" class="lg:hidden p-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 focus:outline-none" aria-label="Toggle menu">
+                    <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden lg:hidden border-b border-white/10 bg-swell-dark/95 backdrop-blur-2xl px-4 pt-3 pb-6 space-y-3">
+            <a href="#about" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-white/5 hover:text-swell-teal">About Us</a>
+            <a href="#services" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-white/5 hover:text-swell-teal">Services</a>
+            <a href="#why-us" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-white/5 hover:text-swell-teal">Why SWELL</a>
+            <a href="#testimonials" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-white/5 hover:text-swell-teal">Member Stories</a>
+            <a href="#faq" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-white/5 hover:text-swell-teal">FAQ</a>
+            <a href="#contact" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-white/5 hover:text-swell-teal">Contact Us</a>
+            <div class="pt-2 border-t border-white/10 flex flex-col gap-3">
+                <a href="tel:0424515175" class="flex items-center justify-center gap-2 text-sm text-slate-300 py-2">
+                    <i class="fa-solid fa-phone text-swell-teal"></i> 0424 515 175
+                </a>
+                <a href="#contact" class="w-full text-center bg-swell-gradient text-swell-dark py-3 rounded-xl font-extrabold">
+                    ENQUIRE ONLINE →
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative pt-40 pb-20 lg:pt-52 lg:pb-32 overflow-hidden bg-hero-gradient">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-panel border border-swell-teal/30 text-xs font-bold text-swell-teal tracking-wider uppercase">
+                        <span class="w-2 h-2 rounded-full bg-swell-teal animate-ping"></span>
+                        Redhead's Premier Fitness Community
+                    </div>
+                    
+                    <h1 class="font-heading text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-none text-white">
+                        Train with confidence. <br />
+                        <span class="text-gradient-teal">Progress with purpose.</span>
+                    </h1>
+                    
+                    <p class="text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+                        At SWELL Fitness, we believe training should feel supportive, structured, and sustainable. You'll never be left guessing what to do or how to progress. Every session is guided by expert coaches who genuinely care about your goals.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-swell-gradient text-swell-dark font-extrabold text-center shadow-lg glow-teal hover:scale-[1.02] transition-all">
+                            Start Your Journey →
+                        </a>
+                        <a href="#services" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-panel text-slate-200 hover:text-white font-semibold text-center border border-white/10 hover:bg-white/10 transition-all flex items-center justify-center gap-2">
+                            <span>Explore Services</span>
+                            <i class="fa-solid fa-arrow-down text-xs text-swell-teal"></i>
+                        </a>
+                    </div>
+
+                    <div class="pt-6 border-t border-white/10 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-slate-400 text-xs font-medium">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-location-dot text-swell-teal text-sm"></i>
+                            <span>66A Kalaroo Road, Redhead</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-users text-swell-teal text-sm"></i>
+                            <span>All Fitness Levels Welcome</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <div class="absolute -inset-1 bg-swell-gradient rounded-3xl opacity-30 blur-2xl"></div>
+                        
+                        <div class="relative rounded-2xl overflow-hidden glass-panel border border-white/10 shadow-2xl">
+                            <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1000&q=80" alt="SWELL Fitness Team Training" class="w-full h-[480px] object-cover object-center brightness-90 hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-swell-dark via-transparent to-transparent"></div>
+                            
+                            <div class="absolute bottom-6 left-6 right-6 p-4 rounded-xl glass-panel border border-white/15 flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-swell-teal/20 text-swell-cyan flex items-center justify-center font-bold">
+                                        <i class="fa-solid fa-heart-pulse"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-slate-400 uppercase font-semibold">Community First</p>
+                                        <p class="text-sm font-bold text-white">Guided Coaching Every Session</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 border-y border-white/5 bg-swell-card/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <p class="font-heading text-3xl sm:text-4xl font-extrabold text-gradient-teal">100%</p>
+                    <p class="text-xs sm:text-sm text-slate-400 mt-1 uppercase tracking-wider font-semibold">Coach-Guided Sessions</p>
+                </div>
+                <div class="text-center">
+                    <p class="font-heading text-3xl sm:text-4xl font-extrabold text-white">60+</p>
+                    <p class="text-xs sm:text-sm text-slate-400 mt-1 uppercase tracking-wider font-semibold">Longevity & Seniors Focus</p>
+                </div>
+                <div class="text-center">
+                    <p class="font-heading text-3xl sm:text-4xl font-extrabold text-gradient-teal">6</p>
+                    <p class="text-xs sm:text-sm text-slate-400 mt-1 uppercase tracking-wider font-semibold">Tailored Programs</p>
+                </div>
+                <div class="text-center">
+                    <p class="font-heading text-3xl sm:text-4xl font-extrabold text-white">Redhead</p>
+                    <p class="text-xs sm:text-sm text-slate-400 mt-1 uppercase tracking-wider font-semibold">Local Community Hub</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                
+                <div class="relative">
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=600&q=80" alt="Group Exercise" class="rounded-2xl object-cover h-64 w-full glass-panel border border-white/10">
+                        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=600&q=80" alt="SWELL Equipment" class="rounded-2xl object-cover h-64 w-full translate-y-6 glass-panel border border-white/10">
+                    </div>
+                    <div class="absolute -bottom-6 left-6 glass-panel p-4 rounded-xl border border-white/10 max-w-xs hidden sm:block">
+                        <p class="text-xs text-slate-300 font-medium">"Supportive, structured, and sustainable training for every stage of life."</p>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-swell-teal/10 border border-swell-teal/30 text-xs font-bold text-swell-teal uppercase tracking-wider">
+                        WHAT WE'RE ABOUT
+                    </div>
+                    
+                    <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white tracking-tight leading-tight">
+                        A Fitness Experience Built Around <span class="text-gradient-teal">Support & Progress</span>
+                    </h2>
+                    
+                    <p class="text-slate-300 leading-relaxed font-light">
+                        At SWELL Fitness in Redhead, we take the guesswork out of working out. Whether you're looking to gain functional strength, improve mobility, boost cardiovascular health, or take your performance to new heights, our expert coaching team is with you every step of the way.
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-white/5 transition-colors">
+                            <div class="w-10 h-10 rounded-lg bg-swell-teal/20 text-swell-cyan flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-hands-holding-circle text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Supportive Environment</h4>
+                                <p class="text-xs text-slate-400 mt-0.5">Train alongside a welcoming community of like-minded individuals who uplift each other.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-white/5 transition-colors">
+                            <div class="w-10 h-10 rounded-lg bg-swell-teal/20 text-swell-cyan flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-chart-line text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Structured Progression</h4>
+                                <p class="text-xs text-slate-400 mt-0.5">Every workout has purpose, ensuring long-term results without burnout or injury.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-white/5 transition-colors">
+                            <div class="w-10 h-10 rounded-lg bg-swell-teal/20 text-swell-cyan flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-user-shield text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Expert Coaching</h4>
+                                <p class="text-xs text-slate-400 mt-0.5">Certified coaches guide your form, tailor movements to your level, and keep you safe.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 bg-swell-card/30 border-y border-white/5 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-swell-teal/10 border border-swell-teal/30 text-xs font-bold text-swell-teal uppercase tracking-wider">
+                    OUR PROGRAMS
+                </div>
+                <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white">Services Tailored To Your Life</h2>
+                <p class="text-slate-400 text-sm">Find the ideal training format for your age, experience, and fitness ambitions.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="glass-panel rounded-2xl p-6 border border-white/10 hover:border-swell-teal/50 hover:bg-white/[0.03] transition-all group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-swell-teal/20 flex items-center justify-center text-swell-cyan text-xl mb-5 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-white mb-2">Group Training</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-6">
+                            Community at the forefront. Our expert-led group classes help you build strength, endurance, and resilience alongside like-minded people.
+                        </p>
+                    </div>
+                    <a href="#contact" class="w-full py-3 rounded-xl bg-white/10 hover:bg-swell-teal hover:text-swell-dark text-white font-bold text-center text-xs tracking-wider transition-all uppercase">
+                        JOIN NOW
+                    </a>
+                </div>
+
+                <div class="glass-panel rounded-2xl p-6 border-2 border-swell-teal/60 hover:bg-white/[0.03] transition-all group flex flex-col justify-between glow-teal">
+                    <div>
+                        <div class="flex justify-between items-center mb-5">
+                            <div class="w-12 h-12 rounded-xl bg-swell-teal/20 flex items-center justify-center text-swell-cyan text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-person-walking-with-cane"></i>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-full bg-swell-teal/20 text-swell-cyan text-[10px] font-bold uppercase tracking-wider">Over 60's</span>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-white mb-2">Longevity Sessions</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-6">
+                            Guided classes for over 60's to help you build functional strength, endurance, balance and mobility while having a blast!
+                        </p>
+                    </div>
+                    <a href="#contact" class="w-full py-3 rounded-xl bg-swell-gradient text-swell-dark font-extrabold text-center text-xs tracking-wider transition-all uppercase">
+                        JOIN NOW
+                    </a>
+                </div>
+
+                <div class="glass-panel rounded-2xl p-6 border border-white/10 hover:border-swell-teal/50 hover:bg-white/[0.03] transition-all group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-swell-teal/20 flex items-center justify-center text-swell-cyan text-xl mb-5 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-dumbbell"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-white mb-2">Personal Training</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-6">
+                            Goal-oriented and specific 1-on-1 personal training sessions to help you ease into training or reach a brand new level of athletic performance.
+                        </p>
+                    </div>
+                    <a href="#contact" class="w-full py-3 rounded-xl bg-white/10 hover:bg-swell-teal hover:text-swell-dark text-white font-bold text-center text-xs tracking-wider transition-all uppercase">
+                        JOIN NOW
+                    </a>
+                </div>
+
+                <div class="glass-panel rounded-2xl p-6 border border-white/10 hover:border-swell-teal/50 hover:bg-white/[0.03] transition-all group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-swell-teal/20 flex items-center justify-center text-swell-cyan text-xl mb-5 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-venus"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-white mb-2">SWELL Circuit</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-6">
+                            A women's only 60-minute circuit using resistance-based machines designed to help you maintain muscle tone, posture & strength.
+                        </p>
+                    </div>
+                    <a href="#contact" class="w-full py-3 rounded-xl bg-white/10 hover:bg-swell-teal hover:text-swell-dark text-white font-bold text-center text-xs tracking-wider transition-all uppercase">
+                        JOIN NOW
+                    </a>
+                </div>
+
+                <div class="glass-panel rounded-2xl p-6 border border-white/10 hover:border-swell-teal/50 hover:bg-white/[0.03] transition-all group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-swell-teal/20 flex items-center justify-center text-swell-cyan text-xl mb-5 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-music"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-white mb-2">Dancefit Classes</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-6">
+                            A fun-based dance class that gets your heart pumping, brain firing, and muscles moving. Suitable for all experience levels.
+                        </p>
+                    </div>
+                    <a href="#contact" class="w-full py-3 rounded-xl bg-white/10 hover:bg-swell-teal hover:text-swell-dark text-white font-bold text-center text-xs tracking-wider transition-all uppercase">
+                        JOIN NOW
+                    </a>
+                </div>
+
+                <div class="glass-panel rounded-2xl p-6 border border-white/10 hover:border-swell-teal/50 hover:bg-white/[0.03] transition-all group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-swell-teal/20 flex items-center justify-center text-swell-cyan text-xl mb-5 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-user-group"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-white mb-2">Semi-Private PT</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-6">
+                            Know a few people that want to start taking their training seriously? Achieve all of your goals in our small group personal training.
+                        </p>
+                    </div>
+                    <a href="#contact" class="w-full py-3 rounded-xl bg-white/10 hover:bg-swell-teal hover:text-swell-dark text-white font-bold text-center text-xs tracking-wider transition-all uppercase">
+                        JOIN NOW
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="why-us" class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                
+                <div class="space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-swell-teal/10 border border-swell-teal/30 text-xs font-bold text-swell-teal uppercase tracking-wider">
+                        THE SWELL DIFFERENCE
+                    </div>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white leading-tight">
+                        Never Guess Your Workout <br /><span class="text-gradient-teal">Ever Again.</span>
+                    </h2>
+                    <p class="text-slate-300 text-sm leading-relaxed font-light">
+                        Many fitness centers leave you on your own to figure out equipment and programs. At SWELL Fitness, every session is designed and monitored by coaches who prioritize long-term wellbeing over quick fixes.
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="p-4 rounded-xl glass-panel border border-white/5 flex gap-4 items-start">
+                            <div class="w-10 h-10 rounded-lg bg-swell-teal/20 flex items-center justify-center text-swell-cyan shrink-0">
+                                <i class="fa-solid fa-compass"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-base">Clear Guidance</h4>
+                                <p class="text-xs text-slate-400 mt-1">Know exactly what exercise to do, how many reps, and the correct form to protect your joints.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl glass-panel border border-white/5 flex gap-4 items-start">
+                            <div class="w-10 h-10 rounded-lg bg-swell-teal/20 flex items-center justify-center text-swell-cyan shrink-0">
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-base">Inclusive Community</h4>
+                                <p class="text-xs text-slate-400 mt-1">From youth athletes to active seniors in our Longevity Sessions, everyone finds a home here.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl glass-panel border border-white/5 flex gap-4 items-start">
+                            <div class="w-10 h-10 rounded-lg bg-swell-teal/20 flex items-center justify-center text-swell-cyan shrink-0">
+                                <i class="fa-solid fa-location-arrow"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-base">Convenient Redhead Location</h4>
+                                <p class="text-xs text-slate-400 mt-1">Located at 66A Kalaroo Road with easy parking and modern training facilities.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="glass-panel p-2 rounded-2xl border border-white/10 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=800&q=80" alt="Gym Coaching SWELL" class="rounded-xl w-full h-[480px] object-cover">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="py-24 bg-swell-card/30 border-t border-white/5 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-swell-teal/10 border border-swell-teal/30 text-xs font-bold text-swell-teal uppercase tracking-wider">
+                    MEMBER STORIES
+                </div>
+                <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white">Hear From Our Members</h2>
+                <p class="text-slate-400 text-sm">Real stories of personal transformation and newfound confidence at SWELL Fitness.</p>
+            </div>
+
+            <div class="glass-panel rounded-3xl border border-white/10 p-8 lg:p-12 max-w-4xl mx-auto relative overflow-hidden shadow-2xl">
+                <div class="grid md:grid-cols-12 gap-8 items-center">
+                    
+                    <div class="md:col-span-5 relative group cursor-pointer" onclick="alert('Playing Chris Success Story video...');">
+                        <div class="relative rounded-2xl overflow-hidden border border-white/10">
+                            <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=600&q=80" alt="Chris Success Story" class="w-full h-56 object-cover group-hover:scale-105 transition-transform">
+                            <div class="absolute inset-0 bg-swell-dark/40 flex items-center justify-center">
+                                <div class="w-14 h-14 rounded-full bg-red-600 text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-play text-xl ml-1"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-center text-[11px] text-slate-400 mt-2"><i class="fa-brands fa-youtube text-red-500 mr-1"></i> Watch Chris's Full Story</p>
+                    </div>
+
+                    <div class="md:col-span-7 space-y-4">
+                        <div class="flex text-amber-400 text-sm gap-1">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <h3 class="font-heading text-2xl font-bold text-white">Chris — Success Story with SWELL Fitness</h3>
+                        <p class="text-slate-300 text-sm italic leading-relaxed">
+                            "Joining SWELL Fitness completely shifted my perspective on workout routines. The coaches guide every step, keeping me accountable while ensuring my technique is safe. I've never felt stronger or more energetic."
+                        </p>
+                        <div class="pt-2 border-t border-white/10 flex justify-between items-center text-xs">
+                            <span class="font-bold text-swell-teal">Verified Member</span>
+                            <span class="text-slate-400">Redhead, NSW</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-24 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 space-y-3">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-swell-teal/10 border border-swell-teal/30 text-xs font-bold text-swell-teal uppercase tracking-wider">
+                    QUESTIONS & ANSWERS
+                </div>
+                <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white">Frequently Asked Questions</h2>
+                <p class="text-slate-400 text-sm">Everything you need to know before getting started at SWELL Fitness.</p>
+            </div>
+
+            <div class="space-y-4">
+                
+                <div class="glass-panel rounded-xl border border-white/10 overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-4 text-left font-bold text-white text-sm flex justify-between items-center hover:bg-white/5 transition-colors">
+                        <span>I haven't worked out in years. Is SWELL suitable for beginners?</span>
+                        <i class="fa-solid fa-chevron-down text-swell-teal transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4 text-xs text-slate-300 leading-relaxed border-t border-white/5 pt-3">
+                        Yes! At SWELL Fitness, every single session is guided by experienced coaches who adapt exercises to match your current ability level safely.
+                    </div>
+                </div>
+
+                <div class="glass-panel rounded-xl border border-white/10 overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-4 text-left font-bold text-white text-sm flex justify-between items-center hover:bg-white/5 transition-colors">
+                        <span>What are the Longevity Sessions?</span>
+                        <i class="fa-solid fa-chevron-down text-swell-teal transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4 text-xs text-slate-300 leading-relaxed border-t border-white/5 pt-3">
+                        Longevity Sessions are specially designed classes for over 60's focused on building functional strength, mobility, balance, and endurance in a friendly, low-impact environment.
+                    </div>
+                </div>
+
+                <div class="glass-panel rounded-xl border border-white/10 overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-4 text-left font-bold text-white text-sm flex justify-between items-center hover:bg-white/5 transition-colors">
+                        <span>What should I bring to my first session?</span>
+                        <i class="fa-solid fa-chevron-down text-swell-teal transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4 text-xs text-slate-300 leading-relaxed border-t border-white/5 pt-3">
+                        Just bring comfortable workout attire, supportive athletic shoes, a water bottle, and a sweat towel. We take care of the rest!
+                    </div>
+                </div>
+
+                <div class="glass-panel rounded-xl border border-white/10 overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-4 text-left font-bold text-white text-sm flex justify-between items-center hover:bg-white/5 transition-colors">
+                        <span>How do I sign up or enquire online?</span>
+                        <i class="fa-solid fa-chevron-down text-swell-teal transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4 text-xs text-slate-300 leading-relaxed border-t border-white/5 pt-3">
+                        Simply fill out our online enquiry form below or give us a call at 0424 515 175. We will connect with you to discuss your goals and book your first session.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-swell-card/30 border-t border-white/5 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-swell-teal/10 border border-swell-teal/30 text-xs font-bold text-swell-teal uppercase tracking-wider">
+                        GET IN TOUCH
+                    </div>
+                    
+                    <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white">
+                        Start Training With <br /><span class="text-gradient-teal">Purpose Today</span>
+                    </h2>
+                    
+                    <p class="text-slate-300 text-sm leading-relaxed font-light">
+                        Enquire online today to speak with our head coach about your goals, class timetables, and finding the perfect program for you.
+                    </p>
+
+                    <div class="space-y-4 pt-4">
+                        <a href="tel:0424515175" class="p-4 rounded-xl glass-panel border border-white/10 flex items-center gap-4 hover:border-swell-teal/50 transition-all group">
+                            <div class="w-12 h-12 rounded-xl bg-swell-teal/20 flex items-center justify-center text-swell-cyan text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 font-medium">Direct Line</p>
+                                <p class="text-lg font-bold text-white">0424 515 175</p>
+                            </div>
+                        </a>
+
+                        <a href="mailto:info@swellfitness.com.au" class="p-4 rounded-xl glass-panel border border-white/10 flex items-center gap-4 hover:border-swell-teal/50 transition-all group">
+                            <div class="w-12 h-12 rounded-xl bg-swell-teal/20 flex items-center justify-center text-swell-cyan text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 font-medium">Email Us</p>
+                                <p class="text-base font-bold text-white">info@swellfitness.com.au</p>
+                            </div>
+                        </a>
+
+                        <div class="p-4 rounded-xl glass-panel border border-white/10 flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-swell-teal/20 flex items-center justify-center text-swell-cyan text-xl">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 font-medium">Facility Address</p>
+                                <p class="text-base font-bold text-white">66A Kalaroo Road, Redhead NSW</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7">
+                    <div class="glass-panel p-8 rounded-3xl border border-white/10 shadow-2xl relative">
+                        <h3 class="font-heading text-2xl font-bold text-white mb-2">Enquire Online</h3>
+                        <p class="text-xs text-slate-400 mb-6">Leave your details below and a SWELL coach will get back to you promptly.</p>
+
+                        <form id="enquiry-form" onsubmit="event.preventDefault(); alert('Thank you for your enquiry! A SWELL Fitness coach will reach out shortly.');" class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Full Name</label>
+                                <input type="text" required placeholder="e.g. Sarah Jenkins" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-swell-teal text-sm transition-colors">
+                            </div>
+
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Phone Number</label>
+                                    <input type="tel" required placeholder="e.g. 0400 000 000" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-swell-teal text-sm transition-colors">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Email Address</label>
+                                    <input type="email" required placeholder="e.g. sarah@example.com" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-swell-teal text-sm transition-colors">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Program Interest</label>
+                                <select class="w-full px-4 py-3 rounded-xl bg-swell-card border border-white/10 text-white focus:outline-none focus:border-swell-teal text-sm transition-colors">
+                                    <option>Group Training</option>
+                                    <option>Longevity Sessions (Over 60's)</option>
+                                    <option>Personal Training (1-on-1)</option>
+                                    <option>SWELL Circuit (Women's Only)</option>
+                                    <option>Dancefit Classes</option>
+                                    <option>Semi-Private Personal Training</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Your Goals or Questions</label>
+                                <textarea rows="4" required placeholder="Tell us what you hope to achieve..." class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-swell-teal text-sm transition-colors"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 rounded-xl bg-swell-gradient text-swell-dark font-extrabold text-sm tracking-wide shadow-lg glow-teal hover:opacity-95 transition-all">
+                                SUBMIT ENQUIRY →
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-white/10 bg-swell-dark pt-16 pb-12 text-slate-400 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+                
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-swell-gradient p-0.5 flex items-center justify-center">
+                            <div class="w-full h-full bg-swell-dark rounded-[10px] flex items-center justify-center">
+                                <i class="fa-solid fa-water text-swell-teal"></i>
+                            </div>
+                        </div>
+                        <span class="font-heading font-extrabold text-base tracking-wider uppercase text-white">SWELL <span class="text-swell-cyan">FITNESS</span></span>
+                    </div>
+                    <p class="text-slate-400 leading-relaxed">
+                        Train with confidence. Progress with purpose. SWELL Fitness is Redhead's supportive community gym for functional strength, longevity, and overall vitality.
+                    </p>
+                    <div class="flex items-center gap-4 text-base text-slate-300">
+                        <a href="https://facebook.com" target="_blank" aria-label="Facebook" class="hover:text-swell-teal transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://instagram.com" target="_blank" aria-label="Instagram" class="hover:text-swell-teal transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="font-bold text-white uppercase tracking-wider mb-4 text-xs">Quick Links</p>
+                    <ul class="space-y-2.5">
+                        <li><a href="#about" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">Services</a></li>
+                        <li><a href="#why-us" class="hover:text-white transition-colors">Why SWELL</a></li>
+                        <li><a href="#testimonials" class="hover:text-white transition-colors">Member Stories</a></li>
+                        <li><a href="#faq" class="hover:text-white transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <p class="font-bold text-white uppercase tracking-wider mb-4 text-xs">Our Services</p>
+                    <ul class="space-y-2.5">
+                        <li><a href="#services" class="hover:text-white transition-colors">Group Training</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">Longevity Sessions</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">Personal Training</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">SWELL Circuit</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">Dancefit Classes</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">Semi-Private PT</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <p class="font-bold text-white uppercase tracking-wider mb-4 text-xs">Contact Details</p>
+                    <ul class="space-y-2.5">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-phone text-swell-teal"></i> <span>0424 515 175</span></li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-envelope text-swell-teal"></i> <span>info@swellfitness.com.au</span></li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-swell-teal"></i> <span>66A Kalaroo Road, Redhead</span></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500">
+                <p>© 2026 SWELL Fitness. All Rights Reserved.</p>
+                <p class="text-[11px]">Designed with purpose for the Redhead Community.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if(mobileMenu.classList.contains('hidden')) {
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            } else {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            }
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            });
+        });
+
+        // FAQ Accordion Toggle
+        const faqToggles = document.querySelectorAll('.faq-toggle');
+
+        faqToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const content = toggle.nextElementSibling;
+                const icon = toggle.querySelector('i');
+
+                content.classList.toggle('hidden');
+
+                if(content.classList.contains('hidden')) {
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

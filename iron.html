@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE IRON GYM | Premium Fitness, CrossFit & Personal Training in Vadgaon Sheri, Pune</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        iron: {
+                            dark: '#0B0C10',
+                            surface: '#1F2833',
+                            accent: '#FF3E3E',
+                            gray: '#C5C6C7',
+                            light: '#F4F6F7'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .text-gradient {
+            background: linear-gradient(135deg, #FFFFFF 30%, #FF3E3E 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-iron-dark text-white font-sans antialiased overflow-x-hidden">
+
+    <!-- STICKY NAVIGATION -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-iron-dark/80 backdrop-blur-xl border-b border-white/5 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 h-24 flex items-center justify-between transition-all duration-300" id="nav-container">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 bg-iron-accent rounded-xl flex items-center justify-center font-display font-black text-white text-xl tracking-tighter shadow-[0_0_20px_rgba(255,62,62,0.3)]">
+                    I
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display font-black text-xl tracking-tight leading-none text-white group-hover:text-iron-accent transition-colors">THE IRON GYM</span>
+                    <span class="text-[9px] tracking-[0.22em] text-iron-gray font-bold uppercase mt-0.5">Vadgaon Sheri, Pune</span>
+                </div>
+            </a>
+            
+            <div class="hidden md:flex items-center gap-8 font-medium text-xs tracking-widest text-iron-gray">
+                <a href="#about" class="hover:text-iron-accent transition-colors uppercase">Legacy</a>
+                <a href="#services" class="hover:text-iron-accent transition-colors uppercase">Programs</a>
+                <a href="#why-us" class="hover:text-iron-accent transition-colors uppercase">Why Us</a>
+                <a href="#gallery" class="hover:text-iron-accent transition-colors uppercase">Gallery</a>
+                <a href="#testimonials" class="hover:text-iron-accent transition-colors uppercase">Reviews</a>
+                <a href="#contact" class="hover:text-iron-accent transition-colors uppercase">Location</a>
+            </div>
+
+            <div class="hidden lg:flex items-center gap-6">
+                <a href="tel:+919689048613" class="text-xs font-bold tracking-widest text-white hover:text-iron-accent transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-phone text-iron-accent"></i> +91 96890 48613
+                </a>
+                <a href="#contact" class="bg-transparent border border-iron-accent text-iron-accent hover:bg-iron-accent hover:text-white text-xs font-bold tracking-widest px-6 py-3.5 rounded-xl transition-all duration-300 shadow-[0_0_15px_rgba(255,62,62,0.1)] hover:shadow-[0_0_25px_rgba(255,62,62,0.3)]">
+                    CLAIM FREE PASS
+                </a>
+            </div>
+
+            <!-- Mobile Menu Open Button -->
+            <button class="md:hidden text-white hover:text-iron-accent transition-colors" id="menu-open-btn" aria-label="Open Menu">
+                <i class="fa-solid fa-bars-staggered text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="hidden fixed inset-0 bg-iron-dark/98 z-50 flex flex-col p-8 justify-between" id="mobile-menu">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-iron-accent rounded-xl flex items-center justify-center font-display font-black text-white text-lg">I</div>
+                    <span class="font-display font-black text-xl tracking-tight text-white">THE IRON GYM</span>
+                </div>
+                <button class="text-white hover:text-iron-accent transition-colors" id="menu-close-btn" aria-label="Close Menu">
+                    <i class="fa-solid fa-xmark text-2xl"></i>
+                </button>
+            </div>
+
+            <div class="flex flex-col gap-6 text-xl font-display font-bold tracking-wide">
+                <a href="#about" class="mobile-nav-link hover:text-iron-accent transition-colors">The Facility</a>
+                <a href="#services" class="mobile-nav-link hover:text-iron-accent transition-colors">Training Programs</a>
+                <a href="#why-us" class="mobile-nav-link hover:text-iron-accent transition-colors">Why Choose Us</a>
+                <a href="#gallery" class="mobile-nav-link hover:text-iron-accent transition-colors">Gallery</a>
+                <a href="#testimonials" class="mobile-nav-link hover:text-iron-accent transition-colors">Reviews</a>
+                <a href="#contact" class="mobile-nav-link hover:text-iron-accent transition-colors">Find Us</a>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <a href="tel:+919689048613" class="text-center font-bold tracking-widest text-white border border-white/10 py-4 rounded-xl flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-phone text-iron-accent"></i> CALL DESK
+                </a>
+                <a href="#contact" class="mobile-nav-link text-center bg-iron-accent text-white font-bold tracking-widest py-4 rounded-xl">
+                    CLAIM FREE PASS
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- IMMERSIVE HERO SECTION -->
+    <section class="relative min-h-screen flex items-center pt-24 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=1920" class="w-full h-full object-cover opacity-20 object-center scale-105 select-none" alt="Premium Iron Gym Arena">
+            <div class="absolute inset-0 bg-gradient-to-t from-iron-dark via-iron-dark/80 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-iron-dark via-transparent to-iron-dark/40"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 w-full pt-16 pb-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-8 space-y-8 text-center lg:text-left">
+                <div class="inline-flex items-center gap-3 bg-white/[0.03] border border-white/10 px-4 py-2 rounded-full backdrop-blur-md">
+                    <span class="w-2 h-2 rounded-full bg-iron-accent animate-pulse"></span>
+                    <span class="text-xs font-bold tracking-widest text-iron-accent uppercase">Over 560+ Top-Rated Google Reviews</span>
+                </div>
+                
+                <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight leading-[1.05]">
+                    FORGE THOSE <span class="text-gradient">LIMITS.</span><br>
+                    COMMAND YOUR <span class="text-transparent bg-clip-text bg-gradient-to-r from-iron-accent to-orange-500">STRENGTH.</span>
+                </h1>
+                
+                <p class="text-base sm:text-lg text-iron-gray max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                    Welcome to <span class="text-white font-semibold">THE IRON GYM</span> in Vadgaon Sheri, Pune. Experience premium strength infrastructure, expert certified trainers, and dedicated conditioning fields structured to elevate your fitness architecture.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                    <a href="#contact" class="w-full sm:w-auto text-center bg-iron-accent text-white font-black tracking-widest px-8 py-5 rounded-xl transition-all duration-300 hover:bg-white hover:text-iron-dark shadow-[0_0_30px_rgba(255,62,62,0.25)] hover:shadow-[0_0_45px_rgba(255,62,62,0.4)] hover:-translate-y-0.5">
+                        START FREE TRIAL <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                    <a href="#services" class="w-full sm:w-auto text-center bg-white/[0.04] border border-white/10 text-white font-bold tracking-widest px-8 py-5 rounded-xl hover:bg-white/[0.08] transition-all">
+                        EXPLORE PROGRAMS
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-3 gap-6 pt-12 border-t border-white/5 max-w-lg mx-auto lg:mx-0">
+                    <div>
+                        <div class="font-display text-2xl sm:text-3xl font-black text-white">4.8<span class="text-iron-accent text-xl ml-1"><i class="fa-solid fa-star"></i></span></div>
+                        <div class="text-[10px] tracking-wider text-iron-gray uppercase mt-1">560+ Google Reviews</div>
+                    </div>
+                    <div>
+                        <div class="font-display text-2xl sm:text-3xl font-black text-white">₹1500</div>
+                        <div class="text-[10px] tracking-wider text-iron-gray uppercase mt-1">Monthly Starter Plan</div>
+                    </div>
+                    <div>
+                        <div class="font-display text-2xl sm:text-3xl font-black text-white">100%</div>
+                        <div class="text-[10px] tracking-wider text-iron-gray uppercase mt-1">Result Oriented Focus</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-24 lg:py-32 bg-iron-surface/40 relative">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=600" class="w-full h-80 object-cover rounded-2xl border border-white/10" alt="Iron Gym Equipment Setup">
+                    <div class="space-y-4 pt-10">
+                        <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=600" class="w-full h-44 object-cover rounded-2xl border border-white/10" alt="Cardio Training Section">
+                        <div class="bg-iron-dark/80 p-6 rounded-2xl border border-iron-accent/20 space-y-2">
+                            <h4 class="font-display font-black text-2xl text-iron-accent">Premium</h4>
+                            <p class="text-[11px] text-iron-gray uppercase tracking-wider leading-relaxed">Spacious facility built for high-performance conditioning</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-xs font-bold tracking-widest text-iron-accent uppercase block">PUNE'S POWERHOUSE DESTINATION</span>
+                    <h2 class="font-display text-3xl sm:text-4xl font-black uppercase tracking-tight text-white">
+                        WHERE CLEAN ENVIRONMENT MEETS PURE PERFORMANCE ARCHITECTURE
+                    </h2>
+                    <p class="text-iron-gray text-sm sm:text-base leading-relaxed">
+                        THE IRON GYM stands recognized as one of Vadgaon Sheri's premier community gymnasiums. Positioned prominently on Old Mundhwa Road near Bollywood Cinema, our expansive facility provides a premium environment tailored directly for heavy weight training, functional strength growth, and overall athletic longevity.
+                    </p>
+                    <p class="text-iron-gray text-sm sm:text-base leading-relaxed">
+                        Under the systematic supervision of an intensely client-focused administrative and training team, we combine high-tier machinery with a welcoming, motivating, and incredibly clean atmosphere. From daily active batches to specialized training schedules, we ensure every session builds true structural consistency.
+                    </p>
+                    
+                    <div class="pt-4 border-t border-white/10 grid grid-cols-2 gap-6">
+                        <div class="space-y-1">
+                            <span class="text-white font-bold text-sm block">Clean Gym Standards</span>
+                            <span class="text-xs text-iron-gray">Sanitized daily loops, clean equipment platforms, and beautifully spaced training docks.</span>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="text-white font-bold text-sm block">Expert Training Lineup</span>
+                            <span class="text-xs text-iron-gray">Highly certified coaches managing structural posture correction and macro tracking.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES / PROGRAMS SECTION -->
+    <section id="services" class="py-24 lg:py-32">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-20 space-y-4">
+                <span class="text-xs font-bold tracking-widest text-iron-accent uppercase block">TRAINING MODULES</span>
+                <h2 class="font-display text-3xl sm:text-5xl font-black uppercase tracking-tight">HIGH-IMPACT FITNESS ECOSYSTEMS</h2>
+                <p class="text-iron-gray text-sm sm:text-base font-light">
+                    From intense individual weightlifting goals to group dynamics, our program formats are engineered to extract optimal metabolic response.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="bg-iron-surface/30 border border-white/5 rounded-2xl p-8 hover:border-iron-accent/30 transition-all duration-300 flex flex-col justify-between group">
+                    <div class="space-y-6">
+                        <div class="w-12 h-12 bg-iron-accent/10 border border-iron-accent/20 rounded-xl flex items-center justify-center text-iron-accent text-xl group-hover:bg-iron-accent group-hover:text-white transition-all duration-300">
+                            <i class="fa-solid fa-dumbbell"></i>
+                        </div>
+                        <div class="space-y-2">
+                            <h3 class="font-display font-bold text-lg uppercase tracking-wide text-white">CrossFit & Heavy Strength</h3>
+                            <p class="text-xs text-iron-gray leading-relaxed">
+                                Complete access to premium multi-station weight rigs, heavy plates, and ergonomic bars engineered for progressive load lifting.
+                            </p>
+                        </div>
+                    </div>
+                    <a href="#contact" class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-iron-accent uppercase mt-8 hover:text-white transition-colors">
+                        INQUIRE DETAILS <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="bg-iron-surface/30 border border-white/5 rounded-2xl p-8 hover:border-iron-accent/30 transition-all duration-300 flex flex-col justify-between group">
+                    <div class="space-y-6">
+                        <div class="w-12 h-12 bg-iron-accent/10 border border-iron-accent/20 rounded-xl flex items-center justify-center text-iron-accent text-xl group-hover:bg-iron-accent group-hover:text-white transition-all duration-300">
+                            <i class="fa-solid fa-person-running"></i>
+                        </div>
+                        <div class="space-y-2">
+                            <h3 class="font-display font-bold text-lg uppercase tracking-wide text-white">Cardio Conditioning & Zumba</h3>
+                            <p class="text-xs text-iron-gray leading-relaxed">
+                                High-intensity stamina blocks, stationary bike decks, commercial treadmills, and dynamic energetic Zumba classes for rapid fat burn.
+                            </p>
+                        </div>
+                    </div>
+                    <a href="#contact" class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-iron-accent uppercase mt-8 hover:text-white transition-colors">
+                        INQUIRE DETAILS <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="bg-iron-surface/30 border border-white/5 rounded-2xl p-8 hover:border-iron-accent/30 transition-all duration-300 flex flex-col justify-between group">
+                    <div class="space-y-6">
+                        <div class="w-12 h-12 bg-iron-accent/10 border border-iron-accent/20 rounded-xl flex items-center justify-center text-iron-accent text-xl group-hover:bg-iron-accent group-hover:text-white transition-all duration-300">
+                            <i class="fa-solid fa-spa"></i>
+                        </div>
+                        <div class="space-y-2">
+                            <h3 class="font-display font-bold text-lg uppercase tracking-wide text-white">Yoga & Flexibility Classes</h3>
+                            <p class="text-xs text-iron-gray leading-relaxed">
+                                Structured, posture-focused morning and evening yoga batches managed to optimize joint core health, daily recovery, and mental clarity.
+                            </p>
+                        </div>
+                    </div>
+                    <a href="#contact" class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-iron-accent uppercase mt-8 hover:text-white transition-colors">
+                        INQUIRE DETAILS <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section id="why-us" class="py-24 lg:py-32 bg-iron-surface/20 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs font-bold tracking-widest text-iron-accent uppercase block">THE IRON COMPETITIVE EDGE</span>
+                    <h2 class="font-display text-3xl sm:text-4xl font-black uppercase tracking-tight">DESIGNED AROUND MEMBER PERFORMANCE</h2>
+                    <p class="text-iron-gray text-sm leading-relaxed">
+                        We avoid packed, messy rooms. At The Iron Gym, we maintain clean machinery loops, spacious individual platforms, and dynamic batch setups that allow users to lock in their routines without waiting.
+                    </p>
+                    <div class="pt-4 flex flex-col gap-4">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-iron-accent text-lg"></i>
+                            <span class="text-xs sm:text-sm font-semibold text-white">Daily Batches: Structured Morning & Evening Schedules</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-iron-accent text-lg"></i>
+                            <span class="text-xs sm:text-sm font-semibold text-white">Specialized separate batches for women available</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-iron-accent text-lg"></i>
+                            <span class="text-xs sm:text-sm font-semibold text-white">Extremely clean, modern hygienic locker infrastructure</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="bg-iron-dark border border-white/5 p-8 rounded-2xl space-y-3">
+                        <span class="text-2xl text-iron-accent block"><i class="fa-solid fa-calendar-days"></i></span>
+                        <h4 class="font-display font-bold text-sm uppercase text-white tracking-wider">Extended Timings</h4>
+                        <p class="text-xs text-iron-gray leading-relaxed">Open reliably from 6:00 AM right down to 10:00 PM to help match your intense working layout parameters.</p>
+                    </div>
+
+                    <div class="bg-iron-dark border border-white/5 p-8 rounded-2xl space-y-3">
+                        <span class="text-2xl text-iron-accent block"><i class="fa-solid fa-tags"></i></span>
+                        <h4 class="font-display font-bold text-sm uppercase text-white tracking-wider">Unbeatable Starter Value</h4>
+                        <p class="text-xs text-iron-gray leading-relaxed">Premium value tier general gym memberships launching smoothly at just ₹1500 for a 1-month plan block.</p>
+                    </div>
+
+                    <div class="bg-iron-dark border border-white/5 p-8 rounded-2xl space-y-3">
+                        <span class="text-2xl text-iron-accent block"><i class="fa-solid fa-people-group"></i></span>
+                        <h4 class="font-display font-bold text-sm uppercase text-white tracking-wider">Dedicated Community Vibe</h4>
+                        <p class="text-xs text-iron-gray leading-relaxed">Work out alongside motivated peers, corporate professionals, and experienced weightlifters.</p>
+                    </div>
+
+                    <div class="bg-iron-dark border border-white/5 p-8 rounded-2xl space-y-3">
+                        <span class="text-2xl text-iron-accent block"><i class="fa-solid fa-arrows-spin"></i></span>
+                        <h4 class="font-display font-bold text-sm uppercase text-white tracking-wider">Diverse Training Formats</h4>
+                        <p class="text-xs text-iron-gray leading-relaxed">Effortlessly shift between CrossFit strength bars, relaxing Yoga tracks, or dynamic Zumba routines.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHOTO GALLERY SECTION -->
+    <section id="gallery" class="py-24 lg:py-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 mb-12 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+            <div class="space-y-2">
+                <span class="text-xs font-bold tracking-widest text-iron-accent uppercase block">VISUAL EXPERIENCE</span>
+                <h2 class="font-display text-3xl sm:text-4xl font-black uppercase tracking-tight">OUR TRAINING DECK IN ACTION</h2>
+            </div>
+            <div class="flex gap-2">
+                <button id="slider-prev" class="w-12 h-12 border border-white/10 rounded-xl flex items-center justify-center hover:bg-white/5 transition-colors text-sm" aria-label="Previous Slide"><i class="fa-solid fa-arrow-left"></i></button>
+                <button id="slider-next" class="w-12 h-12 border border-white/10 rounded-xl flex items-center justify-center hover:bg-white/5 transition-colors text-sm" aria-label="Next Slide"><i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <div id="gallery-container" class="flex gap-6 overflow-x-auto hide-scrollbar px-6 lg:px-[calc((100vw-1280px)/2)] snap-x snap-mandatory scroll-smooth pb-4">
+            <!-- Item 1 -->
+            <div class="min-w-[280px] sm:min-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 snap-start relative group shrink-0">
+                <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Iron Gym Weight Section">
+                <div class="absolute inset-0 bg-gradient-to-t from-iron-dark/90 via-transparent to-transparent"></div>
+                <div class="absolute bottom-6 left-6"><p class="font-display font-bold text-sm tracking-wide uppercase">Commercial Weight Lifting Station</p></div>
+            </div>
+            <!-- Item 2 -->
+            <div class="min-w-[280px] sm:min-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 snap-start relative group shrink-0">
+                <img src="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Iron Gym Treadmill Arrays">
+                <div class="absolute inset-0 bg-gradient-to-t from-iron-dark/90 via-transparent to-transparent"></div>
+                <div class="absolute bottom-6 left-6"><p class="font-display font-bold text-sm tracking-wide uppercase">Advanced High-Stamina Cardio Arena</p></div>
+            </div>
+            <!-- Item 3 -->
+            <div class="min-w-[280px] sm:min-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 snap-start relative group shrink-0">
+                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Zumba & functional setup space">
+                <div class="absolute inset-0 bg-gradient-to-t from-iron-dark/90 via-transparent to-transparent"></div>
+                <div class="absolute bottom-6 left-6"><p class="font-display font-bold text-sm tracking-wide uppercase">Spacious Zumba & Yoga Floor Area</p></div>
+            </div>
+            <!-- Item 4 -->
+            <div class="min-w-[280px] sm:min-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 snap-start relative group shrink-0">
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="CrossFit setups">
+                <div class="absolute inset-0 bg-gradient-to-t from-iron-dark/90 via-transparent to-transparent"></div>
+                <div class="absolute bottom-6 left-6"><p class="font-display font-bold text-sm tracking-wide uppercase">Heavy Strength Pull-up & Conditioning Rig</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section id="testimonials" class="py-24 lg:py-32 bg-iron-surface/40">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-2">
+                <span class="text-xs font-bold tracking-widest text-iron-accent uppercase block">TESTIMONIAL ARCHIVE</span>
+                <h2 class="font-display text-3xl sm:text-4xl font-black uppercase tracking-tight">TRUSTED BY 560+ PUNE RESIDENTS</h2>
+                <div class="flex items-center justify-center gap-1 text-yellow-500 text-sm pt-2">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    <span class="text-white font-bold ml-2 text-xs">4.8 AVERAGE ON GOOGLE & JUSTDIAL</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-iron-dark border border-white/5 p-8 rounded-2xl flex flex-col justify-between space-y-8">
+                    <p class="text-xs sm:text-sm text-iron-gray leading-relaxed italic">
+                        "People say this gym offers a wide variety of modern equipment, including machines for weight training, cardio, Zumba, and yoga classes. The administration keeps everything clean."
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/5">
+                        <div class="w-10 h-10 rounded-full bg-iron-accent/10 flex items-center justify-center text-iron-accent font-bold text-xs">SA</div>
+                        <div>
+                            <h4 class="text-xs font-bold text-white uppercase tracking-wider">Swapnil A.</h4>
+                            <span class="text-[10px] text-iron-gray uppercase">Google Reviewer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-iron-dark border border-white/5 p-8 rounded-2xl flex flex-col justify-between space-y-8">
+                    <p class="text-xs sm:text-sm text-iron-gray leading-relaxed italic">
+                        "Clean gym with an incredibly fitness-focused team providing excellent yoga and Zumba classes, as well as very tailored personal training modules. Extremely happy with my progress."
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/5">
+                        <div class="w-10 h-10 rounded-full bg-iron-accent/10 flex items-center justify-center text-iron-accent font-bold text-xs">VS</div>
+                        <div>
+                            <h4 class="text-xs font-bold text-white uppercase tracking-wider">Vikram S.</h4>
+                            <span class="text-[10px] text-iron-gray uppercase">Vadgaon Sheri Resident</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-iron-dark border border-white/5 p-8 rounded-2xl flex flex-col justify-between space-y-8">
+                    <p class="text-xs sm:text-sm text-iron-gray leading-relaxed italic">
+                        "The monthly plan at ₹1500 is super reasonable for the premium quality of conditioning equipment they maintain. Separate dynamic batch layouts help focus during rush hours."
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/5">
+                        <div class="w-10 h-10 rounded-full bg-iron-accent/10 flex items-center justify-center text-iron-accent font-bold text-xs">ND</div>
+                        <div>
+                            <h4 class="text-xs font-bold text-white uppercase tracking-wider">Nisha D.</h4>
+                            <span class="text-[10px] text-iron-gray uppercase">Active Batch Member</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="py-24 lg:py-32">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-16 space-y-2">
+                <span class="text-xs font-bold tracking-widest text-iron-accent uppercase block">FAQ ARCHIVE</span>
+                <h2 class="font-display text-3xl font-black uppercase tracking-tight">FREQUENTLY ENQUIRED INFORMATION</h2>
+            </div>
+
+            <div class="space-y-4">
+                <div class="bg-iron-surface/30 border border-white/5 rounded-2xl overflow-hidden">
+                    <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center text-xs sm:text-sm font-bold uppercase tracking-wider text-white hover:text-iron-accent transition-colors">
+                        <span>What are the basic membership package costs?</span>
+                        <i class="fa-solid fa-plus transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-out bg-white/[0.01]">
+                        <p class="p-6 text-xs text-iron-gray leading-relaxed">Our general fitness conditioning gym memberships launch smoothly from just ₹1500 for a 1-month plan tier block. Long-term quarterly or annual package deals feature heavier promotional value rates.</p>
+                    </div>
+                </div>
+
+                <div class="bg-iron-surface/30 border border-white/5 rounded-2xl overflow-hidden">
+                    <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center text-xs sm:text-sm font-bold uppercase tracking-wider text-white hover:text-iron-accent transition-colors">
+                        <span>Are separate special batch brackets available for women?</span>
+                        <i class="fa-solid fa-plus transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-out bg-white/[0.01]">
+                        <p class="p-6 text-xs text-iron-gray leading-relaxed">Yes. The Iron Gym structures distinct daily batch slots and specialized supportive trainer monitoring systems curated for female fitness enthusiasts looking for secure and focused execution fields.</p>
+                    </div>
+                </div>
+
+                <div class="bg-iron-surface/30 border border-white/5 rounded-2xl overflow-hidden">
+                    <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center text-xs sm:text-sm font-bold uppercase tracking-wider text-white hover:text-iron-accent transition-colors">
+                        <span>What are the exact opening and closing operational schedules?</span>
+                        <i class="fa-solid fa-plus transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-out bg-white/[0.01]">
+                        <p class="p-6 text-xs text-iron-gray leading-relaxed">We operate actively throughout the calendar week, unlocking at 6:00 AM for early rising fitness batches and closing operations at 10:00 PM every evening.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT, INFORMATION & MAP SECTION -->
+    <section id="contact" class="py-24 lg:py-32 bg-iron-surface/30 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+            
+            <!-- Information Panel -->
+            <div class="lg:col-span-5 space-y-8">
+                <div class="space-y-4">
+                    <span class="text-xs font-bold tracking-widest text-iron-accent uppercase block">START YOUR TRANSFORMATION</span>
+                    <h2 class="font-display text-3xl sm:text-5xl font-black uppercase tracking-tight">CONNECT WITH OUR GYM ADMINISTRATIVE TEAM</h2>
+                    <p class="text-iron-gray text-xs sm:text-sm leading-relaxed">
+                        Stop pushing back your health conditioning targets. Get in touch with our desk managers right now to secure free one-day entry trial credentials or map custom training quotes.
+                    </p>
+                </div>
+
+                <div class="space-y-4 text-xs sm:text-sm">
+                    <div class="flex items-start gap-4">
+                        <span class="text-iron-accent text-base mt-0.5"><i class="fa-solid fa-location-dot"></i></span>
+                        <div>
+                            <h4 class="font-bold text-white uppercase tracking-wider mb-1">Gym Premise Address</h4>
+                            <p class="text-iron-gray">S. No. 50/11, Kanaskar Bldg Mahadeonagar, Old Mundhwa Rd, near Bollywood Cinema, Wadgaon Sheri, Pune, Maharashtra 411014</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <span class="text-iron-accent text-base"><i class="fa-solid fa-phone"></i></span>
+                        <div>
+                            <h4 class="font-bold text-white uppercase tracking-wider mb-0.5">Front Desk Mobile</h4>
+                            <a href="tel:+919689048613" class="text-iron-gray hover:text-iron-accent transition-colors">+91 96890 48613</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <span class="text-iron-accent text-base"><i class="fa-brands fa-instagram"></i></span>
+                        <div>
+                            <h4 class="font-bold text-white uppercase tracking-wider mb-1">Instagram Network</h4>
+                            <a href="https://www.instagram.com/the_iron_gym______/" target="_blank" rel="noopener" class="text-iron-gray hover:text-iron-accent transition-colors">@the_iron_gym______</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-6 border-t border-white/5 flex gap-3">
+                    <a href="https://wa.me/919689048613" target="_blank" rel="noopener" class="inline-flex items-center gap-3 bg-[#25D366] text-black font-black text-xs tracking-widest px-6 py-4 rounded-xl hover:shadow-[0_0_25px_rgba(37,211,102,0.3)] transition-all">
+                        <i class="fa-brands fa-whatsapp text-base"></i> DISCUSS ON WHATSAPP
+                    </a>
+                </div>
+            </div>
+
+            <!-- Lead Form & Maps Column -->
+            <div class="lg:col-span-7 space-y-6 w-full">
+                <div class="bg-iron-dark border border-white/10 p-8 rounded-3xl space-y-6 shadow-2xl">
+                    <h3 class="font-display font-bold text-lg uppercase text-white tracking-wide">Secure An Appointment Pass</h3>
+                    <form class="space-y-4" onsubmit="event.preventDefault(); alert('Pass Requested! The Iron Gym administration team will reach out via call/WhatsApp within 2 hours.'); this.reset();">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <input type="text" placeholder="YOUR FULL NAME" required class="w-full bg-iron-surface/40 border border-white/10 rounded-xl px-4 py-4 text-xs text-white placeholder-iron-gray focus:outline-none focus:border-iron-accent transition-colors">
+                            <input type="tel" placeholder="MOBILE NUMBER" required class="w-full bg-iron-surface/40 border border-white/10 rounded-xl px-4 py-4 text-xs text-white placeholder-iron-gray focus:outline-none focus:border-iron-accent transition-colors">
+                        </div>
+                        <select required class="w-full bg-iron-surface/40 border border-white/10 rounded-xl px-4 py-4 text-xs text-iron-gray focus:outline-none focus:border-iron-accent transition-colors">
+                            <option value="" class="bg-iron-dark">CHOOSE PREFERRED TRAINING BATCH</option>
+                            <option value="morning" class="bg-iron-dark">Morning Routine Session (6:00 AM - 11:00 AM)</option>
+                            <option value="evening" class="bg-iron-dark">Evening Routine Session (4:00 PM - 10:00 PM)</option>
+                            <option value="women" class="bg-iron-dark">Special Separate Women's Batch</option>
+                        </select>
+                        <button type="submit" class="w-full bg-iron-accent text-white font-black text-xs tracking-widest py-4.5 rounded-xl hover:bg-white hover:text-iron-dark transition-colors shadow-[0_0_20px_rgba(255,62,62,0.2)]">
+                            SUBMIT MEMBERSHIP SLOTS PASS REQUEST
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Google Map Embedded element -->
+                <div class="w-full h-64 rounded-3xl overflow-hidden border border-white/10 relative">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.4332845648877!2d73.9238384!3d18.5544778!2m3!1f0!2f0!3f0!3m2!1i1020!2i768!4f13.1!3m3!1m2!1s0x3bc2c13fa0cd69eb%3A0xcf95a70cc04ef8b4!2sTHE%20IRON%20GYM!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" 
+                        class="w-full h-full border-0 grayscale invert opacity-75 contrast-125" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AGENCY QUALITY PREMIUM FOOTER -->
+    <footer class="bg-iron-dark border-t border-white/5 py-12">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-white text-iron-dark font-display font-black rounded-lg flex items-center justify-center text-xs">I</div>
+                <p class="text-xs font-bold tracking-widest uppercase text-white">THE IRON GYM PUNE © 2026</p>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-6 text-[10px] tracking-widest text-iron-gray font-bold uppercase">
+                <a href="#about" class="hover:text-iron-accent transition-colors">Legacy</a>
+                <a href="#services" class="hover:text-iron-accent transition-colors">Programs</a>
+                <a href="#why-us" class="hover:text-iron-accent transition-colors">Features</a>
+                <a href="#gallery" class="hover:text-iron-accent transition-colors">Gallery</a>
+                <a href="#contact" class="hover:text-iron-accent transition-colors">Location</a>
+            </div>
+
+            <p class="text-[10px] text-iron-gray/40 font-medium">Concept engineered by Top-Tier UI/UX Premium Agency.</p>
+        </div>
+    </footer>
+
+    <!-- VANILLA JAVASCRIPT LOGIC -->
+    <script>
+        // Navbar scroll sizing transition
+        const navbar = document.getElementById('navbar');
+        const navContainer = document.getElementById('nav-container');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                navContainer.classList.replace('h-24', 'h-20');
+                navbar.classList.add('shadow-xl', 'bg-iron-dark/95');
+            } else {
+                navContainer.classList.replace('h-20', 'h-24');
+                navbar.classList.remove('shadow-xl', 'bg-iron-dark/95');
+            }
+        });
+
+        // Mobile Menu Show/Hide toggle
+        const menuOpenBtn = document.getElementById('menu-open-btn');
+        const menuCloseBtn = document.getElementById('menu-close-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+        menuOpenBtn.addEventListener('click', () => mobileMenu.classList.remove('hidden'));
+        menuCloseBtn.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        mobileLinks.forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+        // FAQ interactive slide mechanics
+        const faqBtns = document.querySelectorAll('.faq-btn');
+        faqBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                const icon = btn.querySelector('i');
+                
+                if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                    content.style.maxHeight = '0px';
+                    icon.classList.replace('fa-minus', 'fa-plus');
+                    btn.classList.remove('text-iron-accent');
+                } else {
+                    document.querySelectorAll('.faq-content').forEach(c => c.style.maxHeight = '0px');
+                    document.querySelectorAll('.faq-btn i').forEach(i => i.classList.replace('fa-minus', 'fa-plus'));
+                    document.querySelectorAll('.faq-btn').forEach(b => b.classList.remove('text-iron-accent'));
+
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    icon.classList.replace('fa-plus', 'fa-minus');
+                    btn.classList.add('text-iron-accent');
+                }
+            });
+        });
+
+        // Horizontal scrolling gallery slide commands
+        const galleryContainer = document.getElementById('gallery-container');
+        document.getElementById('slider-next').addEventListener('click', () => {
+            galleryContainer.scrollBy({ left: 320, behavior: 'smooth' });
+        });
+        document.getElementById('slider-prev').addEventListener('click', () => {
+            galleryContainer.scrollBy({ left: -320, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformation Gym & Fitness Club | Elite Fitness Center Varanasi</title>
+    <meta name="description" content="Sculpt the body you deserve at Transformation Gym & Fitness Club, Paharia, Varanasi. Equipped with premium Being Strong machinery, CrossFit, personal training, and steam bath facilities.">
+    
+    <!-- Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- BRAND DESIGN CORE SYSTEM --- */
+        :root {
+            --primary: #FF5722;         /* Transformation Fiery Orange */
+            --primary-glow: rgba(255, 87, 34, 0.35);
+            --bg-dark: #0A0A0C;         /* Premium Matte Black */
+            --bg-card: rgba(20, 20, 25, 0.7);
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --text-white: #FFFFFF;
+            --text-gray: #9CA3AF;
+            --font-heading: 'Cabinet Grotesk', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+            --transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        /* --- GLOBAL RESET --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #252529;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1320px;
+            margin: 0 auto;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .tagline {
+            color: var(--primary);
+            font-size: 0.95rem;
+            letter-spacing: 0.2em;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: clamp(2.2rem, 4vw, 3.8rem);
+            line-height: 1.1;
+        }
+
+        section {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        /* --- STYLISH COMPONENT INTERACTIONS --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px 36px;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--text-white);
+            border: none;
+            box-shadow: 0 4px 20px var(--primary-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 87, 34, 0.55);
+            background: #e64a19;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-white);
+            border: 2px solid var(--border-glass);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            background: rgba(255, 87, 34, 0.05);
+            transform: translateY(-3px);
+        }
+
+        /* --- SCROLL REVEAL ANIMATIONS --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- HEADER NAVIGATION --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 25px 0;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 15px 0;
+            background: rgba(10, 10, 12, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .nav-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-white);
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        .nav-link {
+            color: var(--text-white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary);
+        }
+
+        .menu-toggle {
+            display: none;
+            color: var(--text-white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- HERO SECTION --- */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(180deg, rgba(10,10,12,0.5) 0%, rgba(10,10,12,1) 100%), 
+                        url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+            padding-top: 100px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(3.2rem, 7vw, 6rem);
+            line-height: 0.95;
+            margin-bottom: 25px;
+        }
+
+        .hero-content h1 span {
+            color: transparent;
+            -webkit-text-stroke: 1.5px rgba(255,255,255,0.8);
+        }
+
+        .hero-desc {
+            font-size: 1.25rem;
+            color: var(--text-gray);
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 40px;
+            margin-top: 60px;
+            border-top: 1px solid var(--border-glass);
+            padding-top: 30px;
+        }
+
+        .badge-item h3 {
+            font-size: 2.2rem;
+            color: var(--primary);
+        }
+
+        .badge-item p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* --- ABOUT SECTION --- */
+        .about-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-visual {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .about-visual img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .brand-pill {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            background: rgba(10, 10, 12, 0.9);
+            border: 1px solid var(--primary);
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+        }
+
+        .brand-pill i {
+            color: var(--primary);
+        }
+
+        .about-text p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+        }
+
+        /* --- SERVICES SECTION --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            padding: 45px 35px;
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 35px var(--border-glow);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 87, 34, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* --- WHY CHOOSE US SECTION --- */
+        .why-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .features-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.04);
+            transition: var(--transition);
+        }
+
+        .feature-item:hover {
+            border-color: rgba(255, 87, 34, 0.3);
+            background: rgba(255, 87, 34, 0.02);
+        }
+
+        .feature-item i {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-top: 3px;
+        }
+
+        .feature-item h4 {
+            font-size: 1.25rem;
+            margin-bottom: 6px;
+        }
+
+        .feature-item p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* --- GALLERY SECTION --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        /* --- PRICING SECTION --- */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            padding: 50px 40px;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(255, 87, 34, 0.15);
+            transform: scale(1.03);
+        }
+
+        .popular-tag {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: var(--text-white);
+            padding: 4px 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border-radius: 50px;
+            text-transform: uppercase;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-size: 3.5rem;
+            font-family: var(--font-heading);
+            color: var(--text-white);
+            line-height: 1;
+            margin-bottom: 30px;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--text-gray);
+            font-family: var(--font-body);
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .pricing-card ul li {
+            margin-bottom: 14px;
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .pricing-card ul li i {
+            color: var(--primary);
+        }
+
+        /* --- TESTIMONIALS SECTION --- */
+        .rating-overview {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .rating-score {
+            font-size: 3.2rem;
+            font-family: var(--font-heading);
+            color: var(--primary);
+        }
+
+        .rating-stars i {
+            color: #FFB800;
+            font-size: 1.2rem;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            padding: 40px;
+            border-radius: 16px;
+        }
+
+        .testimonial-card p {
+            color: var(--text-gray);
+            font-style: italic;
+            margin-bottom: 25px;
+            font-size: 1rem;
+        }
+
+        .client-profile {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .client-avatar {
+            width: 45px;
+            height: 45px;
+            background: #252529;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* --- CONTACT & LOCATION MAP --- */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 60px;
+        }
+
+        .info-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+
+        .info-card {
+            display: flex;
+            gap: 20px;
+        }
+
+        .info-card i {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-top: 5px;
+        }
+
+        .info-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 6px;
+        }
+
+        .info-card p, .info-card a {
+            color: var(--text-gray);
+            text-decoration: none;
+        }
+
+        .map-wrapper {
+            height: 100%;
+            min-height: 400px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-glass);
+        }
+
+        /* --- FOOTER SECTION --- */
+        footer {
+            background: #050507;
+            padding: 80px 0 40px 0;
+            border-top: 1px solid var(--border-glass);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 50px;
+        }
+
+        .footer-about p {
+            color: var(--text-gray);
+            margin-top: 20px;
+            max-width: 350px;
+        }
+
+        .footer-links h4 {
+            font-size: 1.15rem;
+            margin-bottom: 20px;
+            color: var(--text-white);
+        }
+
+        .footer-links ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .social-row {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.03);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-base {
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE ADAPTATIONS --- */
+        @media (max-width: 992px) {
+            .menu-toggle {
+                display: block;
+            }
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 75%;
+                max-width: 380px;
+                height: 100vh;
+                background: #0E0E12;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 30px;
+                transition: 0.4s ease-in-out;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+            }
+            .nav-menu.active {
+                right: 0;
+            }
+            .about-layout, .why-layout, .contact-layout {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- --- NAVIGATION HEADER --- -->
+    <header id="site-header">
+        <div class="container nav-flex">
+            <a href="#hero" class="logo">TRANSFORMATION<span>.</span></a>
+            <ul class="nav-menu" id="nav-links">
+                <li><a href="#hero" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#pricing" class="nav-link">Memberships</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="menu-btn">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- --- HERO BLOCK --- -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="tagline">Premium Fitness & Body Transformation</span>
+                <h1>GET THE BODY<br>YOU <span>DESERVE</span></h1>
+                <p class="hero-desc">Varanasi's premier high-performance training facility. Experience elite strength conditioning, dynamic CrossFit setups, and luxury recoveries.</p>
+                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                    <a href="#pricing" class="btn btn-primary">Join Club Now</a>
+                    <a href="#services" class="btn btn-secondary">Explore Amenities</a>
+                </div>
+                <div class="hero-badges">
+                    <div class="badge-item">
+                        <h3>Being Strong</h3>
+                        <p>Official Global Line Machinery</p>
+                    </div>
+                    <div class="badge-item">
+                        <h3>4.8 Stars</h3>
+                        <p>157+ Google Reviews</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- ABOUT LEGACY --- -->
+    <section id="about">
+        <div class="container">
+            <div class="about-layout">
+                <div class="about-visual reveal">
+                    <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=800&auto=format&fit=crop" alt="Transformation Gym High-end Equipment Floor Layout">
+                    <div class="brand-pill">
+                        <i class="fa-solid fa-shield-halved"></i> Elite Performance Standards
+                    </div>
+                </div>
+                <div class="about-text reveal">
+                    <span class="tagline">Who We Are</span>
+                    <h2 class="section-title">Engineered For Powerful Results</h2>
+                    <p>At Transformation Gym and Fitness Club, we break the boundaries of conventional training spaces. Strategically located in Paharia, Sarnath, our mission is to offer unmatched training structures backed by high-tier equipment architecture.</p>
+                    <p>Under professional floor supervision, our space integrates hard weight training dynamics with luxury lifestyle recoveries to offer an absolute fitness environment.</p>
+                    <a href="#contact" class="btn btn-primary" style="margin-top: 15px;">Connect with Owner Rakesh</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- SERVICES MAPPED --- -->
+    <section id="services" style="background: rgba(255,255,255,0.01);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="tagline">What We Feature</span>
+                <h2 class="section-title">Comprehensive Amenities</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="service-icon"><i class="fa-solid fa-dumbbell"></i></div>
+                    <h3>Elite Weight Floor</h3>
+                    <p>Fully layout configured with premium Salman Khan Being Strong world-class structural lifting heavy machinery.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <h3>Dynamic CrossFit</h3>
+                    <p>High intensity functional modular tracking circuits, battle ropes, and explosive metric setups.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <h3>Cardio Conditioning</h3>
+                    <p>Advanced digital monitoring tracks and multi speed commercial grade running treadmills.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon"><i class="fa-solid fa-temperature-three-quarters"></i></div>
+                    <h3>Sauna & Steam Bath</h3>
+                    <p>Premium thermal recovery rooms optimized to maximize blood flow and muscle repair post training.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- ADVANTAGES --- -->
+    <section id="why">
+        <div class="container">
+            <div class="why-layout">
+                <div class="why-text reveal">
+                    <span class="tagline">The Club Edge</span>
+                    <h2 class="section-title">Beyond Basic Lifting</h2>
+                    <p style="color: var(--text-gray); margin-bottom: 35px;">We firmly prioritize standard metabolic metrics alongside daily physical workouts to create lasting physical transformations.</p>
+                    <a href="tel:08299224969" class="btn btn-secondary">Speak With Head Coach</a>
+                </div>
+                <div class="features-list reveal">
+                    <div class="feature-item">
+                        <i class="fa-solid fa-notes-medical"></i>
+                        <div>
+                            <h4>Free Structural Health Checks</h4>
+                            <p>Regular ongoing blood metrics tracking including Sugar, Cholesterol, and Hemoglobin values.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fa-solid fa-users-gear"></i>
+                        <div>
+                            <h4>Supportive Team Architecture</h4>
+                            <p>Highly adaptive trainer tracking optimized perfectly for novices up to veteran competitive builders.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- PREMIUM GALLERIES --- -->
+    <section id="gallery" style="background: rgba(255,255,255,0.01);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="tagline">Visual Tour</span>
+                <h2 class="section-title">Inside The Architecture</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item reveal">
+                    <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=600&auto=format&fit=crop" alt="Premium Weight Dumbbells Setup Training Area">
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="https://images.unsplash.com/photo-1605296867304-46d5465a25f1?q=80&w=600&auto=format&fit=crop" alt="Member Training Heavy Rows Machinery Setup">
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=600&auto=format&fit=crop" alt="Crossfit Tactical Setup Racks">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- MEMBERSHIP OPTIONS --- -->
+    <section id="pricing">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="tagline">Investment Plans</span>
+                <h2 class="section-title">Club Membership Tiers</h2>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card reveal">
+                    <h3>Monthly Pass</h3>
+                    <div class="price">₹1,500 <span>/ Month</span></div>
+                    <ul>
+                        <li><i class="fa-solid fa-circle-check"></i> Being Strong Machine Access</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Cardio & CrossFit Sections</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Standard Locker Access</li>
+                    </ul>
+                    <a href="https://wa.me/918299224969" target="_blank" class="btn btn-secondary" style="width: 100%;">Select Tier</a>
+                </div>
+                <div class="pricing-card featured reveal">
+                    <div class="popular-tag">Best Value</div>
+                    <h3>Annual Elite</h3>
+                    <div class="price">₹12,000 <span>/ Year</span></div>
+                    <ul>
+                        <li><i class="fa-solid fa-circle-check"></i> 365 Days Unrestricted Access</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Direct Health Assessment Checks</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Complimentary Steam Bath Passes</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Customized Diet Outlines</li>
+                    </ul>
+                    <a href="https://wa.me/918299224969" target="_blank" class="btn btn-primary" style="width: 100%;">Claim Package</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- CLIENT TESTIMONIALS --- -->
+    <section id="testimonials" style="background: rgba(255,255,255,0.01);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="tagline">Member Experiences</span>
+                <h2 class="section-title">Verified Transformations</h2>
+            </div>
+            <div class="rating-overview reveal">
+                <div class="rating-score">4.8</div>
+                <div>
+                    <div class="rating-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <div style="color: var(--text-gray); font-size: 0.9rem; margin-top: 4px;">Based on 157 Google Reviews</div>
+                </div>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <p>"Undoubtedly the best place to workout in Sarnath area. Owner Rakesh pays attention to each client and the Being Strong machines are fantastic."</p>
+                    <div class="client-profile">
+                        <div class="client-avatar">V</div>
+                        <div>
+                            <h4>Vineet Kumar</h4>
+                            <p>Verified Elite Member</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <p>"The addition of steam facilities and health tracking charts sets them far apart from traditional competitive gyms nearby."</p>
+                    <div class="client-profile">
+                        <div class="client-avatar">A</div>
+                        <div>
+                            <h4>Anjali Singh</h4>
+                            <p>CrossFit Athlete</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- CONTACT PANEL & GEOLOCATION MAP --- -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="tagline">Locate The Center</span>
+                <h2 class="section-title">Start Training Today</h2>
+            </div>
+            <div class="contact-layout">
+                <div class="info-panel reveal">
+                    <div class="info-card">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <h4>Club Address</h4>
+                            <p>Tapovan Aashram, Sa 18/71, Sarang Talab, Kunti Vihar Colony, Paharia, Varanasi, Uttar Pradesh 221002</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <h4>Helpline Phone Desk</h4>
+                            <p><a href="tel:08299224969">082992 24969</a></p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <i class="fa-solid fa-clock"></i>
+                        <div>
+                            <h4>Operational Timings</h4>
+                            <p>Monday – Saturday: Open till 10:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-wrapper reveal">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3605.004457788478!2d83.0238127!3d25.3544577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e21de6251eb39%3A0xe2be5f377ba03332!2sTransformation%20gym%20and%20fitness%20club!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" 
+                            width="100%" height="100%" style="border:0; filter: invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- BASE SITE FOOTER --- -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="#hero" class="logo">TRANSFORMATION<span>.</span></a>
+                    <p>Building strong physical foundations and structural body adjustments through high-tier equipment setups across Varanasi.</p>
+                    <div class="social-row">
+                        <a href="https://instagram.com/transformationgymandfitness" target="_blank" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://facebook.com/transformationgymfitness" target="_blank" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Training Tracks</h4>
+                    <ul>
+                        <li><a href="#about">About Facility</a></li>
+                        <li><a href="#services">Featured Services</a></li>
+                        <li><a href="#pricing">Membership Rates</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support & Trust</h4>
+                    <ul>
+                        <li><a href="#testimonials">Member Reviews</a></li>
+                        <li><a href="#contact">Find Location Map</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-base">
+                <p>&copy; 2026 Transformation Gym & Fitness Club. All Rights Reserved.</p>
+                <p>Designed for Ultimate Performance Focus</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- --- VANILLA INTERACTION JAVASCRIPT --- -->
+    <script>
+        // --- MOBILE NAVBAR TOGGLE ---
+        const menuBtn = document.getElementById('menu-btn');
+        const navLinks = document.getElementById('nav-links');
+        const individualLinks = document.querySelectorAll('.nav-link');
+
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = menuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars-staggered');
+            icon.classList.toggle('fa-xmark');
+        });
+
+        individualLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuBtn.querySelector('i').className = 'fa-solid fa-bars-staggered';
+            });
+        });
+
+        // --- STICKY TRANSPARENT NAVBAR EFFECT ---
+        const header = document.getElementById('site-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // --- SCROLL REVEAL UTILITY ENGINE ---
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const checkReveal = () => {
+            revealElements.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const elementTop = el.getBoundingClientRect().top;
+                const visibilityOffset = 80;
+
+                if (elementTop < windowHeight - visibilityOffset) {
+                    el.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', checkReveal);
+        window.addEventListener('load', checkReveal);
+
+        // --- TRACK DYNAMIC ACTIVE NAVIGATION SPY ---
+        const pageSections = document.querySelectorAll('section');
+        window.addEventListener('scroll', () => {
+            let activeId = '';
+            pageSections.forEach(sec => {
+                const secTop = sec.offsetTop;
+                if (window.pageYOffset >= (secTop - 200)) {
+                    activeId = sec.getAttribute('id');
+                }
+            });
+
+            individualLinks.forEach(l => {
+                l.classList.remove('active');
+                if (l.getAttribute('href').includes(activeId)) {
+                    l.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

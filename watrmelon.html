@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In Watermelon Sugar | Curated Boutique in Hampden, Baltimore</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        melon: {
+                            coral: '#FF6B6B',
+                            pink: '#FFE3E3',
+                            green: '#2A9D8F',
+                            darkGreen: '#1D3557',
+                            sand: '#FDFBF7',
+                            dark: '#1C1917',
+                            gold: '#E9C46A'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..800;1,400..800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .glass-nav {
+            background: rgba(253, 251, 247, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #FF6B6B 0%, #2A9D8F 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-melon-sand text-melon-dark font-sans antialiased overflow-x-hidden">
+
+    <!-- Top Announcement Strip -->
+    <div class="bg-melon-darkGreen text-white text-xs py-2.5 px-4 text-center tracking-wider uppercase font-medium">
+        <span class="inline-block mr-2"><i class="fa-solid fa-location-dot text-melon-coral"></i></span>
+        Visit Us in Hampden: 3555 Chestnut Ave, Baltimore, MD 21211 &bull; Call Us: (410) 662-9090
+    </div>
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="fixed top-[34px] left-0 w-full z-50 transition-all duration-300 glass-nav border-b border-melon-coral/20 shadow-sm" id="main-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Branding / Logo -->
+                <a href="#" class="flex flex-col group">
+                    <span class="text-2xl sm:text-3xl font-serif font-bold tracking-tight text-melon-darkGreen leading-none group-hover:text-melon-coral transition-colors">
+                        In Watermelon Sugar
+                    </span>
+                    <span class="text-[10px] uppercase tracking-[0.25em] font-semibold text-melon-green mt-1">
+                        Boutique & Gifts &bull; Baltimore, MD
+                    </span>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <div class="hidden lg:flex items-center space-x-8 font-semibold text-xs uppercase tracking-widest text-melon-dark">
+                    <a href="#" class="hover:text-melon-coral transition-colors">Home</a>
+                    <a href="#about" class="hover:text-melon-coral transition-colors">About</a>
+                    <a href="#hours" class="hover:text-melon-coral transition-colors">Hours</a>
+                    <a href="#collections" class="hover:text-melon-coral transition-colors">Store</a>
+                    <a href="#events" class="hover:text-melon-coral transition-colors">Events</a>
+                    <a href="#contact" class="hover:text-melon-coral transition-colors">Contact</a>
+                </div>
+
+                <!-- Call Action CTA -->
+                <div class="hidden sm:flex items-center space-x-4">
+                    <a href="tel:4166629090" class="bg-melon-coral hover:bg-melon-coral/90 text-white font-bold text-xs uppercase tracking-widest px-5 py-3 rounded-full shadow-md shadow-melon-coral/20 transition-all hover:-translate-y-0.5">
+                        <i class="fa-solid fa-phone mr-2"></i>(410) 662-9090
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden">
+                    <button type="button" id="mobile-menu-btn" class="text-melon-darkGreen focus:outline-none p-2" aria-label="Toggle Navigation Menu">
+                        <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dropout Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-melon-sand/95 border-t border-melon-coral/20 w-full absolute top-[80px] left-0 shadow-2xl">
+            <div class="px-6 pt-4 pb-6 space-y-3 font-semibold text-xs uppercase tracking-widest">
+                <a href="#" class="block py-2 text-melon-coral border-b border-gray-200/50">Home</a>
+                <a href="#about" class="block py-2 text-melon-dark hover:text-melon-coral border-b border-gray-200/50">About Us</a>
+                <a href="#hours" class="block py-2 text-melon-dark hover:text-melon-coral border-b border-gray-200/50">Store Hours</a>
+                <a href="#collections" class="block py-2 text-melon-dark hover:text-melon-coral border-b border-gray-200/50">Store & Collections</a>
+                <a href="#events" class="block py-2 text-melon-dark hover:text-melon-coral border-b border-gray-200/50">Special Events</a>
+                <a href="#contact" class="block py-2 text-melon-dark hover:text-melon-coral border-b border-gray-200/50">Contact Us</a>
+                <div class="pt-2">
+                    <a href="tel:4106629090" class="block text-center py-3 bg-melon-coral text-white font-bold rounded-full">
+                        Call (410) 662-9090
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Showcase Section -->
+    <section class="relative min-h-screen pt-36 pb-20 flex items-center bg-melon-pink/40 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Content Area -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-1.5 rounded-full border border-melon-coral/30 text-xs font-semibold tracking-widest text-melon-darkGreen uppercase mx-auto lg:mx-0">
+                        <i class="fa-solid fa-sparkles text-melon-coral"></i> Hampden's Beloved Gift & Lifestyle Shop
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-melon-darkGreen leading-tight">
+                        Welcome to <span class="text-gradient block mt-1">In Watermelon Sugar</span>
+                    </h1>
+                    <p class="text-base sm:text-lg text-melon-dark/80 max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+                        Step into a vibrant oasis of handpicked gifts, quirky home decor, artisan accessories, unique stationery, and delightful surprises in the heart of Baltimore.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#collections" class="px-8 py-4 bg-melon-coral hover:bg-melon-coral/90 text-white font-semibold text-xs uppercase tracking-widest rounded-full shadow-lg shadow-melon-coral/20 text-center transition-all hover:-translate-y-0.5">
+                            Explore Collections
+                        </a>
+                        <a href="#about" class="px-8 py-4 bg-white hover:bg-melon-pink text-melon-darkGreen font-semibold text-xs uppercase tracking-widest rounded-full border border-melon-coral/30 transition-all text-center">
+                            Our Story
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Visual Image Frame -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <div class="absolute -inset-4 bg-melon-green/20 rounded-3xl blur-2xl transform -rotate-3"></div>
+                        <div class="relative bg-white p-3 rounded-2xl shadow-2xl border border-melon-coral/20">
+                            <img src="https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?auto=format&fit=crop&w=800&q=80" alt="In Watermelon Sugar Boutique Window Display" class="rounded-xl w-full h-[460px] object-cover object-center">
+                            <div class="absolute bottom-6 left-6 right-6 p-4 bg-white/90 backdrop-blur-md rounded-xl border border-melon-coral/20 text-center shadow-lg">
+                                <p class="text-xs uppercase tracking-widest text-melon-coral font-bold">Chestnut Avenue Flagship</p>
+                                <p class="text-sm font-serif font-semibold text-melon-darkGreen mt-0.5">3555 Chestnut Ave, Baltimore, MD 21211</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Store Highlights Bar -->
+    <section class="py-12 bg-white border-y border-melon-coral/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="space-y-2 p-4 rounded-xl bg-melon-pink/20 border border-melon-coral/10">
+                    <i class="fa-solid fa-gift text-2xl text-melon-coral"></i>
+                    <h3 class="font-serif font-bold text-melon-darkGreen text-sm">Curated Gifts</h3>
+                    <p class="text-xs text-melon-dark/70 font-light">Hand-selected items for every occasion and personality.</p>
+                </div>
+                <div class="space-y-2 p-4 rounded-xl bg-melon-pink/20 border border-melon-coral/10">
+                    <i class="fa-solid fa-house-chimney-window text-2xl text-melon-green"></i>
+                    <h3 class="font-serif font-bold text-melon-darkGreen text-sm">Unique Home Decor</h3>
+                    <p class="text-xs text-melon-dark/70 font-light">Whimsical and cozy accents to brighten any living space.</p>
+                </div>
+                <div class="space-y-2 p-4 rounded-xl bg-melon-pink/20 border border-melon-coral/10">
+                    <i class="fa-solid fa-gem text-2xl text-melon-coral"></i>
+                    <h3 class="font-serif font-bold text-melon-darkGreen text-sm">Artisan Jewelry</h3>
+                    <p class="text-xs text-melon-dark/70 font-light">Crafted accessories from independent artists and makers.</p>
+                </div>
+                <div class="space-y-2 p-4 rounded-xl bg-melon-pink/20 border border-melon-coral/10">
+                    <i class="fa-solid fa-heart text-2xl text-melon-green"></i>
+                    <h3 class="font-serif font-bold text-melon-darkGreen text-sm">Local Hampden Vibe</h3>
+                    <p class="text-xs text-melon-dark/70 font-light">Proudly serving Baltimore's creative community for years.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-melon-sand">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 relative">
+                    <div class="relative bg-white p-4 rounded-3xl border border-melon-coral/20 shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80" alt="Inside In Watermelon Sugar Shop" class="rounded-2xl w-full h-[400px] object-cover">
+                        <div class="absolute -bottom-6 -right-6 bg-melon-darkGreen text-white p-6 rounded-2xl max-w-xs shadow-xl hidden sm:block">
+                            <p class="font-serif italic text-sm text-melon-pink">"A store where every corner holds a delightful discovery."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-xs font-bold tracking-widest text-melon-coral uppercase px-3 py-1 bg-melon-pink rounded-full">About Our Shop</span>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-melon-darkGreen">
+                        A Whimsical Haven in the Heart of Hampden
+                    </h2>
+                    <p class="text-melon-dark/80 font-light leading-relaxed text-sm sm:text-base">
+                        Located at 3555 Chestnut Avenue in Baltimore, MD, <strong>In Watermelon Sugar</strong> is more than just a boutique—it is a celebration of creativity, joy, and thoughtful gifting. Inspired by poetry and artistic wonder, our shop brings together an eclectic mix of home accessories, paper goods, jewelry, candles, and seasonal delights.
+                    </p>
+                    <p class="text-melon-dark/80 font-light leading-relaxed text-sm sm:text-base">
+                        Whether you are hunting for the perfect birthday present, a housewarming token, or simply treating yourself to something special, our welcoming atmosphere and friendly staff are always here to make your visit unforgettable.
+                    </p>
+                    <div class="pt-2">
+                        <a href="#hours" class="inline-flex items-center gap-2 text-xs font-bold text-melon-darkGreen uppercase tracking-widest hover:text-melon-coral transition-colors">
+                            Check Store Hours & Location <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Store & Collections Showcase Grid -->
+    <section id="collections" class="py-20 bg-white border-t border-melon-coral/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto space-y-3 mb-16">
+                <span class="text-xs uppercase tracking-widest text-melon-coral font-bold px-3 py-1 bg-melon-pink rounded-full">What You'll Find</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold tracking-tight text-melon-darkGreen">Our Store Collections</h2>
+                <p class="text-melon-dark/70 text-sm font-light">Explore a taste of what awaits you when you visit our Hampden storefront.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Collection 1 -->
+                <div class="bg-melon-sand/50 rounded-2xl overflow-hidden border border-melon-coral/20 shadow-sm hover:shadow-xl transition-all group">
+                    <div class="relative overflow-hidden aspect-[4/3]">
+                        <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=600&q=80" alt="Home Decor Collection" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 space-y-2">
+                        <h3 class="font-serif font-bold text-melon-darkGreen text-lg">Home & Living</h3>
+                        <p class="text-xs text-melon-dark/70 font-light leading-relaxed">Artisan ceramics, vibrant textiles, whimsical planters, candles, and decorative pieces that make home feel like home.</p>
+                    </div>
+                </div>
+
+                <!-- Collection 2 -->
+                <div class="bg-melon-sand/50 rounded-2xl overflow-hidden border border-melon-coral/20 shadow-sm hover:shadow-xl transition-all group">
+                    <div class="relative overflow-hidden aspect-[4/3]">
+                        <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80" alt="Jewelry Collection" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 space-y-2">
+                        <h3 class="font-serif font-bold text-melon-darkGreen text-lg">Jewelry & Accessories</h3>
+                        <p class="text-xs text-melon-dark/70 font-light leading-relaxed">Handcrafted earrings, delicate necklaces, tote bags, scarves, and distinctive wearable art from independent designers.</p>
+                    </div>
+                </div>
+
+                <!-- Collection 3 -->
+                <div class="bg-melon-sand/50 rounded-2xl overflow-hidden border border-melon-coral/20 shadow-sm hover:shadow-xl transition-all group">
+                    <div class="relative overflow-hidden aspect-[4/3]">
+                        <img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=600&q=80" alt="Stationery Collection" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 space-y-2">
+                        <h3 class="font-serif font-bold text-melon-darkGreen text-lg">Stationery & Cards</h3>
+                        <p class="text-xs text-melon-dark/70 font-light leading-relaxed">Clever greeting cards, beautiful notebooks, art prints, wrapping papers, and thoughtful paper goods for every milestone.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Store Hours & Location Section -->
+    <section id="hours" class="py-20 bg-melon-pink/30 border-y border-melon-coral/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-xs font-bold tracking-widest text-melon-coral uppercase px-3 py-1 bg-white rounded-full border border-melon-coral/20">Plan Your Visit</span>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-melon-darkGreen">
+                        Store Hours & Location
+                    </h2>
+                    <p class="text-melon-dark/80 font-light text-sm sm:text-base leading-relaxed">
+                        We are located in the vibrant neighborhood of Hampden in Baltimore. Drop in to browse our newest inventory or give us a call to check item availability!
+                    </p>
+
+                    <div class="bg-white p-6 rounded-2xl border border-melon-coral/20 space-y-4 shadow-sm">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-melon-pink text-melon-coral flex items-center justify-center shrink-0 mt-1">
+                                <i class="fa-solid fa-clock text-lg"></i>
+                            </div>
+                            <div class="space-y-1">
+                                <h4 class="font-serif font-bold text-melon-darkGreen text-sm">Regular Shopping Hours</h4>
+                                <ul class="text-xs text-melon-dark/80 space-y-1 font-light">
+                                    <li class="flex justify-between gap-8"><span class="font-semibold">Tuesday – Saturday:</span> <span>11:00 AM – 6:00 PM</span></li>
+                                    <li class="flex justify-between gap-8"><span class="font-semibold">Sunday:</span> <span>12:00 PM – 5:00 PM</span></li>
+                                    <li class="flex justify-between gap-8 text-melon-coral"><span class="font-semibold">Monday:</span> <span>Closed</span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-gray-100 pt-4 flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-melon-pink text-melon-green flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-location-dot text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif font-bold text-melon-darkGreen text-sm">Our Address</h4>
+                                <p class="text-xs text-melon-dark/80 font-light">3555 Chestnut Ave, Baltimore, MD 21211</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Map Frame / Visual -->
+                <div class="lg:col-span-6 relative">
+                    <div class="bg-white p-4 rounded-3xl border border-melon-coral/20 shadow-xl space-y-4">
+                        <div class="aspect-video w-full rounded-2xl overflow-hidden relative bg-gray-100">
+                            <iframe 
+                                class="w-full h-full border-0" 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3086.538166567954!2d-76.63259832349141!3d39.33202932115166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c804f323a63583%3A0x2db489e81f5c3bd!2s3555%20Chestnut%20Ave%2C%20Baltimore%2C%20MD%2021211!5e0!32m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                        <div class="flex justify-between items-center px-2">
+                            <span class="text-xs font-semibold text-melon-darkGreen"><i class="fa-solid fa-compass text-melon-coral mr-1"></i> Located in Hampden</span>
+                            <a href="https://maps.google.com/?q=3555+Chestnut+Ave+Baltimore+MD+21211" target="_blank" class="text-xs font-bold text-melon-coral hover:underline">Get Directions &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Events & Community Section -->
+    <section id="events" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto space-y-3 mb-16">
+                <span class="text-xs uppercase tracking-widest text-melon-coral font-bold px-3 py-1 bg-melon-pink rounded-full">Community & Happenings</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold tracking-tight text-melon-darkGreen">Store Events & Celebrations</h2>
+                <p class="text-melon-dark/70 text-sm font-light">From Hampden neighborhood festivals to seasonal shop pop-ups, we love celebrating with you.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-melon-sand p-8 rounded-2xl border border-melon-coral/20 space-y-4">
+                    <div class="flex items-center gap-3 text-melon-coral font-bold text-xs uppercase tracking-wider">
+                        <i class="fa-solid fa-calendar-day"></i> Seasonal Neighborhood Festivities
+                    </div>
+                    <h3 class="font-serif font-bold text-xl text-melon-darkGreen">HonFest & Hampden Holiday Fest</h3>
+                    <p class="text-xs text-melon-dark/80 font-light leading-relaxed">
+                        Join us during Baltimore's signature street festivals! Stop by Chestnut Avenue for exclusive store specials, outdoor window displays, and festive community fun.
+                    </p>
+                </div>
+
+                <div class="bg-melon-sand p-8 rounded-2xl border border-melon-coral/20 space-y-4">
+                    <div class="flex items-center gap-3 text-melon-green font-bold text-xs uppercase tracking-wider">
+                        <i class="fa-solid fa-ribbon"></i> Artist Pop-ups & Trunk Shows
+                    </div>
+                    <h3 class="font-serif font-bold text-xl text-melon-darkGreen">Local Maker Spotlights</h3>
+                    <p class="text-xs text-melon-dark/80 font-light leading-relaxed">
+                        We regularly feature local Baltimore artists, jewelry designers, and craftspeople. Follow us on social media or visit the store to meet our featured creators!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-melon-sand border-t border-melon-coral/20">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6">
+            <div class="text-center space-y-3 mb-12">
+                <h2 class="text-3xl font-serif font-bold tracking-tight text-melon-darkGreen">Frequently Asked Questions</h2>
+                <p class="text-melon-dark/70 text-sm font-light">Quick details about our boutique and visit planning.</p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="bg-white rounded-xl border border-melon-coral/20 overflow-hidden shadow-sm">
+                    <button class="w-full text-left px-6 py-4 font-serif font-bold text-melon-darkGreen flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="text-sm sm:text-base">Where is street parking available near Chestnut Ave?</span>
+                        <i class="fa-solid fa-chevron-down text-melon-coral text-xs transition-transform duration-200"></i>
+                    </button>
+                    <div class="hidden px-6 pb-5 text-xs sm:text-sm text-melon-dark/80 font-light leading-relaxed border-t border-gray-100 pt-3">
+                        Street parking is available along Chestnut Avenue and nearby 36th Street ("The Avenue"). There are also public parking lots within short walking distance in Hampden.
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl border border-melon-coral/20 overflow-hidden shadow-sm">
+                    <button class="w-full text-left px-6 py-4 font-serif font-bold text-melon-darkGreen flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="text-sm sm:text-base">Do you offer gift wrapping in-store?</span>
+                        <i class="fa-solid fa-chevron-down text-melon-coral text-xs transition-transform duration-200"></i>
+                    </button>
+                    <div class="hidden px-6 pb-5 text-xs sm:text-sm text-melon-dark/80 font-light leading-relaxed border-t border-gray-100 pt-3">
+                        Yes! We love making gifts look extra special. Ask our team during checkout and we'll gladly assist with gift packaging.
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl border border-melon-coral/20 overflow-hidden shadow-sm">
+                    <button class="w-full text-left px-6 py-4 font-serif font-bold text-melon-darkGreen flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="text-sm sm:text-base">Can I call ahead to hold or inquire about specific items?</span>
+                        <i class="fa-solid fa-chevron-down text-melon-coral text-xs transition-transform duration-200"></i>
+                    </button>
+                    <div class="hidden px-6 pb-5 text-xs sm:text-sm text-melon-dark/80 font-light leading-relaxed border-t border-gray-100 pt-3">
+                        Absolutely. Please call us directly at (410) 662-9090 during store hours and our team will be happy to assist you.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Touchpoint Section -->
+    <section id="contact" class="py-20 bg-melon-darkGreen text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs font-bold tracking-widest text-melon-coral uppercase px-3 py-1 bg-white/10 rounded-full border border-white/10">Get In Touch</span>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold">We'd Love to Hear From You</h2>
+                    <p class="text-melon-pink/80 font-light text-sm sm:text-base leading-relaxed">
+                        Have a question about an item, store hours, or an upcoming event? Give us a call or send a message!
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-center gap-4 text-sm">
+                            <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-melon-coral shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-melon-pink/60 uppercase font-bold tracking-wider">Phone</p>
+                                <a href="tel:4106629090" class="font-semibold text-white hover:text-melon-coral transition-colors">(410) 662-9090</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 text-sm">
+                            <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-melon-coral shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-melon-pink/60 uppercase font-bold tracking-wider">Location</p>
+                                <p class="font-semibold text-white">3555 Chestnut Ave, Baltimore, MD 21211</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="lg:col-span-7 bg-white/5 backdrop-blur-md p-8 sm:p-10 rounded-3xl border border-white/10">
+                    <form class="space-y-4" onsubmit="event.preventDefault(); alert('Thank you for contacting In Watermelon Sugar! We will get back to you soon.');">
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div class="space-y-1">
+                                <label class="text-xs font-semibold text-melon-pink uppercase tracking-wider">Your Name</label>
+                                <input type="text" required class="w-full bg-white/10 border border-white/10 rounded-xl px-4 py-3 text-white text-xs focus:outline-none focus:border-melon-coral transition-all" placeholder="Jane Doe">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-xs font-semibold text-melon-pink uppercase tracking-wider">Email Address</label>
+                                <input type="email" required class="w-full bg-white/10 border border-white/10 rounded-xl px-4 py-3 text-white text-xs focus:outline-none focus:border-melon-coral transition-all" placeholder="jane@example.com">
+                            </div>
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-xs font-semibold text-melon-pink uppercase tracking-wider">Subject</label>
+                            <input type="text" class="w-full bg-white/10 border border-white/10 rounded-xl px-4 py-3 text-white text-xs focus:outline-none focus:border-melon-coral transition-all" placeholder="Product inquiry, store hours, etc.">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-xs font-semibold text-melon-pink uppercase tracking-wider">Message</label>
+                            <textarea rows="4" required class="w-full bg-white/10 border border-white/10 rounded-xl px-4 py-3 text-white text-xs focus:outline-none focus:border-melon-coral transition-all" placeholder="How can we help you?"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-4 bg-melon-coral hover:bg-melon-coral/90 text-white font-bold uppercase text-xs tracking-widest rounded-xl transition-all shadow-lg shadow-melon-coral/20">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Modern Footer -->
+    <footer class="bg-melon-dark text-white pt-16 pb-8 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-8 pb-12 border-b border-white/10">
+            
+            <div class="col-span-2 md:col-span-1 space-y-4">
+                <span class="text-2xl font-serif font-bold text-white tracking-tight">In Watermelon Sugar</span>
+                <p class="text-xs text-white/70 font-light leading-relaxed">
+                    A boutique gift shop nestled in Hampden, Baltimore. Celebrating handmade goods, cozy home accents, and artistic gifts since day one.
+                </p>
+                <div class="flex space-x-3 text-white/80 pt-2">
+                    <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-melon-coral hover:text-white transition-all"><i class="fa-brands fa-facebook-f text-xs"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-melon-coral hover:text-white transition-all"><i class="fa-brands fa-instagram text-xs"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-melon-coral hover:text-white transition-all"><i class="fa-solid fa-envelope text-xs"></i></a>
+                </div>
+            </div>
+
+            <div class="space-y-3">
+                <h4 class="text-xs uppercase font-bold tracking-widest text-melon-coral">Navigation</h4>
+                <ul class="space-y-2 text-xs font-light text-white/80">
+                    <li><a href="#about" class="hover:text-white transition-colors">About Our Shop</a></li>
+                    <li><a href="#hours" class="hover:text-white transition-colors">Store Hours & Map</a></li>
+                    <li><a href="#collections" class="hover:text-white transition-colors">Featured Collections</a></li>
+                    <li><a href="#events" class="hover:text-white transition-colors">Events & Festivals</a></li>
+                </ul>
+            </div>
+
+            <div class="space-y-3">
+                <h4 class="text-xs uppercase font-bold tracking-widest text-melon-coral">Boutique Spotlights</h4>
+                <ul class="space-y-2 text-xs font-light text-white/80">
+                    <li><a href="#collections" class="hover:text-white transition-colors">Home & Living</a></li>
+                    <li><a href="#collections" class="hover:text-white transition-colors">Jewelry & Accessories</a></li>
+                    <li><a href="#collections" class="hover:text-white transition-colors">Stationery & Cards</a></li>
+                    <li><a href="#collections" class="hover:text-white transition-colors">Artisan Gifts</a></li>
+                </ul>
+            </div>
+
+            <div class="space-y-3">
+                <h4 class="text-xs uppercase font-bold tracking-widest text-melon-coral">Visit Us</h4>
+                <ul class="space-y-2 text-xs font-light text-white/80">
+                    <li>3555 Chestnut Ave</li>
+                    <li>Baltimore, MD 21211</li>
+                    <li>Phone: (410) 662-9090</li>
+                    <li><a href="#contact" class="hover:text-white transition-colors">Send a Message</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 flex flex-col sm:flex-row justify-between items-center text-[11px] text-white/50 font-light gap-4">
+            <p>&copy; 2026 In Watermelon Sugar. All Rights Reserved.</p>
+            <p>Designed by Leah C. Michaels &bull; Hampden, Baltimore</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Interactivity -->
+    <script>
+        // Mobile Menu Navigation Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.className = "fa-solid fa-bars text-2xl";
+            } else {
+                menuIcon.className = "fa-solid fa-xmark text-2xl";
+            }
+        });
+
+        // Close Mobile Menu on Click
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.className = "fa-solid fa-bars text-2xl";
+            });
+        });
+
+        // FAQ Collapse Toggle
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('i');
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+    </script>
+</body>
+</html>

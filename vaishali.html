@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaishali Restaurant | Iconic Gastronomy & Pune's Legendary Culture Hub</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        vaishali: {
+                            bg: '#050706',
+                            surface: '#0E1310',
+                            card: '#161F1A',
+                            brand: '#1A5F3E',
+                            accent: '#29AD6F',
+                            gold: '#C9A054',
+                            cream: '#F3F6F4',
+                            muted: '#6C7E75'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .editorial-mask {
+            background: linear-gradient(to bottom, rgba(5,7,6,0) 0%, rgba(5,7,6,0.8) 80%, rgba(5,7,6,1) 100%);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-vaishali-bg text-vaishali-cream font-sans antialiased overflow-x-hidden">
+
+    <!-- STICKY NAVIGATION -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-vaishali-bg/60 backdrop-blur-2xl border-b border-white/[0.03] transition-all duration-500" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 h-24 flex items-center justify-between transition-all duration-300" id="nav-container">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="flex flex-col">
+                    <span class="font-display font-bold text-2xl lg:text-3xl tracking-wide text-white group-hover:text-vaishali-accent transition-colors">Vaishali</span>
+                    <span class="text-[9px] tracking-[0.4em] text-vaishali-gold font-bold uppercase mt-0.5">FC Road, Pune</span>
+                </div>
+            </a>
+            
+            <div class="hidden md:flex items-center gap-8 font-medium text-xs tracking-widest text-vaishali-muted">
+                <a href="#about" class="hover:text-white transition-colors uppercase">The Restaurant</a>
+                <a href="#services" class="hover:text-white transition-colors uppercase">Facilities</a>
+                <a href="#cuisines" class="hover:text-white transition-colors uppercase">Cuisines</a>
+                <a href="#testimonials" class="hover:text-white transition-colors uppercase">Testimonials</a>
+                <a href="#news" class="hover:text-white transition-colors uppercase">In The News</a>
+                <a href="#contact" class="hover:text-white transition-colors uppercase">Contact</a>
+            </div>
+
+            <div class="hidden lg:flex items-center">
+                <a href="#contact" class="border border-vaishali-accent/40 text-vaishali-accent hover:bg-vaishali-accent hover:text-vaishali-bg text-xs font-bold tracking-widest px-6 py-3.5 transition-all duration-300">
+                    VIEW DIRECTIONS
+                </a>
+            </div>
+
+            <!-- Mobile Menu Switcher -->
+            <button class="md:hidden text-white hover:text-vaishali-accent transition-colors" id="menu-open-btn" aria-label="Open Menu">
+                <i class="fa-solid fa-bars-staggered text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="hidden fixed inset-0 bg-vaishali-bg/98 z-50 flex flex-col p-8 justify-between" id="mobile-menu">
+            <div class="flex items-center justify-between">
+                <div class="flex flex-col">
+                    <span class="font-display font-bold text-2xl text-white">Vaishali</span>
+                    <span class="text-[9px] tracking-[0.3em] text-vaishali-gold font-bold uppercase">Legendary Heritage</span>
+                </div>
+                <button class="text-white hover:text-vaishali-accent transition-colors" id="menu-close-btn" aria-label="Close Menu">
+                    <i class="fa-solid fa-xmark text-2xl"></i>
+                </button>
+            </div>
+
+            <div class="flex flex-col gap-6 text-2xl font-display tracking-wide">
+                <a href="#about" class="mobile-nav-link hover:text-vaishali-accent transition-colors">The Restaurant</a>
+                <a href="#services" class="mobile-nav-link hover:text-vaishali-accent transition-colors">Facilities & Services</a>
+                <a href="#cuisines" class="mobile-nav-link hover:text-vaishali-accent transition-colors">Cuisines</a>
+                <a href="#testimonials" class="mobile-nav-link hover:text-vaishali-accent transition-colors">Testimonials</a>
+                <a href="#news" class="mobile-nav-link hover:text-vaishali-accent transition-colors">In The News</a>
+                <a href="#contact" class="mobile-nav-link hover:text-vaishali-accent transition-colors">Contact Us</a>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <a href="mailto:info@vaishalihotel.in" class="text-center font-bold tracking-widest text-white border border-white/10 py-4 flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-envelope text-vaishali-accent"></i> EMAIL INQUIRY
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CINEMATIC IMMERSIVE HERO SECTION -->
+    <section class="relative min-h-screen flex items-center pt-24 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&q=80&w=1920" class="w-full h-full object-cover opacity-30 object-center select-none" alt="Vaishali Culinary Atmosphere Spices">
+            <div class="absolute inset-0 editorial-mask"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-vaishali-bg via-transparent to-vaishali-bg/20"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 w-full pt-16 pb-24 space-y-8 text-center lg:text-left">
+            <div class="inline-flex items-center gap-3 bg-white/[0.02] border border-white/10 px-4 py-2 rounded-none backdrop-blur-md">
+                <span class="w-1.5 h-1.5 rounded-full bg-vaishali-accent animate-pulse"></span>
+                <span class="text-xs font-bold tracking-widest text-vaishali-accent uppercase tracking-wider">Pune's Most Celebrated Hangout & Cultural Landmark</span>
+            </div>
+            
+            <div class="max-w-4xl space-y-6">
+                <h1 class="font-display text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight text-white leading-[1.1]">
+                    Where Generations Meet <br><span class="italic text-vaishali-gold font-normal">On Fergusson College Road</span>
+                </h1>
+                
+                <p class="text-base sm:text-lg text-vaishali-muted max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                    A vibrant hotspot beloved by Pune's student community, iconic public figures, and culinary enthusiasts alike. Experience custom culinary perfection in an atmosphere that defines the spirit of the city.
+                </p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                <a href="#contact" class="w-full sm:w-auto text-center bg-vaishali-brand text-white font-bold tracking-widest px-8 py-5 transition-all duration-300 hover:bg-vaishali-accent shadow-[0_0_30px_rgba(26,95,62,0.3)]">
+                    VIEW LOCATION DESK <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                </a>
+                <a href="#cuisines" class="w-full sm:w-auto text-center bg-white/[0.03] border border-white/10 text-white font-bold tracking-widest px-8 py-5 hover:bg-white/[0.08] transition-all">
+                    EXPLORE SPECIALS
+                </a>
+            </div>
+
+            <div class="grid grid-cols-3 gap-6 pt-12 border-t border-white/5 max-w-lg mx-auto lg:mx-0">
+                <div>
+                    <div class="font-display text-2xl sm:text-3xl font-bold text-white">Youthful</div>
+                    <div class="text-[10px] tracking-wider text-vaishali-muted uppercase mt-1">Ambience Environment</div>
+                </div>
+                <div>
+                    <div class="font-display text-2xl sm:text-3xl font-bold text-white">Blended</div>
+                    <div class="text-[10px] tracking-wider text-vaishali-muted uppercase mt-1">Signature Masalas</div>
+                </div>
+                <div>
+                    <div class="font-display text-2xl sm:text-3xl font-bold text-white">Dual Layout</div>
+                    <div class="text-[10px] tracking-wider text-vaishali-muted uppercase mt-1">Indoor & Open-Air</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE RESTAURANT ABOUT SECTOR -->
+    <section id="about" class="py-24 lg:py-36 bg-vaishali-surface/40 relative">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-xs font-bold tracking-widest text-vaishali-accent uppercase block">THE CULINARY ANCHOR</span>
+                    <h2 class="font-display text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
+                        The Chosen Social Core of the Student Community
+                    </h2>
+                    <p class="text-vaishali-muted text-sm sm:text-base leading-relaxed">
+                        Vaishali stands universally recognized as one of the absolute most popular restaurant spots among the student community of Pune. Situated dynamically on the historic Fergusson College Road, it draws a vibrant college crowd daily with an energy that sets a benchmark for local social spots.
+                    </p>
+                    <p class="text-vaishali-muted text-sm sm:text-base leading-relaxed">
+                        When you walk through our doors, you may just spot some of the most famous names across Pune or even India. It serves as the definitive, chosen meeting place of the city—bringing everyone right from active local students to the region's best-known professionals together.
+                    </p>
+                    
+                    <div class="pt-6 border-t border-white/5 grid grid-cols-2 gap-6">
+                        <div class="space-y-1">
+                            <span class="text-white font-bold text-sm block">Timeless Hub</span>
+                            <span class="text-xs text-vaishali-muted">A comfortable landscape balancing average price factors with immense youthful lifestyle parameters.</span>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="text-white font-bold text-sm block">Celebrated Space</span>
+                            <span class="text-xs text-vaishali-muted">A historic meeting destination where iconic leaders, professionals, and students build dialogue.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 grid grid-cols-12 gap-4">
+                    <div class="col-span-7 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=800" class="w-full h-96 object-cover border border-white/5" alt="Vaishali Social Vibe">
+                    </div>
+                    <div class="col-span-5 overflow-hidden pt-12 space-y-4">
+                        <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&q=80&w=600" class="w-full h-48 object-cover border border-white/5" alt="Signature Taste Dish">
+                        <div class="bg-vaishali-card p-6 border border-vaishali-brand/30 space-y-2">
+                            <h4 class="font-display font-bold text-lg text-vaishali-gold">Chef's Corner</h4>
+                            <p class="text-[10px] text-vaishali-muted uppercase tracking-wider leading-relaxed">Crafted carefully using our custom, specially blended masalas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FACILITIES & SERVICES -->
+    <section id="services" class="py-24 lg:py-36">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-3xl mx-auto mb-20 space-y-4">
+                <span class="text-xs font-bold tracking-widest text-vaishali-accent uppercase block">FACILITIES & SERVICES</span>
+                <h2 class="font-display text-3xl sm:text-5xl font-bold tracking-tight text-white">THE DUAL-LAYOUT DYNAMICS</h2>
+                <p class="text-vaishali-muted text-sm sm:text-base font-light">
+                    Beautiful choices engineered around ultimate comfort parameters to deliver pure lifestyle satisfaction.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Facility 1 -->
+                <div class="bg-vaishali-surface border border-white/5 p-8 transition-all duration-300 hover:border-vaishali-accent/20 flex flex-col justify-between group">
+                    <div class="space-y-6">
+                        <div class="w-12 h-12 bg-white/[0.02] border border-white/10 flex items-center justify-center text-vaishali-accent text-lg">
+                            <i class="fa-solid fa-house-user"></i>
+                        </div>
+                        <div class="space-y-2">
+                            <h3 class="font-display font-bold text-xl text-white">Comfortable Indoor Seating</h3>
+                            <p class="text-xs text-vaishali-muted leading-relaxed">
+                                Guests can comfortably choose to sit inside our organized multi-family room zones and smoothly place their culinary order requests.
+                            </p>
+                        </div>
+                    </div>
+                    <span class="text-[10px] tracking-widest text-vaishali-gold font-bold uppercase mt-8 block"><i class="fa-solid fa-circle-check mr-1"></i> Highly Structured</span>
+                </div>
+
+                <!-- Facility 2 -->
+                <div class="bg-vaishali-surface border border-white/5 p-8 transition-all duration-300 hover:border-vaishali-accent/20 flex flex-col justify-between group">
+                    <div class="space-y-6">
+                        <div class="w-12 h-12 bg-white/[0.02] border border-white/10 flex items-center justify-center text-vaishali-accent text-lg">
+                            <i class="fa-solid fa-cloud-sun"></i>
+                        </div>
+                        <div class="space-y-2">
+                            <h3 class="font-display font-bold text-xl text-white">Open-Air Layout Deck</h3>
+                            <p class="text-xs text-vaishali-muted leading-relaxed">
+                                Vaishali offers the unique, sought-after layout facility to sit out under open air parameters while enjoying refreshing city dynamics.
+                            </p>
+                        </div>
+                    </div>
+                    <span class="text-[10px] tracking-widest text-vaishali-gold font-bold uppercase mt-8 block"><i class="fa-solid fa-circle-check mr-1"></i> The Classic Choice</span>
+                </div>
+
+                <!-- Facility 3 -->
+                <div class="bg-vaishali-surface border border-white/5 p-8 transition-all duration-300 hover:border-vaishali-accent/20 flex flex-col justify-between group">
+                    <div class="space-y-6">
+                        <div class="w-12 h-12 bg-white/[0.02] border border-white/10 flex items-center justify-center text-vaishali-accent text-lg">
+                            <i class="fa-solid fa-fire-burner"></i>
+                        </div>
+                        <div class="space-y-2">
+                            <h3 class="font-display font-bold text-xl text-white">High-Demand Evening Rush</h3>
+                            <p class="text-xs text-vaishali-muted leading-relaxed">
+                                It is very difficult to find any vacant place in Vaishali during the hot evening hours due to massive universal cultural demand.
+                            </p>
+                        </div>
+                    </div>
+                    <span class="text-[10px] tracking-widest text-vaishali-gold font-bold uppercase mt-8 block"><i class="fa-solid fa-circle-check mr-1"></i> Hot Evening Hub</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CUISINES SECTION -->
+    <section id="cuisines" class="py-24 lg:py-32 bg-vaishali-surface/10 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="flex flex-col lg:flex-row items-baseline justify-between mb-16 gap-6">
+                <div class="space-y-2">
+                    <span class="text-xs font-bold tracking-widest text-vaishali-accent uppercase block">THE FLAVOR MATRIX</span>
+                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-white uppercase tracking-tight">VAISHALI CUISINES SELECTION</h2>
+                </div>
+                <!-- Interactive Selector Tabs -->
+                <div class="flex flex-wrap gap-3 font-medium text-xs tracking-widest">
+                    <button class="menu-tab-btn px-6 py-3 border border-vaishali-accent bg-vaishali-brand text-white transition-colors" data-category="south">SUPERB SOUTH INDIAN</button>
+                    <button class="menu-tab-btn px-6 py-3 border border-white/10 text-vaishali-muted hover:text-white hover:border-white transition-colors" data-category="diverse">DIVERSE MENUS</button>
+                </div>
+            </div>
+
+            <!-- Menu Grid Box -->
+            <div id="menu-grid" class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 transition-all duration-300">
+                <!-- Elements dynamically managed inside script section below -->
+            </div>
+        </div>
+    </section>
+
+    <!-- THE CROWD SPECIAL / STATISTICS INHERITANCE -->
+    <section class="py-24 lg:py-36 bg-vaishali-surface/20">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                <div class="lg:col-span-7 grid grid-cols-12 gap-4">
+                    <div class="col-span-8 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&q=80&w=800" class="w-full h-80 object-cover border border-white/5" alt="Vaishali Crowd Energy">
+                    </div>
+                    <div class="col-span-4 overflow-hidden pt-12">
+                        <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&q=80&w=600" class="w-full h-64 object-cover border border-white/5" alt="Blended herbs presentation">
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs font-bold tracking-widest text-vaishali-gold uppercase block">VAISHALI SPECIAL</span>
+                    <h2 class="font-display text-4xl font-bold text-white tracking-tight leading-tight">Every Dish is a Vaishali Special Dish</h2>
+                    <p class="text-vaishali-muted text-sm leading-relaxed">
+                        There is a highly calculated, proprietary special taste to the cuisine at Vaishali. Crafted by our specially blended masalas, you will always enjoy the supreme, absolute taste here that has defined decades of Puneri food lineage.
+                    </p>
+                    <p class="text-vaishali-muted text-sm leading-relaxed">
+                        From students looking for comfortable breakout snacks to high-profile professionals gathering during the hot evening hours, our kitchen processes maintain perfect taste parameters day after day.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTOR -->
+    <section id="testimonials" class="py-24 lg:py-36 bg-vaishali-surface/40">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-2">
+                <span class="text-xs font-bold tracking-widest text-vaishali-accent uppercase block">TESTIMONIALS</span>
+                <h2 class="font-display text-3xl sm:text-4xl font-bold text-white uppercase tracking-tight">VOICES OF PUNE'S CHOSEN SPOT</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimony 1 -->
+                <div class="bg-vaishali-bg border border-white/5 p-8 flex flex-col justify-between space-y-8">
+                    <p class="text-xs sm:text-sm text-vaishali-muted leading-relaxed italic">
+                        "Vaishali attracts all the college crowd. The ambiance is youthful and price factor is also average, which is the main reason it has become a hot hang out."
+                    </p>
+                    <div class="flex items-center gap-4 pt-4 border-t border-white/5">
+                        <div class="w-10 h-10 bg-vaishali-brand/20 flex items-center justify-center text-vaishali-accent font-bold text-xs">SC</div>
+                        <div>
+                            <h4 class="text-xs font-bold text-white uppercase tracking-wider">Student Community</h4>
+                            <span class="text-[10px] text-vaishali-muted uppercase">FC Road Regular</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimony 2 -->
+                <div class="bg-vaishali-bg border border-white/5 p-8 flex flex-col justify-between space-y-8">
+                    <p class="text-xs sm:text-sm text-vaishali-muted leading-relaxed italic">
+                        "When you come to Vaishali, you may just spot some of the most famous names in Pune or even India. It is truly the chosen meeting place of the city."
+                    </p>
+                    <div class="flex items-center gap-4 pt-4 border-t border-white/5">
+                        <div class="w-10 h-10 bg-vaishali-brand/20 flex items-center justify-center text-vaishali-accent font-bold text-xs">PL</div>
+                        <div>
+                            <h4 class="text-xs font-bold text-white uppercase tracking-wider">Professional Leader</h4>
+                            <span class="text-[10px] text-vaishali-muted uppercase">City Guild Specialist</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimony 3 -->
+                <div class="bg-vaishali-bg border border-white/5 p-8 flex flex-col justify-between space-y-8">
+                    <p class="text-xs sm:text-sm text-vaishali-muted leading-relaxed italic">
+                        "You can comfortably sit inside or sit in the open air as Vaishali offers both facilities. It is tough to find any vacant place during the hot evening hours, but it is unmatched."
+                    </p>
+                    <div class="flex items-center gap-4 pt-4 border-t border-white/5">
+                        <div class="w-10 h-10 bg-vaishali-brand/20 flex items-center justify-center text-vaishali-accent font-bold text-xs">CC</div>
+                        <div>
+                            <h4 class="text-xs font-bold text-white uppercase tracking-wider">Chef's Corner Fan</h4>
+                            <span class="text-[10px] text-vaishali-muted uppercase">Local Gastronomy Critique</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IN THE NEWS -->
+    <section id="news" class="py-24 lg:py-32 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-2">
+                <span class="text-xs font-bold tracking-widest text-vaishali-gold uppercase block">IN THE NEWS</span>
+                <h2 class="font-display text-3xl sm:text-4xl font-bold text-white uppercase tracking-tight">RECOGNITIONS & JOURNAL COVERAGE</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-vaishali-surface border border-white/5 p-8 space-y-4">
+                    <span class="text-xs font-bold text-vaishali-accent uppercase tracking-widest"><i class="fa-solid fa-feather-pointed mr-1"></i> Press Release</span>
+                    <h3 class="font-display font-bold text-xl text-white">The Sociological Pulse of Puneri Student Circles</h3>
+                    <p class="text-xs text-vaishali-muted leading-relaxed">
+                        Extensively documented across state journals as the ultimate historic hotspot anchoring regional student life and professional networking matrices on FC Road.
+                    </p>
+                </div>
+                <div class="bg-vaishali-surface border border-white/5 p-8 space-y-4">
+                    <span class="text-xs font-bold text-vaishali-accent uppercase tracking-widest"><i class="fa-solid fa-award mr-1"></i> Quality Reviews</span>
+                    <h3 class="font-display font-bold text-xl text-white">Unrivaled Consistency in Blended Spice Architecture</h3>
+                    <p class="text-xs text-vaishali-muted leading-relaxed">
+                        Lauded continuously by food critics for maintaining proprietary blend profiles across decades of high-volume kitchen operations.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT, INFORMATION & FEEDBACK FORMS -->
+    <section id="contact" class="py-24 lg:py-32 bg-vaishali-surface/30 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+            
+            <!-- Contact details column -->
+            <div class="lg:col-span-5 space-y-8">
+                <div class="space-y-4">
+                    <span class="text-xs font-bold tracking-widest text-vaishali-accent uppercase block">CONTACT US</span>
+                    <h2 class="font-display text-3xl sm:text-5xl font-bold text-white tracking-tight">VISIT THE ANCHOR</h2>
+                    <p class="text-vaishali-muted text-xs sm:text-sm leading-relaxed">
+                        Connect with our administrative front desk directly or visit our legendary location on FC Road.
+                    </p>
+                </div>
+
+                <div class="space-y-4 text-xs sm:text-sm">
+                    <div class="flex items-start gap-4">
+                        <span class="text-vaishali-gold text-base mt-0.5"><i class="fa-solid fa-location-dot"></i></span>
+                        <div>
+                            <h4 class="font-bold text-white uppercase tracking-wider mb-1">Restaurant Spot Address</h4>
+                            <p class="text-vaishali-muted">1218/1. Shivaji Nagar, Fergusson College Road, Pune, 411004</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <span class="text-vaishali-gold text-base"><i class="fa-solid fa-phone"></i></span>
+                        <div>
+                            <h4 class="font-bold text-white uppercase tracking-wider mb-0.5">Helpline Calling Desk</h4>
+                            <div class="flex flex-col gap-1 text-vaishali-muted">
+                                <a href="tel:+912029531244" class="hover:text-vaishali-accent transition-colors">+91-20-29531244</a>
+                                <a href="tel:+912015531184" class="hover:text-vaishali-accent transition-colors">+91-20-15531184</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <span class="text-vaishali-gold text-base"><i class="fa-solid fa-envelope"></i></span>
+                        <div>
+                            <h4 class="font-bold text-white uppercase tracking-wider mb-1">Email Networks</h4>
+                            <a href="mailto:info@vaishalihotel.in" class="text-vaishali-muted hover:text-vaishali-accent transition-colors">info@vaishalihotel.in</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-6 border-t border-white/5">
+                    <span class="text-[10px] text-vaishali-muted uppercase font-bold block mb-2 tracking-wider">Hot Evening Notice</span>
+                    <p class="text-xs text-vaishali-gold leading-relaxed">
+                        <i class="fa-solid fa-circle-exclamation"></i> Finding any vacant place in Vaishali during the hot evening hours can be highly competitive. Kindly space your visits early.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Lead Feedback Form complex box -->
+            <div class="lg:col-span-7 space-y-6 w-full">
+                <div class="bg-vaishali-surface border border-white/10 p-8 rounded-none space-y-6 shadow-2xl">
+                    <h3 class="font-display font-bold text-lg uppercase text-white tracking-wide">Share Your Feedback</h3>
+                    <form class="space-y-4" onsubmit="event.preventDefault(); alert('Thank you! Your feedback blueprint has been safely filed into our quality database.'); this.reset();">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <input type="text" placeholder="YOUR FULL NAME" required class="w-full bg-vaishali-bg border border-white/10 rounded-none px-4 py-4 text-xs text-white placeholder-vaishali-muted focus:outline-none focus:border-vaishali-accent transition-colors">
+                            <input type="email" placeholder="EMAIL ADDRESS" required class="w-full bg-vaishali-bg border border-white/10 rounded-none px-4 py-4 text-xs text-white placeholder-vaishali-muted focus:outline-none focus:border-vaishali-accent transition-colors">
+                        </div>
+                        <textarea placeholder="WRITE YOUR FEEDBACK HERE..." rows="4" required class="w-full bg-vaishali-bg border border-white/10 rounded-none px-4 py-4 text-xs text-white placeholder-vaishali-muted focus:outline-none focus:border-vaishali-accent transition-colors"></textarea>
+                        <button type="submit" class="w-full bg-vaishali-brand text-white font-bold text-xs tracking-widest py-4.5 transition-colors hover:bg-vaishali-accent">
+                            SUBMIT SECURE FEEDBACK
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PREMIUM REDESIGNED AGENCY FOOTER -->
+    <footer class="bg-vaishali-bg border-t border-white/5 py-12">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col sm:flex-row justify-between items-center gap-6">
+            <div class="flex flex-col items-center sm:items-start">
+                <span class="font-display font-bold text-xl text-white">Vaishali</span>
+                <p class="text-[10px] tracking-wider text-vaishali-muted uppercase mt-1">VAISHALI PUNE © 2026</p>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-6 text-[10px] tracking-widest text-vaishali-muted font-bold uppercase">
+                <a href="#about" class="hover:text-white transition-colors">The Restaurant</a>
+                <a href="#services" class="hover:text-white transition-colors">Facilities</a>
+                <a href="#cuisines" class="hover:text-white transition-colors">Cuisines</a>
+                <a href="#testimonials" class="hover:text-white transition-colors">Testimonials</a>
+                <a href="#news" class="hover:text-white transition-colors">News</a>
+                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+            </div>
+
+            <p class="text-[10px] text-vaishali-muted/30 font-medium">Redesigned Premium Matrix Concept · 2026 Architecture Suite.</p>
+        </div>
+    </footer>
+
+    <!-- VANILLA JAVASCRIPT LOGIC MATRIX -->
+    <script>
+        // Cuisines Array Config
+        const menuData = {
+            south: [
+                { name: 'Superb South Indian Dosa', desc: 'Crispy golden rice crêpes layered with our legendary, proprietary blended masalas.', price: 'Vaishali Special' },
+                { name: 'Steamed Soft Idli Array', desc: 'Light, cloud-soft steamed savory rice cakes served with hot samber matrices.', price: 'Timeless Classic' },
+                { name: 'Crispy Medu Vada Pair', desc: 'Perfect crunchy deep-fried doughnut formats packed with whole black peppercorns.', price: 'Freshly Prepared' },
+                { name: 'Onion Tomato Uttapam', desc: 'Thick savory rice pancakes embedded with hand-cut field greens and authentic masalas.', price: 'Blended Spices' }
+            ],
+            diverse: [
+                { name: 'Diverse Non-South Indian Menus', desc: 'A custom selection of rich regional standard options prepared to absolute perfection.', price: 'Chef Selection' },
+                { name: 'Traditional Puneri Hot Snacks', desc: 'The iconic breakout snacks structured for student hangout hours on FC road.', price: 'Youth Favorite' },
+                { name: 'House Filter Coffee Deck', desc: 'Timeless aromatic dark brew frothed with steaming dairy sheets for a legendary experience.', price: 'Generational Legacy' }
+            ]
+        };
+
+        // Tab Renderer
+        function renderMenu(category) {
+            const grid = document.getElementById('menu-grid');
+            grid.style.opacity = '0';
+            
+            setTimeout(() => {
+                grid.innerHTML = menuData[category].map(item => `
+                    <div class="flex justify-between items-start gap-6 border-b border-white/5 pb-6">
+                        <div class="space-y-1">
+                            <h4 class="font-display font-bold text-lg text-white">${item.name}</h4>
+                            <p class="text-xs text-vaishali-muted max-w-md leading-relaxed">${item.desc}</p>
+                        </div>
+                        <span class="text-vaishali-gold font-bold text-[10px] uppercase tracking-widest shrink-0 bg-white/[0.01] px-3 py-1 border border-white/5">${item.price}</span>
+                    </div>
+                `).join('');
+                grid.style.opacity = '1';
+            }, 180);
+        }
+
+        // Click Bindings for Cuisines Category Tabs
+        const tabBtns = document.querySelectorAll('.menu-tab-btn');
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabBtns.forEach(b => b.classList.remove('bg-vaishali-brand', 'text-white'));
+                tabBtns.forEach(b => b.classList.add('text-vaishali-muted', 'border-white/10'));
+                
+                btn.classList.add('bg-vaishali-brand', 'text-white');
+                btn.classList.remove('text-vaishali-muted', 'border-white/10');
+                
+                renderMenu(btn.getAttribute('data-category'));
+            });
+        });
+
+        // Initialize default category
+        renderMenu('south');
+
+        // Sizing loops for navbar scrolling
+        const navbar = document.getElementById('navbar');
+        const navContainer = document.getElementById('nav-container');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                navContainer.classList.replace('h-24', 'h-20');
+                navbar.classList.add('shadow-xl', 'bg-vaishali-bg/95');
+            } else {
+                navContainer.classList.replace('h-20', 'h-24');
+                navbar.classList.remove('shadow-xl', 'bg-vaishali-bg/95');
+            }
+        });
+
+        // Toggle rules for mobile screens overlay panel
+        const menuOpenBtn = document.getElementById('menu-open-btn');
+        const menuCloseBtn = document.getElementById('menu-close-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+        menuOpenBtn.addEventListener('click', () => mobileMenu.classList.remove('hidden'));
+        menuCloseBtn.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        mobileLinks.forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+    </script>
+</body>
+</html>

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Broken Spanish | A New Take on Mexican Cuisine</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Google Fonts: Syncopate for bold architectural headers, DM Sans for premium sleek readability -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: #0d1317; /* Deep matte slate hue captured from original design aesthetics */
+            color: #f3f4f6;
+        }
+        .font-display {
+            font-family: 'Syncopate', sans-serif;
+            letter-spacing: -0.03em;
+        }
+        .glass-nav {
+            background: rgba(13, 19, 23, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glass-card {
+            background: rgba(22, 30, 37, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212, 163, 89, 0.2); /* Soft agave gold sheen line overlay */
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.5);
+        }
+        .text-gold {
+            color: #d4a359;
+        }
+        .bg-gold {
+            background-color: #d4a359;
+        }
+        .border-gold {
+            border-color: #d4a359;
+        }
+        .agave-glow {
+            box-shadow: 0 0 50px -10px rgba(212, 163, 89, 0.15);
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden selection:bg-[#d4a359] selection:text-neutral-900">
+
+    <!-- Modern Sticky Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <!-- Architectural Agave Leaf Wordmark -->
+            <a href="#" class="flex flex-col tracking-widest group">
+                <span class="font-display text-lg sm:text-xl font-bold tracking-[0.25em] text-white group-hover:text-[#d4a359] transition-colors">BROKEN</span>
+                <span class="text-[10px] uppercase font-display tracking-[0.45em] text-[#d4a359] -mt-1 font-semibold">SPANISH</span>
+            </a>
+            
+            <!-- Midline Nav links -->
+            <div class="hidden lg:flex items-center gap-10 text-[11px] font-bold tracking-[0.3em] uppercase text-stone-300">
+                <a href="#menu" class="hover:text-[#d4a359] transition-colors">Menu</a>
+                <a href="#about" class="hover:text-[#d4a359] transition-colors">Concept</a>
+                <a href="#services" class="hover:text-[#d4a359] transition-colors">Catering</a>
+                <a href="#contact" class="hover:text-[#d4a359] transition-colors">Contact</a>
+            </div>
+
+            <!-- Header Action Button Row -->
+            <div class="hidden sm:flex items-center gap-6">
+                <a href="#contact" class="text-xs font-bold tracking-widest uppercase border-b border-[#d4a359] text-[#d4a359] pb-1 hover:text-white hover:border-white transition-all">
+                    Find Us
+                </a>
+                <a href="#reserve" class="bg-white text-neutral-900 px-6 py-3.5 text-xs font-bold tracking-[0.2em] uppercase hover:bg-[#d4a359] hover:text-neutral-950 transition-all shadow-xl">
+                    Reserve
+                </a>
+            </div>
+
+            <!-- Responsive Toggle Hamburger -->
+            <button id="drawer-toggle" class="lg:hidden text-white hover:text-[#d4a359] transition-colors focus:outline-none">
+                <i class="fa-solid fa-bars-staggered text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Menu Menu System overlay -->
+        <div id="mobile-drawer" class="hidden lg:hidden absolute top-full left-0 w-full bg-[#0d1317]/98 backdrop-blur-2xl border-b border-white/5 px-6 py-8 flex flex-col gap-6 text-center shadow-2xl">
+            <a href="#menu" class="text-stone-200 font-display text-xs uppercase tracking-widest py-2">Menu</a>
+            <a href="#about" class="text-stone-200 font-display text-xs uppercase tracking-widest py-2">Concept</a>
+            <a href="#services" class="text-stone-200 font-display text-xs uppercase tracking-widest py-2">Catering</a>
+            <a href="#contact" class="text-stone-200 font-display text-xs uppercase tracking-widest py-2">Contact</a>
+            <div class="flex flex-col gap-3 pt-4 border-t border-white/5">
+                <a href="#reserve" class="bg-[#d4a359] text-neutral-950 w-full py-4 text-xs font-bold tracking-[0.2em] uppercase">Book Reservation</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Premium Luxury Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden">
+        <!-- Structural Graphic Background Layers -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1920&q=80" alt="Elevated Mexican Gastronomy Table Setting" class="w-full h-full object-cover opacity-15 scale-105 transform motion-safe:animate-[pulse_15s_infinite]">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0d1317] via-[#0d1317]/70 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-[#0d1317] via-transparent to-[#0d1317]"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-16 items-center py-20">
+            <!-- Narrative Block Left -->
+            <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                <div class="inline-flex items-center gap-3 px-4 py-2 bg-white/5 border border-white/10 text-stone-300 text-xs font-medium tracking-[0.25em] uppercase">
+                    <span class="w-2 h-2 rounded-full bg-[#d4a359]"></span> Now Welcoming Walk-ins & Reservations
+                </div>
+                <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.15] text-white">
+                    A NEW TAKE ON <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-stone-300 to-[#d4a359]">MEXICAN CUISINE.</span>
+                </h1>
+                <p class="text-stone-400 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 font-light leading-relaxed">
+                    We honour the spirit of Mexican flavours without being bound by strict tradition. Reimagining classic dishes with unexpected textures, bold pairings, and premium curated agave spirits.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                    <a href="#reserve" class="w-full sm:w-auto px-8 py-4 bg-[#d4a359] text-neutral-950 font-bold tracking-[0.2em] uppercase text-xs hover:bg-white transition-colors text-center shadow-xl">
+                        Secure Table Reservation
+                    </a>
+                    <a href="#menu" class="w-full sm:w-auto px-8 py-4 border border-white/10 text-white font-bold tracking-[0.2em] uppercase text-xs hover:bg-white/5 transition-colors text-center">
+                        Explore Gourmet Menu
+                    </a>
+                </div>
+            </div>
+
+            <!-- Image Framing Composition Right -->
+            <div class="lg:col-span-5 flex justify-center relative">
+                <!-- Architectural Abstract Agave Circle Frame Overlay -->
+                <div class="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none transform scale-125">
+                    <i class="fa-solid fa-seedling text-[24rem] text-white"></i>
+                </div>
+                <div class="relative w-80 h-80 sm:w-96 sm:h-96 rounded-full overflow-hidden border border-white/10 agave-glow p-4 bg-[#161e25]/30 backdrop-blur-md">
+                    <div class="w-full h-full rounded-full overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1562059390-a761a084768e?auto=format&fit=crop&w=800&q=80" alt="Exquisite Fresh Mexican Tacos Close Up" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Achievements & Data Framework Strip -->
+    <section class="relative z-20 -mt-10 max-w-6xl mx-auto px-6">
+        <div class="glass-card rounded-none p-10 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center border-t-2 border-t-[#d4a359]">
+            <div class="space-y-1">
+                <p class="font-display text-3xl font-bold text-white">100%</p>
+                <p class="text-[10px] uppercase tracking-[0.25em] text-[#d4a359] font-bold">Agave Curated Flights</p>
+            </div>
+            <div class="space-y-1 border-t sm:border-t-0 sm:border-x border-white/5 pt-6 sm:pt-0">
+                <p class="font-display text-3xl font-bold text-white">VIBRANT</p>
+                <p class="text-[10px] uppercase tracking-[0.25em] text-[#d4a359] font-bold">Small Sharing Plates</p>
+            </div>
+            <div class="space-y-1 border-t sm:border-t-0 pt-6 sm:pt-0">
+                <p class="font-display text-3xl font-bold text-white">MODERN</p>
+                <p class="text-[10px] uppercase tracking-[0.25em] text-[#d4a359] font-bold">Street Food Reimagined</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Concept / About Section -->
+    <section id="about" class="py-28 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+        <!-- Visual Presentation Left -->
+        <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+            <div class="space-y-4">
+                <img src="https://images.unsplash.com/photo-1534353436294-0dbd4bdac845?auto=format&fit=crop&w=600&q=80" alt="Premium Agave Tequila Pour" class="w-full h-80 object-cover filter contrast-110">
+                <div class="p-6 bg-[#161e25]/50 border border-white/5 text-center">
+                    <p class="font-display text-xl font-bold text-[#d4a359] mb-1">BAR</p>
+                    <p class="text-xs text-stone-400 font-light">Sip premium bespoke Mezcal flights</p>
+                </div>
+            </div>
+            <div class="space-y-4 pt-12">
+                <div class="p-6 bg-[#161e25]/50 border border-white/5 text-center">
+                    <p class="font-display text-xl font-bold text-white mb-1">FEAST</p>
+                    <p class="text-xs text-stone-400 font-light">Indulge in vibrant small plates designed to share</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1599974579688-8dbdd335c77f?auto=format&fit=crop&w=600&q=80" alt="Chef Preparing Culinary Street Taco" class="w-full h-80 object-cover">
+            </div>
+        </div>
+
+        <!-- Text Block Content Right -->
+        <div class="lg:col-span-6 space-y-6">
+            <div class="text-xs font-bold tracking-[0.3em] uppercase text-[#d4a359] flex items-center gap-2">
+                <span class="w-8 h-[1px] bg-[#d4a359]/50"></span> The Lounge Atmosphere
+            </div>
+            <h2 class="font-display text-3xl sm:text-4xl font-bold text-white leading-tight">
+                LIVELY YET INTIMATE. PERFECT FOR A NIGHT OUT.
+            </h2>
+            <p class="text-stone-400 font-light leading-relaxed text-sm sm:text-base">
+                With a lively yet intimate interior setting, Broken Spanish provides the definitive destination for an inspired night out—whether you're sipping a deliberate mezcal flight at our architectural bar or indulging in a curated shared feast for two.
+            </p>
+            <p class="text-stone-400 font-light leading-relaxed text-sm sm:text-base">
+                Each unique dish is crafted utilizing an elevated approach to traditional Mexican street gastronomy, injecting bold technical pairings and unexpected crunch textures into familiar comfort classics.
+            </p>
+            <div class="pt-4">
+                <a href="#reserve" class="inline-flex items-center gap-3 text-xs font-bold tracking-[0.25em] uppercase text-[#d4a359] hover:text-white transition-colors group">
+                    Plan Your Experience <i class="fa-solid fa-arrow-right text-xs transform group-hover:translate-x-1.5 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services / Catering & Offerings Section -->
+    <section id="services" class="py-24 bg-[#11181e] border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+                <div class="space-y-4 text-center md:text-left">
+                    <div class="text-xs font-bold tracking-[0.3em] uppercase text-[#d4a359]">Curated Offerings</div>
+                    <h2 class="font-display text-3xl font-bold text-white">CATERING & SPECIAL EVENTS</h2>
+                </div>
+                <p class="text-stone-400 font-light max-w-sm text-sm text-center md:text-right">
+                    Bringing our innovative kitchen techniques and premium mezcal dynamics directly to your milestone private milestones.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card Item 1 -->
+                <div class="glass-card p-8 space-y-5 flex flex-col justify-between h-full">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 bg-white/5 flex items-center justify-center text-[#d4a359] text-xl">
+                            <i class="fa-solid fa-martini-glass"></i>
+                        </div>
+                        <h3 class="font-display text-sm font-bold tracking-wider text-white">Agave Mixology Lounges</h3>
+                        <p class="text-stone-400 text-xs sm:text-sm font-light leading-relaxed">
+                            Treat your party guests to structural mezcal and artisanal tequila flight paths guided explicitly by our house master bartenders.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card Item 2 -->
+                <div class="glass-card p-8 space-y-5 flex flex-col justify-between h-full border-t-2 border-t-[#d4a359]/30">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 bg-white/5 flex items-center justify-center text-[#d4a359] text-xl">
+                            <i class="fa-solid fa-pepper-hot"></i>
+                        </div>
+                        <h3 class="font-display text-sm font-bold tracking-wider text-white">Custom Private Dinners</h3>
+                        <p class="text-stone-400 text-xs sm:text-sm font-light leading-relaxed">
+                            Work hand-in-hand alongside our culinary staff to curate deep, multi-course bespoke Mexican street food menus tailored for close friends.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card Item 3 -->
+                <div class="glass-card p-8 space-y-5 flex flex-col justify-between h-full">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 bg-white/5 flex items-center justify-center text-[#d4a359] text-xl">
+                            <i class="fa-solid fa-building-user"></i>
+                        </div>
+                        <h3 class="font-display text-sm font-bold tracking-wider text-white">Corporate Catering</h3>
+                        <p class="text-stone-400 text-xs sm:text-sm font-light leading-relaxed">
+                            Elevate your office gatherings or company milestones with premium loaded modern taco assortments and satisfying gourmet grain bowls.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section Display Framework -->
+    <section id="menu" class="py-28 max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            <!-- Left Side Descriptive Frame -->
+            <div class="lg:col-span-5 space-y-6">
+                <div class="text-xs font-bold tracking-[0.3em] uppercase text-[#d4a359]">Vibrant Harmony</div>
+                <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">OUR GASTRONOMY MENU</h2>
+                <p class="text-stone-400 font-light text-sm sm:text-base leading-relaxed">
+                    Our menu represents a balance of vibrant small plates, loaded modern tacos, and robust mains that marry fresh high-quality ingredients with disruptive preparation techniques.
+                </p>
+                <div class="space-y-3 font-display text-xs font-bold tracking-widest text-stone-200">
+                    <div class="flex items-center gap-3 p-3 bg-white/5 border-l-2 border-l-[#d4a359]"><i class="fa-solid fa-circle-chevron-right text-[#d4a359] text-[10px]"></i> BOTANAS (SMALL PLATES)</div>
+                    <div class="flex items-center gap-3 p-3 bg-white/5"><i class="fa-solid fa-circle-chevron-right text-transparent text-[10px]"></i> TACOS (LOADED WITH FLAVOUR)</div>
+                    <div class="flex items-center gap-3 p-3 bg-white/5"><i class="fa-solid fa-circle-chevron-right text-transparent text-[10px]"></i> BOWLS & PLATES (BIGGER BITE)</div>
+                    <div class="flex items-center gap-3 p-3 bg-white/5"><i class="fa-solid fa-circle-chevron-right text-transparent text-[10px]"></i> POSTRE (SWEET ENDINGS)</div>
+                </div>
+            </div>
+
+            <!-- Right Side Image Framing -->
+            <div class="lg:col-span-7 relative">
+                <div class="gold-border-glow p-4 bg-[#161e25]/30">
+                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1000&q=80" alt="Artful Plating Composition Mexican Culinary" class="w-full h-[28rem] object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-24 bg-[#11181e] border-y border-white/5 relative">
+        <div class="max-w-4xl mx-auto px-6 text-center space-y-8">
+            <div class="text-xs font-bold tracking-[0.3em] uppercase text-[#d4a359]">Guest Review Highlights</div>
+            
+            <div class="space-y-4">
+                <div class="text-[#d4a359] text-3xl"><i class="fa-solid fa-quote-left"></i></div>
+                <blockquote class="font-display text-lg sm:text-2xl font-bold text-white leading-relaxed italic">
+                    "Broken Spanish is truly a hidden gem in our little town - a place that combines warmth, style, and exceptional food. I'm already looking forward to my next visit!"
+                </blockquote>
+                <p class="text-xs font-bold uppercase tracking-[0.2em] text-stone-400 mt-4">— BAILEY on GOOGLE</p>
+            </div>
+
+            <div class="flex justify-center gap-1.5 text-xs text-[#d4a359] pt-2">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call-To-Action Panel Section -->
+    <section id="reserve" class="py-20 max-w-5xl mx-auto px-6 text-center">
+        <div class="bg-gradient-to-br from-[#161e25] to-[#0d1317] p-10 sm:p-20 border border-white/5 relative overflow-hidden">
+            <!-- Large Backing Architecture Layout Graphic -->
+            <div class="absolute -bottom-16 -right-16 font-display text-[9rem] font-bold text-white/2 select-none pointer-events-none tracking-tighter">
+                AGAVE
+            </div>
+            <h2 class="font-display text-2xl sm:text-4xl font-bold text-white tracking-tight">COME HUNGRY. STAY LATE. LEAVE HAPPY.</h2>
+            <p class="text-stone-400 max-w-sm mx-auto text-xs sm:text-sm font-light mt-3 leading-relaxed">
+                Unlock fine spirit tasting paths and seasonal culinary transformations crafted strictly outside standard rules.
+            </p>
+            <div class="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button class="w-full sm:w-auto px-8 py-4 bg-[#d4a359] text-neutral-950 text-xs font-bold tracking-widest uppercase hover:bg-white transition-colors">
+                    Reserve Lounge Table
+                </button>
+                <a href="#menu" class="w-full sm:w-auto px-8 py-4 border border-white/10 text-stone-200 text-xs font-bold tracking-widest uppercase hover:bg-white/5 transition-colors">
+                    Review Small Plates
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Newsletter Input Section -->
+    <section id="contact" class="py-24 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16">
+        <!-- Left Column Info Mapping -->
+        <div class="lg:col-span-5 space-y-8">
+            <div class="space-y-4">
+                <div class="text-xs font-bold tracking-[0.3em] uppercase text-[#d4a359]">Connect With Us</div>
+                <h2 class="font-display text-3xl font-bold text-white">LOCATION & CONTACT</h2>
+                <p class="text-stone-400 font-light text-sm leading-relaxed">
+                    We look forward to welcoming you inside our intimate street food oasis. Drop by anytime or drop our team a direct digital line.
+                </p>
+            </div>
+
+            <!-- Details Block Map Row -->
+            <div class="space-y-4 text-xs">
+                <div class="p-5 bg-[#11181e] border border-white/5 flex gap-4 items-center rounded-none">
+                    <div class="text-[#d4a359] text-base"><i class="fa-solid fa-map-pin"></i></div>
+                    <div>
+                        <h4 class="font-display font-bold tracking-wider text-stone-300">Our Address</h4>
+                        <p class="text-stone-400 font-light mt-1">#101 9712 101 Ave, Fort St. John, BC</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column Newsletter Subscriptions -->
+        <div class="lg:col-span-7 bg-[#11181e] p-8 sm:p-12 border border-white/5">
+            <h3 class="font-display text-sm font-bold tracking-widest text-white mb-2">SUBSCRIBE TO OUR NEWSLETTER</h3>
+            <p class="text-stone-400 text-xs font-light leading-relaxed mb-6">
+                Sign up with your personal email address to safely receive dynamic culinary announcements, secret spirit drops, and operational updates.
+            </p>
+            <form action="#" method="POST" class="space-y-4" onsubmit="event.preventDefault();">
+                <div class="flex flex-col sm:flex-row gap-2">
+                    <input type="email" required class="bg-[#0d1317] border border-white/10 px-4 py-3.5 text-sm font-light text-white w-full focus:outline-none focus:border-[#d4a359] placeholder-stone-600" placeholder="Email Address">
+                    <button type="submit" class="bg-white text-neutral-950 text-xs font-bold tracking-widest uppercase px-6 py-3.5 hover:bg-[#d4a359] transition-colors shrink-0">
+                        Sign Up
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Modern Premium Architectural Footer -->
+    <footer class="bg-[#0a0f12] border-t border-white/5 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            <!-- Wordmark Space -->
+            <div class="space-y-4">
+                <div class="flex flex-col tracking-widest">
+                    <span class="font-display text-base font-bold tracking-[0.25em] text-[#d4a359]">BROKEN</span>
+                    <span class="text-[9px] uppercase font-display tracking-[0.45em] text-stone-500 -mt-1 font-semibold">SPANISH</span>
+                </div>
+                <p class="text-xs text-stone-500 font-light leading-relaxed">
+                    Honouring the soul and unbridled vitality of authentic Mexican flavor matrices without staying strictly tethered to old traditional rules.
+                </p>
+            </div>
+
+            <!-- Links Stack A -->
+            <div class="space-y-3">
+                <h4 class="text-[10px] font-display font-bold tracking-widest text-stone-300">EXPLORE</h4>
+                <ul class="text-xs space-y-2 text-stone-500">
+                    <li><a href="#menu" class="hover:text-white transition-colors">Gastronomy Menus</a></li>
+                    <li><a href="#services" class="hover:text-white transition-colors">Catering Logistics</a></li>
+                    <li><a href="#about" class="hover:text-white transition-colors">Lounge Philosophy</a></li>
+                </ul>
+            </div>
+
+            <!-- Links Stack B -->
+            <div class="space-y-3">
+                <h4 class="text-[10px] font-display font-bold tracking-widest text-stone-300">RESOURCES</h4>
+                <ul class="text-xs space-y-2 text-stone-500">
+                    <li><a href="#reserve" class="hover:text-white transition-colors">Secure Reservation</a></li>
+                    <li><a href="#contact" class="hover:text-white transition-colors">Location Mappings</a></li>
+                </ul>
+            </div>
+
+            <!-- Copy Stream Technical Layout Description -->
+            <div class="space-y-2 text-xs text-stone-500 font-light">
+                <h4 class="text-[10px] font-display font-bold tracking-widest text-stone-300">TECHNICAL DIRECTION</h4>
+                <p class="leading-relaxed">Re-architected with premium matte glassmorphism and structural grid columns for fluid layout presentations.</p>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-[11px] text-stone-600">
+            <p>&copy; 2026 Broken Spanish. All Rights Reserved.</p>
+            <p class="uppercase font-display tracking-widest text-[9px] text-stone-500">Website Design Remastered via 156 Creative Frameworks</p>
+        </div>
+    </footer>
+
+    <!-- Toggle Drawer Interaction Logic -->
+    <script>
+        const drawerToggle = document.getElementById('drawer-toggle');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+
+        drawerToggle.addEventListener('click', () => {
+            mobileDrawer.classList.toggle('hidden');
+        });
+
+        // Auto-collapse navigation panel drawer instantly upon picking destination link element targets
+        const drawerLinks = mobileDrawer.querySelectorAll('a');
+        drawerLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileDrawer.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

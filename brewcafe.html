@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brew Cafe & Corporate Catering | The Rocks, Sydney</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        terracotta: {
+                            50: '#fdf4f4',
+                            100: '#fbe8e8',
+                            200: '#f7d5d5',
+                            300: '#f1b4b4',
+                            400: '#e58787',
+                            500: '#f05252', /* Original Brand Coral/Red Accent */
+                            600: '#c83b3b',
+                            700: '#a62e2e',
+                            800: '#892929',
+                            900: '#722626',
+                            950: '#3e1010',
+                        },
+                        amberwood: {
+                            50: '#fbf8f3',
+                            100: '#f5edd9',
+                            200: '#ebd9b0',
+                            300: '#debfa2',
+                            400: '#cf9f6e',
+                            500: '#bf804b',
+                            600: '#b16d3e',
+                            700: '#935431',
+                            800: '#77432b',
+                            900: '#603725',
+                            950: '#1c0f0a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        mono: ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .glass-navbar {
+            background: rgba(28, 15, 10, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #ffffff 30%, #debfa2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .industrial-bg {
+            background-color: #1c0f0a;
+            background-image: radial-gradient(rgba(240, 82, 82, 0.03) 1px, transparent 0), radial-gradient(rgba(222, 191, 162, 0.02) 1px, transparent 0);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1c0f0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3e1010;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f05252;
+        }
+    </style>
+</head>
+<body class="industrial-bg text-neutral-200 font-sans antialiased selection:bg-terracotta-500 selection:text-white">
+
+    <div id="notice-banner" class="bg-gradient-to-r from-terracotta-700 to-amberwood-800 text-white text-xs py-3 px-4 relative z-50 text-center font-medium shadow-lg flex items-center justify-center gap-2">
+        <i class="fa-solid fa-screwdriver-wrench animate-pulse"></i>
+        <span>Our website is under renovation. Major works are in progress — <strong>PLEASE NOTE:</strong> No online orders shall be fulfilled at this time. [cite: 125] Email us at <a href="mailto:info@brewcafe.com.au" class="underline hover:text-neutral-200">info@brewcafe.com.au</a> for any catering or event enquiries. [cite: 126]</span>
+        <button onclick="document.getElementById('notice-banner').remove()" class="ml-4 hover:opacity-70 transition-opacity" aria-label="Dismiss Notice [cite: 126]"><i class="fa-solid fa-xmark text-sm"></i></button>
+    </div>
+
+    <header id="app-header" class="sticky top-0 z-40 transition-all duration-300 py-4 lg:py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-navbar rounded-2xl px-6 py-3.5 flex items-center justify-between shadow-xl">
+                <a href="#" class="flex flex-col group">
+                    <span class="text-white font-serif font-black tracking-wider text-xl leading-none group-hover:text-terracotta-400 transition-colors">BREW CAFE</span> [cite: 127]
+                    <span class="text-[9px] font-mono tracking-[0.22em] text-amberwood-400 uppercase mt-1">Heritage & Taste</span>
+                </a>
+
+                <nav class="hidden md:flex items-center space-x-8 text-xs font-semibold uppercase tracking-wider text-neutral-300">
+                    <a href="#" class="text-terracotta-400 hover:text-white transition-colors">Home</a>
+                    <a href="#about" class="hover:text-terracotta-400 transition-colors">Our Story</a>
+                    <a href="#services" class="hover:text-terracotta-400 transition-colors">Catering</a>
+                    <a href="#menu-highlights" class="hover:text-terracotta-400 transition-colors">Menu Highlights</a>
+                    <a href="#book-table" class="hover:text-terracotta-400 transition-colors">Reservations</a>
+                    <a href="#contact" class="hover:text-terracotta-400 transition-colors">Find Us</a>
+                </nav>
+
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#book-table" class="border border-white/10 hover:border-terracotta-500 hover:bg-terracotta-500/10 text-white font-semibold text-xs uppercase tracking-wider px-4 py-2.5 rounded-xl transition-all duration-300">
+                        Book Table
+                    </a>
+                    <a href="#services" class="bg-gradient-to-r from-terracotta-600 to-terracotta-500 hover:from-terracotta-500 hover:to-terracotta-400 text-white font-semibold text-xs uppercase tracking-wider px-4 py-2.5 rounded-xl transition-all duration-300 shadow-md shadow-terracotta-600/20">
+                        Order Catering [cite: 130]
+                    </a>
+                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden text-neutral-200 hover:text-white transition-colors" aria-label="Toggle Navigation Menu">
+                    <i class="fa-solid fa-bars-staggered text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-navigation" class="hidden absolute top-full inset-x-0 mx-4 mt-2 p-6 rounded-2xl bg-amberwood-950/95 backdrop-blur-xl border border-white/5 md:hidden flex-col space-y-4 shadow-2xl transition-all duration-300 transform scale-95 opacity-0 origin-top">
+            <a href="#" class="mobile-link text-white font-medium text-sm block">Home</a>
+            <a href="#about" class="mobile-link text-neutral-400 hover:text-white font-medium text-sm block">Our Story</a>
+            <a href="#services" class="mobile-link text-neutral-400 hover:text-white font-medium text-sm block">Catering & Functions</a> [cite: 133]
+            <a href="#menu-highlights" class="mobile-link text-neutral-400 hover:text-white font-medium text-sm block">Menu Highlights</a>
+            <a href="#book-table" class="mobile-link text-neutral-400 hover:text-white font-medium text-sm block">Reservations</a>
+            <a href="#contact" class="mobile-link text-neutral-400 hover:text-white font-medium text-sm block">Find Us</a>
+            <hr class="border-white/10 my-2">
+            <div class="grid grid-cols-2 gap-4">
+                <a href="#book-table" class="mobile-link text-center border border-white/10 text-white text-xs font-semibold uppercase tracking-wider py-3 rounded-xl">Book Table</a>
+                <a href="#services" class="mobile-link text-center bg-terracotta-600 text-white text-xs font-semibold uppercase tracking-wider py-3 rounded-xl shadow-lg">Catering</a> [cite: 130]
+            </div>
+        </div>
+    </header>
+
+    <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-12 pb-24">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=2000&q=80" alt="Industrial style cafe atmosphere layout" class="w-full h-full object-cover scale-105 opacity-25 mix-blend-luminosity">
+            <div class="absolute inset-0 bg-gradient-to-t from-amberwood-950 via-amberwood-950/80 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-amberwood-950/50 via-transparent to-amberwood-950/50"></div>
+        </div>
+
+        <div class="absolute top-1/4 left-1/4 w-80 h-80 bg-terracotta-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amberwood-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center space-y-8">
+            <div class="inline-flex items-center space-x-2 bg-white/5 border border-white/10 backdrop-blur-md px-4 py-1.5 rounded-full">
+                <span class="w-1.5 h-1.5 rounded-full bg-terracotta-500 animate-pulse"></span>
+                <span class="text-[11px] font-semibold uppercase tracking-widest text-amberwood-200">PROUDLY SERVING THE ROCKS & SYDNEY FOR 20+ YEARS</span> [cite: 128]
+            </div>
+
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-serif font-bold text-white tracking-tight max-w-4xl mx-auto leading-[1.1]">
+                A Simple Time, A <span class="text-gradient">Heritage Space</span> & Honest Smile [cite: 137, 141]
+            </h1>
+
+            <p class="text-base sm:text-xl text-neutral-300 font-light max-w-2xl mx-auto leading-relaxed">
+                Step into a laid-back, industrial atmosphere within the historic former Bushells Tea Company building at the entrance of The Rocks. [cite: 137] Leave your worries behind with the smell of warm bread and fresh coffee. [cite: 141]
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto pt-4">
+                <a href="#menu-highlights" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-terracotta-600 to-terracotta-500 hover:from-terracotta-500 hover:to-terracotta-400 text-white font-bold text-xs uppercase tracking-widest rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 shadow-xl shadow-terracotta-600/10">
+                    View Our Menu [cite: 129]
+                </a>
+                <a href="#services" class="w-full sm:w-auto px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-bold text-xs uppercase tracking-widest rounded-xl transition-all duration-300 backdrop-blur-sm">
+                    Order Catering [cite: 130]
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="relative z-10 -mt-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 p-8 bg-amberwood-950/40 rounded-3xl border border-white/5 backdrop-blur-xl shadow-2xl text-center">
+            <div class="space-y-1">
+                <p class="text-3xl sm:text-4xl font-serif font-black text-gradient">20+</p>
+                <p class="text-[10px] sm:text-xs text-neutral-400 uppercase tracking-widest font-semibold">Years of Passion</p> [cite: 139]
+            </div>
+            <div class="space-y-1 border-l border-white/5">
+                <p class="text-3xl sm:text-4xl font-serif font-black text-terracotta-400">Heritage</p>
+                <p class="text-[10px] sm:text-xs text-neutral-400 uppercase tracking-widest font-semibold">Bushells Tea Building</p> [cite: 137]
+            </div>
+            <div class="space-y-1 border-l border-white/5">
+                <p class="text-3xl sm:text-4xl font-serif font-black text-gradient">Corporate</p>
+                <p class="text-[10px] sm:text-xs text-neutral-400 uppercase tracking-widest font-semibold">Catering Masters</p> [cite: 138]
+            </div>
+            <div class="space-y-1 border-l border-white/5">
+                <p class="text-3xl sm:text-4xl font-serif font-black text-terracotta-400">Certified</p>
+                <p class="text-[10px] sm:text-xs text-neutral-400 uppercase tracking-widest font-semibold">Pappou Leadership</p> [cite: 131]
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            <div class="lg:col-span-7 space-y-6">
+                <div class="inline-flex items-center space-x-2 bg-terracotta-500/10 border border-terracotta-500/20 px-3 py-1 rounded-full">
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-terracotta-400">Meet The Family</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white tracking-tight">
+                    Dennis Says Hi! Welcome to a <span class="text-gradient">Simpler Era</span> [cite: 136, 141]
+                </h2>
+                <div class="text-neutral-300 space-y-4 font-light text-sm sm:text-base leading-relaxed">
+                    <p>
+                        "It has always been a true passion for me and the entire team here to provide premium quality hospitality service and product lineups. We have been serving local regulars and Sydney visitors for over two decades now, and honestly, we love every little bit of it." [cite: 139]
+                    </p>
+                    <p>
+                        At <strong class="font-semibold text-white">Brew Cafe</strong>, our locals and regulars are treated far beyond patrons — they have truly become a core extension of our family. [cite: 140] We work to make your visit a step into a simpler time. [cite: 141]
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-white/5 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-neutral-400">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-6 h-6 rounded-lg bg-amberwood-900/30 border border-amberwood-800/30 flex items-center justify-center text-amberwood-400 text-[10px]"><i class="fa-solid fa-leaf"></i></div>
+                        <span>Seasonally Inspired Fresh Food</span> [cite: 138]
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-6 h-6 rounded-lg bg-amberwood-900/30 border border-amberwood-800/30 flex items-center justify-center text-amberwood-400 text-[10px]"><i class="fa-solid fa-mug-saucer"></i></div>
+                        <span>Premium Roasted Coffee Standard</span> [cite: 138]
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 relative">
+                <div class="absolute inset-0 bg-gradient-to-tr from-terracotta-500/10 to-transparent rounded-3xl blur-2xl -z-10"></div>
+                <div class="rounded-3xl overflow-hidden border border-white/5 p-3 bg-white/5 backdrop-blur-md shadow-2xl">
+                    <div class="aspect-[4/5] rounded-2xl overflow-hidden relative group">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="Dennis Soulios - Brew Cafe Founder Portrait Layout" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 mix-blend-luminosity hover:mix-blend-normal">
+                        <div class="absolute inset-0 bg-gradient-to-t from-amberwood-950 via-amberwood-950/20 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6 p-4 glass-card rounded-xl text-center border border-white/10">
+                            <h4 class="text-white font-serif font-bold text-lg">Dennis Soulios</h4> [cite: 131]
+                            <p class="text-[10px] uppercase font-mono tracking-wider text-terracotta-400 mt-0.5">Founder, Owner & Certified Pappou</p> [cite: 131]
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 bg-black/20 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <div class="inline-flex items-center space-x-2 bg-amberwood-500/10 border border-amberwood-500/20 px-3 py-1 rounded-full">
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-amberwood-400">Events & Corporate Host</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white tracking-tight">Caterings & Function Provider</h2> [cite: 132, 133]
+                <p class="text-xs sm:text-sm text-neutral-400 font-light max-w-xl mx-auto leading-relaxed">
+                    Our comprehensive catering configurations are optimized perfectly to streamline corporate hosting and private milestones across the Sydney area. [cite: 128, 134, 138]
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-3xl flex flex-col justify-between space-y-6 group hover:border-terracotta-500/30 transition-all duration-300">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-white/5 group-hover:bg-terracotta-500/10 flex items-center justify-center text-terracotta-400 text-xl transition-colors">
+                            <i class="fa-solid fa-building"></i>
+                        </div>
+                        <h3 class="text-lg font-serif font-bold text-white">Corporate Catering</h3> [cite: 138]
+                        <p class="text-xs text-neutral-400 font-light leading-relaxed">
+                            Meticulously curated gourmet platters, fresh breakfast trays, and custom lunch bundles packaged dynamically for seamless boardrooms and corporate meetings. [cite: 138, 151, 153]
+                        </p>
+                    </div>
+                    <span class="text-[10px] font-mono uppercase tracking-widest text-amberwood-400">Comprehensive Menus [cite: 134, 138]</span>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl flex flex-col justify-between space-y-6 group hover:border-terracotta-500/30 transition-all duration-300">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-white/5 group-hover:bg-terracotta-500/10 flex items-center justify-center text-terracotta-400 text-xl transition-colors">
+                            <i class="fa-solid fa-cake-candles"></i>
+                        </div>
+                        <h3 class="text-lg font-serif font-bold text-white">Private Functions</h3> [cite: 138]
+                        <p class="text-xs text-neutral-400 font-light leading-relaxed">
+                            Celebrate milestone configurations or host social evening assemblies inside our atmospheric heritage listed space setup customized perfectly to order. [cite: 137, 138]
+                        </p>
+                    </div>
+                    <span class="text-[10px] font-mono uppercase tracking-widest text-amberwood-400">Tailored Seating Options [cite: 138]</span>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl flex flex-col justify-between space-y-6 group hover:border-terracotta-500/30 transition-all duration-300">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-white/5 group-hover:bg-terracotta-500/10 flex items-center justify-center text-terracotta-400 text-xl transition-colors">
+                            <i class="fa-solid fa-sliders"></i>
+                        </div>
+                        <h3 class="text-lg font-serif font-bold text-white">Bespoke Adjustments</h3> [cite: 142]
+                        <p class="text-xs text-neutral-400 font-light leading-relaxed">
+                            Should you desire to make specific alterations or configure architectural dining alignment patterns, we remain instantly accessible via direct call or email. [cite: 142]
+                        </p>
+                    </div>
+                    <span class="text-[10px] font-mono uppercase tracking-widest text-amberwood-400">Flexible Layout Systems [cite: 142]</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu-highlights" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 gap-4">
+            <div class="space-y-3">
+                <div class="inline-flex items-center space-x-2 bg-terracotta-500/10 border border-terracotta-500/20 px-3 py-1 rounded-full">
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-terracotta-400">On The Table</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white tracking-tight">Our Dine-In & Catering Menu</h2> [cite: 144, 149]
+            </div>
+            
+            <div class="flex items-center bg-white/5 p-1 rounded-xl border border-white/5 text-xs font-semibold uppercase tracking-wider">
+                <button onclick="filterMenu('all')" id="tab-all" class="menu-tab px-4 py-2.5 rounded-lg text-white bg-terracotta-600 transition-all">All Products</button>
+                <button onclick="filterMenu('breakfast')" id="tab-breakfast" class="menu-tab px-4 py-2.5 rounded-lg text-neutral-400 hover:text-white transition-all">Breakfast [cite: 150]</button>
+                <button onclick="filterMenu('lunch')" id="tab-lunch" class="menu-tab px-4 py-2.5 rounded-lg text-neutral-400 hover:text-white transition-all">Lunch Displays [cite: 153]</button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <div class="menu-item lunch glass-card rounded-2xl overflow-hidden group border border-white/5 flex flex-col justify-between">
+                <div>
+                    <div class="aspect-video overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1541014741259-df549fa01a74?auto=format&fit=crop&w=500&q=80" alt="Antpasto setup selection platter" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 space-y-2">
+                        <span class="text-[9px] font-mono uppercase text-amberwood-400">Platters & Sharing [cite: 156]</span>
+                        <h4 class="font-serif font-bold text-white text-base">Antpasto Platter</h4> [cite: 156]
+                        <p class="text-[11px] text-neutral-400 font-light leading-relaxed">Artisanal selections layout showcasing cured deli meats, cheeses, and roasted marinated components.</p>
+                    </div>
+                </div>
+                <div class="p-5 pt-0 flex items-center justify-between border-t border-white/5 mt-4">
+                    <span class="text-sm font-semibold text-white font-mono">$55.00 - $100.00</span> [cite: 157]
+                    <span class="text-[10px] text-neutral-500 uppercase tracking-wider">Catering [cite: 152]</span>
+                </div>
+            </div>
+
+            <div class="menu-item lunch glass-card rounded-2xl overflow-hidden group border border-white/5 flex flex-col justify-between">
+                <div>
+                    <div class="aspect-video overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80" alt="Cocktail bite sized mini beef burgers slider setup" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 space-y-2">
+                        <span class="text-[9px] font-mono uppercase text-amberwood-400">Finger Food / Miniatures [cite: 159]</span>
+                        <h4 class="font-serif font-bold text-white text-base">Beef Burger Cocktail Size</h4> [cite: 159]
+                        <p class="text-[11px] text-neutral-400 font-light leading-relaxed">Perfect snack slider architecture packed with flame-grilled premium savory house patties.</p>
+                    </div>
+                </div>
+                <div class="p-5 pt-0 flex items-center justify-between border-t border-white/5 mt-4">
+                    <span class="text-sm font-semibold text-white font-mono">$5.50</span> [cite: 160]
+                    <span class="text-[10px] text-neutral-500 uppercase tracking-wider">Finger Food</span>
+                </div>
+            </div>
+
+            <div class="menu-item breakfast glass-card rounded-2xl overflow-hidden group border border-white/5 flex flex-col justify-between">
+                <div>
+                    <div class="aspect-video overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1541532713592-79a0317b6b77?auto=format&fit=crop&w=500&q=80" alt="Freshly sliced seasoned avocado on sourdough toast bread setup" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 space-y-2">
+                        <span class="text-[9px] font-mono uppercase text-amberwood-400">Robust Beginnings [cite: 151, 163]</span>
+                        <h4 class="font-serif font-bold text-white text-base">Avocado Toast</h4> [cite: 163]
+                        <p class="text-[11px] text-neutral-400 font-light leading-relaxed">Freshly mashed buttery avocado layered securely on toasted sourdough with micro-greens.</p>
+                    </div>
+                </div>
+                <div class="p-5 pt-0 flex items-center justify-between border-t border-white/5 mt-4">
+                    <span class="text-sm font-semibold text-white font-mono">$6.50</span> [cite: 164]
+                    <span class="text-[10px] text-neutral-500 uppercase tracking-wider">Dine-In [cite: 149]</span>
+                </div>
+            </div>
+
+            <div class="menu-item lunch glass-card rounded-2xl overflow-hidden group border border-white/5 flex flex-col justify-between">
+                <div>
+                    <div class="aspect-video overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1608039755401-742074f0548d?auto=format&fit=crop&w=500&q=80" alt="Golden baked traditional meat savory pie setup" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 space-y-2">
+                        <span class="text-[9px] font-mono uppercase text-amberwood-400">Window Displays [cite: 153, 165]</span>
+                        <h4 class="font-serif font-bold text-white text-base">Beef & Mushroom Pie</h4> [cite: 165]
+                        <p class="text-[11px] text-neutral-400 font-light leading-relaxed">Flaky artisanal pastry crust surrounding chunks of tender slow-simmered beef brisket.</p>
+                    </div>
+                </div>
+                <div class="p-5 pt-0 flex items-center justify-between border-t border-white/5 mt-4">
+                    <span class="text-sm font-semibold text-white font-mono">$14.00</span> [cite: 165]
+                    <span class="text-[10px] text-neutral-500 uppercase tracking-wider">Hot Display [cite: 153, 154]</span>
+                </div>
+            </div>
+
+            <div class="menu-item lunch glass-card rounded-2xl overflow-hidden group border border-white/5 flex flex-col justify-between">
+                <div>
+                    <div class="aspect-video overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=500&q=80" alt="Authentic premium moussaka tray baked alignment" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 space-y-2">
+                        <span class="text-[9px] font-mono uppercase text-amberwood-400">Mediterranean Heritage [cite: 168]</span>
+                        <h4 class="font-serif font-bold text-white text-base">Beef Moussaka Tray</h4> [cite: 168]
+                        <p class="text-[11px] text-neutral-400 font-light leading-relaxed">Traditional layered eggplant baked to order with dense spiced ground ragu and thick béchamel top.</p>
+                    </div>
+                </div>
+                <div class="p-5 pt-0 flex items-center justify-between border-t border-white/5 mt-4">
+                    <span class="text-sm font-semibold text-white font-mono">$80.00</span> [cite: 168]
+                    <span class="text-[10px] text-neutral-500 uppercase tracking-wider">Large Batch</span>
+                </div>
+            </div>
+
+            <div class="menu-item lunch glass-card rounded-2xl overflow-hidden group border border-white/5 flex flex-col justify-between">
+                <div>
+                    <div class="aspect-video overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1541532713592-79a0317b6b77?auto=format&fit=crop&w=500&q=80" alt="Elegant catered beef crostini canapés presentation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 space-y-2">
+                        <span class="text-[9px] font-mono uppercase text-amberwood-400">Canapés & Events [cite: 169]</span>
+                        <h4 class="font-serif font-bold text-white text-base">Beef on Crostini</h4> [cite: 169]
+                        <p class="text-[11px] text-neutral-400 font-light leading-relaxed">Tender shaved roast beef placed securely over crisp bread medallions garnished with horseradish.</p>
+                    </div>
+                </div>
+                <div class="p-5 pt-0 flex items-center justify-between border-t border-white/5 mt-4">
+                    <span class="text-sm font-semibold text-white font-mono">$5.50</span> [cite: 170]
+                    <span class="text-[10px] text-neutral-500 uppercase tracking-wider">Catering [cite: 152]</span>
+                </div>
+            </div>
+
+            <div class="menu-item lunch glass-card rounded-2xl overflow-hidden group border border-white/5 flex flex-col justify-between">
+                <div>
+                    <div class="aspect-video overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=500&q=80" alt="Slow braised beef stew bowl arrangement" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 space-y-2">
+                        <span class="text-[9px] font-mono uppercase text-amberwood-400">Slow Cooked Classical [cite: 162]</span>
+                        <h4 class="font-serif font-bold text-white text-base">Beef Bourguignon Tray</h4> [cite: 162]
+                        <p class="text-[11px] text-neutral-400 font-light leading-relaxed">Rich premium french red-wine classic simmered carefully with sweet pearl onions and mushrooms.</p>
+                    </div>
+                </div>
+                <div class="p-5 pt-0 flex items-center justify-between border-t border-white/5 mt-4">
+                    <span class="text-sm font-semibold text-white font-mono">$80.00</span> [cite: 166]
+                    <span class="text-[10px] text-neutral-500 uppercase tracking-wider">Function Pack [cite: 133]</span>
+                </div>
+            </div>
+
+            <div class="menu-item lunch glass-card rounded-2xl overflow-hidden group border border-white/5 flex flex-col justify-between">
+                <div>
+                    <div class="aspect-video overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=500&q=80" alt="Warm beef stroganoff bowl architecture" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 space-y-2">
+                        <span class="text-[9px] font-mono uppercase text-amberwood-400">Hearty Culinary Comfort [cite: 171]</span>
+                        <h4 class="font-serif font-bold text-white text-base">Beef Stroganoff</h4> [cite: 171]
+                        <p class="text-[11px] text-neutral-400 font-light leading-relaxed">Savory strips of sautéed beef loin folded in deep velvet sour-cream peppercorn mushroom base.</p>
+                    </div>
+                </div>
+                <div class="p-5 pt-0 flex items-center justify-between border-t border-white/5 mt-4">
+                    <span class="text-sm font-semibold text-white font-mono">$33.50</span> [cite: 171]
+                    <span class="text-[10px] text-neutral-500 uppercase tracking-wider">Catering Trays [cite: 144, 152]</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-12 text-center">
+            <a href="#services" class="inline-flex items-center space-x-2 bg-white/5 hover:bg-white/10 border border-white/10 px-6 py-3.5 rounded-xl text-xs font-semibold uppercase tracking-widest text-white transition-all duration-300">
+                <span>See All Catering Products</span> [cite: 172]
+                <i class="fa-solid fa-angles-right text-[10px] text-terracotta-400"></i>
+            </a>
+        </div>
+    </section>
+
+    <section class="py-24 bg-gradient-to-b from-transparent to-black/30 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <div class="inline-flex items-center space-x-2 bg-terracotta-500/10 border border-terracotta-500/20 px-3 py-1 rounded-full">
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-terracotta-400">Words From Regulars</span>
+                </div>
+                <h2 class="text-3xl font-serif font-bold text-white tracking-tight">Loving Every Bit of Our 20 Years</h2> [cite: 139]
+                <p class="text-xs text-neutral-400 font-light">Read why our corporate hosts and morning coffee regulars view Brew Cafe as a central Rocks staple. [cite: 137, 138, 140]</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-3xl flex flex-col justify-between space-y-6">
+                    <p class="text-xs sm:text-sm text-neutral-300 font-light italic leading-relaxed">
+                        "Brew Cafe configured our annual office catering layout flawlessly. The Beef Moussaka trays arrived pipingly hot, and the mini burger sliders were a massive hit across the department." [cite: 159, 168]
+                    </p>
+                    <div class="flex items-center space-x-3 pt-4 border-t border-white/5">
+                        <div class="w-8 h-8 rounded-full bg-amberwood-800 flex items-center justify-center font-bold text-[11px] text-white">AM</div>
+                        <div>
+                            <h4 class="text-xs font-bold text-white">Alistair Marks</h4>
+                            <p class="text-[9px] uppercase tracking-wider text-neutral-500">Macquarie Corp Event Coordinator</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl flex flex-col justify-between space-y-6">
+                    <p class="text-xs sm:text-sm text-neutral-300 font-light italic leading-relaxed">
+                        "Visiting Dennis feels exactly like stepping into a much simpler time framework. Savoring their artisan coffee inside that rustic Bushells industrial building completely changes your morning routine workflow." [cite: 137, 141]
+                    </p>
+                    <div class="flex items-center space-x-3 pt-4 border-t border-white/5">
+                        <div class="w-8 h-8 rounded-full bg-terracotta-700 flex items-center justify-center font-bold text-[11px] text-white">HP</div>
+                        <div>
+                            <h4 class="text-xs font-bold text-white">Helena Price</h4>
+                            <p class="text-[9px] uppercase tracking-wider text-neutral-500">The Rocks Local Resident</p> [cite: 139]
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl flex flex-col justify-between space-y-6">
+                    <p class="text-xs sm:text-sm text-neutral-300 font-light italic leading-relaxed">
+                        "Their corporate function layout is unmatched. Booking channels remain incredibly straightforward, and they verified our customizable setup metrics in under 24 hours directly." [cite: 138, 181]
+                    </p>
+                    <div class="flex items-center space-x-3 pt-4 border-t border-white/5">
+                        <div class="w-8 h-8 rounded-full bg-amberwood-700 flex items-center justify-center font-bold text-[11px] text-white">TL</div>
+                        <div>
+                            <h4 class="text-xs font-bold text-white">Thomas Lang</h4>
+                            <p class="text-[9px] uppercase tracking-wider text-neutral-500">Private Party Host</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="book-table" class="py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="absolute -left-16 -top-16 w-64 h-64 bg-terracotta-500/5 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <div class="glass-card rounded-3xl p-8 sm:p-12 border border-white/5 shadow-2xl relative overflow-hidden">
+            <div class="text-center max-w-2xl mx-auto mb-10 space-y-3">
+                <h2 class="text-3xl font-serif font-bold text-white">Book Your Table</h2> [cite: 178]
+                <p class="text-xs sm:text-sm text-neutral-400 font-light">
+                    Please utilize the following digital form configuration to claim your online restaurant table reservations effortlessly. [cite: 179]
+                </p>
+            </div>
+
+            <div class="mb-8 p-4 rounded-xl bg-amberwood-950/40 border border-amberwood-500/20 text-xs text-amberwood-200 flex items-start gap-3">
+                <i class="fa-solid fa-circle-exclamation text-terracotta-500 text-sm mt-0.5"></i>
+                <div class="space-y-1">
+                    <span class="font-semibold block">Catering Inquiries & Room Rentals [cite: 180]</span>
+                    <p class="text-neutral-400 leading-relaxed">
+                        This unified structural interface also serves efficiently to file generic inquiries, check corporate catering calendars, or secure premium private room hires. [cite: 180] One of our dedicated team agents will confirm your details directly via personal contact within 24 hours. [cite: 181]
+                    </p>
+                </div>
+            </div>
+
+            <form class="space-y-6" onsubmit="event.preventDefault(); alert('Your request has been channeled successfully. Dennis and the team will verify your booking within 24 hours via direct contact! [cite: 181]');">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="text-[11px] uppercase tracking-wider font-semibold text-neutral-400 block">First Name * [cite: 173, 174]</label>
+                        <input type="text" required class="w-full bg-white/5 border border-white/10 focus:border-terracotta-500 focus:ring-1 focus:ring-terracotta-500 rounded-xl px-4 py-3 text-xs text-white placeholder-neutral-500 transition-colors" placeholder="e.g. Dennis">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-[11px] uppercase tracking-wider font-semibold text-neutral-400 block">Last Name * [cite: 173, 175]</label>
+                        <input type="text" required class="w-full bg-white/5 border border-white/10 focus:border-terracotta-500 focus:ring-1 focus:ring-terracotta-500 rounded-xl px-4 py-3 text-xs text-white placeholder-neutral-500 transition-colors" placeholder="e.g. Soulios">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="text-[11px] uppercase tracking-wider font-semibold text-neutral-400 block">Email Address * [cite: 176]</label>
+                        <input type="email" required class="w-full bg-white/5 border border-white/10 focus:border-terracotta-500 focus:ring-1 focus:ring-terracotta-500 rounded-xl px-4 py-3 text-xs text-white placeholder-neutral-500 transition-colors" placeholder="name@domain.com">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-[11px] uppercase tracking-wider font-semibold text-neutral-400 block">Phone Number (For Confirmation) * [cite: 177]</label>
+                        <input type="tel" required class="w-full bg-white/5 border border-white/10 focus:border-terracotta-500 focus:ring-1 focus:ring-terracotta-500 rounded-xl px-4 py-3 text-xs text-white placeholder-neutral-500 transition-colors" placeholder="(02) 9251 1577 [cite: 252]">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div class="sm:col-span-2 space-y-2">
+                        <label class="text-[11px] uppercase tracking-wider font-semibold text-neutral-400 block">Booking Time Preference * (Date, Month, Hour) [cite: 182]</label>
+                        <input type="text" required class="w-full bg-white/5 border border-white/10 focus:border-terracotta-500 focus:ring-1 focus:ring-terracotta-500 rounded-xl px-4 py-3 text-xs text-white placeholder-neutral-500 transition-colors" placeholder="e.g. Friday 15th August, 12:30 PM">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-[11px] uppercase tracking-wider font-semibold text-neutral-400 block">Total Guests count * [cite: 183]</label>
+                        <input type="number" min="1" max="100" required class="w-full bg-white/5 border border-white/10 focus:border-terracotta-500 focus:ring-1 focus:ring-terracotta-500 rounded-xl px-4 py-3 text-xs text-white placeholder-neutral-500 transition-colors" placeholder="4">
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="text-[11px] uppercase tracking-wider font-semibold text-neutral-400 block">Special Message / Particular Requests [cite: 184]</label>
+                    <textarea rows="3" class="w-full bg-white/5 border border-white/10 focus:border-terracotta-500 focus:ring-1 focus:ring-terracotta-500 rounded-xl px-4 py-3 text-xs text-white placeholder-neutral-500 transition-colors resize-none" placeholder="Let us know if you require wheelchair entry parameters or are tracking specific corporate allergies... [cite: 184]"></textarea>
+                </div>
+
+                <div class="pt-4 flex flex-col sm:flex-row items-center justify-between gap-6">
+                    <span class="text-[11px] text-neutral-400 text-center sm:text-left">
+                        * Booking is not strictly essential, yet highly encouraged for the absolute best dining experience. [cite: 187]
+                    </span>
+                    <button type="submit" class="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-terracotta-600 to-terracotta-500 hover:from-terracotta-500 hover:to-terracotta-400 text-white font-bold text-xs uppercase tracking-widest rounded-xl transition-all duration-300 shadow-lg shadow-terracotta-600/10 whitespace-nowrap">
+                        Submit Reservation [cite: 185]
+                    </button>
+                </div>
+            </form>
+
+            <div class="mt-8 pt-8 border-t border-white/5 text-center space-y-3">
+                <span class="text-[10px] font-mono uppercase text-neutral-500 block">Prefer Instant Reservation Platforms?</span>
+                <a href="#" class="inline-flex items-center space-x-2 px-5 py-2.5 bg-neutral-900 hover:bg-neutral-800 rounded-xl border border-white/5 text-xs text-white font-semibold uppercase tracking-wider transition-all">
+                    <span>Book Your Table via Quandoo</span> [cite: 186, 188]
+                    <i class="fa-solid fa-square-arrow-up-right text-terracotta-400 text-xs ml-1"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-black/10 border-t border-white/5 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+                
+                <div class="lg:col-span-5 flex flex-col justify-between space-y-8">
+                    <div class="space-y-4">
+                        <div class="inline-flex items-center space-x-2 bg-amberwood-500/10 border border-amberwood-500/20 px-3 py-1 rounded-full">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-amberwood-400">Location Mapping</span>
+                        </div>
+                        <h2 class="text-3xl font-serif font-bold text-white tracking-tight">Visit Our Historic Cafe Space</h2> [cite: 137]
+                        <p class="text-xs sm:text-sm text-neutral-400 font-light leading-relaxed">
+                            Find us at the threshold entrance mapping vectors guiding seamlessly into the iconic heritage district. [cite: 137]
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="glass-card p-4 rounded-xl flex items-center space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-terracotta-400 text-sm"><i class="fa-solid fa-location-dot"></i></div>
+                            <div>
+                                <p class="text-[10px] text-neutral-500 uppercase font-semibold">Street Coordinates [cite: 211]</p>
+                                <p class="text-xs text-white font-medium">121-127 Harrington Street, The Rocks, NSW 2000 [cite: 212]</p> [cite: 191]
+                            </div>
+                        </div>
+
+                        <a href="mailto:info@brewcafe.com.au" class="glass-card p-4 rounded-xl flex items-center space-x-4 group transition-all">
+                            <div class="w-10 h-10 rounded-xl bg-white/5 group-hover:bg-terracotta-500/10 flex items-center justify-center text-terracotta-400 text-sm transition-colors"><i class="fa-regular fa-envelope"></i></div>
+                            <div>
+                                <p class="text-[10px] text-neutral-500 uppercase font-semibold">Digital Desk Contact [cite: 250]</p>
+                                <p class="text-xs text-white group-hover:text-terracotta-400 font-medium transition-colors">info@brewcafe.com.au</p> [cite: 252]
+                            </div>
+                        </a>
+
+                        <a href="tel:0292511577" class="glass-card p-4 rounded-xl flex items-center space-x-4 group transition-all">
+                            <div class="w-10 h-10 rounded-xl bg-white/5 group-hover:bg-terracotta-500/10 flex items-center justify-center text-terracotta-400 text-sm transition-colors"><i class="fa-solid fa-phone"></i></div>
+                            <div>
+                                <p class="text-[10px] text-neutral-500 uppercase font-semibold">Direct Telephone Line [cite: 250]</p>
+                                <p class="text-xs text-white group-hover:text-terracotta-400 font-medium transition-colors">(02) 9251 1577</p> [cite: 252]
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="bg-amberwood-950/40 border border-white/5 p-6 rounded-2xl space-y-3 shadow-xl">
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center"><i class="fa-regular fa-clock mr-2 text-terracotta-400"></i> Operational Hours Grid [cite: 145, 249]</h4>
+                        <div class="text-[11px] text-neutral-400 space-y-2 font-light">
+                            <div class="flex justify-between border-b border-white/5 pb-1">
+                                <span>Monday - Friday:</span>
+                                <span class="text-white font-medium">7:00 AM - 4:00 PM <span class="text-neutral-500 block text-[10px] text-right">(Kitchen closes at 3pm) [cite: 147, 251]</span></span> [cite: 146]
+                            </div>
+                            <div class="flex justify-between pt-1">
+                                <span>Saturday Schedule:</span>
+                                <span class="text-white font-medium">7:00 AM - 1:00 PM</span> [cite: 148, 251]
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 rounded-3xl overflow-hidden min-h-[380px] relative bg-neutral-900 border border-white/5 shadow-2xl">
+                    <div class="absolute inset-0 grayscale contrast-125 opacity-30 mix-blend-luminosity">
+                        <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1000&q=80" alt="Sydney map architecture context layout mapping [cite: 248]" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-amberwood-950 via-amberwood-950/70 to-transparent"></div>
+
+                    <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center space-y-4">
+                        <div class="w-14 h-14 rounded-full bg-terracotta-500/20 border-2 border-terracotta-500 flex items-center justify-center text-terracotta-500 text-xl shadow-xl animate-bounce">
+                            <i class="fa-solid fa-store"></i>
+                        </div>
+                        <div class="space-y-1">
+                            <h4 class="text-base font-serif font-bold text-white">Brew Cafe & Catering Platform</h4>
+                            <p class="text-[11px] text-neutral-400 max-w-xs font-light mx-auto">
+                                121-127 Harrington Street [cite: 190], right beside premium landmarks like Flight Club & Four Seasons Hotel[cite: 206, 216].
+                            </p>
+                        </div>
+                        <a href="https://maps.google.com" target="_blank" class="px-4 py-2 bg-white/5 hover:bg-white/10 text-white font-mono text-[10px] tracking-widest uppercase rounded-xl border border-white/10 transition-colors shadow-md">
+                            Launch Navigation [cite: 211]
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-amberwood-950 border-t border-white/5 pt-16 pb-12 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 mb-12">
+                
+                <div class="md:col-span-5 space-y-4">
+                    <a href="#" class="flex flex-col">
+                        <span class="text-white font-serif font-black tracking-wider text-lg leading-none">BREW CAFE</span> [cite: 127]
+                        <span class="text-[9px] font-mono tracking-[0.22em] text-terracotta-400 uppercase mt-1">20 Years of Serving Sydney Area [cite: 128]</span>
+                    </a>
+                    <p class="text-xs text-neutral-400 max-w-sm leading-relaxed font-light">
+                        Nestled within a historic industrial landscape, we provide freshly inspired seasonal food profiles alongside premium corporate catering tracks. [cite: 137, 138]
+                    </p>
+                    <div class="flex items-center space-x-3 pt-2">
+                        <a href="#" class="w-8 h-8 rounded-lg bg-white/5 border border-white/5 text-neutral-400 hover:text-white hover:border-white/10 transition-all flex items-center justify-center text-xs" aria-label="Facebook Channel Connect [cite: 253]"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <div class="md:col-span-3 space-y-3">
+                    <h4 class="text-xs font-bold text-white uppercase tracking-widest font-mono">Quick Navigation</h4>
+                    <ul class="text-[11px] text-neutral-400 space-y-2 font-light">
+                        <li><a href="#" class="hover:text-white transition-colors">Home Base Hub</a></li>
+                        <li><a href="#about" class="hover:text-white transition-colors">Our History Timeline</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">Catering Menu Portfolio [cite: 144]</a></li>
+                        <li><a href="#book-table" class="hover:text-white transition-colors">Secure Table Slot [cite: 178]</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-4 space-y-3">
+                    <h4 class="text-xs font-bold text-white uppercase tracking-widest font-mono">Product Verification [cite: 213]</h4>
+                    <p class="text-[11px] text-neutral-400 font-light leading-relaxed">
+                        Looking for specific allergen indices or customized menu files? Search ingredients quickly below. [cite: 214]
+                    </p>
+                    <div class="flex max-w-sm rounded-xl overflow-hidden border border-white/10 bg-white/5 p-1">
+                        <input type="text" class="w-full bg-transparent px-3 text-xs text-white placeholder-neutral-500 focus:outline-none" placeholder="Search menu catalog... [cite: 214]">
+                        <button class="bg-terracotta-600 hover:bg-terracotta-500 text-white font-bold text-xs px-4 py-2 rounded-lg transition-colors" aria-label="Trigger Search [cite: 213]">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between text-[10px] text-neutral-500 gap-4">
+                <p>© 2026 BREW CAFE & CATERING. All Rights Reserved. Redesigned Premium Experience Platform Framework.</p> [cite: 254]
+                <div class="flex items-center space-x-2">
+                    <span>Designed and architectural alignment layout by</span>
+                    <span class="text-neutral-400 font-medium">Aris Lazuardi Portfolio Integration</span> [cite: 254]
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileNavigation = document.getElementById('mobile-navigation');
+        const appHeader = document.getElementById('app-header');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        // Toggle dropdown display parameters for mobile views responsive
+        mobileMenuBtn.addEventListener('click', () => {
+            if (mobileNavigation.classList.contains('hidden')) {
+                mobileNavigation.classList.remove('hidden');
+                setTimeout(() => {
+                    mobileNavigation.classList.remove('scale-95', 'opacity-0');
+                    mobileNavigation.classList.add('scale-100', 'opacity-100');
+                }, 15);
+            } else {
+                mobileNavigation.classList.remove('scale-100', 'opacity-100');
+                mobileNavigation.classList.add('scale-95', 'opacity-0');
+                setTimeout(() => {
+                    mobileNavigation.classList.add('hidden');
+                }, 200);
+            }
+        });
+
+        // Autoclose mobile side menu panel upon picking an internal link routing destination
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNavigation.classList.add('hidden');
+                mobileNavigation.classList.remove('scale-100', 'opacity-100');
+            });
+        });
+
+        // Shift menu highlighting parameters on demand
+        function filterMenu(category) {
+            // Update Tab Styling Buttons dynamically
+            const tabs = document.querySelectorAll('.menu-tab');
+            tabs.forEach(tab => tab.classList.remove('bg-terracotta-600', 'text-white'));
+            
+            document.getElementById(`tab-${category}`).classList.add('bg-terracotta-600', 'text-white');
+
+            // Hide/Show target elements matching filtering schemas
+            const items = document.querySelectorAll('.menu-item');
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Apply sticky glass dynamic scaling modifications upon scroll window offset events
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                appHeader.classList.remove('py-4', 'lg:py-6');
+                appHeader.classList.add('py-2');
+            } else {
+                appHeader.classList.remove('py-2');
+                appHeader.classList.add('py-4', 'lg:py-6');
+            }
+        });
+    </script>
+</body>
+</html>

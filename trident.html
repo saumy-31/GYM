@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trident Fitness Deccan | Premium 3-Floor Gym & Strength Destination in Pune</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        trident: {
+                            dark: '#0A0B0E',
+                            surface: '#12141C',
+                            accent: '#00E5FF',
+                            blue: '#0055FF',
+                            gray: '#94A3B8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .text-gradient {
+            background: linear-gradient(135deg, #FFFFFF 40%, #00E5FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-trident-dark text-white font-sans antialiased overflow-x-hidden">
+
+    <!-- STICKY NAVIGATION -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-trident-dark/80 backdrop-blur-xl border-b border-white/5 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 h-24 flex items-center justify-between transition-all duration-300" id="nav-container">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 bg-gradient-to-br from-trident-accent to-trident-blue rounded-xl flex items-center justify-center font-display font-black text-trident-dark text-xl tracking-tighter shadow-[0_0_20px_rgba(0,229,255,0.25)]">
+                    T
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display font-black text-xl tracking-tight leading-none text-white group-hover:text-trident-accent transition-colors">TRIDENT FITNESS</span>
+                    <span class="text-[9px] tracking-[0.25em] text-trident-accent font-bold uppercase mt-0.5">Deccan Gymkhana</span>
+                </div>
+            </a>
+            
+            <div class="hidden md:flex items-center gap-8 font-medium text-xs tracking-widest text-trident-gray">
+                <a href="#about" class="hover:text-trident-accent transition-colors uppercase">The Arena</a>
+                <a href="#services" class="hover:text-trident-accent transition-colors uppercase">Programs</a>
+                <a href="#why-us" class="hover:text-trident-accent transition-colors uppercase">Why Us</a>
+                <a href="#gallery" class="hover:text-trident-accent transition-colors uppercase">Gallery</a>
+                <a href="#testimonials" class="hover:text-trident-accent transition-colors uppercase">Reviews</a>
+                <a href="#contact" class="hover:text-trident-accent transition-colors uppercase">Location</a>
+            </div>
+
+            <div class="hidden lg:flex items-center gap-6">
+                <a href="tel:+918446289777" class="text-xs font-bold tracking-widest text-white hover:text-trident-accent transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-phone text-trident-accent"></i> +91 84462 89777
+                </a>
+                <a href="#contact" class="bg-transparent border border-trident-accent text-trident-accent hover:bg-trident-accent hover:text-trident-dark text-xs font-bold tracking-widest px-6 py-3.5 rounded-xl transition-all duration-300 shadow-[0_0_15px_rgba(0,229,255,0.1)] hover:shadow-[0_0_25px_rgba(0,229,255,0.3)]">
+                    CLAIM FREE PASS
+                </a>
+            </div>
+
+            <!-- Mobile Menu Open Button -->
+            <button class="md:hidden text-white hover:text-trident-accent transition-colors" id="menu-open-btn" aria-label="Open Menu">
+                <i class="fa-solid fa-bars-staggered text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="hidden fixed inset-0 bg-trident-dark/98 z-50 flex flex-col p-8 justify-between" id="mobile-menu">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-trident-accent rounded-xl flex items-center justify-center font-display font-black text-trident-dark text-lg">T</div>
+                    <span class="font-display font-black text-xl tracking-tight text-white">TRIDENT FITNESS</span>
+                </div>
+                <button class="text-white hover:text-trident-accent transition-colors" id="menu-close-btn" aria-label="Close Menu">
+                    <i class="fa-solid fa-xmark text-2xl"></i>
+                </button>
+            </div>
+
+            <div class="flex flex-col gap-6 text-xl font-display font-bold tracking-wide">
+                <a href="#about" class="mobile-nav-link hover:text-trident-accent transition-colors">The Arena</a>
+                <a href="#services" class="mobile-nav-link hover:text-trident-accent transition-colors">Training Programs</a>
+                <a href="#why-us" class="mobile-nav-link hover:text-trident-accent transition-colors">Why Choose Us</a>
+                <a href="#gallery" class="mobile-nav-link hover:text-trident-accent transition-colors">Inside the Gym</a>
+                <a href="#testimonials" class="mobile-nav-link hover:text-trident-accent transition-colors">Reviews</a>
+                <a href="#contact" class="mobile-nav-link hover:text-trident-accent transition-colors">Location</a>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <a href="tel:+918446289777" class="text-center font-bold tracking-widest text-white border border-white/10 py-4 rounded-xl flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-phone text-trident-accent"></i> CALL FRONT DESK
+                </a>
+                <a href="#contact" class="mobile-nav-link text-center bg-trident-accent text-trident-dark font-bold tracking-widest py-4 rounded-xl">
+                    CLAIM FREE PASS
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- IMMERSIVE HERO SECTION -->
+    <section class="relative min-h-screen flex items-center pt-24 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1920" class="w-full h-full object-cover opacity-15 object-center scale-105 select-none" alt="Trident Premium Strength Deck">
+            <div class="absolute inset-0 bg-gradient-to-t from-trident-dark via-trident-dark/70 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-trident-dark via-transparent to-trident-dark/40"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 w-full pt-16 pb-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-9 space-y-8 text-center lg:text-left">
+                <div class="inline-flex items-center gap-3 bg-white/[0.03] border border-white/10 px-4 py-2 rounded-full backdrop-blur-md">
+                    <span class="w-2 h-2 rounded-full bg-trident-accent animate-pulse"></span>
+                    <span class="text-xs font-bold tracking-widest text-trident-accent uppercase">Spread Across 8,000+ Sq.Ft. over 3 Massive Floors</span>
+                </div>
+                
+                <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight leading-[1.05]">
+                    THREE FLOORS OF <span class="text-gradient">POWER.</span><br>
+                    ZERO ROOM FOR <span class="text-transparent bg-clip-text bg-gradient-to-r from-trident-accent to-trident-blue">EXCUSES.</span>
+                </h1>
+                
+                <p class="text-base sm:text-lg text-trident-gray max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                    Welcome to <span class="text-white font-semibold">Trident Fitness Deccan</span>. Experience Pune's true powerhouse destination featuring a massive dedicated strength arena floor, a comprehensive 25-machine commercial cardio deck, and elite functional combat sections.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                    <a href="#contact" class="w-full sm:w-auto text-center bg-gradient-to-r from-trident-accent to-trident-blue text-trident-dark font-black tracking-widest px-8 py-5 rounded-xl transition-all duration-300 hover:opacity-90 shadow-[0_0_30px_rgba(0,229,255,0.2)] hover:-translate-y-0.5">
+                        CLAIM 1-DAY TRIAL PASS <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                    <a href="#services" class="w-full sm:w-auto text-center bg-white/[0.04] border border-white/10 text-white font-bold tracking-widest px-8 py-5 rounded-xl hover:bg-white/[0.08] transition-all">
+                        EXPLORE THE FLOORS
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-3 gap-6 pt-12 border-t border-white/5 max-w-lg mx-auto lg:mx-0">
+                    <div>
+                        <div class="font-display text-2xl sm:text-3xl font-black text-white">4.3<span class="text-trident-accent text-xl ml-1"><i class="fa-solid fa-star"></i></span></div>
+                        <div class="text-[10px] tracking-wider text-trident-gray uppercase mt-1">433+ Google Reviews</div>
+                    </div>
+                    <div>
+                        <div class="font-display text-2xl sm:text-3xl font-black text-white">8K</div>
+                        <div class="text-[10px] tracking-wider text-trident-gray uppercase mt-1">Square Feet Floor Space</div>
+                    </div>
+                    <div>
+                        <div class="font-display text-2xl sm:text-3xl font-black text-white">3</div>
+                        <div class="text-[10px] tracking-wider text-trident-gray uppercase mt-1">Dedicated Training Levels</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LEGACY & AREA DESCRIPTION -->
+    <section id="about" class="py-24 lg:py-32 bg-trident-surface/40 relative">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+                    <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&q=80&w=600" class="w-full h-80 object-cover rounded-2xl border border-white/10" alt="Trident Strength Floor">
+                    <div class="space-y-4 pt-10">
+                        <img src="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&q=80&w=600" class="w-full h-44 object-cover rounded-2xl border border-white/10" alt="Trident Cardio Deck">
+                        <div class="bg-trident-dark p-6 rounded-2xl border border-trident-accent/20 space-y-2">
+                            <h4 class="font-display font-black text-xl text-trident-accent">Friendly Tribe</h4>
+                            <p class="text-[11px] text-trident-gray uppercase tracking-wider leading-relaxed">A highly professional, deeply welcoming community for all goals</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-xs font-bold tracking-widest text-trident-accent uppercase block">THE HIGH-PERFORMANCE DESTINATION</span>
+                    <h2 class="font-display text-3xl sm:text-4xl font-black uppercase tracking-tight text-white">
+                        A MASSIVE THREE-LEVEL PHYSICAL TRANSFORMATION ENGINE
+                    </h2>
+                    <p class="text-trident-gray text-sm sm:text-base leading-relaxed">
+                        Trident Fitness Deccan stands recognized as one of the best-organized and most spacious fitness hubs in Deccan Gymkhana, Pune. Placed conveniently on Apte Road opposite Hotel Central Park, our unique layout expands across three individual dedicated levels to completely isolate and supercharge different domains of physical training.
+                    </p>
+                    <p class="text-trident-gray text-sm sm:text-base leading-relaxed">
+                        We blend high-tier strength equipment infrastructure with a highly encouraging, friendly team of certified personal coaches. From absolute weightlifting rookies looking for structured guidelines to elite athletes tracking metabolic response, we provide the ultimate ecosystem.
+                    </p>
+                    
+                    <div class="pt-4 border-t border-white/10 grid grid-cols-2 gap-6">
+                        <div class="space-y-1">
+                            <span class="text-white font-bold text-sm block">Isolated 3-Floor Layout</span>
+                            <span class="text-xs text-trident-gray">Separate floors built to prevent congestion across cardio circuits, free weights, and functional blocks.</span>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="text-white font-bold text-sm block">25+ Cardio Array Machine Units</span>
+                            <span class="text-xs text-trident-gray">Elite high-performance rowing, stair climbing, elliptical, and commercial treadmill selections.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES / PROGRAM SECTIONS -->
+    <section id="services" class="py-24 lg:py-32">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-20 space-y-4">
+                <span class="text-xs font-bold tracking-widest text-trident-accent uppercase block">TRAINING PORTFOLIO</span>
+                <h2 class="font-display text-3xl sm:text-5xl font-black uppercase tracking-tight">SPECIALIZED FITNESS CONTEXTS</h2>
+                <p class="text-trident-gray text-sm sm:text-base font-light">
+                    Every floor is tuned around optimal structural mechanics, offering clean execution bays and high-tier equipment calibrations.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="bg-trident-surface border border-white/5 rounded-2xl p-8 hover:border-trident-accent/30 transition-all duration-300 flex flex-col justify-between group">
+                    <div class="space-y-6">
+                        <div class="w-12 h-12 bg-trident-accent/10 border border-trident-accent/20 rounded-xl flex items-center justify-center text-trident-accent text-xl group-hover:bg-trident-accent group-hover:text-trident-dark transition-all duration-300">
+                            <i class="fa-solid fa-dumbbell"></i>
+                        </div>
+                        <div class="space-y-2">
+                            <h3 class="font-display font-bold text-lg uppercase tracking-wide text-white">Dedicated Strength Floor</h3>
+                            <p class="text-xs text-trident-gray leading-relaxed">
+                                Heavy plate rigs, robust multi-joint compound bench lines, high-grade barbell arrays, and mechanical structural isolation machines.
+                            </p>
+                        </div>
+                    </div>
+                    <a href="#contact" class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-trident-accent uppercase mt-8 hover:text-white transition-colors">
+                        INQUIRE ARCHITECTURE <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="bg-trident-surface border border-white/5 rounded-2xl p-8 hover:border-trident-accent/30 transition-all duration-300 flex flex-col justify-between group">
+                    <div class="space-y-6">
+                        <div class="w-12 h-12 bg-trident-accent/10 border border-trident-accent/20 rounded-xl flex items-center justify-center text-trident-accent text-xl group-hover:bg-trident-accent group-hover:text-trident-dark transition-all duration-300">
+                            <i class="fa-solid fa-person-running"></i>
+                        </div>
+                        <div class="space-y-2">
+                            <h3 class="font-display font-bold text-lg uppercase tracking-wide text-white">High-Density Cardio Deck</h3>
+                            <p class="text-xs text-trident-gray leading-relaxed">
+                                A systematic arrangement of over 25 advanced commercial cardiovascular tracking machines to spike deficit limits safely.
+                            </p>
+                        </div>
+                    </div>
+                    <a href="#contact" class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-trident-accent uppercase mt-8 hover:text-white transition-colors">
+                        INQUIRE ARCHITECTURE <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="bg-trident-surface border border-white/5 rounded-2xl p-8 hover:border-trident-accent/30 transition-all duration-300 flex flex-col justify-between group">
+                    <div class="space-y-6">
+                        <div class="w-12 h-12 bg-trident-accent/10 border border-trident-accent/20 rounded-xl flex items-center justify-center text-trident-accent text-xl group-hover:bg-trident-accent group-hover:text-trident-dark transition-all duration-300">
+                            <i class="fa-solid fa-bolt-lightning"></i>
+                        </div>
+                        <div class="space-y-2">
+                            <h3 class="font-display font-bold text-lg uppercase tracking-wide text-white">Functional & CrossFit Batches</h3>
+                            <p class="text-xs text-trident-gray leading-relaxed">
+                                Dynamic daily group layouts featuring high-intensity cross-training blocks, kettlebell circuits, and athletic core metrics.
+                            </p>
+                        </div>
+                    </div>
+                    <a href="#contact" class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-trident-accent uppercase mt-8 hover:text-white transition-colors">
+                        INQUIRE ARCHITECTURE <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section id="why-us" class="py-24 lg:py-32 bg-trident-surface/20 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs font-bold tracking-widest text-trident-accent uppercase block">THE TRIDENT COMPETITIVE ARCHITECTURE</span>
+                    <h2 class="font-display text-3xl sm:text-4xl font-black uppercase tracking-tight">BUILT SO YOU CAN REFINE YOUR COMPLIANCE</h2>
+                    <p class="text-trident-gray text-sm leading-relaxed">
+                        No one likes crowded, suffocating spaces. By completely spacing our setup options across three unique architectural stories, we guarantee clean, dedicated stations even during peak rush hour matrices.
+                    </p>
+                    <div class="pt-4 flex flex-col gap-4">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-trident-accent text-lg"></i>
+                            <span class="text-xs sm:text-sm font-semibold text-white">Massive 8,000+ Square Feet framework optimization.</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-trident-accent text-lg"></i>
+                            <span class="text-xs sm:text-sm font-semibold text-white">Elite, deeply supportive friendly personal training specialists.</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-trident-accent text-lg"></i>
+                            <span class="text-xs sm:text-sm font-semibold text-white">Mixed Martial Arts & Combat functional zones available.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="bg-trident-dark border border-white/5 p-8 rounded-2xl space-y-3">
+                        <span class="text-2xl text-trident-accent block"><i class="fa-solid fa-business-time"></i></span>
+                        <h4 class="font-display font-bold text-sm uppercase text-white tracking-wider">Extended Workout Hours</h4>
+                        <p class="text-xs text-trident-gray leading-relaxed">Open daily and running smoothly right until 10:00 PM every evening to accommodate corporate professional timetables.</p>
+                    </div>
+
+                    <div class="bg-trident-dark border border-white/5 p-8 rounded-2xl space-y-3">
+                        <span class="text-2xl text-trident-accent block"><i class="fa-solid fa-scale-balanced"></i></span>
+                        <h4 class="font-display font-bold text-sm uppercase text-white tracking-wider">Budget-Friendly Premium Value</h4>
+                        <p class="text-xs text-trident-gray leading-relaxed">High-tier multi-floor layout access matched with very reasonable, clean value membership package terms.</p>
+                    </div>
+
+                    <div class="bg-trident-dark border border-white/5 p-8 rounded-2xl space-y-3">
+                        <span class="text-2xl text-trident-accent block"><i class="fa-solid fa-users"></i></span>
+                        <h4 class="font-display font-bold text-sm uppercase text-white tracking-wider">Friendly Training Tribe</h4>
+                        <p class="text-xs text-trident-gray leading-relaxed">A highly supportive, non-intimidating social environment structured to keep motivation metrics elevated daily.</p>
+                    </div>
+
+                    <div class="bg-trident-dark border border-white/5 p-8 rounded-2xl space-y-3">
+                        <span class="text-2xl text-trident-accent block"><i class="fa-solid fa-map-pin"></i></span>
+                        <h4 class="font-display font-bold text-sm uppercase text-white tracking-wider">Prime Deccan Gymkhana Anchor</h4>
+                        <p class="text-xs text-trident-gray leading-relaxed">Located precisely near HDFC Bank and JM Road, ensuring simple transit routes from anywhere in central Pune.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHOTO GALLERY SECTION -->
+    <section id="gallery" class="py-24 lg:py-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 mb-12 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+            <div class="space-y-2">
+                <span class="text-xs font-bold tracking-widest text-trident-accent uppercase block">VISUAL EVIDENCE</span>
+                <h2 class="font-display text-3xl sm:text-4xl font-black uppercase tracking-tight">EXPLORE THE TRAINING DECK</h2>
+            </div>
+            <div class="flex gap-2">
+                <button id="slider-prev" class="w-12 h-12 border border-white/10 rounded-xl flex items-center justify-center hover:bg-white/5 transition-colors text-sm" aria-label="Previous Slide"><i class="fa-solid fa-arrow-left"></i></button>
+                <button id="slider-next" class="w-12 h-12 border border-white/10 rounded-xl flex items-center justify-center hover:bg-white/5 transition-colors text-sm" aria-label="Next Slide"><i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <div id="gallery-container" class="flex gap-6 overflow-x-auto hide-scrollbar px-6 lg:px-[calc((100vw-1280px)/2)] snap-x snap-mandatory scroll-smooth pb-4">
+            <!-- Item 1 -->
+            <div class="min-w-[280px] sm:min-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 snap-start relative group shrink-0">
+                <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Trident strength row">
+                <div class="absolute inset-0 bg-gradient-to-t from-trident-dark/90 via-transparent to-transparent"></div>
+                <div class="absolute bottom-6 left-6"><p class="font-display font-bold text-sm tracking-wide uppercase">Dedicated Strength Level Floor</p></div>
+            </div>
+            <!-- Item 2 -->
+            <div class="min-w-[280px] sm:min-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 snap-start relative group shrink-0">
+                <img src="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Trident mechanical row">
+                <div class="absolute inset-0 bg-gradient-to-t from-trident-dark/90 via-transparent to-transparent"></div>
+                <div class="absolute bottom-6 left-6"><p class="font-display font-bold text-sm tracking-wide uppercase">25+ Mechanical Commercial Cardio Arrays</p></div>
+            </div>
+            <!-- Item 3 -->
+            <div class="min-w-[280px] sm:min-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 snap-start relative group shrink-0">
+                <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Trident functional deck">
+                <div class="absolute inset-0 bg-gradient-to-t from-trident-dark/90 via-transparent to-transparent"></div>
+                <div class="absolute bottom-6 left-6"><p class="font-display font-bold text-sm tracking-wide uppercase">CrossFit & Combat Dynamic Zone</p></div>
+            </div>
+            <!-- Item 4 -->
+            <div class="min-w-[280px] sm:min-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 snap-start relative group shrink-0">
+                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Trident weight bays">
+                <div class="absolute inset-0 bg-gradient-to-t from-trident-dark/90 via-transparent to-transparent"></div>
+                <div class="absolute bottom-6 left-6"><p class="font-display font-bold text-sm tracking-wide uppercase">Spacious Triple Floor Infrastructure</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section id="testimonials" class="py-24 lg:py-32 bg-trident-surface/40">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-2">
+                <span class="text-xs font-bold tracking-widest text-trident-accent uppercase block">TESTIMONIAL ARCHIVE</span>
+                <h2 class="font-display text-3xl sm:text-4xl font-black uppercase tracking-tight">TRUSTED BY OVER 430+ MEMBERS</h2>
+                <div class="flex items-center justify-center gap-1 text-yellow-500 text-sm pt-2">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    <span class="text-white font-bold ml-2 text-xs">4.3 STAR METRIC ACROSS PUNE REGIONS</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-trident-dark border border-white/5 p-8 rounded-2xl flex flex-col justify-between space-y-8">
+                    <p class="text-xs sm:text-sm text-trident-gray leading-relaxed italic">
+                        "A budget Gym in a decent locality with all the facilities and friendly trainers. The space expansion over three floors helps you complete routines peacefully."
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/5">
+                        <div class="w-10 h-10 rounded-full bg-trident-accent/10 flex items-center justify-center text-trident-accent font-bold text-xs">RD</div>
+                        <div>
+                            <h4 class="text-xs font-bold text-white uppercase tracking-wider">Rahul D.</h4>
+                            <span class="text-[10px] text-trident-gray uppercase">Google Local Guide</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-trident-dark border border-white/5 p-8 rounded-2xl flex flex-col justify-between space-y-8">
+                    <p class="text-xs sm:text-sm text-trident-gray leading-relaxed italic">
+                        "Gym is very good, crossfit batch is awsome... and staff also good. Very encouraging setting, especially if you are transitioning into heavy weightlifting targets."
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/5">
+                        <div class="w-10 h-10 rounded-full bg-trident-accent/10 flex items-center justify-center text-trident-accent font-bold text-xs">SM</div>
+                        <div>
+                            <h4 class="text-xs font-bold text-white uppercase tracking-wider">Saurabh M.</h4>
+                            <span class="text-[10px] text-trident-gray uppercase">Deccan Resident</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-trident-dark border border-white/5 p-8 rounded-2xl flex flex-col justify-between space-y-8">
+                    <p class="text-xs sm:text-sm text-trident-gray leading-relaxed italic">
+                        "Gym equipment and overall setup is good, and the atmosphere is decent. Highly recommend their individual personal coaching if you need routine calibration."
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/5">
+                        <div class="w-10 h-10 rounded-full bg-trident-accent/10 flex items-center justify-center text-trident-accent font-bold text-xs">AK</div>
+                        <div>
+                            <h4 class="text-xs font-bold text-white uppercase tracking-wider">Aniket K.</h4>
+                            <span class="text-[10px] text-trident-gray uppercase">Active Batch Member</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="py-24 lg:py-32">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-16 space-y-2">
+                <span class="text-xs font-bold tracking-widest text-trident-accent uppercase block">FAQ SUMMARY</span>
+                <h2 class="font-display text-3xl font-black uppercase tracking-tight">FREQUENTLY ENQUIRED DETAILS</h2>
+            </div>
+
+            <div class="space-y-4">
+                <div class="bg-trident-surface border border-white/5 rounded-2xl overflow-hidden">
+                    <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center text-xs sm:text-sm font-bold uppercase tracking-wider text-white hover:text-trident-accent transition-colors">
+                        <span>What are the daily operational hours?</span>
+                        <i class="fa-solid fa-plus transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-out bg-white/[0.01]">
+                        <p class="p-6 text-xs text-trident-gray leading-relaxed">Trident Fitness Deccan operates reliably throughout the week, unlocking early for morning training arrays and closing safely at 10:00 PM every single evening.</p>
+                    </div>
+                </div>
+
+                <div class="bg-trident-surface border border-white/5 rounded-2xl overflow-hidden">
+                    <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center text-xs sm:text-sm font-bold uppercase tracking-wider text-white hover:text-trident-accent transition-colors">
+                        <span>How is the structural layout organized across the 3 floors?</span>
+                        <i class="fa-solid fa-plus transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-out bg-white/[0.01]">
+                        <p class="p-6 text-xs text-trident-gray leading-relaxed">Our multi-floor layout isolates different functions: we feature a dedicated heavy strength lifting zone floor, an isolated 25+ unit cardiovascular tracking engine level, and distinct sectors structured for CrossFit and MMA batches.</p>
+                    </div>
+                </div>
+
+                <div class="bg-trident-surface border border-white/5 rounded-2xl overflow-hidden">
+                    <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center text-xs sm:text-sm font-bold uppercase tracking-wider text-white hover:text-trident-accent transition-colors">
+                        <span>Where exactly can I find the gym facility?</span>
+                        <i class="fa-solid fa-plus transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-out bg-white/[0.01]">
+                        <p class="p-6 text-xs text-trident-gray leading-relaxed">We are located on the 2nd Floor, Opposite Hotel Central Park, Apte Road, near HDFC Bank, Deccan Gymkhana, Pune, Maharashtra 411004.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT, INFORMATION & MAP SECTION -->
+    <section id="contact" class="py-24 lg:py-32 bg-trident-surface/30 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+            
+            <!-- Info Sidebar -->
+            <div class="lg:col-span-5 space-y-8">
+                <div class="space-y-4">
+                    <span class="text-xs font-bold tracking-widest text-trident-accent uppercase block">LAUNCH YOUR CONVERSION</span>
+                    <h2 class="font-display text-3xl sm:text-5xl font-black uppercase tracking-tight">CONNECT WITH OUR ADMINISTRATIVE TEAM</h2>
+                    <p class="text-trident-gray text-xs sm:text-sm leading-relaxed">
+                        Stop pushing back your structural health goals. Reach out to our front operations desk right now to secure free diagnostic loops, entry day credentials, or map long-term membership discounts.
+                    </p>
+                </div>
+
+                <div class="space-y-4 text-xs sm:text-sm">
+                    <div class="flex items-start gap-4">
+                        <span class="text-trident-accent text-base mt-0.5"><i class="fa-solid fa-location-dot"></i></span>
+                        <div>
+                            <h4 class="font-bold text-white uppercase tracking-wider mb-1">Gym Premise Address</h4>
+                            <p class="text-trident-gray">2nd Floor, Opposite Hotel Central Park, Apte Rd, near HDFC Bank, Deccan Gymkhana, Pune, Maharashtra 411004</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <span class="text-trident-accent text-base"><i class="fa-solid fa-phone"></i></span>
+                        <div>
+                            <h4 class="font-bold text-white uppercase tracking-wider mb-0.5">Call Helpline Desk</h4>
+                            <a href="tel:+918446289777" class="text-trident-gray hover:text-trident-accent transition-colors">+91 84462 89777</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <span class="text-trident-accent text-base"><i class="fa-brands fa-instagram"></i></span>
+                        <div>
+                            <h4 class="font-bold text-white uppercase tracking-wider mb-1">Instagram Network</h4>
+                            <a href="https://www.instagram.com/trident.deccan/" target="_blank" rel="noopener" class="text-trident-gray hover:text-trident-accent transition-colors">@trident.deccan</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-6 border-t border-white/5">
+                    <a href="https://wa.me/918446289777" target="_blank" rel="noopener" class="inline-flex items-center gap-3 bg-[#25D366] text-black font-black text-xs tracking-widest px-6 py-4 rounded-xl hover:shadow-[0_0_25px_rgba(37,211,102,0.3)] transition-all">
+                        <i class="fa-brands fa-whatsapp text-base"></i> TALK ON WHATSAPP
+                    </a>
+                </div>
+            </div>
+
+            <!-- Lead Card & Map Complex -->
+            <div class="lg:col-span-7 space-y-6 w-full">
+                <div class="bg-trident-dark border border-white/10 p-8 rounded-3xl space-y-6 shadow-2xl">
+                    <h3 class="font-display font-bold text-lg uppercase text-white tracking-wide">Secure An Access Trial Pass</h3>
+                    <form class="space-y-4" onsubmit="event.preventDefault(); alert('Trial Pass Confirmed! Our fitness administrative consultant will reach out via call/WhatsApp within 2 hours.'); this.reset();">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <input type="text" placeholder="YOUR FULL NAME" required class="w-full bg-trident-surface/40 border border-white/10 rounded-xl px-4 py-4 text-xs text-white placeholder-trident-gray focus:outline-none focus:border-trident-accent transition-colors">
+                            <input type="tel" placeholder="MOBILE CONTACT NUMBER" required class="w-full bg-trident-surface/40 border border-white/10 rounded-xl px-4 py-4 text-xs text-white placeholder-trident-gray focus:outline-none focus:border-trident-accent transition-colors">
+                        </div>
+                        <select required class="w-full bg-trident-surface/40 border border-white/10 rounded-xl px-4 py-4 text-xs text-trident-gray focus:outline-none focus:border-trident-accent transition-colors">
+                            <option value="" class="bg-trident-dark">CHOOSE PRIMARY WORKOUT LEVEL OBJECTIVE</option>
+                            <option value="strength" class="bg-trident-dark">Strength & Hypertrophy Building (Floor 1)</option>
+                            <option value="cardio" class="bg-trident-dark">Cardio Deficit & Endurance (Floor 2)</option>
+                            <option value="crossfit" class="bg-trident-dark">CrossFit / Combat Group Training (Floor 3)</option>
+                        </select>
+                        <button type="submit" class="w-full bg-gradient-to-r from-trident-accent to-trident-blue text-trident-dark font-black text-xs tracking-widest py-4.5 rounded-xl hover:opacity-90 transition-all shadow-[0_0_20px_rgba(0,229,255,0.15)]">
+                            SUBMIT SLOTS ENTRY PASS REQUEST
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Google Map Embedded element -->
+                <div class="w-full h-64 rounded-3xl overflow-hidden border border-white/10 relative">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.242207914757!2d73.8427756!3d18.5179549!2m3!1f0!2f0!3f0!3m2!1i1020!2i768!4f13.1!3m3!1m2!1s0x3bc2c0792341dbb9%3A0xc6cb1c36b432a5ff!2sTrident%20Fitness%20Deccan!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" 
+                        class="w-full h-full border-0 grayscale invert opacity-75 contrast-125" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AGENCY QUALITY ULTRA FOOTER -->
+    <footer class="bg-trident-dark border-t border-white/5 py-12">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-white text-trident-dark font-display font-black rounded-lg flex items-center justify-center text-xs">T</div>
+                <p class="text-xs font-bold tracking-widest uppercase text-white">TRIDENT FITNESS DECCAN © 2026</p>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-6 text-[10px] tracking-widest text-trident-gray font-bold uppercase">
+                <a href="#about" class="hover:text-trident-accent transition-colors">The Arena</a>
+                <a href="#services" class="hover:text-trident-accent transition-colors">Programs</a>
+                <a href="#why-us" class="hover:text-trident-accent transition-colors">Features</a>
+                <a href="#gallery" class="hover:text-trident-accent transition-colors">Gallery</a>
+                <a href="#contact" class="hover:text-trident-accent transition-colors">Location</a>
+            </div>
+
+            <p class="text-[10px] text-trident-gray/40 font-medium">Concept concept created by Top-Tier UI/UX Premium Agency.</p>
+        </div>
+    </footer>
+
+    <!-- VANILLA JAVASCRIPT SYSTEM ENGINE -->
+    <script>
+        // Navbar structural alignment tracking
+        const navbar = document.getElementById('navbar');
+        const navContainer = document.getElementById('nav-container');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                navContainer.classList.replace('h-24', 'h-20');
+                navbar.classList.add('shadow-xl', 'bg-trident-dark/95');
+            } else {
+                navContainer.classList.replace('h-20', 'h-24');
+                navbar.classList.remove('shadow-xl', 'bg-trident-dark/95');
+            }
+        });
+
+        // Mobile Panel navigation logic
+        const menuOpenBtn = document.getElementById('menu-open-btn');
+        const menuCloseBtn = document.getElementById('menu-close-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+        menuOpenBtn.addEventListener('click', () => mobileMenu.classList.remove('hidden'));
+        menuCloseBtn.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        mobileLinks.forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+        // FAQ simple toggle accordion setup
+        const faqBtns = document.querySelectorAll('.faq-btn');
+        faqBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                const icon = btn.querySelector('i');
+                
+                if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                    content.style.maxHeight = '0px';
+                    icon.classList.replace('fa-minus', 'fa-plus');
+                    btn.classList.remove('text-trident-accent');
+                } else {
+                    document.querySelectorAll('.faq-content').forEach(c => c.style.maxHeight = '0px');
+                    document.querySelectorAll('.faq-btn i').forEach(i => i.classList.replace('fa-minus', 'fa-plus'));
+                    document.querySelectorAll('.faq-btn').forEach(b => b.classList.remove('text-trident-accent'));
+
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    icon.classList.replace('fa-plus', 'fa-minus');
+                    btn.classList.add('text-trident-accent');
+                }
+            });
+        });
+
+        // Gallery scroll layout configuration
+        const galleryContainer = document.getElementById('gallery-container');
+        document.getElementById('slider-next').addEventListener('click', () => {
+            galleryContainer.scrollBy({ left: 320, behavior: 'smooth' });
+        });
+        document.getElementById('slider-prev').addEventListener('click', () => {
+            galleryContainer.scrollBy({ left: -320, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

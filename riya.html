@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Bake Affair | Premium Artisanal Bakery & Cafe in Udaipur</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bake: {
+                            gold: '#D4A373',
+                            goldHover: '#C3925F',
+                            cream: '#FAEDCD',
+                            lightBg: '#FEFDF9',
+                            darkChocolate: '#1E1412',
+                            mocha: '#3D2622',
+                            softRose: '#F7ECE1'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .glass-nav {
+            background: rgba(30, 20, 18, 0.92);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #D4A373 0%, #FAEDCD 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-bake-lightBg text-bake-darkChocolate font-sans antialiased overflow-x-hidden">
+
+    <nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300 glass-nav border-b border-white/5 shadow-xl" id="main-nav">
+        <div class="bg-bake-darkChocolate text-bake-cream text-xs py-2 px-4 hidden md:block border-b border-white/5">
+            <div class="max-w-7xl mx-auto flex justify-between items-center font-medium tracking-wide">
+                <div class="flex items-center space-x-6">
+                    <span><i class="fa-solid fa-store text-bake-gold mr-2"></i>Outlets at Panchwati & Nexus Celebration Mall, Udaipur</span>
+                    <span><i class="fa-solid fa-clock text-bake-gold mr-2"></i>Open Daily: 8:00 AM - 12:00 AM (Midnight)</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="tel:+919799330055" class="hover:text-bake-gold transition-colors"><i class="fa-solid fa-phone text-bake-gold mr-1"></i> +91 9799330055</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="#" class="flex flex-col group">
+                    <span class="text-xl sm:text-2xl font-serif font-bold tracking-wide text-white leading-none">
+                        the <span class="text-bake-gold">Bake</span> affair
+                    </span>
+                    <span class="text-[9px] uppercase tracking-[0.3em] font-semibold text-slate-400 mt-1">
+                        Artisanal Patisserie & Cafe
+                    </span>
+                </a>
+
+                <div class="hidden lg:flex items-center space-x-8 font-semibold text-xs uppercase tracking-widest text-white">
+                    <a href="#" class="hover:text-bake-gold transition-colors">Home</a>
+                    <a href="#about" class="hover:text-bake-gold transition-colors">Our Affair</a>
+                    <a href="#services" class="hover:text-bake-gold transition-colors">Creations</a>
+                    <a href="#outlets" class="hover:text-bake-gold transition-colors">Outlets</a>
+                    <a href="#why-choose-us" class="hover:text-bake-gold transition-colors">Why Us</a>
+                    <a href="#contact" class="hover:text-bake-gold transition-colors">Contact</a>
+                </div>
+
+                <div class="hidden sm:flex items-center space-x-4">
+                    <a href="#contact" class="bg-bake-gold hover:bg-bake-goldHover text-bake-darkChocolate font-extrabold text-xs uppercase tracking-widest px-6 py-3 rounded-full shadow-md shadow-bake-gold/20 transition-all hover:-translate-y-0.5">
+                        Order / Book Table
+                    </a>
+                </div>
+
+                <div class="lg:hidden">
+                    <button type="button" id="mobile-menu-btn" class="text-white hover:text-bake-gold focus:outline-none p-2" aria-label="Toggle Menu">
+                        <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden lg:hidden bg-bake-darkChocolate border-t border-white/5 w-full absolute top-full left-0 shadow-2xl">
+            <div class="px-6 pt-4 pb-6 space-y-2 font-medium text-xs uppercase tracking-widest">
+                <a href="#" class="block px-4 py-3 rounded text-white hover:bg-white/5">Home</a>
+                <a href="#about" class="block px-4 py-3 rounded text-white/80 hover:bg-white/5 hover:text-bake-gold">Our Affair</a>
+                <a href="#services" class="block px-4 py-3 rounded text-white/80 hover:bg-white/5 hover:text-bake-gold">Creations</a>
+                <a href="#outlets" class="block px-4 py-3 rounded text-white/80 hover:bg-white/5 hover:text-bake-gold">Our Outlets</a>
+                <a href="#why-choose-us" class="block px-4 py-3 rounded text-white/80 hover:bg-white/5 hover:text-bake-gold">Why Choose Us</a>
+                <a href="#contact" class="block px-4 py-3 rounded text-white/80 hover:bg-white/5 hover:text-bake-gold">Contact</a>
+                <div class="pt-4 border-t border-white/10 px-4">
+                    <a href="#contact" class="block text-center py-3 font-bold text-bake-darkChocolate bg-bake-gold rounded-full hover:bg-bake-goldHover transition-colors shadow-lg">Order Online Now</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative min-h-screen pt-28 flex items-center bg-bake-darkChocolate text-white overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=1920&q=80" alt="Gourmet Dessert Pastries Craft Background Layout" class="w-full h-full object-cover object-center opacity-20 mix-blend-luminosity">
+            <div class="absolute inset-0 bg-gradient-to-t from-bake-darkChocolate via-bake-darkChocolate/80 to-transparent"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-12 lg:py-20">
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-white/5 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/10 text-xs font-semibold tracking-widest text-bake-gold uppercase mx-auto lg:mx-0">
+                        <i class="fa-solid fa-cake-candles"></i> Crafting Sweet Affoirs Since 2024
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight leading-tight">
+                        Udaipur's Finest <span class="text-gradient block mt-2">Artisanal Patisserie</span>
+                    </h1>
+                    <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+                        Indulge in a premium symphony of flavors. From majestic celebration custom cakes to melt-in-mouth French desserts, we transform premium ingredients into unforgettable experiences.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#services" class="px-8 py-4 bg-bake-gold hover:bg-bake-goldHover text-bake-darkChocolate font-extrabold text-xs uppercase tracking-widest rounded-full shadow-xl shadow-bake-gold/10 text-center transition-all hover:-translate-y-0.5">
+                            Explore Creations Menu
+                        </a>
+                        <a href="#outlets" class="px-8 py-4 bg-white/5 hover:bg-white/10 text-white font-semibold text-xs uppercase tracking-widest rounded-full border border-white/10 transition-all backdrop-blur-sm text-center">
+                            Locate Near Me
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 relative">
+                    <div class="absolute inset-0 bg-bake-gold rounded-full opacity-10 blur-3xl w-72 h-72 mx-auto"></div>
+                    <div class="relative bg-white/5 backdrop-blur-lg border border-white/10 p-4 rounded-3xl shadow-2xl max-w-md mx-auto overflow-hidden group">
+                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80" alt="Premium Chocolate Cake Craftwork" class="w-full h-96 object-cover rounded-2xl group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute bottom-8 left-8 right-8 p-4 bg-bake-darkChocolate/90 backdrop-blur-md rounded-xl border border-white/10 text-center">
+                            <p class="text-xs uppercase tracking-widest text-bake-gold font-bold">Chef's Signature</p>
+                            <p class="text-sm font-serif font-medium text-white mt-1">Belgian Truffle Decadence Cake</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white border-y border-slate-200 py-12 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center divide-x-0 divide-y lg:divide-y-0 lg:divide-x divide-slate-200">
+                <div class="space-y-1">
+                    <p class="text-3xl sm:text-4xl font-serif font-bold text-bake-mocha">100% Pure</p>
+                    <p class="text-xs font-semibold uppercase tracking-widest text-slate-500">Premium Vegetarian Ingredients</p>
+                </div>
+                <div class="space-y-1 pt-4 lg:pt-0">
+                    <p class="text-3xl sm:text-4xl font-serif font-bold text-bake-mocha">2 Outlets</p>
+                    <p class="text-xs font-semibold uppercase tracking-widest text-slate-500">Serving Across Udaipur City</p>
+                </div>
+                <div class="space-y-1 pt-4 lg:pt-0">
+                    <p class="text-3xl sm:text-4xl font-serif font-bold text-bake-mocha">Custom Made</p>
+                    <p class="text-xs font-semibold uppercase tracking-widest text-slate-500">Bespoke Celebration Masterpieces</p>
+                </div>
+                <div class="space-y-1 pt-4 lg:pt-0">
+                    <p class="text-3xl sm:text-4xl font-serif font-bold text-bake-mocha">Fresh Daily</p>
+                    <p class="text-xs font-semibold uppercase tracking-widest text-slate-500">Baked and Served Daily</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 lg:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                
+                <div class="lg:col-span-5 relative order-2 lg:order-1">
+                    <div class="absolute -inset-4 bg-gradient-to-tr from-bake-cream to-bake-softRose rounded-2xl opacity-40 blur-xl"></div>
+                    <div class="relative bg-slate-50 border border-slate-200 p-3 rounded-2xl shadow-xl overflow-hidden group">
+                        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80" alt="Freshly Baked Artisanal Croissants and Bread" class="w-full h-[450px] object-cover rounded-xl object-center transition-transform duration-700 group-hover:scale-102">
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 space-y-6 order-1 lg:order-2">
+                    <div class="flex items-center gap-2 text-bake-gold font-bold text-xs uppercase tracking-widest">
+                        <span class="w-8 h-[2px] bg-bake-gold"></span> Welcome to The Bake Affair
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold tracking-tight text-bake-darkChocolate">
+                        Where Gourmet Passion Interlocks with Pure Confectionery Perfection
+                    </h2>
+                    <p class="text-slate-600 font-light text-sm sm:text-base leading-relaxed">
+                        At The Bake Affair, our commitment to artisanal mastery defines every loaf of sourdough, every delicate macaron, and every monumental layer cake we bake. We blend traditional techniques with contemporary global pastry flavors right here in the majestic city of Udaipur.
+                    </p>
+                    <p class="text-slate-600 font-light text-sm sm:text-base leading-relaxed">
+                        Whether you step in for a refreshing morning coffee paired with warm crispy crossaints or coordinate a tailored grand cake architecture for your special events, we honor your taste by ensuring unmatched execution metrics.
+                    </p>
+                    
+                    <div class="pt-4 flex flex-wrap gap-3 text-xs font-semibold text-bake-mocha">
+                        <span class="px-3 py-1.5 bg-bake-softRose rounded-full border border-slate-200/60 flex items-center gap-2"><i class="fa-solid fa-certificate text-bake-gold"></i> Eggless Specialization Available</span>
+                        <span class="px-3 py-1.5 bg-bake-softRose rounded-full border border-slate-200/60 flex items-center gap-2"><i class="fa-solid fa-leaf text-bake-gold"></i> Premium Organic Ingredients</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-20 lg:py-28 bg-bake-softRose/30 border-y border-slate-200/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="text-xs uppercase tracking-widest text-bake-gold font-bold px-3 py-1 bg-white border border-slate-200 rounded-full">Our Collections</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold tracking-tight text-bake-darkChocolate">Signature Confectionery Tracks</h2>
+                <p class="text-slate-500 font-light text-sm sm:text-base">Explore our carefully curated categories designed to elevate everyday moments and grand milestones alike.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-6 border border-slate-200/60 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="aspect-video w-full rounded-xl overflow-hidden bg-slate-100">
+                            <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13636?auto=format&fit=crop&w=500&q=80" alt="Celebration Custom Cakes" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <h3 class="text-lg font-serif font-bold text-bake-darkChocolate group-hover:text-bake-gold transition-colors">Bespoke Celebration Cakes</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                            Magnificent, custom-crafted cake architectures for weddings, anniversaries, birthdays, and grand corporate launches built to match your design palette perfectly.
+                        </p>
+                    </div>
+                    <a href="#contact" class="text-xs font-bold text-bake-gold mt-6 block uppercase tracking-wider group-hover:translate-x-1 transition-transform">Inquire Design →</a>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 border border-slate-200/60 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="aspect-video w-full rounded-xl overflow-hidden bg-slate-100">
+                            <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=500&q=80" alt="Gourmet French Pastries" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <h3 class="text-lg font-serif font-bold text-bake-darkChocolate group-hover:text-bake-gold transition-colors">Gourmet French Patisserie</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                            A curated selection of premium delicate cheesecakes, eclairs, macarons, and rich chocolate tarts that serve as the highlight of any dessert gathering.
+                        </p>
+                    </div>
+                    <a href="#contact" class="text-xs font-bold text-bake-gold mt-6 block uppercase tracking-wider group-hover:translate-x-1 transition-transform">Browse Display →</a>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 border border-slate-200/60 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="aspect-video w-full rounded-xl overflow-hidden bg-slate-100">
+                            <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=500&q=80" alt="Cafe and Savory Treats" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <h3 class="text-lg font-serif font-bold text-bake-darkChocolate group-hover:text-bake-gold transition-colors">Artisanal Breads & Cafe</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                            Freshly pulled espresso brews paired seamlessly with our warm crusty savory breads, hand-rolled puff pastries, and ambient seating setups.
+                        </p>
+                    </div>
+                    <a href="#contact" class="text-xs font-bold text-bake-gold mt-6 block uppercase tracking-wider group-hover:translate-x-1 transition-transform">Reserve Café Space →</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="outlets" class="py-20 lg:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto space-y-3 mb-16">
+                <span class="text-xs uppercase tracking-widest font-bold text-bake-gold">Double Presence</span>
+                <h2 class="text-3xl font-serif font-bold tracking-tight text-bake-darkChocolate">Our Udaipur Outlets</h2>
+                <p class="text-slate-500 text-sm font-light">Visit us at either of our beautifully established spaces for maximum convenience.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div class="bg-bake-softRose/20 border border-slate-200 rounded-2xl p-8 space-y-6 flex flex-col justify-between hover:shadow-xl transition-all">
+                    <div class="space-y-4">
+                        <div class="w-10 h-10 bg-bake-darkChocolate text-bake-gold rounded-xl flex items-center justify-center text-lg"><i class="fa-solid fa-map-location-dot"></i></div>
+                        <h3 class="text-xl font-serif font-bold text-bake-darkChocolate">Panchwati Main Flagship</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                            101, Akruti Complex, near Saheliyon Ki Badi, New Fatehpura, Panchwati, Udaipur, Rajasthan 313001
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-200 flex justify-between items-center text-xs">
+                        <span class="text-slate-500 font-medium"><i class="fa-solid fa-phone mr-1"></i> Call Outlet Directly</span>
+                        <a href="tel:+919799330055" class="font-bold text-bake-gold hover:underline">+91 9799330055</a>
+                    </div>
+                </div>
+
+                <div class="bg-bake-softRose/20 border border-slate-200 rounded-2xl p-8 space-y-6 flex flex-col justify-between hover:shadow-xl transition-all">
+                    <div class="space-y-4">
+                        <div class="w-10 h-10 bg-bake-darkChocolate text-bake-gold rounded-xl flex items-center justify-center text-lg"><i class="fa-solid fa-shop"></i></div>
+                        <h3 class="text-xl font-serif font-bold text-bake-darkChocolate">Nexus Celebration Mall Outlet</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                            Shop No. 17, Ground floor, Nexus Celebration Mall, Bhuwana, Udaipur, Rajasthan 313001
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-200 flex justify-between items-center text-xs">
+                        <span class="text-slate-500 font-medium"><i class="fa-solid fa-phone mr-1"></i> Call Mall Outlet</span>
+                        <a href="tel:+919509750055" class="font-bold text-bake-gold hover:underline">+91 95097 50055</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="why-choose-us" class="py-20 bg-bake-darkChocolate text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute -right-16 -top-16 w-96 h-96 bg-bake-gold rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs font-bold tracking-widest text-bake-gold uppercase px-3 py-1 bg-white/5 rounded-full border border-white/10">The Baking Standard</span>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold">Why Patrons Love The Bake Affair</h2>
+                    <p class="text-slate-300 font-light text-sm sm:text-base leading-relaxed">
+                        We don't mass-produce via pre-mix frameworks. Our expert culinary patisserie team monitors temperature curves, ingredient sourcing, and moisture matrices closely to satisfy your finest luxury cravings.
+                    </p>
+                </div>
+
+                <div class="lg:col-span-7 grid sm:grid-cols-2 gap-6">
+                    <div class="p-6 bg-white/5 rounded-xl border border-white/5 space-y-2 hover:border-bake-gold/40 transition-colors">
+                        <i class="fa-solid fa-heart text-bake-gold text-xl"></i>
+                        <h4 class="font-serif font-bold text-base">Unmatched Freshness</h4>
+                        <p class="text-xs text-slate-400 font-light leading-relaxed">Batches are taken straight from ovens directly to active shelves multiple times throughout operational windows.</p>
+                    </div>
+                    <div class="p-6 bg-white/5 rounded-xl border border-white/5 space-y-2 hover:border-bake-gold/40 transition-colors">
+                        <i class="fa-solid fa-palette text-bake-gold text-xl"></i>
+                        <h4 class="font-serif font-bold text-base">Elite Theme Customization</h4>
+                        <p class="text-xs text-slate-400 font-light leading-relaxed">Our designers safely map fondant, buttercream, and floral structural layers down to your precise conceptual sketch.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-bake-softRose/20 border-b border-slate-200/60">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6">
+            <div class="text-center space-y-3 mb-12">
+                <h2 class="text-3xl font-serif font-bold tracking-tight text-bake-darkChocolate">Frequently Asked Questions</h2>
+                <p class="text-slate-500 text-sm font-light">Direct insights regarding customization timelines and advanced ordering parameters.</p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button class="w-full text-left px-6 py-4.5 font-serif font-bold text-bake-darkChocolate flex justify-between items-center focus:outline-none gap-4 py-4" onclick="toggleFaq(this)">
+                        <span class="text-sm sm:text-base">How much advance notification is required for large custom theme cakes?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-200 text-xs"></i>
+                    </button>
+                    <div class="hidden px-6 pb-5 text-xs sm:text-sm text-slate-600 font-light leading-relaxed border-t border-slate-100 pt-3">
+                        For complex multi-tier wedding or celebration custom theme architectures, we suggest placing specifications at least 48 to 72 hours in advance to secure premium baking schedules and detailing perfection.
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button class="w-full text-left px-6 py-4.5 font-serif font-bold text-bake-darkChocolate flex justify-between items-center focus:outline-none gap-4 py-4" onclick="toggleFaq(this)">
+                        <span class="text-sm sm:text-base">Are all confections prepared at the outlets 100% vegetarian?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-200 text-xs"></i>
+                    </button>
+                    <div class="hidden px-6 pb-5 text-xs sm:text-sm text-slate-600 font-light leading-relaxed border-t border-slate-100 pt-3">
+                        Yes, our complete regular catalog and celebration custom cake menus are formulated dynamically to match 100% vegetarian standards across Udaipur's elite culinary base.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 lg:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-bake-darkChocolate rounded-[2.5rem] shadow-2xl overflow-hidden relative">
+                
+                <div class="grid lg:grid-cols-12 relative z-10">
+                    <div class="lg:col-span-5 p-8 sm:p-12 lg:p-16 text-white flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-white/10">
+                        <div class="space-y-6">
+                            <h3 class="text-2xl sm:text-3xl font-serif font-bold tracking-tight">Initiate a Culinary Order</h3>
+                            <p class="text-slate-300 font-light text-xs sm:text-sm leading-relaxed">
+                                Get in touch immediately with our customer satisfaction lines to secure customized orders, event catering quotes, or table configurations.
+                            </p>
+                            
+                            <div class="space-y-4 pt-4">
+                                <div class="flex items-center gap-3 text-xs sm:text-sm text-slate-200">
+                                    <i class="fa-solid fa-phone text-bake-gold w-5 text-base"></i>
+                                    <span>+91 9799330055, +91 9509750055</span>
+                                </div>
+                                <div class="flex items-center gap-3 text-xs sm:text-sm text-slate-200">
+                                    <i class="fa-solid fa-envelope text-bake-gold w-5 text-base"></i>
+                                    <span>info@thebakeaffair.com</span>
+                                </div>
+                                <div class="flex items-center gap-3 text-xs sm:text-sm text-slate-200">
+                                    <i class="fa-solid fa-calendar text-bake-gold w-5 text-base"></i>
+                                    <span>Open 7 Days: 8:00 AM to 12:00 AM (Midnight)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-7 p-8 sm:p-12 lg:p-16 bg-white/5 backdrop-blur-md">
+                        <form class="space-y-4" onsubmit="event.preventDefault(); alert('Thank you! Your gourmet bakery request has been processed successfully. The Bake Affair team will verify shortly.');">
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="space-y-1">
+                                    <label class="text-[10px] font-bold uppercase tracking-wider text-slate-300">Your Name</label>
+                                    <input type="text" required class="w-full bg-white/10 border border-white/10 rounded-xl px-4 py-3 text-white text-xs focus:outline-none focus:border-bake-gold transition-all" placeholder="Alex Sharma">
+                                </div>
+                                <div class="space-y-1">
+                                    <label class="text-[10px] font-bold uppercase tracking-wider text-slate-300">Phone Number</label>
+                                    <input type="tel" required class="w-full bg-white/10 border border-white/10 rounded-xl px-4 py-3 text-white text-xs focus:outline-none focus:border-bake-gold transition-all" placeholder="+91 99999 00000">
+                                </div>
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-[10px] font-bold uppercase tracking-wider text-slate-300">Preferred Outlet Location</label>
+                                <select class="w-full bg-bake-darkChocolate border border-white/10 rounded-xl px-4 py-3 text-slate-200 text-xs focus:outline-none focus:border-bake-gold transition-all">
+                                    <option class="bg-bake-darkChocolate text-white">Panchwati Main Flagship Outlet</option>
+                                    <option class="bg-bake-darkChocolate text-white">Nexus Celebration Mall Outlet</option>
+                                </select>
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-[10px] font-bold uppercase tracking-wider text-slate-300">Describe Your Order Context</label>
+                                <textarea rows="3" required class="w-full bg-white/10 border border-white/10 rounded-xl px-4 py-3 text-white text-xs focus:outline-none focus:border-bake-gold transition-all" placeholder="Mention size weights, custom flavor requirements, theme styles, or specific collection items..."></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-4 bg-bake-gold hover:bg-bake-goldHover text-bake-darkChocolate font-bold uppercase text-xs tracking-widest rounded-xl transition-all shadow-lg">
+                                Transmit Request Securely
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-bake-darkChocolate text-white pt-16 pb-8 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-8 pb-12 border-b border-white/5">
+            
+            <div class="col-span-2 md:col-span-1 space-y-4">
+                <span class="text-xl font-serif font-bold text-white tracking-wide">the <span class="text-bake-gold">Bake</span> affair</span>
+                <p class="text-xs text-slate-400 font-light leading-relaxed">Udaipur's luxury destination for pure vegetarian artisanal baking, custom wedding cake engineering, and premier cafe lounge meetups.</p>
+            </div>
+
+            <div class="space-y-3">
+                <h4 class="text-[10px] uppercase font-bold tracking-widest text-bake-gold">Our Streams</h4>
+                <ul class="space-y-2 text-xs font-light text-slate-400">
+                    <li><a href="#services" class="hover:text-white transition-colors">Bespoke Custom Cakes</a></li>
+                    <li><a href="#services" class="hover:text-white transition-colors">French Pastry Catalog</a></li>
+                    <li><a href="#services" class="hover:text-white transition-colors">Artisanal Bakery Loaves</a></li>
+                    <li><a href="#services" class="hover:text-white transition-colors">Cafe Brewing Station</a></li>
+                </ul>
+            </div>
+
+            <div class="space-y-3">
+                <h4 class="text-[10px] uppercase font-bold tracking-widest text-bake-gold">Outlets Base</h4>
+                <ul class="space-y-2 text-xs font-light text-slate-400">
+                    <li><a href="#outlets" class="hover:text-white transition-colors">Panchwati Complex</a></li>
+                    <li><a href="#outlets" class="hover:text-white transition-colors">Nexus Celebration Mall</a></li>
+                    <li><a href="#about" class="hover:text-white transition-colors">Saheliyon Ki Badi Area</a></li>
+                    <li><a href="#contact" class="hover:text-white transition-colors">Direct Support Desks</a></li>
+                </ul>
+            </div>
+
+            <div class="space-y-3">
+                <h4 class="text-[10px] uppercase font-bold tracking-widest text-bake-gold">Corporate Information</h4>
+                <ul class="space-y-2 text-xs font-light text-slate-400">
+                    <li><a href="#contact" class="hover:text-white transition-colors">Custom Quotations</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Privacy Infrastructure</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Terms of Compliance</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Yug Technology Frameworks</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 flex flex-col sm:flex-row justify-between items-center text-[11px] text-slate-500 font-light gap-4">
+            <p>&copy; 2026 The Bake Affair. All rights reserved globally across Udaipur outlets.</p>
+            <p>Crafted for Unmatched Dessert Decadence Metrics.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Dropout Handler Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.className = "fa-solid fa-bars text-xl";
+            } else {
+                menuIcon.className = "fa-solid fa-xmark text-xl";
+            }
+        });
+
+        // Close dropdown securely upon clicking anchor points
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.className = "fa-solid fa-bars text-xl";
+            });
+        });
+
+        // Sticky Navigation Padding Tweaks upon Scrolling
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('main-nav');
+            if (window.scrollY > 40) {
+                nav.classList.add('py-1', 'shadow-2xl');
+            } else {
+                nav.classList.remove('py-1', 'shadow-2xl');
+            }
+        });
+
+        // FAQ Collapse Toggle Engine
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('i');
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+    </script>
+</body>
+</html>

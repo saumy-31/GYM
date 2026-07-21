@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quality Coaching Institute | Best Commerce & Science Coaching in Varanasi</title>
+    <meta name="description" content="Unlock academic excellence at Quality Coaching Institute, Lanka, Varanasi. Expert coaching for Class 11 & 12 Commerce & Science with proven results.">
+    
+    <!-- Premium Web Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Premium Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- BRAND DESIGN SYSTEM --- */
+        :root {
+            --primary: #DC2626;         /* Crimson Red Accent */
+            --primary-glow: rgba(220, 38, 38, 0.15);
+            --secondary: #0F172A;       /* Slate Navy */
+            --bg-light: #F8FAFC;
+            --surface: #FFFFFF;
+            --text-dark: #0F172A;
+            --text-muted: #64748B;
+            --font-heading: 'Space Grotesk', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+            --border-radius: 16px;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* --- GLOBAL SETUP --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* CUSTOM SCROLLBAR */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-light);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #CBD5E1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px auto;
+        }
+
+        .tagline {
+            color: var(--primary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
+            color: var(--secondary);
+            line-height: 1.2;
+        }
+
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        /* --- UTILITY BUTTONS --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 32px;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #FFFFFF;
+            border: none;
+            box-shadow: 0 10px 25px rgba(220, 38, 38, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(220, 38, 38, 0.4);
+            background: #B91C1C;
+        }
+
+        .btn-secondary {
+            background: #FFFFFF;
+            color: var(--secondary);
+            border: 2px solid #E2E8F0;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* --- SCROLL REVEAL INTERACTION --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- NAVIGATION HEADER --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 24px 0;
+            transition: var(--transition);
+            background: rgba(248, 250, 252, 0.8);
+            backdrop-filter: blur(20px);
+        }
+
+        header.scrolled {
+            padding: 14px 0;
+            border-bottom: 1px solid #E2E8F0;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .nav-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand-logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .brand-logo span {
+            color: var(--primary);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--secondary);
+        }
+
+        /* --- HERO SPACE --- */
+        #hero {
+            min-height: 95vh;
+            display: flex;
+            align-items: center;
+            padding-top: 140px;
+            background: radial-gradient(circle at 80% 20%, rgba(220, 38, 38, 0.04) 0%, transparent 50%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.8rem, 6vw, 4.2rem);
+            line-height: 1.1;
+            color: var(--secondary);
+            margin-bottom: 25px;
+        }
+
+        .hero-text h1 span {
+            color: var(--primary);
+        }
+
+        .hero-desc {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 35px;
+            max-width: 580px;
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .hero-img-stack {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: 0 30px 60px rgba(15, 23, 42, 0.1);
+        }
+
+        .trust-pill {
+            position: absolute;
+            bottom: 35px;
+            left: -30px;
+            background: #FFFFFF;
+            padding: 16px 28px;
+            border-radius: 100px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            border: 1px solid #F1F5F9;
+        }
+
+        .trust-pill i {
+            color: #EAB308;
+        }
+
+        /* --- ABOUT SPACE --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 35px;
+        }
+
+        .metric-card {
+            background: var(--surface);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            border: 1px solid #E2E8F0;
+        }
+
+        .metric-card h3 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .metric-card p {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        /* --- COURSES/SERVICES SECTION --- */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .course-card {
+            background: var(--surface);
+            border: 1px solid #E2E8F0;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            transition: var(--transition);
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+            border-color: var(--primary);
+        }
+
+        .course-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: var(--bg-light);
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 25px;
+            border-radius: 50px;
+        }
+
+        .course-card h3 {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        .course-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
+
+        .course-subjects {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            list-style: none;
+            border-top: 1px solid #F1F5F9;
+            padding-top: 20px;
+        }
+
+        .course-subjects li {
+            font-size: 0.85rem;
+            background: #F1F5F9;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        /* --- WHY CHOOSE US --- */
+        .why-layout {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .perks-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .perk-card {
+            display: flex;
+            gap: 20px;
+            background: var(--surface);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            border: 1px solid #E2E8F0;
+        }
+
+        .perk-card i {
+            font-size: 1.5rem;
+            color: var(--primary);
+            background: var(--bg-light);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .perk-card h4 {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            margin-bottom: 6px;
+        }
+
+        .perk-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- TESTIMONIALS SPACE --- */
+        .reputation-banner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            background: var(--surface);
+            border: 1px solid #E2E8F0;
+            border-radius: 100px;
+            padding: 20px 50px;
+            width: max-content;
+            margin: 0 auto 50px auto;
+        }
+
+        .score-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .score-box h3 {
+            font-size: 2.8rem;
+            color: var(--secondary);
+            line-height: 1;
+        }
+
+        .stars-row i {
+            color: #EAB308;
+            font-size: 1.1rem;
+        }
+
+        .votes-count {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .review-card {
+            background: var(--surface);
+            border: 1px solid #E2E8F0;
+            padding: 35px;
+            border-radius: var(--border-radius);
+            position: relative;
+        }
+
+        .review-card p {
+            color: var(--text-dark);
+            font-style: italic;
+            margin-bottom: 25px;
+        }
+
+        .reviewer-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .reviewer-avatar {
+            width: 40px;
+            height: 40px;
+            background: #E2E8F0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        /* --- CONTACT & INTERACTIVE MAP --- */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 60px;
+        }
+
+        .contact-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+
+        .info-node {
+            display: flex;
+            gap: 20px;
+        }
+
+        .info-node i {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-top: 4px;
+        }
+
+        .info-node h4 {
+            font-size: 1.15rem;
+            margin-bottom: 6px;
+            color: var(--secondary);
+        }
+
+        .info-node p, .info-node a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .map-frame-box {
+            height: 100%;
+            min-height: 400px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            border: 1px solid #E2E8F0;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.02);
+        }
+
+        /* --- FOOTER SCHEME --- */
+        footer {
+            background: var(--secondary);
+            color: #FFFFFF;
+            padding: 80px 0 40px 0;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 50px;
+        }
+
+        .footer-brand p {
+            color: #94A3B8;
+            margin-top: 20px;
+            max-width: 360px;
+        }
+
+        .footer-links h4 {
+            font-size: 1.15rem;
+            margin-bottom: 20px;
+            color: #FFFFFF;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: #94A3B8;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 4px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            color: #64748B;
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE MEDIA CONTROLS --- */
+        @media (max-width: 992px) {
+            .menu-toggle {
+                display: block;
+            }
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background: #FFFFFF;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 35px;
+                transition: var(--transition);
+                box-shadow: -10px 0 40px rgba(0,0,0,0.05);
+                border-left: 1px solid #E2E8F0;
+            }
+            .nav-menu.active {
+                right: 0;
+            }
+            .hero-grid, .about-grid, .why-layout, .contact-grid, .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            .trust-pill {
+                left: 20px;
+            }
+            .reputation-banner {
+                width: 100%;
+                flex-direction: column;
+                border-radius: var(--border-radius);
+                padding: 30px;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- --- HEADER AND NAVIGATION CONTROLS --- -->
+    <header id="site-header">
+        <div class="container nav-flex">
+            <a href="#hero" class="brand-logo">QUALITY<span>INSTITUTE</span></a>
+            <ul class="nav-menu" id="nav-drawer">
+                <li><a href="#hero" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#courses" class="nav-link">Programs</a></li>
+                <li><a href="#why" class="nav-link">Methodology</a></li>
+                <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="menu-btn">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- --- HERO DISPLAY SECTOR --- -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <span class="tagline">Varanasi's Top Rated Institute</span>
+                    <h1>Inspiring Consistency, <span>Discipline</span> & Smart Work</h1>
+                    <p class="hero-desc">Unlock exceptional results in Class 11 & 12 Commerce and foundational Science streams with expert teaching strategies tailored for lifelong clarity.</p>
+                    <div class="hero-btn-layout">
+                        <a href="tel:09336942598" class="btn btn-primary">Enquire Now <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i></a>
+                        <a href="#courses" class="btn btn-secondary">Explore Programs</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800&auto=format&fit=crop" class="hero-img-stack" alt="Students engaged in smart focused study at Quality Coaching Institute">
+                    <div class="trust-pill">
+                        <i class="fa-solid fa-star"></i> 4.8 / 5 Rating Verified
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- THE ACADEMIC ARCHITECTURE ABOUT --- -->
+    <section id="about" style="background: #F1F5F9;">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-visual reveal">
+                    <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80&w=800&auto=format&fit=crop" class="hero-img-stack" alt="Clean properly ventilated classroom spaces optimized for long hours study">
+                </div>
+                <div class="about-text reveal">
+                    <span class="tagline">Our Core Values</span>
+                    <h2 class="section-title">A Trusted Institute Built For High Achievement</h2>
+                    <p>Quality Coaching Institute stands as a premier specialized academic institution situated in Lanka, Varanasi. We are entirely committed to offering premium, deeply personal education models for modern commerce and science students.</p>
+                    <p>We supply structured environments that encourage learners to handle long hours safely and confidently, shifting focus entirely toward high level comprehension and consistent problem-solving clarity.</p>
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <h3>283+</h3>
+                            <p>Google Student Reviews</p>
+                        </div>
+                        <div class="metric-card">
+                            <h3>508+</h3>
+                            <p>Justdial Patron Votes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- INTEGRATED ACADEMIC CURRICULUMS --- -->
+    <section id="courses">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="tagline">Academic Curriculums</span>
+                <h2 class="section-title">Comprehensive Coaching Formats</h2>
+            </div>
+            <div class="courses-grid">
+                <div class="course-card reveal">
+                    <span class="course-badge">Commerce Core</span>
+                    <h3>Class 11 & 12 Commerce</h3>
+                    <p>Expertly structured, rigorous modular programming built entirely around core foundations and structural evaluation drills.</p>
+                    <ul class="course-subjects">
+                        <li>Accountancy</li>
+                        <li>Business Studies (BST)</li>
+                        <li>Economics</li>
+                    </ul>
+                </div>
+                <div class="course-card reveal">
+                    <span class="course-badge">Science Track</span>
+                    <h3>Class 11 & 12 Science foundational</h3>
+                    <p>Deep foundational tracking architectures prioritizing primary concept understanding and strategic solution patterns.</p>
+                    <ul class="course-subjects">
+                        <li>Physics</li>
+                        <li>Chemistry</li>
+                        <li>Mathematics</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- PEDAGOGICAL FRAMEWORK METHODOLOGY --- -->
+    <section id="why" style="background: #F1F5F9;">
+        <div class="container">
+            <div class="why-layout">
+                <div class="why-text reveal">
+                    <span class="tagline">The Quality Methodology</span>
+                    <h2 class="section-title">Designed For Long-Term Academic Focus</h2>
+                    <p style="color: var(--text-muted); margin-top: 20px; margin-bottom: 30px;">We intentionally step away from superficial memory parameters, focusing our students strictly on consistent logic maps and structural daily execution maps.</p>
+                    <a href="tel:09336942598" class="btn btn-primary">Speak With Admissions</a>
+                </div>
+                <div class="perks-list reveal">
+                    <div class="perk-card">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <div>
+                            <h4>Trained & Expert Faculty</h4>
+                            <p>Continuous personal mentorship under highly specialized, proven high performance academic educators.</p>
+                        </div>
+                    </div>
+                    <div class="perk-card">
+                        <i class="fa-solid fa-wind"></i>
+                        <div>
+                            <h4>Ventilated & Clean Classrooms</h4>
+                            <p>Properly space-configured, well-ventilated settings optimized for extended concentration spans.</p>
+                        </div>
+                    </div>
+                    <div class="perk-card">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <div>
+                            <h4>Consistent Test Architecture</h4>
+                            <p>Ongoing conceptual checkpoints configured to ensure absolute clarity before final board exams.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- STUDENT REVIEWS & RATING VERIFICATION --- -->
+    <section id="testimonials">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="tagline">Verified Social Verification</span>
+                <h2 class="section-title">What Our Students & Parents Say</h2>
+            </div>
+
+            <div class="reputation-banner reveal">
+                <div class="score-box">
+                    <h3>4.8</h3>
+                    <div class="stars-row">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+                <div class="votes-count">Based on 283 Google Reviews & 508 Justdial Submissions</div>
+            </div>
+
+            <div class="reviews-grid">
+                <div class="review-card reveal">
+                    <p>"Highly experienced and trained teachers. The classrooms are exceptionally neat, clean, and properly ventilated which helps during long hours of intense studies."</p>
+                    <div class="reviewer-meta">
+                        <div class="reviewer-avatar">S</div>
+                        <div>
+                            <h4>Saurabh Jaiswal</h4>
+                            <p>Class 12 Commerce Alumnus</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card reveal">
+                    <p>"The institute builds true consistency and academic discipline in every student. Shifting strategies toward smart work over long hours really paid off for my score."</p>
+                    <div class="reviewer-meta">
+                        <div class="reviewer-avatar">K</div>
+                        <div>
+                            <h4>Kriti Verma</h4>
+                            <p>Verified Parent Review</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- GEOLOCATION CHANNEL MAP & DETAILED DIRECTIONS --- -->
+    <section id="contact" style="background: #F1F5F9;">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="tagline">Locate The Center</span>
+                <h2 class="section-title">Visit Our Lanka Campus</h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-panel reveal">
+                    <div class="info-node">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        <div>
+                            <h4>Campus Location Address</h4>
+                            <p>Near ravidash gate, Lanka, Nagwa Rd, Shivpuri Colony, Nagwa Lanka, Varanasi, Uttar Pradesh 221005</p>
+                        </div>
+                    </div>
+                    <div class="info-node">
+                        <i class="fa-solid fa-phone-volume"></i>
+                        <div>
+                            <h4>Admissions Desk Helpline</h4>
+                            <p><a href="tel:09336942598">093369 42598</a></p>
+                        </div>
+                    </div>
+                    <div class="info-node">
+                        <i class="fa-solid fa-clock"></i>
+                        <div>
+                            <h4>Office Operations Hours</h4>
+                            <p>Monday – Saturday: 08:00 AM – 07:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-container reveal">
+                    <div class="map-frame-box">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.7289562772545!2d83.0039987!3d25.280336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e3305ea3b11cb%3A0xd6899732cb4f5f5c!2sQuality%20Coaching%20Institute%20of%20commerce!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" 
+                                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- PREMIUM CONTEXT FOOTER --- -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#hero" class="brand-logo" style="color:#FFF;">QUALITY<span>INSTITUTE</span></a>
+                    <p>Building consistent academic clarity, personal logic structures, and high level scoring capabilities for commerce and science aspirants in Varanasi.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Core Programs</h4>
+                    <ul>
+                        <li><a href="#courses">Class 11/12 Commerce</a></li>
+                        <li><a href="#courses">Class 11/12 Science</a></li>
+                        <li><a href="#why">Pedagogy Model</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Campus Pathways</h4>
+                    <ul>
+                        <li><a href="#contact">Find Campus Location</a></li>
+                        <li><a href="#testimonials">Student Reviews</a></li>
+                        <li><a href="tel:09336942598">Call Help Desk</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Quality Coaching Institute of commerce. All Rights Reserved.</p>
+                <p>Designed For True Academic Performance</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- --- VANILLA INTERACTION JAVASCRIPT ARCHITECTURE --- -->
+    <script>
+        // --- MOBILE NAV BAR OVERLAY TOGGLE ---
+        const menuBtn = document.getElementById('menu-btn');
+        const navDrawer = document.getElementById('nav-drawer');
+        const internalLinks = document.querySelectorAll('.nav-link');
+
+        menuBtn.addEventListener('click', () => {
+            navDrawer.classList.toggle('active');
+            const icon = menuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars-staggered');
+            icon.classList.toggle('fa-xmark');
+        });
+
+        internalLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navDrawer.classList.remove('active');
+                menuBtn.querySelector('i').className = 'fa-solid fa-bars-staggered';
+            });
+        });
+
+        // --- STICKY TRANSPARENT NAVIGATION BEHAVIOR ---
+        const headerNode = document.getElementById('site-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                headerNode.classList.add('scrolled');
+            } else {
+                headerNode.classList.remove('scrolled');
+            }
+        });
+
+        // --- SCROLL DRIVEN ANIMATION SYSTEM ---
+        const scrollRevealTargets = document.querySelectorAll('.reveal');
+        
+        const processScrollReveal = () => {
+            scrollRevealTargets.forEach(el => {
+                const innerViewportHeight = window.innerHeight;
+                const elementTopPoint = el.getBoundingClientRect().top;
+                const activatingOffset = 80;
+
+                if (elementTopPoint < innerViewportHeight - activatingOffset) {
+                    el.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', processScrollReveal);
+        window.addEventListener('load', processScrollReveal);
+
+        // --- DYNAMIC NAV SPY SCROLL TRACKING ---
+        const layoutSections = document.querySelectorAll('section');
+        window.addEventListener('scroll', () => {
+            let selectedSectionId = '';
+            layoutSections.forEach(s => {
+                const sTop = s.offsetTop;
+                if (window.pageYOffset >= (sTop - 220)) {
+                    selectedSectionId = s.getAttribute('id');
+                }
+            });
+
+            internalLinks.forEach(l => {
+                l.classList.remove('active');
+                if (l.getAttribute('href').includes(selectedSectionId)) {
+                    l.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360 Degree Revolving Restaurant & Bar | Panoramic Dining Pune</title>
+    <meta name="description" content="Experience Maharashtra's first-ever 360° revolving restaurant on JM Road, Pune. Indulge in premium North Indian, Continental, and Asian cuisine with panoramic cityscape views.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- DESIGN SYSTEM CORE VARIABLES --- */
+        :root {
+            --gold: #D4AF37;            /* Luxury Metallic Gold Accent */
+            --gold-glow: rgba(212, 175, 55, 0.2);
+            --bg-dark: #090A0F;         /* Deep Midnight Sky Blue-Black */
+            --surface: #12141C;         /* Elevated Surface Noir */
+            --warm-cream: #F5EFEB;      /* Light Leather/Tablecloth Tone */
+            --text-light: #F8FAFC;
+            --text-muted: #94A3B8;
+            --font-display: 'Cinzel', serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+            --border-glass: rgba(255, 255, 255, 0.06);
+            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* --- BASIC RESET & ARCHITECTURE --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        /* CUSTOM METALLIC SCROLLBAR */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1F2232;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gold);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1320px;
+            margin: 0 auto;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 90px;
+        }
+
+        .tagline {
+            color: var(--gold);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.35em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: block;
+            font-family: var(--font-body);
+        }
+
+        .section-title {
+            font-size: clamp(2.3rem, 5vw, 3.8rem);
+            line-height: 1.2;
+            color: var(--text-light);
+        }
+
+        .section-title span {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        section {
+            padding: 140px 0;
+            position: relative;
+        }
+
+        /* --- AGENCY COMPONENT ACTIONS --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 18px 42px;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            text-decoration: none;
+            border-radius: 0;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--bg-dark);
+            border: 1px solid var(--gold);
+            box-shadow: 0 4px 20px var(--gold-glow);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--gold);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border: 1px solid var(--border-glass);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            transform: translateY(-4px);
+        }
+
+        /* --- SCROLL REVEAL UTILITY TIMING --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- DYNAMIC HEADER NAVIGATION --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 35px 0;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 20px 0;
+            background: rgba(9, 10, 15, 0.92);
+            backdrop-filter: blur(25px);
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .nav-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            color: var(--text-light);
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--gold);
+        }
+
+        .menu-toggle {
+            display: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- HERO DISPLAY ZONE --- */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(180deg, rgba(9,10,15,0.2) 0%, rgba(9,10,15,0.95) 100%), 
+                        url('https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+            padding-top: 120px;
+        }
+
+        .hero-inner {
+            max-width: 950px;
+        }
+
+        .hero-inner h1 {
+            font-size: clamp(3rem, 7vw, 6.2rem);
+            line-height: 1.05;
+            margin-bottom: 30px;
+        }
+
+        .hero-inner h1 span {
+            color: transparent;
+            -webkit-text-stroke: 1px var(--text-light);
+            font-style: italic;
+        }
+
+        .hero-desc {
+            font-size: 1.3rem;
+            font-family: var(--font-display);
+            color: var(--text-muted);
+            margin-bottom: 50px;
+            max-width: 700px;
+        }
+
+        .hero-btn-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* --- ABOUT REVOLVING SPACE --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 90px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .about-visuals {
+            position: relative;
+        }
+
+        .about-img-frame {
+            border: 1px solid var(--border-glass);
+            padding: 15px;
+            background: rgba(255,255,255,0.01);
+            position: relative;
+        }
+
+        /* Revolving aesthetic track ring overlay background */
+        .about-img-frame::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            border: 1px dashed var(--gold);
+            opacity: 0.3;
+            border-radius: 50%;
+            animation: rotateRing 40s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes rotateRing {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .about-visuals img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* --- SPACES & FORMATS (SERVICES) --- */
+        .spaces-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .space-card {
+            background: var(--surface);
+            border: 1px solid var(--border-glass);
+            padding: 65px 45px;
+            transition: var(--transition);
+        }
+
+        .space-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.6);
+        }
+
+        .space-card i {
+            font-size: 2.2rem;
+            color: var(--gold);
+            margin-bottom: 35px;
+            display: block;
+        }
+
+        .space-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 18px;
+        }
+
+        .space-card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* --- GASTRONOMY HIGHLIGHTS MENU --- */
+        .menu-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+
+        .tab-trigger {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            cursor: pointer;
+            padding: 5px 20px;
+            transition: var(--transition);
+            border-bottom: 2px solid transparent;
+        }
+
+        .tab-trigger.active, .tab-trigger:hover {
+            color: var(--gold);
+            border-bottom-color: var(--gold);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px 80px;
+        }
+
+        .food-item {
+            display: flex;
+            flex-direction: column;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+            padding-bottom: 25px;
+        }
+
+        .food-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 10px;
+        }
+
+        .food-meta h4 {
+            font-size: 1.4rem;
+            color: var(--text-light);
+        }
+
+        .food-price {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .food-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- VISUAL AMBIENCE GALLERY --- */
+        .gallery-mosaic {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 25px;
+        }
+
+        .mosaic-card {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            border: 1px solid var(--border-glass);
+        }
+
+        .mosaic-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .mosaic-card:hover img {
+            transform: scale(1.05);
+        }
+
+        /* --- AGGREGATED PATRON SOCIAL REVIEWS --- */
+        .reputation-banner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            background: rgba(255,255,255,0.01);
+            border: 1px solid var(--border-glass);
+            width: max-content;
+            margin: 0 auto 80px auto;
+            padding: 25px 60px;
+            flex-wrap: wrap;
+        }
+
+        .rating-block {
+            text-align: center;
+            border-right: 1px solid var(--border-glass);
+            padding-right: 40px;
+        }
+
+        .rating-block:last-child {
+            border-right: none;
+            padding-right: 0;
+        }
+
+        .rating-source {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .rating-num {
+            font-family: var(--font-display);
+            font-size: 2.8rem;
+            color: var(--gold);
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .rating-count {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            display: block;
+            margin-top: 5px;
+        }
+
+        .reviews-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .patron-card {
+            background: var(--surface);
+            padding: 55px 45px;
+            border: 1px solid var(--border-glass);
+            position: relative;
+        }
+
+        .patron-card::before {
+            content: '“';
+            position: absolute;
+            top: 25px;
+            right: 40px;
+            font-family: var(--font-display);
+            font-size: 5rem;
+            color: rgba(212, 175, 55, 0.06);
+            line-height: 1;
+        }
+
+        .patron-card p {
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 35px;
+            font-size: 1.05rem;
+        }
+
+        .patron-meta h5 {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 4px;
+        }
+
+        .patron-meta span {
+            color: var(--gold);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        /* --- IMMERSIVE CTA RESERVATION BANNER --- */
+        .reservation-cta {
+            background: linear-gradient(rgba(9,10,15,0.92), rgba(9,10,15,0.92)), 
+                        url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+            padding: 130px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-glass);
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .reservation-cta h2 {
+            font-size: clamp(2.4rem, 5vw, 4.4rem);
+            margin-bottom: 25px;
+        }
+
+        .reservation-cta p {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            max-width: 650px;
+            margin: 0 auto 45px auto;
+            font-family: var(--font-display);
+        }
+
+        /* --- DIRECTIONS PANEL & GOOGLE MAP --- */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 90px;
+        }
+
+        .contact-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 45px;
+        }
+
+        .contact-node {
+            display: flex;
+            gap: 25px;
+        }
+
+        .contact-node i {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-top: 5px;
+        }
+
+        .contact-node h4 {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+
+        .contact-node p, .contact-node a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 1.05rem;
+        }
+
+        .map-frame-holder {
+            height: 100%;
+            min-height: 450px;
+            border: 1px solid var(--border-glass);
+            border-radius: 0;
+            overflow: hidden;
+        }
+
+        /* --- PREMIUM CONTEXT BASE FOOTER --- */
+        footer {
+            background: #05060A;
+            padding: 95px 0 45px 0;
+            border-top: 1px solid var(--border-glass);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 0.8fr 0.8fr;
+            gap: 80px;
+            margin-bottom: 70px;
+        }
+
+        .footer-brand h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            max-width: 380px;
+        }
+
+        .footer-links h4 {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 25px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+            padding-left: 6px;
+        }
+
+        .social-strip {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-icon-btn {
+            width: 42px;
+            height: 42px;
+            border: 1px solid var(--border-glass);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-icon-btn:hover {
+            background: var(--gold);
+            color: var(--bg-dark);
+            border-color: var(--gold);
+            transform: translateY(-4px);
+        }
+
+        .footer-copyright {
+            border-top: 1px solid rgba(255,255,255,0.03);
+            padding-top: 35px;
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* --- SCREEN RESPONSIVE RESTRUCTURING --- */
+        @media (max-width: 992px) {
+            .menu-toggle {
+                display: block;
+            }
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background: #0E1016;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 35px;
+                transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+                box-shadow: -15px 0 45px rgba(0,0,0,0.7);
+                border-left: 1px solid var(--border-glass);
+            }
+            .nav-menu.active {
+                right: 0;
+            }
+            .about-grid, .menu-grid, .contact-layout, .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+            .reputation-banner {
+                width: 100%;
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+            .rating-block {
+                border-right: none;
+                border-bottom: 1px solid var(--border-glass);
+                padding-right: 0;
+                padding-bottom: 20px;
+                width: 100%;
+            }
+            .rating-block:last-child {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- --- FLOATING TRANSPARENT NAVBAR --- -->
+    <header id="navigation-bar">
+        <div class="container nav-flex">
+            <a href="#hero" class="logo">360&deg; <span>REVOLVING</span></a>
+            <ul class="nav-menu" id="drawer-menu">
+                <li><a href="#hero" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">The Orbit</a></li>
+                <li><a href="#spaces" class="nav-link">Environments</a></li>
+                <li><a href="#menu" class="nav-link">MenuHighlights</a></li>
+                <li><a href="#gallery" class="nav-link">Ambience</a></li>
+                <li><a href="#reviews" class="nav-link">Reputation</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="menu-trigger-btn">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- --- IMPACT HERO STAGE --- -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-inner">
+                
+                <h1>PANORAMIC VIEWS.<br><span>EXQUISITE CUISINE.</span></h1>
+                <p class="hero-desc">Indulge in a shifting horizon of Pune's cityscapes while exploring curated North Indian, Continental, Asian, and Mughlai culinary masterworks.</p>
+                <div class="hero-btn-group">
+                    <a href="tel:08432579999" class="btn btn-primary">Reserve a Table</a>
+                    <a href="#menu" class="btn btn-secondary">Explore Menu Highlights</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- --- THE ORBIT ALIGNMENT (ABOUT) --- -->
+    <section id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text reveal active">
+                    <span class="tagline">The Architectural Orbit</span>
+                    <h2 class="section-title">Pune's Definitive <span>Experiential Landmark</span></h2>
+                    <p>Perfectly situated on J.M. Road, Deccan Gymkhana, 360 Degree Revolving Restaurant & Bar redefines premium hospitality. We present a dynamic multi-course fine dining structure matching elegant ivory leather spaces with full panoramic glass city horizons.</p>
+                    <p>Whether hosting quiet multi-generation family banquets, specialized date tracks under twilight views, or shifting gears into late-night pub energy, our revolving landscape makes every seating unforgettable.</p>
+                    <a href="#spaces" class="btn btn-secondary">Explore Layout Dualism</a>
+                </div>
+                <div class="about-visuals">
+                    <div class="about-img-frame">
+                        <!-- SWAPPED: Replaced spa image with a luxury panoramic restaurant view -->
+                        <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkUkJyKaLnmD-MIkNwHXTnlksNyO0TNA7FCMkHbizt3cBSGIpgIoAiRLeFlna8YmSYAdlrvftuM7uFh5DPx2oCJyuUkCoLVt-3tV-_RtHQhf9SINuinYoQpKT71JtCHiQRJGs4y=s1360-w1360-h1020-rw" alt="Luxury Table Settings with City Views at 360 Degree Revolving Restaurant">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- DUAL FORMATS ARCHITECTURE (SERVICES) --- -->
+    <section id="spaces" style="background: rgba(255,255,255,0.01);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="tagline">Dual Format Capabilities</span>
+                <h2 class="section-title">Curated Spatial <span>Atmospheres</span></h2>
+            </div>
+            <div class="spaces-grid">
+                <div class="space-card reveal">
+                    <i class="fa-solid fa-utensils"></i>
+                    <h3>360° Revolving Dining</h3>
+                    <p>Our premier luxury dynamic track. Relax in refined, comfortable beige leather booths as the landscape smoothly opens panoramic city perspectives.</p>
+                </div>
+                <div class="space-card reveal">
+                    <i class="fa-solid fa-music"></i>
+                    <h3>The Lively Pub & Lounge</h3>
+                    <p>A high-energy neon layout hosting vibrant live music gigs, custom multi-mix pub soundscapes, and large structural sports screenings.</p>
+                </div>
+                <div class="space-card reveal">
+                    <i class="fa-solid fa-martini-glass-citrus"></i>
+                    <h3>The Mixology Deck</h3>
+                    <p>An expansive bar program featuring structural martinis, bespoke mocktails, and fresh natural lemonades aligned perfectly for social sessions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- GASTRONOMY HIGH CONVERSION MENU --- -->
+    <section id="menu">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="tagline">Gastronomy Framework</span>
+                <h2 class="section-title">Signature <span>Menu Selections</span></h2>
+            </div>
+            
+            <div class="menu-tabs reveal">
+                <button class="tab-trigger active" onclick="toggleMenuCategory('signature')">Signature Dishes</button>
+                <button class="tab-trigger" onclick="toggleMenuCategory('mixology')">Bespoke Mixology</button>
+            </div>
+
+            <div class="menu-grid reveal" id="menu-injected-container">
+                <!-- Content generated programmatically from native JS script matrix data below -->
+            </div>
+        </div>
+    </section>
+
+    <!-- --- VISUAL AMBIENCE GALLERY --- -->
+    <section id="gallery" style="background: rgba(255,255,255,0.01);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="tagline">The Ambience Vignettes</span>
+                <h2 class="section-title">Panoramic <span>Perspectives</span></h2>
+            </div>
+            <div class="gallery-mosaic">
+                <div class="mosaic-card reveal">
+                    <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=600&auto=format&fit=crop" alt="Premium Multi-Cuisine Presentation Platters">
+                </div>
+                <div class="mosaic-card reveal">
+                    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=600&auto=format&fit=crop" alt="Vibrant Cocktail Mixology under Neon Pub Lights">
+                </div>
+                <div class="mosaic-card reveal">
+                    <img src="https://images.unsplash.com/photo-1522336572468-97b06e8ef143?q=80&w=600&auto=format&fit=crop" alt="Panoramic city skylines view from luxury restaurant perimeter">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- MULTI PLATFORM SOCIAL REPUTATION --- -->
+    <section id="reviews">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="tagline">Verified Multi-Platform Reputations</span>
+                <h2 class="section-title">The Benchmark Of <span>Public Trust</span></h2>
+            </div>
+
+            <div class="reputation-banner reveal">
+                <div class="rating-block">
+                    <span class="rating-source">Google Reviews</span>
+                    <div class="rating-num">3.9</div>
+                    <span class="rating-count">5,405+ Reviews</span>
+                </div>
+                <div class="rating-block">
+                    <span class="rating-source">Zomato Platform</span>
+                    <div class="rating-num">4.1</div>
+                    <span class="rating-count">3,692+ Votes</span>
+                </div>
+                <div class="rating-block">
+                    <span class="rating-source">EazyDiner Club</span>
+                    <div class="rating-num">3.9</div>
+                    <span class="rating-count">5,319+ Reviews</span>
+                </div>
+                <div class="rating-block">
+                    <span class="rating-source">Facebook Page</span>
+                    <div class="rating-num">4.9</div>
+                    <span class="rating-count">53 Verified Votes</span>
+                </div>
+            </div>
+
+            <div class="reviews-container">
+                <div class="patron-card reveal">
+                    <p>"Maharashtra's first revolving concept delivers incredible luxury weight. The signature Murg Dum Kebab is incredibly velvety, served directly inside clay pots with rich cheese configurations. The panoramic rotation is perfectly fluid!"</p>
+                    <div class="patron-meta">
+                        <h5>Vikramaditya Shinde</h5>
+                        <span>Verified Local Guide</span>
+                    </div>
+                </div>
+                <div class="patron-card reveal">
+                    <p>"Excellent food quality coupled with exceptional design lines. The crowd is upscale and professional, and the mixology deck produces brilliant structural martinis for weekend gigs."</p>
+                    <div class="patron-meta">
+                        <h5>Dr. Ananya Deshmukh</h5>
+                        <span>Premium Regular Guest</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- RESERVATION CTA CONVERSION BANNER --- -->
+    <section class="reservation-cta">
+        <div class="container reveal">
+            <h2>Experience Pune From The Elite Orbit</h2>
+            <p>Ensure your prime glass perimeter table or lounge collective reservation is safely finalized.</p>
+            <a href="tel:08432579999" class="btn btn-primary"><i class="fa-solid fa-phone"></i> Guest Desk: 084325 79999</a>
+        </div>
+    </section>
+
+    <!-- --- DIRECTIONS PANEL & GOOGLE MAP --- -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="tagline">Directions & Vectors</span>
+                <h2 class="section-title">Locate <span>The Sanctuary</span></h2>
+            </div>
+            <div class="contact-layout">
+                <div class="contact-stack reveal">
+                    <div class="contact-node">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        <div>
+                            <h4>Estate Address</h4>
+                            <p>Kahana, bus depote, Bhosale Shinde Arcade, Jangali Maharaj Rd, Pulachi Wadi, Deccan Gymkhana, Pune, Maharashtra 411004</p>
+                        </div>
+                    </div>
+                    <div class="contact-node">
+                        <i class="fa-solid fa-phone-volume"></i>
+                        <div>
+                            <h4>Helpline Phone Hub</h4>
+                            <p><a href="tel:08432579999">084325 79999</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-node">
+                        <i class="fa-solid fa-business-time"></i>
+                        <div>
+                            <h4>Operating Shifts</h4>
+                            <p>Open Daily: 12:00 PM – 01:30 AM Midnight</p>
+                            <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 5px;">Reservations Recommended • Happy-Hour & All-You-Can-Eat Live</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-container reveal">
+                    <div class="map-frame-holder">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.2505504144406!2d73.8443333!3d18.5175556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c07920155555%3A0x6b49e1fbd6dcf69!2s360%20Degree%20Revolving%20Restaurant!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" 
+                                width="100%" height="100%" style="border:0; filter: invert(90%) hue-rotate(180deg) contrast(110%);" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- LUXURY SYSTEM FOOTER --- -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#hero" class="logo">360&deg; <span>REVOLVING</span></a>
+                    <p style="margin-top: 20px;">Pioneering Maharashtra's experiential luxury dining landscapes through multi-cuisine engineering and continuous rotational architecture views.</p>
+                    <div class="social-strip">
+                        <a href="https://instagram.com/360degreerevolvingrestaurant" target="_blank" class="social-icon-btn"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-icon-btn"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>The Orbit Navigation</h4>
+                    <ul>
+                        <li><a href="#about">The Rotational Story</a></li>
+                        <li><a href="#spaces">Spatial Environments</a></li>
+                        <li><a href="#menu">Gourmet Matrix Highlights</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Booking Desks</h4>
+                    <ul>
+                        <li><a href="#contact">Find Map Vector</a></li>
+                        <li><a href="https://www.zomato.com" target="_blank">Order on Zomato</a></li>
+                        <li><a href="https://www.eazydiner.com" target="_blank">Order on EazyDiner</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2026 360 Degree Revolving Restaurant & Bar. All Rights Reserved.</p>
+                <p>Designed for Ultimate Hospitality Metrics</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- --- VANILLA INTERACTION COMPONENT SCRIPT --- -->
+    <script>
+        // --- MOBILE DRAWER SLIDE TOGGLE CONTROLLER ---
+        const triggerBtn = document.getElementById('menu-trigger-btn');
+        const drawerMenu = document.getElementById('drawer-menu');
+        const navigationLinks = document.querySelectorAll('.nav-link');
+
+        triggerBtn.addEventListener('click', () => {
+            drawerMenu.classList.toggle('active');
+            const iconElement = triggerBtn.querySelector('i');
+            iconElement.classList.toggle('fa-bars-staggered');
+            iconElement.classList.toggle('fa-xmark');
+        });
+
+        navigationLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                drawerMenu.classList.remove('active');
+                triggerBtn.querySelector('i').className = 'fa-solid fa-bars-staggered';
+            });
+        });
+
+        // --- STICKY TRANSPARENT NAVIGATION HEADER CONTEXT ---
+        const headerNode = document.getElementById('navigation-bar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                headerNode.classList.add('scrolled');
+            } else {
+                headerNode.classList.remove('scrolled');
+            }
+        });
+
+        // --- CORE GASTRONOMY DICTIONARY MATRIX ---
+        const cuisineDataMatrix = {
+            signature: [
+                { name: "Murg Dum Kebab Heritage", price: "₹569", desc: "Our acclaimed masterpiece. Boneless tender chicken chunks slow-cooked inside authentic clay pots layered with smooth cheese and mild house spices." },
+                { name: "Premium Veg Tandoori Platter", price: "₹499", desc: "An architectural assortment of coal-charred paneer cubes, stuffed mushrooms, and aromatic vegetable skewers glazed in spicy yogurt dust." },
+                { name: "Korean Gochujang Chilli Chicken", price: "₹569", desc: "Spicy wok-fried boneless crispy chicken components glazed entirely in sharp Gochujang reduction and spring scallion ribbons." },
+                { name: "Butter Garlic Prawns", price: "₹599", desc: "Plump ocean prawns sauteed in rich, clear compound butter sauce spiked heavily with minced garlic filaments and fresh hand-torn herbs." }
+            ],
+            mixology: [
+                { name: "The Shifting Horizon Martini", price: "₹450", desc: "Bespoke dry gin reduction shaken meticulously with elderflower extracts and a floating mist of blue curaçao drops." },
+                { name: "Signature Minted Mojito Deck", price: "320", desc: "Fresh muddled garden mint foliage and raw cane segments pressed perfectly with fresh lime citrus extracts over crushed crystal ice panels." },
+                { name: "Sunset Crimson Lemonade", price: "₹280", desc: "A luxury mocktail fusion merging cold-pressed local raspberry juices with real citrus reduction and natural fizzy water paths." },
+                { name: "Deccan Gold Old Fashioned", price: "₹490", desc: "A premium bourbon mix meticulously stirred over large slow-melting ice spheres, infused with aromatic bitter droplets and orange peels." }
+            ]
+        };
+
+        function toggleMenuCategory(selectedKey) {
+            const containerNode = document.getElementById('menu-injected-container');
+            const tabButtons = document.querySelectorAll('.tab-trigger');
+            
+            // Toggle dynamic tab focus visuals cleanly
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+            
+            // Build and inject clean layout strings smoothly
+            let conceptualString = '';
+            cuisineDataMatrix[selectedKey].forEach(item => {
+                conceptualString += `
+                    <div class="food-item">
+                        <div class="food-meta">
+                            <h4>${item.name}</h4>
+                            <span class="food-price">${item.price}</span>
+                        </div>
+                        <p>${item.desc}</p>
+                    </div>
+                `;
+            });
+            containerNode.innerHTML = conceptualString;
+        }
+
+        // Initialize state on content loading completion
+        window.addEventListener('DOMContentLoaded', () => {
+            toggleMenuCategory('signature');
+        });
+
+        // --- TIME-BASED SCROLL REVEALS ENGINE ---
+        const elementsToReveal = document.querySelectorAll('.reveal');
+        
+        const computeScrollReveals = () => {
+            elementsToReveal.forEach(el => {
+                const innerViewportHeight = window.innerHeight;
+                const topMarginDistance = el.getBoundingClientRect().top;
+                const activatingOffset = 80;
+
+                if (topMarginDistance < innerViewportHeight - activatingOffset) {
+                    el.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', computeScrollReveals);
+        window.addEventListener('load', computeScrollReveals);
+
+        // --- MONITOR ACTIVE VIEWPORTS FOR NAV HIGHLIGHTS ---
+        const layoutSections = document.querySelectorAll('section');
+        window.addEventListener('scroll', () => {
+            let activeId = '';
+            layoutSections.forEach(s => {
+                const sTop = s.offsetTop;
+                if (window.pageYOffset >= (sTop - 250)) {
+                    activeId = s.getAttribute('id');
+                }
+            });
+
+            navigationLinks.forEach(l => {
+                l.classList.remove('active');
+                if (l.getAttribute('href').includes(activeId)) {
+                    l.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little India Restaurant | Premium Indian Cuisine in Toronto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ind: {
+                            gold: '#D4AF37',
+                            goldHover: '#AA882C',
+                            crimson: '#7A1C1C',
+                            dark: '#1C0D0D',
+                            clay: '#C2593F',
+                            lightBg: '#FDFBF7'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .glass-nav {
+            background: rgba(28, 13, 13, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #FDFBF7 40%, #D4AF37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-ind-lightBg text-ind-dark font-sans antialiased overflow-x-hidden">
+
+    <nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300 glass-nav border-b border-white/5 shadow-xl" id="main-nav">
+        <div class="bg-ind-crimson text-white text-xs py-2 px-4 hidden md:block border-b border-white/5">
+            <div class="max-w-7xl mx-auto flex justify-between items-center font-medium tracking-wide">
+                <div class="flex items-center space-x-6">
+                    <span><i class="fa-solid fa-location-dot text-ind-gold mr-2"></i>255 Queen Street West, Toronto (2 min walk from Osgoode Station)</span>
+                    <span><i class="fa-solid fa-clock text-ind-gold mr-2"></i>Open Daily: 11:30 AM - 10:00 PM</span>
+                </div>
+                <a href="tel:4162059836" class="hover:text-ind-gold transition-colors"><i class="fa-solid fa-phone text-ind-gold mr-2"></i>416 205 9836</a>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="#" class="flex flex-col group">
+                    <span class="text-xl sm:text-2xl font-serif font-bold tracking-wide text-white leading-none">
+                        Little <span class="text-ind-gold">India</span>
+                    </span>
+                    <span class="text-[10px] uppercase tracking-widest font-semibold text-slate-400 mt-1">
+                        Restaurant & Banquet
+                    </span>
+                </a>
+
+                <div class="hidden lg:flex items-center space-x-8 font-semibold text-xs uppercase tracking-widest">
+                    <a href="#" class="text-white hover:text-ind-gold transition-colors">Home</a>
+                    <a href="#about" class="text-white/80 hover:text-ind-gold transition-colors">Our Story</a>
+                    <a href="#services" class="text-white/80 hover:text-ind-gold transition-colors">Services</a>
+                    <a href="#popular-dishes" class="text-white/80 hover:text-ind-gold transition-colors">Popular Menu</a>
+                    <a href="#why-us" class="text-white/80 hover:text-ind-gold transition-colors">Why Choose Us</a>
+                    <a href="#contact" class="text-white/80 hover:text-ind-gold transition-colors">Contact</a>
+                </div>
+
+                <div class="hidden sm:flex items-center space-x-4">
+                    <a href="#popular-dishes" class="text-white hover:text-ind-gold text-xs uppercase tracking-widest font-bold transition-colors">
+                        Order Online
+                    </a>
+                    <a href="#contact" class="bg-ind-gold hover:bg-ind-goldHover text-ind-dark font-extrabold text-xs uppercase tracking-widest px-5 py-3 rounded shadow-md transition-all">
+                        Make Reservation
+                    </a>
+                </div>
+
+                <div class="lg:hidden">
+                    <button type="button" id="mobile-menu-btn" class="text-white hover:text-ind-gold focus:outline-none p-2" aria-label="Toggle Navigation Menu">
+                        <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden lg:hidden bg-ind-dark border-t border-white/5 w-full absolute top-20 left-0 shadow-2xl">
+            <div class="px-4 pt-4 pb-6 space-y-2 font-medium text-xs uppercase tracking-widest">
+                <a href="#" class="block px-4 py-3 rounded text-white hover:bg-white/5">Home</a>
+                <a href="#about" class="block px-4 py-3 rounded text-white/80 hover:bg-white/5 hover:text-ind-gold">Our Story</a>
+                <a href="#services" class="block px-4 py-3 rounded text-white/80 hover:bg-white/5 hover:text-ind-gold">Services</a>
+                <a href="#popular-dishes" class="block px-4 py-3 rounded text-white/80 hover:bg-white/5 hover:text-ind-gold">Popular Menu</a>
+                <a href="#why-us" class="block px-4 py-3 rounded text-white/80 hover:bg-white/5 hover:text-ind-gold">Why Choose Us</a>
+                <a href="#contact" class="block px-4 py-3 rounded text-white/80 hover:bg-white/5 hover:text-ind-gold">Contact</a>
+                <div class="pt-4 border-t border-white/10 flex flex-col gap-3 px-4">
+                    <a href="#popular-dishes" class="text-center py-3 font-bold text-white border border-white/20 rounded hover:bg-white/5">Order Online</a>
+                    <a href="#contact" class="text-center py-3 font-bold text-ind-dark bg-ind-gold rounded hover:bg-ind-goldHover transition-colors">Book A Table</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative min-h-screen pt-28 flex items-center bg-ind-dark text-white overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1585938338392-50a59970d2ee?auto=format&fit=crop&w=1920&q=80" alt="Authentic Traditional Indian Cuisine Feast Background Layout" class="w-full h-full object-cover object-center opacity-25 mix-blend-luminosity">
+            <div class="absolute inset-0 bg-gradient-to-t from-ind-dark via-ind-dark/80 to-transparent"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-12 lg:py-20">
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-white/5 backdrop-blur-md px-4 py-1.5 rounded border border-white/10 text-xs font-semibold tracking-widest text-ind-gold uppercase mx-auto lg:mx-0">
+                        <i class="fa-solid fa-utensils"></i> Authentic & Traditional Since 1995
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight leading-tight">
+                        Experience the Finest <span class="text-gradient block mt-2">Indian Cuisine in Toronto</span>
+                    </h1>
+                    <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+                        Introducing deep, multi-generational family recipes and traditional spices to the Toronto community. Greeted instantly as part of our extended family.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#popular-dishes" class="px-8 py-4 bg-ind-gold hover:bg-ind-goldHover text-ind-dark font-extrabold text-xs uppercase tracking-widest rounded shadow-xl shadow-ind-gold/10 text-center transition-all hover:-translate-y-0.5">
+                            Order Online Delivery
+                        </a>
+                        <a href="#contact" class="px-8 py-4 bg-white/5 hover:bg-white/10 text-white font-semibold text-xs uppercase tracking-widest rounded border border-white/10 transition-all backdrop-blur-sm text-center">
+                            Reserve Dine-In Table
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 relative">
+                    <div class="absolute inset-0 bg-ind-crimson rounded-full opacity-20 blur-3xl w-72 h-72 mx-auto"></div>
+                    <div class="relative bg-white/5 backdrop-blur-lg border border-white/10 p-8 rounded-2xl shadow-2xl max-w-sm mx-auto text-center space-y-4">
+                        <div class="text-xs uppercase tracking-widest font-bold text-ind-gold bg-ind-crimson/50 px-3 py-1 inline-block rounded border border-ind-gold/20">
+                            Holiday Special • Limited Time
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold text-white">LUNCH BUFFET</h3>
+                        <p class="text-xs text-slate-300 tracking-wide uppercase font-semibold">All You Can Eat</p>
+                        <div class="py-2">
+                            <span class="text-4xl font-extrabold text-white font-serif">$21.95</span>
+                        </div>
+                        <p class="text-xs text-slate-400 font-light leading-relaxed border-t border-white/10 pt-4">
+                            Monday to Friday | 12:00 PM to 2:30 PM <br>
+                            Featuring over a hundred items carefully aligned to all customer dietary likes.
+                        </p>
+                        <a href="#contact" class="block w-full py-3 bg-ind-crimson hover:bg-ind-crimson/80 text-white font-bold uppercase text-[11px] tracking-widest rounded transition-all">
+                            Book Buffet Space Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white border-y border-slate-200 py-12 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center divide-x-0 divide-y lg:divide-y-0 lg:divide-x divide-slate-200">
+                <div class="space-y-1">
+                    <p class="text-3xl sm:text-4xl font-serif font-bold tracking-tight text-ind-crimson">Est. 1995</p>
+                    <p class="text-xs font-semibold uppercase tracking-widest text-slate-500">Over 2 Decades of Heritage</p>
+                </div>
+                <div class="space-y-1 pt-4 lg:pt-0">
+                    <p class="text-3xl sm:text-4xl font-serif font-bold tracking-tight text-ind-crimson">130+ Items</p>
+                    <p class="text-xs font-semibold uppercase tracking-widest text-slate-500">Expansive Craft Menu</p>
+                </div>
+                <div class="space-y-1 pt-4 lg:pt-0">
+                    <p class="text-3xl sm:text-4xl font-serif font-bold tracking-tight text-ind-crimson">Family Owned</p>
+                    <p class="text-xs font-semibold uppercase tracking-widest text-slate-500">Authentic Recipes & Care</p>
+                </div>
+                <div class="space-y-1 pt-4 lg:pt-0">
+                    <p class="text-3xl sm:text-4xl font-serif font-bold tracking-tight text-ind-crimson">Toronto's Best</p>
+                    <p class="text-xs font-semibold uppercase tracking-widest text-slate-500">Top Rated Indian Cuisine</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 lg:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                <div class="lg:col-span-5 relative order-2 lg:order-1">
+                    <div class="absolute -inset-4 bg-gradient-to-tr from-ind-clay to-ind-gold rounded-2xl opacity-10 blur-xl"></div>
+                    <div class="relative bg-slate-50 border border-slate-200 p-3 rounded-2xl shadow-xl overflow-hidden group">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Little India Restaurant Welcoming Dine-In Atmosphere" class="w-full h-[450px] object-cover rounded-xl object-center transition-transform duration-700 group-hover:scale-102">
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 space-y-6 order-1 lg:order-2">
+                    <div class="flex items-center gap-2 text-ind-crimson font-bold text-xs uppercase tracking-widest">
+                        <span class="w-8 h-[2px] bg-ind-crimson"></span> The Best Indian Restaurant in Toronto
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold tracking-tight text-ind-dark">
+                        Welcoming Families Through Our Doors Since January 2, 1995
+                    </h2>
+                    <p class="text-slate-600 font-light text-sm sm:text-base leading-relaxed">
+                        We first opened our doors over two decades ago, and we haven't looked back since. Little India introduced truly authentic and highly traditional Indian food to the Toronto area, growing into what many say is the absolute gold-standard destination for Dine-In, Delivery, Pickup, and event Catering.
+                    </p>
+                    <p class="text-slate-600 font-light text-sm sm:text-base leading-relaxed">
+                        Our beloved customers deeply appreciate that we remain family owned and operated, continuously bringing our favorite timeless recipes directly to your plate. Beyond the kitchen, we are passionately involved in supporting local non-profit organizations and charities, giving back entirely to the community that has sustained us for so many years.
+                    </p>
+
+                    <div class="pt-4 border-t border-slate-100 flex flex-wrap gap-4 text-xs font-semibold text-ind-crimson">
+                        <span class="px-3 py-1.5 bg-slate-50 rounded border border-slate-200/60 flex items-center gap-2"><i class="fa-solid fa-leaf"></i> Vegetarian Friendly</span>
+                        <span class="px-3 py-1.5 bg-slate-50 rounded border border-slate-200/60 flex items-center gap-2"><i class="fa-solid fa-wheat-awn-circle-exclamation"></i> Gluten-Free Options</span>
+                        <span class="px-3 py-1.5 bg-slate-50 rounded border border-slate-200/60 flex items-center gap-2"><i class="fa-solid fa-seedling"></i> Vegan Accommodations</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-20 lg:py-28 bg-slate-50 border-y border-slate-200/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="text-xs uppercase tracking-widest text-ind-crimson font-bold px-3 py-1 bg-white border border-slate-200 rounded-full">Our Services</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold tracking-tight text-ind-dark">Tailored Culinary Options for Any Occasion</h2>
+                <p class="text-slate-500 font-light text-sm sm:text-base">We provide premium multiple choices that align directly with your unique needs, scheduling preferences, and budget.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl p-8 border border-slate-200/60 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 bg-slate-50 text-ind-crimson rounded-lg flex items-center justify-center text-xl group-hover:bg-ind-crimson group-hover:text-white transition-all"><i class="fa-solid fa-champagne-glasses"></i></div>
+                        <h3 class="text-lg font-serif font-bold text-ind-dark">Dine-In Experience</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                            With more than 130 items curated perfectly to your liking, our dining environment fits right into the unique preferences and celebrations of all dietary clients.
+                        </p>
+                    </div>
+                    <a href="#contact" class="text-xs font-bold text-ind-crimson mt-6 block uppercase tracking-wider">Book Reservation →</a>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 border border-slate-200/60 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 bg-slate-50 text-ind-crimson rounded-lg flex items-center justify-center text-xl group-hover:bg-ind-crimson group-hover:text-white transition-all"><i class="fa-solid fa-bag-shopping"></i></div>
+                        <h3 class="text-lg font-serif font-bold text-ind-dark">Delivery & Pickup</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                            Your definitive one-stop hub for rapid pickup and home delivery orders. Carefully prepared to arrive packed securely, hot, fresh, and full of flavor.
+                        </p>
+                    </div>
+                    <a href="#popular-dishes" class="text-xs font-bold text-ind-crimson mt-6 block uppercase tracking-wider">Order Takeaway →</a>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 border border-slate-200/60 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 bg-slate-50 text-ind-crimson rounded-lg flex items-center justify-center text-xl group-hover:bg-ind-crimson group-hover:text-white transition-all"><i class="fa-solid fa-cake-candles"></i></div>
+                        <h3 class="text-lg font-serif font-bold text-ind-dark">Catering & Trays</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                            Planning a wedding reception, corporate business luncheon, or birthday? Take the planning pressure off your shoulders and leave more time to enjoy your guests.
+                        </p>
+                    </div>
+                    <a href="#contact" class="text-xs font-bold text-ind-crimson mt-6 block uppercase tracking-wider">Inquire Catering →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="popular-dishes" class="py-20 lg:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto space-y-3 mb-16">
+                <span class="text-xs uppercase tracking-widest font-bold text-ind-gold">Our Specialties</span>
+                <h2 class="text-3xl font-serif font-bold tracking-tight text-ind-dark">Popular Authentic Dishes</h2>
+                <p class="text-slate-500 text-sm font-light">A brief glimpse of our timeless community favorites, handcrafted using fresh local ingredients.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-slate-50 rounded-xl border border-slate-200/60 p-5 space-y-4 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+                    <div class="space-y-3">
+                        <div class="aspect-video w-full rounded-lg overflow-hidden bg-slate-200 relative">
+                            <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=400&q=80" alt="Butter Chicken Specialty" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="flex justify-between items-start gap-2">
+                            <h4 class="font-serif font-bold text-base text-ind-dark">Butter Chicken</h4>
+                            <span class="text-sm font-extrabold text-ind-crimson shrink-0">$17.95</span>
+                        </div>
+                        <p class="text-xs text-slate-500 font-light leading-relaxed">Rich, cream-infused traditional tomato gravy poured flawlessly over tender chicken bites.</p>
+                    </div>
+                    <button onclick="alert('Butter Chicken added to order tray!')" class="w-full py-2.5 mt-2 bg-white hover:bg-ind-crimson hover:text-white border border-slate-200 text-ind-crimson text-xs font-bold tracking-wider uppercase rounded transition-all">
+                        Order For Pickup
+                    </button>
+                </div>
+
+                <div class="bg-slate-50 rounded-xl border border-slate-200/60 p-5 space-y-4 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+                    <div class="space-y-3">
+                        <div class="aspect-video w-full rounded-lg overflow-hidden bg-slate-200 relative">
+                            <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=400&q=80" alt="Chicken Pakora" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="flex justify-between items-start gap-2">
+                            <h4 class="font-serif font-bold text-base text-ind-dark">Chicken Pakora</h4>
+                            <span class="text-sm font-extrabold text-ind-crimson shrink-0">$10.95</span>
+                        </div>
+                        <p class="text-xs text-slate-500 font-light leading-relaxed">Golden fried spiced chicken fritters accompanied by our signature family dipping chutney.</p>
+                    </div>
+                    <button onclick="alert('Chicken Pakora added to order tray!')" class="w-full py-2.5 mt-2 bg-white hover:bg-ind-crimson hover:text-white border border-slate-200 text-ind-crimson text-xs font-bold tracking-wider uppercase rounded transition-all">
+                        Order For Pickup
+                    </button>
+                </div>
+
+                <div class="bg-slate-50 rounded-xl border border-slate-200/60 p-5 space-y-4 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+                    <div class="space-y-3">
+                        <div class="aspect-video w-full rounded-lg overflow-hidden bg-slate-200 relative">
+                            <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=400&q=80" alt="Chicken Tikka Masala" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="flex justify-between items-start gap-2">
+                            <h4 class="font-serif font-bold text-base text-ind-dark">Chicken Tikka Masala</h4>
+                            <span class="text-sm font-extrabold text-ind-crimson shrink-0">$17.95</span>
+                        </div>
+                        <p class="text-xs text-slate-500 font-light leading-relaxed">Tandoor-roasted bell peppers and chunks of chicken simmered in a robust masala gravy.</p>
+                    </div>
+                    <button onclick="alert('Chicken Tikka Masala added to order tray!')" class="w-full py-2.5 mt-2 bg-white hover:bg-ind-crimson hover:text-white border border-slate-200 text-ind-crimson text-xs font-bold tracking-wider uppercase rounded transition-all">
+                        Order For Pickup
+                    </button>
+                </div>
+
+                <div class="bg-slate-50 rounded-xl border border-slate-200/60 p-5 space-y-4 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+                    <div class="space-y-3">
+                        <div class="aspect-video w-full rounded-lg overflow-hidden bg-slate-200 relative">
+                            <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=400&q=80" alt="Cocktail Kebab" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="flex justify-between items-start gap-2">
+                            <h4 class="font-serif font-bold text-base text-ind-dark">Cocktail Kebab</h4>
+                            <span class="text-sm font-extrabold text-ind-crimson shrink-0">$10.95</span>
+                        </div>
+                        <p class="text-xs text-slate-500 font-light leading-relaxed">Finely ground skewered minced meat seasoned cleanly with hand-milled spices.</p>
+                    </div>
+                    <button onclick="alert('Cocktail Kebab added to order tray!')" class="w-full py-2.5 mt-2 bg-white hover:bg-ind-crimson hover:text-white border border-slate-200 text-ind-crimson text-xs font-bold tracking-wider uppercase rounded transition-all">
+                        Order For Pickup
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-6">
+                <div class="bg-slate-50 rounded-xl border border-slate-200/60 p-5 space-y-4 shadow-sm flex flex-col justify-between group">
+                    <div class="space-y-2">
+                        <div class="flex justify-between font-serif font-bold text-sm text-ind-dark">
+                            <span>Lamb Tikka</span> <span class="text-ind-crimson font-sans font-extrabold text-xs">$18.95</span>
+                        </div>
+                    </div>
+                    <button onclick="alert('Lamb Tikka added!')" class="w-full py-1.5 border border-slate-200 text-slate-600 font-semibold text-[11px] rounded bg-white hover:bg-slate-100 uppercase tracking-wider">Add to order</button>
+                </div>
+                <div class="bg-slate-50 rounded-xl border border-slate-200/60 p-5 space-y-4 shadow-sm flex flex-col justify-between group">
+                    <div class="space-y-2">
+                        <div class="flex justify-between font-serif font-bold text-sm text-ind-dark">
+                            <span>Paneer Tikka</span> <span class="text-ind-crimson font-sans font-extrabold text-xs">$18.95</span>
+                        </div>
+                    </div>
+                    <button onclick="alert('Paneer Tikka added!')" class="w-full py-1.5 border border-slate-200 text-slate-600 font-semibold text-[11px] rounded bg-white hover:bg-slate-100 uppercase tracking-wider">Add to order</button>
+                </div>
+                <div class="bg-slate-50 rounded-xl border border-slate-200/60 p-5 space-y-4 shadow-sm flex flex-col justify-between group">
+                    <div class="space-y-2">
+                        <div class="flex justify-between font-serif font-bold text-sm text-ind-dark">
+                            <span>Prawn Tandoori</span> <span class="text-ind-crimson font-sans font-extrabold text-xs">$20.95</span>
+                        </div>
+                    </div>
+                    <button onclick="alert('Prawn Tandoori added!')" class="w-full py-1.5 border border-slate-200 text-slate-600 font-semibold text-[11px] rounded bg-white hover:bg-slate-100 uppercase tracking-wider">Add to order</button>
+                </div>
+                <div class="bg-slate-50 rounded-xl border border-slate-200/60 p-5 space-y-4 shadow-sm flex flex-col justify-between group">
+                    <div class="space-y-2">
+                        <div class="flex justify-between font-serif font-bold text-sm text-ind-dark">
+                            <span>Garlic Naan</span> <span class="text-ind-crimson font-sans font-extrabold text-xs">$4.95</span>
+                        </div>
+                    </div>
+                    <button onclick="alert('Garlic Naan added!')" class="w-full py-1.5 border border-slate-200 text-slate-600 font-semibold text-[11px] rounded bg-white hover:bg-slate-100 uppercase tracking-wider">Add to order</button>
+                </div>
+            </div>
+
+            <div class="text-center pt-12">
+                <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 border border-ind-crimson font-bold text-xs uppercase tracking-widest text-ind-crimson hover:bg-ind-crimson hover:text-white rounded transition-colors">
+                    View Our Full 130+ Dine-In Menu
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="why-us" class="py-20 lg:py-28 bg-slate-50 border-y border-slate-200/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-xs font-bold tracking-widest text-ind-crimson uppercase px-3 py-1 bg-white border border-slate-200 rounded-md">Why Choose Little India</span>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold tracking-tight text-ind-dark">Every Ingredient Tells a Traditional Story</h2>
+                    <p class="text-slate-600 font-light leading-relaxed">
+                        We don't merely compromise on traditional spices or speed through mass prep cycles. Our dishes represent decades of specialized multi-generational care.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 bg-white border border-slate-200 rounded-lg flex items-center justify-center font-serif text-ind-crimson font-bold shrink-0">1</div>
+                            <div>
+                                <h4 class="font-serif font-bold text-ind-dark text-base">Family Recipes Only</h4>
+                                <p class="text-xs text-slate-500 font-light mt-0.5">Every blend is custom balanced inside our family home before deployment to the dining table.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 bg-white border border-slate-200 rounded-lg flex items-center justify-center font-serif text-ind-crimson font-bold shrink-0">2</div>
+                            <div>
+                                <h4 class="font-serif font-bold text-ind-dark text-base">Community Involvement</h4>
+                                <p class="text-xs text-slate-500 font-light mt-0.5">We proudly invest back into non-profit foundations to uplift the beautiful city of Toronto.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 bg-ind-dark text-white rounded-2xl p-8 sm:p-12 relative overflow-hidden shadow-xl">
+                    <div class="absolute -right-16 -bottom-16 w-64 h-64 bg-ind-crimson rounded-full opacity-20 blur-3xl"></div>
+                    <div class="relative z-10 space-y-6">
+                        <i class="fa-solid fa-quote-left text-4xl text-ind-gold opacity-50"></i>
+                        <p class="text-base sm:text-lg font-serif italic font-light leading-relaxed text-slate-200">
+                            "When you walk through our doors, you are instantly greeted as one of our own family members. The food remains consistently outstanding year after year."
+                        </p>
+                        <div class="pt-4 border-t border-white/10 flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-ind-crimson flex items-center justify-center text-white font-serif font-bold text-xs">TC</div>
+                            <div>
+                                <h5 class="font-bold text-xs">Toronto Critic Circle</h5>
+                                <p class="text-[10px] text-ind-gold font-medium uppercase tracking-wider mt-0.5">Local Food Review</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6">
+            <div class="text-center space-y-3 mb-12">
+                <h2 class="text-3xl font-serif font-bold tracking-tight text-ind-dark">Frequently Asked Questions</h2>
+                <p class="text-slate-500 text-sm font-light">Transparent answers regarding operational adjustments, event planning, and menu metrics.</p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="bg-slate-50 rounded-xl border border-slate-200 overflow-hidden transition-all duration-200">
+                    <button class="w-full text-left px-6 py-4.5 font-serif font-bold text-ind-dark flex justify-between items-center focus:outline-none gap-4 py-4" onclick="toggleFaq(this)">
+                        <span class="text-sm sm:text-base">Can you comfortably accommodate critical dietary constraints?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-200 text-xs"></i>
+                    </button>
+                    <div class="hidden px-6 pb-5 text-xs sm:text-sm text-slate-600 font-light leading-relaxed border-t border-slate-200/60 pt-3">
+                        Yes, absolutely. Our dine-in menu options fit right into the exact tracking parameters of vegan, vegetarian, and completely gluten-free customers. Please notify your server upon arrival.
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 rounded-xl border border-slate-200 overflow-hidden transition-all duration-200">
+                    <button class="w-full text-left px-6 py-4.5 font-serif font-bold text-ind-dark flex justify-between items-center focus:outline-none gap-4 py-4" onclick="toggleFaq(this)">
+                        <span class="text-sm sm:text-base">Where exactly are you located in Toronto?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-200 text-xs"></i>
+                    </button>
+                    <div class="hidden px-6 pb-5 text-xs sm:text-sm text-slate-600 font-light leading-relaxed border-t border-slate-200/60 pt-3">
+                        We are situated at 255 Queen Street West, Toronto, ON M5V 1Z4. This is a very brief 2-minute walk from the Osgoode subway station.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 lg:py-28 bg-slate-50 border-t border-slate-200/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-ind-dark rounded-2xl shadow-2xl overflow-hidden relative">
+                
+                <div class="grid lg:grid-cols-12 relative z-10">
+                    <div class="lg:col-span-5 p-8 sm:p-12 text-white flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-white/10">
+                        <div class="space-y-6">
+                            <h3 class="text-2xl sm:text-3xl font-serif font-bold tracking-tight">Dine In With Us</h3>
+                            <p class="text-slate-300 font-light text-xs sm:text-sm leading-relaxed">
+                                Secure your table reservation or organize event catering layouts. We look forward to treating you like one of the family.
+                            </p>
+                            
+                            <div class="space-y-4 pt-4">
+                                <div class="flex items-center gap-3 text-xs sm:text-sm text-slate-200">
+                                    <i class="fa-solid fa-phone text-ind-gold w-5 text-base"></i>
+                                    <span>416 205 9836</span>
+                                </div>
+                                <div class="flex items-center gap-3 text-xs sm:text-sm text-slate-200">
+                                    <i class="fa-solid fa-location-dot text-ind-gold w-5 text-base"></i>
+                                    <span>255 Queen Street West, Toronto, ON M5V 1Z4</span>
+                                </div>
+                                <div class="flex items-center gap-3 text-xs sm:text-sm text-slate-200">
+                                    <i class="fa-solid fa-calendar text-ind-gold w-5 text-base"></i>
+                                    <span>Open 7 Days: 11:30 am to 10:00 pm</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-7 p-8 sm:p-12 bg-white/5 backdrop-blur-md">
+                        <form class="space-y-4" onsubmit="event.preventDefault(); alert('Thank you! Your table booking or catering inquiry has been processed safely by Little India.');">
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="space-y-1">
+                                    <label class="text-[10px] font-bold uppercase tracking-wider text-slate-300">Full Name</label>
+                                    <input type="text" required class="w-full bg-white/10 border border-white/10 rounded px-4 py-3 text-white text-xs focus:outline-none focus:border-ind-gold transition-all" placeholder="Alex Rivera">
+                                </div>
+                                <div class="space-y-1">
+                                    <label class="text-[10px] font-bold uppercase tracking-wider text-slate-300">Email Address</label>
+                                    <input type="email" required class="w-full bg-white/10 border border-white/10 rounded px-4 py-3 text-white text-xs focus:outline-none focus:border-ind-gold transition-all" placeholder="alex@domain.com">
+                                </div>
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-[10px] font-bold uppercase tracking-wider text-slate-300">Select Service Track</label>
+                                <select class="w-full bg-ind-dark border border-white/10 rounded px-4 py-3 text-slate-200 text-xs focus:outline-none focus:border-ind-gold transition-all">
+                                    <option class="bg-ind-dark text-white">Table Dine-In Reservation</option>
+                                    <option class="bg-ind-dark text-white">Catering & Event Trays Inquiry</option>
+                                    <option class="bg-ind-dark text-white">General Information Inquiry</option>
+                                </select>
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-[10px] font-bold uppercase tracking-wider text-slate-300">Brief Message or Instructions</label>
+                                <textarea rows="3" class="w-full bg-white/10 border border-white/10 rounded px-4 py-3 text-white text-xs focus:outline-none focus:border-ind-gold transition-all" placeholder="Number of guests, pre-orders, or required dietary parameters..."></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-4 bg-ind-gold hover:bg-ind-goldHover text-ind-dark font-bold uppercase text-xs tracking-widest rounded transition-all shadow-lg">
+                                Transmit Request Securely
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-ind-dark text-white pt-16 pb-8 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-8 pb-12 border-b border-white/5">
+            
+            <div class="col-span-2 md:col-span-1 space-y-4">
+                <span class="text-xl font-serif font-bold text-white tracking-wide">Little <span class="text-ind-gold">India</span></span>
+                <p class="text-xs text-slate-400 font-light leading-relaxed">Serving authentic and traditional Indian food to the Toronto community since January 2, 1995. Family owned and community oriented.</p>
+            </div>
+
+            <div class="space-y-3">
+                <h4 class="text-[10px] uppercase font-bold tracking-widest text-ind-gold">Core Menus</h4>
+                <ul class="space-y-2 text-xs font-light text-slate-400">
+                    <li><a href="#popular-dishes" class="hover:text-white transition-colors">Dine-In Options</a></li>
+                    <li><a href="#popular-dishes" class="hover:text-white transition-colors">Takeaway & Pickup</a></li>
+                    <li><a href="#popular-dishes" class="hover:text-white transition-colors">Lunch Buffet Specials</a></li>
+                    <li><a href="#services" class="hover:text-white transition-colors">Catering Trays Library</a></li>
+                </ul>
+            </div>
+
+            <div class="space-y-3">
+                <h4 class="text-[10px] uppercase font-bold tracking-widest text-ind-gold">Dietary Streams</h4>
+                <ul class="space-y-2 text-xs font-light text-slate-400">
+                    <li><a href="#about" class="hover:text-white transition-colors">Vegetarian Selection</a></li>
+                    <li><a href="#about" class="hover:text-white transition-colors">Gluten-Free Routing</a></li>
+                    <li><a href="#about" class="hover:text-white transition-colors">Vegan Accommodations</a></li>
+                    <li><a href="#why-us" class="hover:text-white transition-colors">Family Legacy Ingredients</a></li>
+                </ul>
+            </div>
+
+            <div class="space-y-3">
+                <h4 class="text-[10px] uppercase font-bold tracking-widest text-ind-gold">Transit & Info</h4>
+                <ul class="space-y-2 text-xs font-light text-slate-400">
+                    <li><a href="#contact" class="hover:text-white transition-colors">Osgoode Station Map</a></li>
+                    <li><a href="#about" class="hover:text-white transition-colors">Community Philanthropy</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Privacy Infrastructure</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Terms of Alignment</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 flex flex-col sm:flex-row justify-between items-center text-[11px] text-slate-500 font-light gap-4">
+            <p>&copy; 2026 Little India Restaurant. All rights reserved globally.</p>
+            <p>Traditional Taste Met Robust Culinary Excellence.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Dropout Handler Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.className = "fa-solid fa-bars text-xl";
+            } else {
+                menuIcon.className = "fa-solid fa-xmark text-xl";
+            }
+        });
+
+        // Close dropdown securely upon clicking anchor points
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.className = "fa-solid fa-bars text-xl";
+            });
+        });
+
+        // Sticky Navigation Padding Tweaks upon Scrolling
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('main-nav');
+            if (window.scrollY > 40) {
+                nav.classList.add('py-1', 'shadow-2xl');
+            } else {
+                nav.classList.remove('py-1', 'shadow-2xl');
+            }
+        });
+
+        // FAQ Collapse Toggle Engine
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('i');
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+    </script>
+</body>
+</html>

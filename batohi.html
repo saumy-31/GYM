@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batohi Sweets & Restaurant | Premium Highway Dining Since 1999</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#D32F2F',
+                            darkRed: '#9A0007',
+                            crimson: '#B71C1C',
+                            cream: '#FFFDF9',
+                            gold: '#D4AF37',
+                            amber: '#F59E0B',
+                            darkBg: '#0F1015',
+                            cardBg: '#181A22',
+                            borderDark: '#282C3A'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        .glass-nav {
+            background: rgba(15, 16, 21, 0.88);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(211, 47, 47, 0.2);
+        }
+        .glass-card {
+            background: rgba(24, 26, 34, 0.75);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .glass-card-hover:hover {
+            border-color: rgba(211, 47, 47, 0.4);
+            box-shadow: 0 14px 40px -10px rgba(211, 47, 47, 0.25);
+        }
+        .text-gradient-red {
+            background: linear-gradient(135deg, #FF6B6B 0%, #D32F2F 50%, #9A0007 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-gradient-red {
+            background: linear-gradient(135deg, #E53935 0%, #D32F2F 50%, #9A0007 100%);
+        }
+        .subtle-red-glow {
+            background: radial-gradient(circle at 50% 10%, rgba(211, 47, 47, 0.12) 0%, transparent 65%);
+        }
+    </style>
+</head>
+<body class="bg-brand-darkBg text-slate-300 antialiased font-sans selection:bg-brand-red selection:text-white">
+
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between">
+                
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-12 h-11 rounded-2xl bg-white border-2 border-brand-red flex items-center justify-center text-brand-red font-serif font-black text-xl shadow-lg shadow-red-500/20 transition-transform group-hover:scale-105">
+                        <span class="tracking-tighter text-brand-red font-extrabold text-sm">BATOHI</span>
+                    </div>
+                    <div>
+                        <span class="font-extrabold text-lg sm:text-xl text-white tracking-tight block leading-none">BATOHI <span class="text-brand-red">SWEETS</span></span>
+                        <span class="text-[9px] uppercase tracking-[0.25em] text-slate-400 font-bold block mt-1">Heritage Flavours • Since 1999</span>
+                    </div>
+                </a>
+
+                <div class="hidden lg:flex items-center gap-8 text-xs font-semibold uppercase tracking-wider">
+                    <a href="#about" class="hover:text-brand-red transition-colors">Our Legacy</a>
+                    <a href="#services" class="hover:text-brand-red transition-colors">Services</a>
+                    <a href="#menu" class="hover:text-brand-red transition-colors">Menu & Sweets</a>
+                    <a href="#why-us" class="hover:text-brand-red transition-colors">Why Batohi</a>
+                    <a href="#reviews" class="hover:text-brand-red transition-colors">Reviews</a>
+                    <a href="#contact" class="hover:text-brand-red transition-colors">Location</a>
+                </div>
+
+                <div class="hidden sm:flex items-center gap-4">
+                    <a href="tel:09936450077" class="text-xs font-bold text-slate-300 hover:text-brand-red flex items-center gap-2">
+                        <i class="fa-solid fa-phone text-brand-red"></i>
+                        <span>099364 50077</span>
+                    </a>
+                    <a href="#contact" class="bg-gradient-red hover:brightness-110 text-white font-extrabold text-xs uppercase tracking-wider px-5 py-2.5 rounded-xl transition-all transform hover:-translate-y-0.5 shadow-lg shadow-red-500/20">
+                        Reserve Table
+                    </a>
+                </div>
+
+                <button id="mobile-menu-btn" class="lg:hidden text-slate-300 hover:text-brand-red focus:outline-none p-2">
+                    <i class="fa-solid fa-bars-staggered text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden lg:hidden px-4 pt-4 pb-6 mt-2 bg-slate-950/95 border-b border-brand-borderDark">
+            <div class="flex flex-col gap-4 text-sm font-semibold uppercase tracking-wider text-slate-300">
+                <a href="#about" class="py-2 border-b border-slate-800 hover:text-brand-red">Our Legacy</a>
+                <a href="#services" class="py-2 border-b border-slate-800 hover:text-brand-red">Services</a>
+                <a href="#menu" class="py-2 border-b border-slate-800 hover:text-brand-red">Menu & Sweets</a>
+                <a href="#why-us" class="py-2 border-b border-slate-800 hover:text-brand-red">Why Batohi</a>
+                <a href="#reviews" class="py-2 border-b border-slate-800 hover:text-brand-red">Reviews</a>
+                <a href="#contact" class="py-2 hover:text-brand-red">Location & Contact</a>
+                <div class="pt-2 flex flex-col gap-3">
+                    <a href="tel:09936450077" class="w-full text-center border border-slate-700 font-bold py-3 rounded-xl text-xs uppercase">
+                        <i class="fa-solid fa-phone text-brand-red mr-2"></i> Call: 099364 50077
+                    </a>
+                    <a href="#contact" class="w-full text-center bg-gradient-red text-white font-extrabold py-3 rounded-xl shadow-md uppercase text-xs tracking-wider">
+                        Book Your Table
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative min-h-screen flex items-center pt-28 pb-20 overflow-hidden subtle-red-glow">
+        <div class="absolute top-1/4 right-0 w-[500px] h-[500px] bg-brand-red/10 rounded-full blur-[150px] pointer-events-none"></div>
+        <div class="absolute bottom-10 left-10 w-96 h-96 bg-amber-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/90 border border-brand-red/30 text-brand-red text-xs font-bold tracking-wider uppercase">
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+                        Open 24 Hours • Lucknow ⇄ Prayagraj Highway
+                    </div>
+
+                    <h1 class="font-extrabold text-4xl sm:text-6xl lg:text-7xl text-white leading-[1.08] tracking-tight">
+                        Heritage Flavours, <br>
+                        <span class="text-gradient-red">Refined Experiences.</span>
+                    </h1>
+
+                    <p class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        A comforting stop on the Lucknow–Prayagraj route since 1999. Enjoy authentic Dhaba dainties, pure desi ghee sweets, air-conditioned family dining, and premium celebration catering.
+                    </p>
+
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#contact" class="bg-gradient-red hover:brightness-110 text-white font-black px-8 py-4 rounded-xl shadow-xl shadow-red-500/15 transition-all transform hover:-translate-y-1 text-xs uppercase tracking-wider">
+                            Book Table / Event
+                        </a>
+                        <a href="#menu" class="glass-card hover:bg-slate-800/80 text-white font-bold px-8 py-4 rounded-xl border border-slate-700/80 transition-all flex items-center gap-2 text-xs uppercase tracking-wider">
+                            <i class="fa-solid fa-utensils text-brand-red"></i> Explore Menu
+                        </a>
+                    </div>
+
+                    <div class="pt-8 border-t border-slate-800/80 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0">
+                        <div>
+                            <div class="flex items-center justify-center lg:justify-start text-brand-gold font-black text-2xl sm:text-3xl">
+                                16,700+ <i class="fa-solid fa-star text-sm ml-1 text-brand-amber"></i>
+                            </div>
+                            <p class="text-xs text-slate-500 uppercase font-semibold mt-1">Google Reviews</p>
+                        </div>
+                        <div>
+                            <div class="font-black text-2xl sm:text-3xl text-emerald-400">24 / 7</div>
+                            <p class="text-xs text-slate-500 uppercase font-semibold mt-1">Non-Stop Highway Service</p>
+                        </div>
+                        <div>
+                            <div class="font-black text-2xl sm:text-3xl text-white">25+ Yrs</div>
+                            <p class="text-xs text-slate-500 uppercase font-semibold mt-1">Culinary Trust</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        
+                        <div class="relative rounded-3xl overflow-hidden border-2 border-brand-red/30 shadow-2xl group">
+                            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=80" alt="Batohi Sweets & Restaurant Building" class="w-full h-[480px] object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                            
+                            <div class="absolute bottom-6 left-6 right-6">
+                                <span class="bg-brand-red text-white text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full">Unchahar Landmark</span>
+                                <h3 class="font-bold text-2xl text-white mt-2">Batohi Sweets & Dhaba</h3>
+                                <p class="text-xs text-slate-300 mt-1">Sawaiya Hasan, Lucknow - Prayagraj Hwy, Raebareli</p>
+                            </div>
+                        </div>
+
+                        <div class="absolute -top-6 -left-6 glass-card p-4 rounded-2xl shadow-2xl hidden sm:flex items-center gap-3 border border-brand-red/20 max-w-[220px]">
+                            <div class="w-10 h-10 rounded-xl bg-brand-red/10 text-brand-red flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-box-archive"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold text-white">Fresh Pure Ghee Sweets</h4>
+                                <p class="text-[10px] text-slate-400">Packed Daily</p>
+                            </div>
+                        </div>
+
+                        <div class="absolute -bottom-6 -right-6 glass-card p-4 rounded-2xl shadow-2xl hidden sm:flex items-center gap-3 border border-brand-red/20 max-w-[220px]">
+                            <div class="w-10 h-10 rounded-xl bg-brand-red/10 text-brand-gold flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-snowflake"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold text-white">Air-Conditioned Dining</h4>
+                                <p class="text-[10px] text-slate-400">Spacious & Clean</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 bg-brand-cardBg/60 relative border-y border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                
+                <div class="grid grid-cols-2 gap-4 relative">
+                    <div class="space-y-4">
+                        <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80" alt="Authentic North Indian Dhaba Thali" class="rounded-2xl shadow-lg border border-slate-800 object-cover h-56 w-full">
+                        <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=600&q=80" alt="Fresh Indian Sweets Mithai" class="rounded-2xl shadow-lg border border-slate-800 object-cover h-40 w-full">
+                    </div>
+                    <div class="space-y-4 pt-8">
+                        <img src="https://images.unsplash.com/photo-1601050690597-df056fb4ce78?auto=format&fit=crop&w=600&q=80" alt="Hot Sizzling Snacks" class="rounded-2xl shadow-lg border border-slate-800 object-cover h-40 w-full">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80" alt="Spacious Dining Environment" class="rounded-2xl shadow-lg border border-slate-800 object-cover h-56 w-full">
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="inline-block text-brand-red text-xs font-bold uppercase tracking-widest">Since 1999 • Heritage Flavours</div>
+                    <h2 class="font-extrabold text-3xl sm:text-5xl text-white leading-tight">
+                        A Comforting Stop <br><span class="text-gradient-red">On Lucknow ⇄ Prayagraj.</span>
+                    </h2>
+                    <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                        Located at <strong class="text-white">Sawaiya Hasan, Lucknow - Prayagraj Hwy, Unchahar, Raebareli</strong>, Batohi Sweets & Restaurant has been welcoming travelers and families for over a quarter of a century.
+                    </p>
+                    <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                        With more than <strong class="text-white">16,700+ Google Reviews</strong>, we are celebrated for our clean & spacious air-conditioned hall, wide variety of food options, pure ghee traditional sweets, and non-stop 24/7 service.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 pt-2">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-brand-red text-lg"></i>
+                            <span class="text-xs sm:text-sm font-semibold text-slate-200">24/7 Non-Stop Dining</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-brand-red text-lg"></i>
+                            <span class="text-xs sm:text-sm font-semibold text-slate-200">Spacious A/C Dining Hall</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-brand-red text-lg"></i>
+                            <span class="text-xs sm:text-sm font-semibold text-slate-200">Pure Ghee Sweets Counter</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-brand-red text-lg"></i>
+                            <span class="text-xs sm:text-sm font-semibold text-slate-200">Celebration Catering</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 bg-brand-darkBg relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-brand-red font-bold text-xs uppercase tracking-widest">Our Offerings</span>
+                <h2 class="font-extrabold text-3xl sm:text-5xl text-white">4 Pillars Of Batohi Hospitality</h2>
+                <p class="text-slate-400 text-sm sm:text-base">Curated to provide absolute comfort whether you're taking a quick highway tea break or hosting a grand celebration.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="glass-card p-6 rounded-3xl glass-card-hover transition-all duration-300 group border-brand-red/20">
+                    <div class="w-12 h-12 rounded-2xl bg-brand-red/10 text-brand-red flex items-center justify-center text-xl mb-6 transition-transform group-hover:scale-110">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-white mb-2">Authentic Dhaba</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Rich North Indian curries, tandoori rotis, slow-cooked dal makhani, and sizzling highway thalis.
+                    </p>
+                </div>
+
+                <div class="glass-card p-6 rounded-3xl glass-card-hover transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-2xl bg-slate-800 text-brand-gold flex items-center justify-center text-xl mb-6 transition-transform group-hover:scale-110">
+                        <i class="fa-solid fa-box-archive"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-white mb-2">Heritage Sweets</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Pure desi ghee mithais, Kaju Katli, Motichoor Ladoo, and fresh traditional Indian dessert boxes.
+                    </p>
+                </div>
+
+                <div class="glass-card p-6 rounded-3xl glass-card-hover transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-2xl bg-slate-800 text-brand-red flex items-center justify-center text-xl mb-6 transition-transform group-hover:scale-110">
+                        <i class="fa-solid fa-cake-candles"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-white mb-2">Celebrations</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Air-conditioned family dining spaces designed for birthday parties, group stops, and travel celebrations.
+                    </p>
+                </div>
+
+                <div class="glass-card p-6 rounded-3xl glass-card-hover transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-2xl bg-slate-800 text-emerald-400 flex items-center justify-center text-xl mb-6 transition-transform group-hover:scale-110">
+                        <i class="fa-solid fa-truck-ramp-box"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-white mb-2">Event Catering</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Full-service professional event catering for weddings, corporate meets, and large gatherings across UP.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="py-24 bg-brand-cardBg/80 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
+                <div>
+                    <span class="text-brand-red font-bold text-xs uppercase tracking-widest">Culinary Highlights</span>
+                    <h2 class="font-extrabold text-3xl sm:text-5xl text-white mt-2">Diner Favorites</h2>
+                </div>
+                <p class="text-slate-400 text-sm max-w-md">
+                    Prepared daily using pure ghee, fresh dairy, and rich authentic spices.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="glass-card rounded-2xl overflow-hidden group hover:border-brand-red/40 transition-all">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=500&q=80" alt="Batohi Special Highway Thali" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 bg-brand-red text-white text-[10px] font-black px-3 py-1 rounded-full uppercase">Highway Special</span>
+                    </div>
+                    <div class="p-6 space-y-2">
+                        <h4 class="font-bold text-lg text-white">Batohi Executive Thali</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">Shahi paneer, dal makhani, seasonal sabzi, jeera rice, butter naan, salad & sweet.</p>
+                        <div class="pt-2 flex items-center justify-between">
+                            <span class="text-brand-red font-bold text-sm">₹1–200 range</span>
+                            <span class="text-[10px] text-slate-500 uppercase font-semibold"><i class="fa-solid fa-star text-brand-amber"></i> Top Rated</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl overflow-hidden group hover:border-brand-red/40 transition-all">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=500&q=80" alt="Desi Ghee Indian Sweets Box" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 bg-brand-gold text-brand-darkBg text-[10px] font-black px-3 py-1 rounded-full uppercase">Pure Desi Ghee</span>
+                    </div>
+                    <div class="p-6 space-y-2">
+                        <h4 class="font-bold text-lg text-white">Batohi Heritage Sweets</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">Fresh Kaju Katli, Motichoor Ladoo, Gulab Jamun, and seasonal milk mithai boxes.</p>
+                        <div class="pt-2 flex items-center justify-between">
+                            <span class="text-brand-gold font-bold text-sm">Fresh Daily</span>
+                            <span class="text-[10px] text-slate-500 uppercase font-semibold"><i class="fa-solid fa-star text-brand-amber"></i> Since 1999</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl overflow-hidden group hover:border-brand-red/40 transition-all">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1601050690597-df056fb4ce78?auto=format&fit=crop&w=500&q=80" alt="Hot Samosa & Pakora Snacks" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 space-y-2">
+                        <h4 class="font-bold text-lg text-white">Sizzling Highway Snacks</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">Hot samosa, paneer pakoras, and kulhad chai—the ultimate highway energizer.</p>
+                        <div class="pt-2 flex items-center justify-between">
+                            <span class="text-brand-red font-bold text-sm">Quick Service</span>
+                            <span class="text-[10px] text-slate-500 uppercase font-semibold"><i class="fa-solid fa-star text-brand-amber"></i> Fresh Hot</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl overflow-hidden group hover:border-brand-red/40 transition-all">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=500&q=80" alt="All You Can Eat Vegan & Veg Meals" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 bg-emerald-500 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase">Vegan Friendly</span>
+                    </div>
+                    <div class="p-6 space-y-2">
+                        <h4 class="font-bold text-lg text-white">All You Can Eat Options</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">Generous unlimited thali and a la carte meals crafted with strict vegetarian hygiene.</p>
+                        <div class="pt-2 flex items-center justify-between">
+                            <span class="text-brand-red font-bold text-sm">₹1–200 range</span>
+                            <span class="text-[10px] text-slate-500 uppercase font-semibold"><i class="fa-solid fa-star text-brand-amber"></i> Pure Veg</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="why-us" class="py-24 bg-brand-darkBg relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                
+                <div class="space-y-6">
+                    <span class="text-brand-red font-bold text-xs uppercase tracking-widest">Why Travelers Trust Batohi</span>
+                    <h2 class="font-extrabold text-3xl sm:text-5xl text-white leading-tight">
+                        Over 16,700+ Google Reviews Can't Be Wrong
+                    </h2>
+                    <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                        Batohi Dhaba & Sweets has become synonymous with highway reliability on the Lucknow-Prayagraj route.
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start gap-4 p-4 rounded-2xl glass-card">
+                            <div class="w-10 h-10 rounded-xl bg-brand-red/10 text-brand-red flex items-center justify-center shrink-0 font-bold">1</div>
+                            <div>
+                                <h4 class="text-white font-bold text-sm">Clean & Spacious Air-Conditioned Dining</h4>
+                                <p class="text-xs text-slate-400 mt-1">Wide seating capacity suitable for large bus groups, family cars, and private celebrations.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-2xl glass-card">
+                            <div class="w-10 h-10 rounded-xl bg-brand-red/10 text-brand-red flex items-center justify-center shrink-0 font-bold">2</div>
+                            <div>
+                                <h4 class="text-white font-bold text-sm">Affordable & Value-for-Money Pricing</h4>
+                                <p class="text-xs text-slate-400 mt-1">Reported by 1,690+ diners for outstanding food quality at ₹1–200 per person pricing.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-2xl glass-card">
+                            <div class="w-10 h-10 rounded-xl bg-brand-red/10 text-brand-red flex items-center justify-center shrink-0 font-bold">3</div>
+                            <div>
+                                <h4 class="text-white font-bold text-sm">24 Hours Non-Stop Service</h4>
+                                <p class="text-xs text-slate-400 mt-1">Whether it's 2 AM or 2 PM, our kitchens and rest areas are fully functional to serve you.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="rounded-3xl overflow-hidden border border-brand-red/30 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Batohi Dhaba Dining Atmosphere" class="w-full h-[450px] object-cover">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="py-24 bg-brand-cardBg/60 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-brand-red font-bold text-xs uppercase tracking-widest">Real Traveler Reviews</span>
+                <h2 class="font-extrabold text-3xl sm:text-5xl text-white">Trusted By Millions On The Way</h2>
+                <div class="flex items-center justify-center gap-2 text-brand-amber text-lg">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                    <span class="text-white font-bold text-sm ml-2">3.9 / 5.0 (16,781+ Google Reviews) • 4.3/5 Zomato</span>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <div class="glass-card p-8 rounded-3xl flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="text-brand-amber text-xs flex gap-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-xs sm:text-sm italic leading-relaxed">
+                            "Reviewers praise this restaurant for its affordable food, wide variety of options, clean and spacious air-conditioned dining area. Best stop on Lucknow-Prayagraj Hwy!"
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-slate-800 mt-6 flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-brand-red text-white font-extrabold flex items-center justify-center text-xs">A</div>
+                        <div>
+                            <h4 class="text-white text-xs font-bold">Google Verified Traveler</h4>
+                            <p class="text-[10px] text-slate-500">Highway Local Guide</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="text-brand-amber text-xs flex gap-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-xs sm:text-sm italic leading-relaxed">
+                            "4.3/5 on Zomato from 570+ votes. Delicious desi ghee sweets, fresh samosa tea, and very clean washrooms. Always my fixed stop on the Prayagraj trip."
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-slate-800 mt-6 flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-slate-700 text-white font-bold flex items-center justify-center text-xs">S</div>
+                        <div>
+                            <h4 class="text-white text-xs font-bold">Siddharth V.</h4>
+                            <p class="text-[10px] text-slate-500">Zomato Reviewer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="text-brand-amber text-xs flex gap-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-xs sm:text-sm italic leading-relaxed">
+                            "Great hospitality, fast service even during peak hours, and excellent sweets to pack home. Been visiting since years!"
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-slate-800 mt-6 flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-brand-gold text-brand-darkBg font-extrabold flex items-center justify-center text-xs">R</div>
+                        <div>
+                            <h4 class="text-white text-xs font-bold">Rahul Srivastava</h4>
+                            <p class="text-[10px] text-slate-500">Justdial Reviewer</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gradient-red text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
+            <h2 class="font-extrabold text-3xl sm:text-5xl">Driving On Lucknow ⇄ Prayagraj Highway?</h2>
+            <p class="text-red-100 max-w-xl mx-auto text-xs sm:text-sm font-semibold">Take a comforting break at Batohi Sweets & Dhaba in Unchahar, Raebareli!</p>
+            <div class="pt-2 flex flex-wrap justify-center gap-4">
+                <a href="tel:09936450077" class="bg-brand-darkBg text-white font-bold px-8 py-4 rounded-xl shadow-xl hover:bg-slate-900 transition-all uppercase text-xs tracking-wider flex items-center gap-2">
+                    <i class="fa-solid fa-phone text-brand-red"></i> Call 099364 50077
+                </a>
+                <a href="#contact" class="bg-white text-brand-darkBg font-black px-8 py-4 rounded-xl shadow-xl hover:bg-slate-100 transition-all uppercase text-xs tracking-wider">
+                    Get Location Map
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-brand-darkBg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12">
+                
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <span class="text-brand-red font-bold text-xs uppercase tracking-widest">Visit Batohi Dhaba</span>
+                        <h2 class="font-extrabold text-3xl text-white mt-1">Location & Details</h2>
+                        <p class="text-slate-400 text-xs sm:text-sm mt-2">Conveniently situated at Sawaiya Hasan on the Lucknow - Prayagraj Highway.</p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-11 h-11 rounded-xl bg-brand-red/10 text-brand-red flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Address</h4>
+                                <p class="text-xs sm:text-sm text-slate-400 mt-1 leading-relaxed">
+                                    Sawaiya Hasan, Lucknow - Prayagraj Hwy,<br>
+                                    Unchahar, Raebareli, Uttar Pradesh 229404
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-11 h-11 rounded-xl bg-brand-red/10 text-brand-red flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Operating Hours</h4>
+                                <p class="text-xs sm:text-sm text-slate-400 mt-1">Open 24 Hours / 7 Days a Week</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-11 h-11 rounded-xl bg-brand-red/10 text-brand-red flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Phone Number</h4>
+                                <p class="text-xs sm:text-sm text-slate-400 mt-1">
+                                    <a href="tel:09936450077" class="hover:text-brand-red">099364 50077</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7">
+                    <div class="glass-card rounded-3xl p-8 sm:p-10 border border-slate-800">
+                        <h3 class="font-extrabold text-2xl text-white mb-2">Reserve Table / Party Catering</h3>
+                        <p class="text-xs text-slate-400 mb-8">Send your details below for bus group reservations or event catering inquiries.</p>
+
+                        <form onsubmit="event.preventDefault(); alert('Thank you! Your request has been sent to Batohi Sweets & Restaurant. We will call you back shortly.');" class="space-y-5">
+                            <div class="grid sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label class="block text-xs font-semibold uppercase text-slate-300 mb-2">Full Name</label>
+                                    <input type="text" required placeholder="e.g. Amit Verma" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-white text-sm focus:outline-none focus:border-brand-red transition-colors">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold uppercase text-slate-300 mb-2">Phone Number</label>
+                                    <input type="tel" required placeholder="e.g. 9936450077" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-white text-sm focus:outline-none focus:border-brand-red transition-colors">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-slate-300 mb-2">Inquiry Type</label>
+                                <select class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 text-sm focus:outline-none focus:border-brand-red transition-colors">
+                                    <option>Dine-in Table Booking (Family/Group)</option>
+                                    <option>Bulk Sweet Box Order</option>
+                                    <option>Event & Celebration Catering</option>
+                                    <option>Bus / Tour Group Stopover</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-slate-300 mb-2">Message / Details</label>
+                                <textarea rows="3" placeholder="Specify guest count, travel date, or sweet box requirements..." class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-white text-sm focus:outline-none focus:border-brand-red transition-colors"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-gradient-red text-white font-extrabold py-4 rounded-xl shadow-lg hover:brightness-110 transition-all uppercase text-xs tracking-wider">
+                                Send Inquiry Request
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-950 text-slate-400 pt-16 pb-8 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-slate-900">
+                
+                <div class="md:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-white border-2 border-brand-red flex items-center justify-center text-brand-red font-black text-lg">
+                            <span class="tracking-tighter text-brand-red font-extrabold text-xs">BATOHI</span>
+                        </div>
+                        <span class="font-bold text-xl text-white tracking-wider">BATOHI <span class="text-brand-red">SWEETS</span></span>
+                    </div>
+                    <p class="text-xs leading-relaxed text-slate-400 max-w-sm">
+                        Batohi Sweets & Restaurant — Premium Highway Dining, Heritage Pure Ghee Sweets, Celebrations & Event Catering on Lucknow ⇄ Prayagraj Highway since 1999.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold text-white uppercase tracking-widest mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#about" class="hover:text-brand-red transition-colors">Our Legacy</a></li>
+                        <li><a href="#services" class="hover:text-brand-red transition-colors">Four Pillars</a></li>
+                        <li><a href="#menu" class="hover:text-brand-red transition-colors">Menu Specialties</a></li>
+                        <li><a href="#reviews" class="hover:text-brand-red transition-colors">Google Reviews</a></li>
+                        <li><a href="#contact" class="hover:text-brand-red transition-colors">Location Map</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold text-white uppercase tracking-widest mb-4">Social & Contact</h4>
+                    <p class="text-xs leading-relaxed text-slate-400 mb-3">
+                        Sawaiya Hasan, Lucknow - Prayagraj Hwy, Unchahar, Raebareli, UP 229404
+                    </p>
+                    <a href="https://instagram.com/batohiofficial" target="_blank" class="inline-flex items-center gap-2 text-xs text-brand-red font-bold hover:underline">
+                        <i class="fa-brands fa-instagram"></i> @batohiofficial
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-600 gap-4">
+                <p>&copy; 2026 Batohi Sweets & Restaurant. All rights reserved.</p>
+                <p class="uppercase tracking-widest text-[10px]">Website Redesign Concept Proposal</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

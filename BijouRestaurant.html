@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bijou at the Church | Inspired Dining & Events in Stratford</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #09090b;
+            color: #fafafa;
+        }
+        .font-serif-gothic {
+            font-family: 'Cinzel', serif;
+        }
+        .glass-nav {
+            background: rgba(9, 9, 11, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glass-card {
+            background: rgba(18, 18, 22, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(168, 85, 247, 0.2);
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #ffffff 0%, #d8b4fe 50%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .church-glow {
+            box-shadow: 0 0 80px -10px rgba(168, 85, 247, 0.15);
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden selection:bg-purple-500 selection:text-white">
+
+    <!-- Sticky Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex flex-col tracking-widest group">
+                <span class="font-serif-gothic text-xl sm:text-2xl font-bold tracking-[0.2em] text-white group-hover:text-purple-300 transition-colors">BIJOU</span>
+                <span class="text-[9px] uppercase font-serif-gothic tracking-[0.4em] text-purple-400 -mt-1 font-semibold">at the church</span>
+            </a>
+            
+            <!-- Desktop Nav System -->
+            <div class="hidden lg:flex items-center gap-10 text-[11px] font-medium tracking-[0.25em] uppercase text-stone-300">
+                <a href="#" class="text-purple-400 transition-colors">Home</a>
+                <a href="#about" class="hover:text-purple-400 transition-colors">Our Legacy</a>
+                <a href="#services" class="hover:text-purple-400 transition-colors">Events</a>
+                <a href="#menu" class="hover:text-purple-400 transition-colors">The Vision</a>
+                <a href="#contact" class="hover:text-purple-400 transition-colors">Contact</a>
+            </div>
+
+            <!-- Action Block Button -->
+            <div class="hidden sm:flex items-center gap-4">
+                <a href="#reserve" class="px-6 py-3 border border-purple-500/30 text-xs font-semibold tracking-widest uppercase text-purple-300 hover:bg-purple-500 hover:text-white transition-all">
+                    Reservations
+                </a>
+            </div>
+
+            <!-- Mobile Drawer Button -->
+            <button id="drawer-toggle" class="lg:hidden text-white hover:text-purple-400 transition-colors focus:outline-none">
+                <i class="fa-solid fa-bars-staggered text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Link Matrix -->
+        <div id="mobile-drawer" class="hidden lg:hidden absolute top-full left-0 w-full bg-zinc-950/95 backdrop-blur-2xl border-b border-white/5 px-6 py-8 flex flex-col gap-6 text-center shadow-2xl">
+            <a href="#" class="text-purple-400 font-serif-gothic text-xs uppercase tracking-widest py-2">Home</a>
+            <a href="#about" class="text-stone-200 hover:text-purple-400 font-serif-gothic text-xs uppercase tracking-widest py-2">Our Legacy</a>
+            <a href="#services" class="text-stone-200 hover:text-purple-400 font-serif-gothic text-xs uppercase tracking-widest py-2">Events</a>
+            <a href="#menu" class="text-stone-200 hover:text-purple-400 font-serif-gothic text-xs uppercase tracking-widest py-2">The Vision</a>
+            <a href="#contact" class="text-stone-200 hover:text-purple-400 font-serif-gothic text-xs uppercase tracking-widest py-2">Contact</a>
+            <a href="#reserve" class="bg-purple-600 text-white w-full py-4 text-xs font-bold tracking-[0.2em] uppercase">Make A Reservation</a>
+        </div>
+    </nav>
+
+    <!-- Premium Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <!-- High Quality Culinary Art Overlay -->
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1920&q=80" alt="Gourmet Culinary Presentation Platter" class="w-full h-full object-cover opacity-20 scale-105 transform motion-safe:animate-[pulse_15s_infinite]">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#09090b] via-[#09090b]/70 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-[#09090b] via-transparent to-[#09090b]"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-16 items-center py-20">
+            <!-- Left Side Core Statement -->
+            <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                <div class="inline-flex items-center gap-3 px-4 py-2 bg-purple-500/5 border border-purple-500/20 text-purple-300 text-xs font-medium tracking-[0.25em] uppercase">
+                    <i class="fa-solid fa-church text-xs"></i> Stratford's Newest Architectural Era
+                </div>
+                <h1 class="font-serif-gothic text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.15] text-white">
+                    Discover Stratford's <br>
+                    <span class="text-gradient">Culinary Gem.</span>
+                </h1>
+                <p class="text-stone-400 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 font-light leading-relaxed">
+                    A comprehensive aesthetic, hospitality, and culinary revitalization honoring historic landmark legacies. Introducing an elevated vision for dining, weddings, and cultural gatherings.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                    <a href="#reserve" class="w-full sm:w-auto px-8 py-4 bg-purple-600 text-white font-bold tracking-[0.2em] uppercase text-xs hover:bg-purple-700 transition-colors text-center shadow-xl shadow-purple-900/20">
+                        Book July 28 Onward
+                    </a>
+                    <a href="#about" class="w-full sm:w-auto px-8 py-4 border border-zinc-800 text-white font-bold tracking-[0.2em] uppercase text-xs hover:bg-white/5 transition-colors text-center">
+                        The Relocation Story
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Side Framed Visual Structure -->
+            <div class="lg:col-span-5 flex justify-center relative">
+                <div class="relative w-80 h-96 sm:w-96 sm:h-[30rem] border border-white/5 church-glow p-4 bg-zinc-900/20 backdrop-blur-md">
+                    <!-- High Quality Architectural Gothic Revival Exterior Asset Placeholder -->
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9iGYENpUvTnd8buD40pYPqou8VYYSFWJ6uRmz19gbzO2cbzLinV2Cf2E&s=10" alt="Historic Stone Church Architecture Structure" class="w-full h-full object-cover filter contrast-110 brightness-90">
+                    
+                    <!-- Floating Relocation Notice Badge -->
+                    <div class="absolute -bottom-6 -left-6 bg-zinc-950 border border-purple-500/30 p-5 shadow-2xl max-w-[240px] hidden sm:block">
+                        <p class="font-serif-gothic text-xs font-bold text-purple-400 tracking-wider uppercase">We Are Moving</p>
+                        <p class="text-[11px] text-stone-400 font-light mt-1.5 leading-relaxed">Relocating from 34 Brunswick to the historic property at 70 Brunswick Street.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Achievements & Milestone Strip -->
+    <section class="relative z-20 -mt-10 max-w-6xl mx-auto px-6">
+        <div class="glass-card rounded-none p-10 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center border-t border-purple-500/30">
+            <div class="space-y-1">
+                <p class="font-serif-gothic text-3xl font-bold text-white">27 YEARS</p>
+                <p class="text-[10px] uppercase tracking-[0.25em] text-purple-400 font-bold">Of Celebrated Bijou History</p>
+            </div>
+            <div class="space-y-1 border-t sm:border-t-0 sm:border-x border-white/5 pt-6 sm:pt-0">
+                <p class="font-serif-gothic text-3xl font-bold text-white">JULY 28</p>
+                <p class="text-[10px] uppercase tracking-[0.25em] text-purple-400 font-bold">2026 Grand Reopening Date</p>
+            </div>
+            <div class="space-y-1 border-t sm:border-t-0 pt-6 sm:pt-0">
+                <p class="font-serif-gothic text-3xl font-bold text-white">70 BRUNSWICK</p>
+                <p class="text-[10px] uppercase tracking-[0.25em] text-purple-400 font-bold">Our Iconic New Address</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section: The Relocation Identity Story -->
+    <section id="about" class="py-28 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+        <!-- Visual Space Grid Left -->
+        <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+            <div class="space-y-4">
+                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=600&q=80" alt="Fine Dining Searing Plating Detail" class="w-full h-80 object-cover">
+                <div class="p-6 bg-zinc-900/30 border border-white/5 text-center">
+                    <p class="font-serif-gothic text-lg font-bold text-purple-400 mb-1">THE BIJOU</p>
+                    <p class="text-xs text-stone-400 font-light">Honoring 27 years of culinary excellence</p>
+                </div>
+            </div>
+            <div class="space-y-4 pt-12">
+                <div class="p-6 bg-zinc-900/30 border border-white/5 text-center">
+                    <p class="font-serif-gothic text-lg font-bold text-white mb-1">THE CHURCH</p>
+                    <p class="text-xs text-stone-400 font-light">Preserving a historic landmark architecture</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80" alt="Elegant Dining Interior Atmosphere" class="w-full h-80 object-cover">
+            </div>
+        </div>
+
+        <!-- Text Block Right -->
+        <div class="lg:col-span-6 space-y-6">
+            <div class="text-xs font-bold tracking-[0.3em] uppercase text-purple-400 flex items-center gap-2">
+                <span class="w-8 h-[1px] bg-purple-500/40"></span> Architectural Revival
+            </div>
+            <h2 class="font-serif-gothic text-3xl sm:text-4xl font-bold text-white leading-tight">
+                CONTINUING THE BIJOU LEGACY AT THE CHURCH
+            </h2>
+            <p class="text-stone-400 font-light leading-relaxed text-sm sm:text-base">
+                Bijou Restaurant is transitioning to one of Stratford's most iconic architectural landmarks. Moving from 34 Brunswick to the historic church property at 70 Brunswick Street, the property will launch under a refreshed vision: <strong class="text-stone-200">Bijou at the Church</strong>.
+            </p>
+            <p class="text-stone-400 font-light leading-relaxed text-sm sm:text-base">
+                The new identity intentionally honors two deeply respected names within Stratford's rich hospitality history: the celebrated "Bijou Restaurant", which has served guests beautifully for nearly three decades, and the legendary "Church Restaurant", recognized globally as one of the city's most memorable destinations.
+            </p>
+            <div class="pt-4">
+                <a href="#reserve" class="inline-flex items-center gap-3 text-xs font-bold tracking-[0.25em] uppercase text-purple-400 hover:text-purple-300 transition-colors group">
+                    Book Opening Phase Tables <i class="fa-solid fa-arrow-right text-xs transform group-hover:translate-x-1.5 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services / Functions Section -->
+    <section id="services" class="py-24 bg-zinc-950 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+                <div class="space-y-4 text-center md:text-left">
+                    <div class="text-xs font-bold tracking-[0.3em] uppercase text-purple-400">Seasonal Functions</div>
+                    <h2 class="font-serif-gothic text-3xl font-bold text-white">MAKE YOUR NEXT EVENT YOUR BEST EVENT</h2>
+                </div>
+                <p class="text-stone-400 font-light max-w-sm text-sm text-center md:text-right">
+                    Our reputation for imaginative culinary experiences and exceptional service makes planning effortless.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="glass-card p-8 space-y-6 flex flex-col justify-between h-full rounded-none">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 bg-white/5 flex items-center justify-center text-purple-400 text-xl">
+                            <i class="fa-solid fa-wine-glass-board"></i>
+                        </div>
+                        <h3 class="font-serif-gothic text-lg font-bold text-white">Intimate Private Spaces</h3>
+                        <p class="text-stone-400 text-xs sm:text-sm font-light leading-relaxed">
+                            Crafted beautifully with your guests in mind—featuring curated local ingredients and warm hospitality tailored flawlessly for intimate gatherings up to 8 guests.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="glass-card p-8 space-y-6 flex flex-col justify-between h-full border-t-2 border-t-purple-500/30 rounded-none">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 bg-white/5 flex items-center justify-center text-purple-400 text-xl">
+                            <i class="fa-solid fa-martini-glass-citrus"></i>
+                        </div>
+                        <h3 class="font-serif-gothic text-lg font-bold text-white">Lively Standing Receptions</h3>
+                        <p class="text-stone-400 text-xs sm:text-sm font-light leading-relaxed">
+                            Transform the historic cathedral hall into a dynamic setting for cocktail receptions hosting up to 60 guests comfortably with custom beverage bars.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="glass-card p-8 space-y-6 flex flex-col justify-between h-full rounded-none">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 bg-white/5 flex items-center justify-center text-purple-400 text-xl">
+                            <i class="fa-solid fa-building-columns"></i>
+                        </div>
+                        <h3 class="font-serif-gothic text-lg font-bold text-white">Restaurant Exclusivity</h3>
+                        <p class="text-stone-400 text-xs sm:text-sm font-light leading-relaxed">
+                            Complete venue buyout solutions engineered explicitly for larger private parties, weddings, or corporate gala functions from 25 to 45 guests.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <p class="text-xs text-stone-500 italic font-light">
+                    * Saturdays require a minimum allocation of 35 guests. To connect with events coordinators, email <span class="text-purple-400 not-italic font-medium">msimone@bijouatthechurch.com</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culinary & Beverage Vision Menu Showcase Section -->
+    <section id="menu" class="py-28 max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            <!-- Left Narrative -->
+            <div class="lg:col-span-5 space-y-6">
+                <div class="text-xs font-bold tracking-[0.3em] uppercase text-purple-400">The Kitchen Concept</div>
+                <h2 class="font-serif-gothic text-3xl sm:text-4xl font-bold text-white">THE CULINARY & BEVERAGE VISION</h2>
+                <p class="text-stone-400 font-light text-sm sm:text-base leading-relaxed">
+                    When public dining opens this mid-July, guests can expect elevated standards celebrating the agricultural richness of Perth County and Southwestern Ontario. Enjoy fresh seasonal ingredients, refined execution, and approachable casual fine dining.
+                </p>
+                <p class="text-stone-400 font-light text-sm sm:text-base leading-relaxed">
+                    Complementing the menu is a wine ecosystem drawing from an extensive cellar of rare library assets, alongside accessible by-the-glass options for theatre patrons, casual diners, and connoisseurs.
+                </p>
+                <div class="pt-2">
+                    <a href="#reserve" class="px-6 py-3.5 bg-zinc-900 border border-zinc-800 text-xs font-bold tracking-widest uppercase text-purple-300 hover:bg-purple-600 hover:text-white transition-all inline-block">
+                        Reservations Console
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Visual Layout Composition -->
+            <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="space-y-4">
+                    <div class="h-64 overflow-hidden relative group">
+                        <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=600&q=80" alt="Exquisite Seafood Appetizer Plate" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <p class="font-serif-gothic text-xs font-bold text-white uppercase tracking-widest">Seasonal Small Plates</p>
+                        </div>
+                    </div>
+                    <div class="h-80 overflow-hidden relative group">
+                        <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=600&q=80" alt="Rare Vault Wine Collection Pouring" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <p class="font-serif-gothic text-xs font-bold text-white uppercase tracking-widest">Rare Cellar Libraries</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-4 sm:pt-8">
+                    <div class="h-80 overflow-hidden relative group">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80" alt="Gourmet Farm to Table Main Course Entree" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <p class="font-serif-gothic text-xs font-bold text-white uppercase tracking-widest">Perth County Agriculture</p>
+                        </div>
+                    </div>
+                    <div class="h-64 overflow-hidden relative group">
+                        <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=600&q=80" alt="Artisan Handcrafted Pastry Desert Plating" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <p class="font-serif-gothic text-xs font-bold text-white uppercase tracking-widest">Refined Sweet Endings</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-24 bg-zinc-950 border-y border-white/5 relative">
+        <div class="max-w-4xl mx-auto px-6 text-center space-y-8">
+            <div class="text-xs font-bold tracking-[0.3em] uppercase text-purple-400">Stratford Reverence</div>
+            
+            <div class="space-y-4">
+                <div class="text-purple-400 text-3xl"><i class="fa-solid fa-quote-left"></i></div>
+                <blockquote class="font-serif-gothic text-xl sm:text-3xl font-light text-white leading-relaxed italic">
+                    "An absolute masterpiece of a transition. Merging the legendary lineage of Bijou's fine plates with the breath-taking cathedral framing creates an unmatched atmosphere."
+                </blockquote>
+                <p class="text-xs font-bold uppercase tracking-[0.2em] text-stone-500 mt-4">— STRATFORD PATRON REVIEW</p>
+            </div>
+
+            <div class="flex justify-center gap-1 text-xs text-purple-400 pt-2">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Call-To-Action Reservation Panel -->
+    <section id="reserve" class="py-20 max-w-5xl mx-auto px-6 text-center">
+        <div class="bg-gradient-to-br from-zinc-900 to-zinc-950 p-10 sm:p-20 border border-white/5 relative overflow-hidden">
+            <div class="absolute -bottom-16 -right-16 font-serif-gothic text-[10rem] font-bold text-purple-500/2 select-none pointer-events-none tracking-tighter">
+                BIJOU
+            </div>
+            <h2 class="font-serif-gothic text-2xl sm:text-4xl font-bold text-white tracking-tight">SECURE YOUR EXPERIENCE AHEAD OF OPENING</h2>
+            <p class="text-stone-400 max-w-md mx-auto text-xs sm:text-sm font-light mt-3 leading-relaxed">
+                Due to comprehensive revitalization renovations, reservations are filling quickly for dates starting July 28, 2026 onward.
+            </p>
+            <div class="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button class="w-full sm:w-auto px-8 py-4 bg-purple-600 text-white text-xs font-bold tracking-widest uppercase hover:bg-purple-700 transition-colors rounded-none shadow-xl">
+                    Access Reservation Engine
+                </button>
+                <a href="mailto:msimone@bijouatthechurch.com" class="w-full sm:w-auto px-8 py-4 border border-zinc-800 text-stone-200 text-xs font-bold tracking-widest uppercase hover:bg-white/5 transition-colors">
+                    Inquire Groups of 9+
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Form Section -->
+    <section id="contact" class="py-24 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16">
+        <!-- Info Left -->
+        <div class="lg:col-span-5 space-y-8">
+            <div class="space-y-4">
+                <div class="text-xs font-bold tracking-[0.3em] uppercase text-purple-400">Connect Directly</div>
+                <h2 class="font-serif-gothic text-3xl font-bold text-white">REACH OUT TO OUR TEAM</h2>
+                <p class="text-stone-400 font-light text-sm leading-relaxed">
+                    Have precise inquiries regarding upcoming event calendars, wine cellars, or logistical packages? Leave our administrators a line.
+                </p>
+            </div>
+
+            <!-- Quick Info Blocks -->
+            <div class="space-y-4 text-xs">
+                <div class="p-5 bg-zinc-950 border border-white/5 flex gap-4 items-center">
+                    <div class="text-purple-400 text-base"><i class="fa-solid fa-location-dot"></i></div>
+                    <div>
+                        <h4 class="font-serif-gothic font-bold tracking-wider text-stone-300">New Cathedral Landmark Address</h4>
+                        <p class="text-stone-400 font-light mt-1">70 Brunswick Street, Stratford, ON, Canada</p>
+                    </div>
+                </div>
+                <div class="p-5 bg-zinc-950 border border-white/5 flex gap-4 items-center">
+                    <div class="text-purple-400 text-base"><i class="fa-solid fa-envelope"></i></div>
+                    <div>
+                        <h4 class="font-serif-gothic font-bold tracking-wider text-stone-300">Event Communications Email</h4>
+                        <p class="text-purple-400 font-medium mt-1">msimone@bijouatthechurch.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="space-y-3">
+                <p class="text-[10px] font-bold tracking-widest uppercase text-stone-500">Social Channels</p>
+                <div class="flex gap-3">
+                    <a href="#" class="w-10 h-10 bg-zinc-900 hover:bg-purple-600 text-stone-400 hover:text-white transition-all flex items-center justify-center border border-zinc-800">
+                        <i class="fa-brands fa-facebook-f text-xs"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-zinc-900 hover:bg-purple-600 text-stone-400 hover:text-white transition-all flex items-center justify-center border border-zinc-800">
+                        <i class="fa-brands fa-instagram text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contemporary Digital Form Right -->
+        <div class="lg:col-span-7 bg-zinc-950 p-8 sm:p-12 border border-white/5">
+            <h3 class="font-serif-gothic text-sm font-bold tracking-widest text-white mb-6">GENERAL INQUIRY LOG</h3>
+            <form action="#" method="POST" class="space-y-4" onsubmit="event.preventDefault();">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <input type="text" required class="bg-zinc-900 border border-zinc-800 px-4 py-3.5 text-xs text-white focus:outline-none focus:border-purple-500 placeholder-stone-600 font-medium tracking-wider uppercase" placeholder="Full Name">
+                    <input type="email" required class="bg-zinc-900 border border-zinc-800 px-4 py-3.5 text-xs text-white focus:outline-none focus:border-purple-500 placeholder-stone-600 font-medium tracking-wider uppercase" placeholder="Email Address">
+                </div>
+                <input type="text" required class="w-full bg-zinc-900 border border-zinc-800 px-4 py-3.5 text-xs text-white focus:outline-none focus:border-purple-500 placeholder-stone-600 font-medium tracking-wider uppercase" placeholder="Subject Target">
+                <textarea rows="4" required class="w-full bg-zinc-900 border border-zinc-800 px-4 py-3.5 text-xs text-white focus:outline-none focus:border-purple-500 placeholder-stone-600 font-light resize-none" placeholder="Message details..."></textarea>
+                <button type="submit" class="w-full bg-white text-zinc-950 text-xs font-bold tracking-widest uppercase py-4 hover:bg-purple-600 hover:text-white transition-colors">
+                    Transmit Message
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Modern Premium Architectural Footer -->
+    <footer class="bg-[#050507] border-t border-white/5 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            <!-- Brand Column -->
+            <div class="space-y-4">
+                <div class="flex flex-col tracking-widest">
+                    <span class="font-serif-gothic text-base font-bold tracking-[0.25em] text-purple-400">BIJOU</span>
+                    <span class="text-[9px] uppercase font-serif-gothic tracking-[0.45em] text-stone-600 -mt-1 font-semibold">at the church</span>
+                </div>
+                <p class="text-xs text-stone-500 font-light leading-relaxed">
+                    Honoring Stratford's dynamic culinary heritage inside beautifully revived landmark spaces. Delivering timeless fine dining and curated event visions.
+                </p>
+            </div>
+
+            <!-- Links Stack A -->
+            <div class="space-y-3">
+                <h4 class="text-[10px] font-serif-gothic font-bold tracking-widest text-stone-300">EXPLORATION</h4>
+                <ul class="text-xs space-y-2 text-stone-500">
+                    <li><a href="#" class="hover:text-purple-400 transition-colors">Home Base</a></li>
+                    <li><a href="#about" class="hover:text-purple-400 transition-colors">Our History</a></li>
+                    <li><a href="#menu" class="hover:text-purple-400 transition-colors">Culinary Programs</a></li>
+                </ul>
+            </div>
+
+            <!-- Links Stack B -->
+            <div class="space-y-3">
+                <h4 class="text-[10px] font-serif-gothic font-bold tracking-widest text-stone-300">UTILITY</h4>
+                <ul class="text-xs space-y-2 text-stone-500">
+                    <li><a href="#reserve" class="hover:text-purple-400 transition-colors">Reservations portal</a></li>
+                    <li><a href="#services" class="hover:text-purple-400 transition-colors">Function Coordination</a></li>
+                    <li><a href="#contact" class="hover:text-purple-400 transition-colors">Contact Hub</a></li>
+                </ul>
+            </div>
+
+            <!-- Architectural/Technical Notice Box -->
+            <div class="space-y-2 text-xs text-stone-500 font-light">
+                <h4 class="text-[10px] font-serif-gothic font-bold tracking-widest text-stone-300">TECHNICAL DIRECTION</h4>
+                <p class="leading-relaxed">Re-engineered utilizing architectural dark values, luxury typography curves, and clean responsive layout mechanics.</p>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-[11px] text-stone-600">
+            <p>&copy; 2026 Bijou Restaurant. All Rights Reserved.</p>
+            <p class="uppercase font-serif-gothic tracking-widest text-[9px] text-stone-500">Identity Revitalization Architecture Concept</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Navigation Drawer Code logic -->
+    <script>
+        const drawerToggle = document.getElementById('drawer-toggle');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+
+        drawerToggle.addEventListener('click', () => {
+            mobileDrawer.classList.toggle('hidden');
+        });
+
+        // Auto-collapse layout menu sheet upon picking anchor target destinations
+        const drawerLinks = mobileDrawer.querySelectorAll('a');
+        drawerLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileDrawer.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

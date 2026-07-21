@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hayat Fitness Gym | Premium Training & Transformation Center in Kondhwa, Pune</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        hayat: {
+                            dark: '#08090C',
+                            surface: '#12141C',
+                            accent: '#E63946',
+                            gold: '#D4AF37',
+                            muted: '#94A3B8',
+                            light: '#F8FAFC'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .text-gradient {
+            background: linear-gradient(135deg, #FFFFFF 40%, #E63946 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .card-glow:hover {
+            box-shadow: 0 10px 30px -10px rgba(230, 57, 70, 0.2);
+            border-color: rgba(230, 57, 70, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-hayat-dark text-white font-sans antialiased overflow-x-hidden">
+
+    <!-- STICKY NAVIGATION -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-hayat-dark/80 backdrop-blur-xl border-b border-white/5 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 h-24 flex items-center justify-between transition-all duration-300" id="nav-container">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 bg-hayat-accent rounded-xl flex items-center justify-center font-display font-black text-white text-lg tracking-tight shadow-[0_0_20px_rgba(230,57,70,0.3)]">
+                    H
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display font-black text-xl tracking-tight leading-none text-white group-hover:text-hayat-accent transition-colors">HAYAT FITNESS</span>
+                    <span class="text-[9px] tracking-[0.25em] text-hayat-muted font-bold uppercase mt-0.5">Kondhwa, Pune</span>
+                </div>
+            </a>
+            
+            <div class="hidden md:flex items-center gap-8 font-medium text-xs tracking-widest text-hayat-muted">
+                <a href="#about" class="hover:text-white transition-colors uppercase">The Gym</a>
+                <a href="#services" class="hover:text-white transition-colors uppercase">Programs</a>
+                <a href="#why-us" class="hover:text-white transition-colors uppercase">Features</a>
+                <a href="#gallery" class="hover:text-white transition-colors uppercase">Gallery</a>
+                <a href="#testimonials" class="hover:text-white transition-colors uppercase">Reviews</a>
+                <a href="#contact" class="hover:text-white transition-colors uppercase">Location</a>
+            </div>
+
+            <div class="hidden lg:flex items-center gap-6">
+                <a href="tel:+918668200042" class="text-xs font-bold tracking-widest text-white hover:text-hayat-accent transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-phone text-hayat-accent"></i> +91 86682 00042
+                </a>
+                <a href="#contact" class="bg-hayat-accent hover:bg-white text-white hover:text-hayat-dark text-xs font-bold tracking-widest px-6 py-3.5 rounded-xl transition-all duration-300 shadow-[0_0_15px_rgba(230,57,70,0.2)]">
+                    CLAIM FREE PASS
+                </a>
+            </div>
+
+            <!-- Mobile Menu Open Button -->
+            <button class="md:hidden text-white hover:text-hayat-accent transition-colors" id="menu-open-btn" aria-label="Open Menu">
+                <i class="fa-solid fa-bars-staggered text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="hidden fixed inset-0 bg-hayat-dark/98 z-50 flex flex-col p-8 justify-between" id="mobile-menu">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-hayat-accent rounded-xl flex items-center justify-center font-display font-black text-white text-lg">H</div>
+                    <span class="font-display font-black text-xl tracking-tight text-white">HAYAT FITNESS</span>
+                </div>
+                <button class="text-white hover:text-hayat-accent transition-colors" id="menu-close-btn" aria-label="Close Menu">
+                    <i class="fa-solid fa-xmark text-2xl"></i>
+                </button>
+            </div>
+
+            <div class="flex flex-col gap-6 text-xl font-display font-bold tracking-wide">
+                <a href="#about" class="mobile-nav-link hover:text-hayat-accent transition-colors">The Gym</a>
+                <a href="#services" class="mobile-nav-link hover:text-hayat-accent transition-colors">Programs</a>
+                <a href="#why-us" class="mobile-nav-link hover:text-hayat-accent transition-colors">Why Choose Us</a>
+                <a href="#gallery" class="mobile-nav-link hover:text-hayat-accent transition-colors">Gallery</a>
+                <a href="#testimonials" class="mobile-nav-link hover:text-hayat-accent transition-colors">Reviews</a>
+                <a href="#contact" class="mobile-nav-link hover:text-hayat-accent transition-colors">Find Us</a>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <a href="tel:+918668200042" class="text-center font-bold tracking-widest text-white border border-white/10 py-4 rounded-xl flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-phone text-hayat-accent"></i> CALL DESK
+                </a>
+                <a href="#contact" class="mobile-nav-link text-center bg-hayat-accent text-white font-bold tracking-widest py-4 rounded-xl">
+                    CLAIM FREE PASS
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- IMMERSIVE HERO SECTION -->
+    <section class="relative min-h-screen flex items-center pt-24 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1920" class="w-full h-full object-cover opacity-20 object-center scale-105 select-none" alt="Hayat Fitness Gym Arena">
+            <div class="absolute inset-0 bg-gradient-to-t from-hayat-dark via-hayat-dark/60 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-hayat-dark via-transparent to-hayat-dark/30"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 w-full pt-16 pb-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-8 space-y-8 text-center lg:text-left">
+                <div class="inline-flex items-center gap-3 bg-white/[0.03] border border-white/10 px-4 py-2 rounded-full backdrop-blur-md">
+                    <span class="w-2 h-2 rounded-full bg-hayat-accent animate-pulse"></span>
+                    <span class="text-xs font-bold tracking-widest text-hayat-accent uppercase">Over 350+ Top-Rated Google Reviews</span>
+                </div>
+                
+                <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight leading-[1.05]">
+                    ELEVATE YOUR <span class="text-gradient">AMBIENCE.</span><br>
+                    COMMAND YOUR <span class="text-transparent bg-clip-text bg-gradient-to-r from-hayat-accent to-red-400">FITNESS.</span>
+                </h1>
+                
+                <p class="text-base sm:text-lg text-hayat-muted max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                    Welcome to <span class="text-white font-semibold">Hayat Fitness Gym</span> in Kondhwa, Pune. Experience a premium, welcoming environment featuring a spacious layout, high-tech machinery, and dedicated trainers focused on your transformation journey.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                    <a href="#contact" class="w-full sm:w-auto text-center bg-hayat-accent text-white font-black tracking-widest px-8 py-5 rounded-xl transition-all duration-300 hover:bg-white hover:text-hayat-dark shadow-[0_0_30px_rgba(230,57,70,0.3)] hover:-translate-y-0.5">
+                        START FREE TRIAL <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                    <a href="#services" class="w-full sm:w-auto text-center bg-white/[0.04] border border-white/10 text-white font-bold tracking-widest px-8 py-5 rounded-xl hover:bg-white/[0.08] transition-all">
+                        EXPLORE PROGRAMS
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-3 gap-6 pt-12 border-t border-white/5 max-w-lg mx-auto lg:mx-0">
+                    <div>
+                        <div class="font-display text-2xl sm:text-3xl font-black text-white">4.7<span class="text-hayat-accent text-xl ml-1"><i class="fa-solid fa-star"></i></span></div>
+                        <div class="text-[10px] tracking-wider text-hayat-muted uppercase mt-1">350+ Google Reviews</div>
+                    </div>
+                    <div>
+                        <div class="font-display text-2xl sm:text-3xl font-black text-white">1st Flr</div>
+                        <div class="text-[10px] tracking-wider text-hayat-muted uppercase mt-1">Spacious Premium Layout</div>
+                    </div>
+                    <div>
+                        <div class="font-display text-2xl sm:text-3xl font-black text-white">Late</div>
+                        <div class="text-[10px] tracking-wider text-hayat-muted uppercase mt-1">Open Until 12:00 AM</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-24 lg:py-32 bg-hayat-surface/30 relative">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+                    <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&q=80&w=600" class="w-full h-80 object-cover rounded-2xl border border-white/10" alt="Hayat Gym Machinery Setup">
+                    <div class="space-y-4 pt-10">
+                        <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=600" class="w-full h-44 object-cover rounded-2xl border border-white/10" alt="Training Section">
+                        <div class="bg-hayat-dark p-6 rounded-2xl border border-hayat-accent/20 space-y-2">
+                            <h4 class="font-display font-black text-xl text-hayat-accent">Motivating Vibes</h4>
+                            <p class="text-[11px] text-hayat-muted uppercase tracking-wider leading-relaxed">Engineered with modern infrastructure for focused output</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-xs font-bold tracking-widest text-hayat-accent uppercase block">KONDHWA'S PREMIER FITNESS HUB</span>
+                    <h2 class="font-display text-3xl sm:text-4xl font-black uppercase tracking-tight text-white">
+                        SPACIOUS DISCIPLINE MEETS ADVANCED HIGH-TECH MACHINERY
+                    </h2>
+                    <p class="text-hayat-muted text-sm sm:text-base leading-relaxed">
+                        Hayat Fitness Gym stands proud as a premium fitness destination in Kondhwa, Pune. Situated comfortably on the 1st Floor of Riza Corner in Chetna Garden, our layout is specifically crafted to prevent overcrowding, providing an intensely positive and motivating workout environment.
+                    </p>
+                    <p class="text-hayat-muted text-sm sm:text-base leading-relaxed">
+                        We balance a broad collection of exceptionally well-maintained weight lifting arrays, commercial cardio docks, and highly customized functional fitness arenas. Backed by highly supportive and friendly fitness coaches, we cater seamlessly to both beginners and elite conditioning professionals.
+                    </p>
+                    
+                    <div class="pt-4 border-t border-white/10 grid grid-cols-2 gap-6">
+                        <div class="space-y-1">
+                            <span class="text-white font-bold text-sm block">High-Tech Equipment</span>
+                            <span class="text-xs text-hayat-muted">Beautifully calibrated multi-stations, heavy dumbbells, and high-quality setup choices.</span>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="text-white font-bold text-sm block">Supportive Training Team</span>
+                            <span class="text-xs text-hayat-muted">Certified experts guiding you through posture correction, routines, and tracking blueprints.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES / PROGRAMS SECTION -->
+    <section id="services" class="py-24 lg:py-32">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-20 space-y-4">
+                <span class="text-xs font-bold tracking-widest text-hayat-accent uppercase block">FITNESS MODULES</span>
+                <h2 class="font-display text-3xl sm:text-5xl font-black uppercase tracking-tight">HIGH-IMPACT TRAINING ARRAYS</h2>
+                <p class="text-hayat-muted text-sm sm:text-base font-light">
+                    From highly tailored transformation paths to general conditioning blocks, our structures focus deeply on safety and goal alignment.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="bg-hayat-surface border border-white/5 rounded-2xl p-8 card-glow transition-all duration-300 flex flex-col justify-between group">
+                    <div class="space-y-6">
+                        <div class="w-12 h-12 bg-hayat-accent/10 border border-hayat-accent/20 rounded-xl flex items-center justify-center text-hayat-accent text-xl group-hover:bg-hayat-accent group-hover:text-white transition-all duration-300">
+                            <i class="fa-solid fa-dumbbell"></i>
+                        </div>
+                        <div class="space-y-2">
+                            <h3 class="font-display font-bold text-lg uppercase tracking-wide text-white">Muscle Gain & Strength</h3>
+                            <p class="text-xs text-hayat-muted leading-relaxed">
+                                Complete access to our premium multi-station mechanical setup and structural free weights engineered for optimal muscle hypertrophy.
+                            </p>
+                        </div>
+                    </div>
+                    <a href="#contact" class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-hayat-accent uppercase mt-8 hover:text-white transition-colors">
+                        INQUIRE DETAILS <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="bg-hayat-surface border border-white/5 rounded-2xl p-8 card-glow transition-all duration-300 flex flex-col justify-between group">
+                    <div class="space-y-6">
+                        <div class="w-12 h-12 bg-hayat-accent/10 border border-hayat-accent/20 rounded-xl flex items-center justify-center text-hayat-accent text-xl group-hover:bg-hayat-accent group-hover:text-white transition-all duration-300">
+                            <i class="fa-solid fa-fire"></i>
+                        </div>
+                        <div class="space-y-2">
+                            <h3 class="font-display font-bold text-lg uppercase tracking-wide text-white">Fat Loss & Conditioning</h3>
+                            <p class="text-xs text-hayat-muted leading-relaxed">
+                                High-intensity strategic cardio circuits combined with macro management frameworks built to spike metabolism safely.
+                            </p>
+                        </div>
+                    </div>
+                    <a href="#contact" class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-hayat-accent uppercase mt-8 hover:text-white transition-colors">
+                        INQUIRE DETAILS <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="bg-hayat-surface border border-white/5 rounded-2xl p-8 card-glow transition-all duration-300 flex flex-col justify-between group">
+                    <div class="space-y-6">
+                        <div class="w-12 h-12 bg-hayat-accent/10 border border-hayat-accent/20 rounded-xl flex items-center justify-center text-hayat-accent text-xl group-hover:bg-hayat-accent group-hover:text-white transition-all duration-300">
+                            <i class="fa-solid fa-user-shield"></i>
+                        </div>
+                        <div class="space-y-2">
+                            <h3 class="font-display font-bold text-lg uppercase tracking-wide text-white">Personal Training & Coaching</h3>
+                            <p class="text-xs text-hayat-muted leading-relaxed">
+                                Partner 1-on-1 with dedicated mentors for absolute routine tracking, custom exercise design matrices, and rigorous motivation.
+                            </p>
+                        </div>
+                    </div>
+                    <a href="#contact" class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-hayat-accent uppercase mt-8 hover:text-white transition-colors">
+                        INQUIRE DETAILS <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section id="why-us" class="py-24 lg:py-32 bg-hayat-surface/10 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs font-bold tracking-widest text-hayat-accent uppercase block">THE HAYAT ADVANTAGE</span>
+                    <h2 class="font-display text-3xl sm:text-4xl font-black uppercase tracking-tight">CRAFTED FOR YOUR ULTIMATE COMFORT</h2>
+                    <p class="text-hayat-muted text-sm leading-relaxed">
+                        We prioritize your environment. Hayat Fitness Gym focuses heavily on maintaining spacious layout blocks so you can comfortably pursue peak stamina targets without waiting lines or interference.
+                    </p>
+                    <div class="pt-4 flex flex-col gap-4">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-hayat-accent text-lg"></i>
+                            <span class="text-xs sm:text-sm font-semibold text-white">Welcoming environment curated for all fitness levels.</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-hayat-accent text-lg"></i>
+                            <span class="text-xs sm:text-sm font-semibold text-white">Spacious layout setup prevents rush hour congestion.</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-hayat-accent text-lg"></i>
+                            <span class="text-xs sm:text-sm font-semibold text-white">Highly rated active support system for female gym-goers.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="bg-hayat-surface/60 border border-white/5 p-8 rounded-2xl space-y-3">
+                        <span class="text-2xl text-hayat-accent block"><i class="fa-solid fa-clock"></i></span>
+                        <h4 class="font-display font-bold text-sm uppercase text-white tracking-wider">Extended Night Hours</h4>
+                        <p class="text-xs text-hayat-muted leading-relaxed">Open daily and closing late at 12:00 AM, allowing corporate workers deep flexibility for late routines.</p>
+                    </div>
+
+                    <div class="bg-hayat-surface/60 border border-white/5 p-8 rounded-2xl space-y-3">
+                        <span class="text-2xl text-hayat-accent block"><i class="fa-solid fa-shield-heart"></i></span>
+                        <h4 class="font-display font-bold text-sm uppercase text-white tracking-wider">Flawless Upkeep</h4>
+                        <p class="text-xs text-hayat-muted leading-relaxed">Machinery structures are continuously checked, cleaned, and lubed for safe functional operation paths.</p>
+                    </div>
+
+                    <div class="bg-hayat-surface/60 border border-white/5 p-8 rounded-2xl space-y-3">
+                        <span class="text-2xl text-hayat-accent block"><i class="fa-solid fa-face-smile"></i></span>
+                        <h4 class="font-display font-bold text-sm uppercase text-white tracking-wider">Friendly Social Aura</h4>
+                        <p class="text-xs text-hayat-muted leading-relaxed">Train inside a positive ecosystem that turns fitness into an active lifestyle habit rather than a chore.</p>
+                    </div>
+
+                    <div class="bg-hayat-surface/60 border border-white/5 p-8 rounded-2xl space-y-3">
+                        <span class="text-2xl text-hayat-accent block"><i class="fa-solid fa-route"></i></span>
+                        <h4 class="font-display font-bold text-sm uppercase text-white tracking-wider">Accessible Location</h4>
+                        <p class="text-xs text-hayat-muted leading-relaxed">Perfectly positioned at Riza Corner in Chetna Garden, making commutes easy from anywhere in Kondhwa.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHOTO GALLERY SECTION -->
+    <section id="gallery" class="py-24 lg:py-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 mb-12 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+            <div class="space-y-2">
+                <span class="text-xs font-bold tracking-widest text-hayat-accent uppercase block">VISUAL EXPERIENCE</span>
+                <h2 class="font-display text-3xl sm:text-4xl font-black uppercase tracking-tight">INSIDE HAYAT FITNESS GYM</h2>
+            </div>
+            <div class="flex gap-2">
+                <button id="slider-prev" class="w-12 h-12 border border-white/10 rounded-xl flex items-center justify-center hover:bg-white/5 transition-colors text-sm" aria-label="Previous Slide"><i class="fa-solid fa-arrow-left"></i></button>
+                <button id="slider-next" class="w-12 h-12 border border-white/10 rounded-xl flex items-center justify-center hover:bg-white/5 transition-colors text-sm" aria-label="Next Slide"><i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <div id="gallery-container" class="flex gap-6 overflow-x-auto hide-scrollbar px-6 lg:px-[calc((100vw-1280px)/2)] snap-x snap-mandatory scroll-smooth pb-4">
+            <!-- Item 1 -->
+            <div class="min-w-[280px] sm:min-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 snap-start relative group shrink-0">
+                <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Hayat Gym Multi-Station Room">
+                <div class="absolute inset-0 bg-gradient-to-t from-hayat-dark/90 via-transparent to-transparent"></div>
+                <div class="absolute bottom-6 left-6"><p class="font-display font-bold text-sm tracking-wide uppercase">Spacious Weight Training Area</p></div>
+            </div>
+            <!-- Item 2 -->
+            <div class="min-w-[280px] sm:min-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 snap-start relative group shrink-0">
+                <img src="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="High Tech Machinery">
+                <div class="absolute inset-0 bg-gradient-to-t from-hayat-dark/90 via-transparent to-transparent"></div>
+                <div class="absolute bottom-6 left-6"><p class="font-display font-bold text-sm tracking-wide uppercase">High-Tech Calibrated Machinery</p></div>
+            </div>
+            <!-- Item 3 -->
+            <div class="min-w-[280px] sm:min-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 snap-start relative group shrink-0">
+                <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Dumbbell Rack">
+                <div class="absolute inset-0 bg-gradient-to-t from-hayat-dark/90 via-transparent to-transparent"></div>
+                <div class="absolute bottom-6 left-6"><p class="font-display font-bold text-sm tracking-wide uppercase">Ergonomic Free Weights Rack</p></div>
+            </div>
+            <!-- Item 4 -->
+            <div class="min-w-[280px] sm:min-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 snap-start relative group shrink-0">
+                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Functional Floor Space">
+                <div class="absolute inset-0 bg-gradient-to-t from-hayat-dark/90 via-transparent to-transparent"></div>
+                <div class="absolute bottom-6 left-6"><p class="font-display font-bold text-sm tracking-wide uppercase">Functional Training Layout Floor</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section id="testimonials" class="py-24 lg:py-32 bg-hayat-surface/20">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-2">
+                <span class="text-xs font-bold tracking-widest text-hayat-accent uppercase block">TESTIMONIAL ARCHIVE</span>
+                <h2 class="font-display text-3xl sm:text-4xl font-black uppercase tracking-tight">COMMUNITY TRANSFORMATION REVIEWS</h2>
+                <div class="flex items-center justify-center gap-1 text-hayat-gold text-sm pt-2">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    <span class="text-white font-bold ml-2 text-xs">4.7 RATING WITH 350+ VERIFIED ACCOUNTS</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-hayat-surface border border-white/5 p-8 rounded-2xl flex flex-col justify-between space-y-8">
+                    <p class="text-xs sm:text-sm text-hayat-muted leading-relaxed italic">
+                        "Good setup of machines good space for workout and also positive vibes. The environment stays very clean and you can lift without unnecessary rush."
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/5">
+                        <div class="w-10 h-10 rounded-full bg-hayat-accent/10 flex items-center justify-center text-hayat-accent font-bold text-xs">AA</div>
+                        <div>
+                            <h4 class="text-xs font-bold text-white uppercase tracking-wider">Aman A.</h4>
+                            <span class="text-[10px] text-hayat-muted uppercase">Google Local Guide</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-hayat-surface border border-white/5 p-8 rounded-2xl flex flex-col justify-between space-y-8">
+                    <p class="text-xs sm:text-sm text-hayat-muted leading-relaxed italic">
+                        "The ambience is quite good and motivating, trainers are supportive and friendly. They actually help you fix your posture during complex lifting patterns."
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/5">
+                        <div class="w-10 h-10 rounded-full bg-hayat-accent/10 flex items-center justify-center text-hayat-accent font-bold text-xs">FK</div>
+                        <div>
+                            <h4 class="text-xs font-bold text-white uppercase tracking-wider">Faizan K.</h4>
+                            <span class="text-[10px] text-hayat-muted uppercase">Kondhwa Member</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-hayat-surface border border-white/5 p-8 rounded-2xl flex flex-col justify-between space-y-8">
+                    <p class="text-xs sm:text-sm text-hayat-muted leading-relaxed italic">
+                        "The gym equipment and machines are well maintained and of good quality. Also separate functional batches offer excellent comfort parameters for female members."
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/5">
+                        <div class="w-10 h-10 rounded-full bg-hayat-accent/10 flex items-center justify-center text-hayat-accent font-bold text-xs">SN</div>
+                        <div>
+                            <h4 class="text-xs font-bold text-white uppercase tracking-wider">Sana N.</h4>
+                            <span class="text-[10px] text-hayat-muted uppercase">Fitness Enthusiast</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="py-24 lg:py-32">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-16 space-y-2">
+                <span class="text-xs font-bold tracking-widest text-hayat-accent uppercase block">FAQ ARCHIVE</span>
+                <h2 class="font-display text-3xl font-black uppercase tracking-tight">FREQUENTLY ASKED QUESTIONS</h2>
+            </div>
+
+            <div class="space-y-4">
+                <div class="bg-hayat-surface border border-white/5 rounded-2xl overflow-hidden">
+                    <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center text-xs sm:text-sm font-bold uppercase tracking-wider text-white hover:text-hayat-accent transition-colors">
+                        <span>What are the exact operation timings?</span>
+                        <i class="fa-solid fa-plus transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-out bg-white/[0.01]">
+                        <p class="p-6 text-xs text-hayat-muted leading-relaxed">We operate dynamically throughout the calendar week, opening early for morning training arrays and stretching right until 12:00 AM midnight to welcome professional schedules easily.</p>
+                    </div>
+                </div>
+
+                <div class="bg-hayat-surface border border-white/5 rounded-2xl overflow-hidden">
+                    <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center text-xs sm:text-sm font-bold uppercase tracking-wider text-white hover:text-hayat-accent transition-colors">
+                        <span>Where is the gym located exactly?</span>
+                        <i class="fa-solid fa-plus transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-out bg-white/[0.01]">
+                        <p class="p-6 text-xs text-hayat-muted leading-relaxed">Hayat Fitness Gym is located on the 1st floor, Riza corner, Chetna garden, 50/65, Lane Number 9, Bhagyoday Nagar, Mitha Nagar, Kondhwa, Pune, Maharashtra 411048.</p>
+                    </div>
+                </div>
+
+                <div class="bg-hayat-surface border border-white/5 rounded-2xl overflow-hidden">
+                    <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center text-xs sm:text-sm font-bold uppercase tracking-wider text-white hover:text-hayat-accent transition-colors">
+                        <span>Do you provide specialized support for weight loss transformation plans?</span>
+                        <i class="fa-solid fa-plus transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-out bg-white/[0.01]">
+                        <p class="p-6 text-xs text-hayat-muted leading-relaxed">Yes! Our fitness program profiles feature direct 1-on-1 personal training protocols, structured fat loss routines, functional conditioning circuits, and customized macro dietary plans.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT, MAP & LEAD SECTION -->
+    <section id="contact" class="py-24 lg:py-32 bg-hayat-surface/40 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+            
+            <!-- Info Column -->
+            <div class="lg:col-span-5 space-y-8">
+                <div class="space-y-4">
+                    <span class="text-xs font-bold tracking-widest text-hayat-accent uppercase block">START TODAY</span>
+                    <h2 class="font-display text-3xl sm:text-5xl font-black uppercase tracking-tight">CONNECT WITH THE FRONT DESK</h2>
+                    <p class="text-hayat-muted text-xs sm:text-sm leading-relaxed">
+                        Stop postponing your health conditioning metrics. Get in touch with our operations desk today to confirm a free initial access day pass or check membership tier deals.
+                    </p>
+                </div>
+
+                <div class="space-y-4 text-xs sm:text-sm">
+                    <div class="flex items-start gap-4">
+                        <span class="text-hayat-accent text-base mt-0.5"><i class="fa-solid fa-location-dot"></i></span>
+                        <div>
+                            <h4 class="font-bold text-white uppercase tracking-wider mb-1">Gym Facility Location</h4>
+                            <p class="text-hayat-muted">1st floor, Riza corner, Chetna garden, 50/65, Lane Number 9, Bhagyoday Nagar, Mitha Nagar, Kondhwa, Pune, Maharashtra 411048</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <span class="text-hayat-accent text-base"><i class="fa-solid fa-phone"></i></span>
+                        <div>
+                            <h4 class="font-bold text-white uppercase tracking-wider mb-0.5">Call Helpline Desk</h4>
+                            <a href="tel:+918668200042" class="text-hayat-muted hover:text-hayat-accent transition-colors">+91 86682 00042</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <span class="text-hayat-accent text-base"><i class="fa-brands fa-instagram"></i></span>
+                        <div>
+                            <h4 class="font-bold text-white uppercase tracking-wider mb-1">Instagram Network</h4>
+                            <a href="https://www.instagram.com/hayat.fitness__/" target="_blank" rel="noopener" class="text-hayat-muted hover:text-hayat-accent transition-colors">@hayat.fitness__</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-6 border-t border-white/5">
+                    <a href="https://wa.me/918668200042" target="_blank" rel="noopener" class="inline-flex items-center gap-3 bg-[#25D366] text-black font-black text-xs tracking-widest px-6 py-4 rounded-xl hover:shadow-[0_0_25px_rgba(37,211,102,0.3)] transition-all">
+                        <i class="fa-brands fa-whatsapp text-base"></i> CHAT ON WHATSAPP
+                    </a>
+                </div>
+            </div>
+
+            <!-- Form & Map Column -->
+            <div class="lg:col-span-7 space-y-6 w-full">
+                <div class="bg-hayat-dark border border-white/10 p-8 rounded-3xl space-y-6 shadow-2xl">
+                    <h3 class="font-display font-bold text-lg uppercase text-white tracking-wide">Drop A Membership Inquiry</h3>
+                    <form class="space-y-4" onsubmit="event.preventDefault(); alert('Enquiry Received! The Hayat Fitness team will contact you within 2 hours.'); this.reset();">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <input type="text" placeholder="YOUR FULL NAME" required class="w-full bg-hayat-surface/50 border border-white/10 rounded-xl px-4 py-4 text-xs text-white placeholder-hayat-muted focus:outline-none focus:border-hayat-accent transition-colors">
+                            <input type="tel" placeholder="MOBILE PHONE NUMBER" required class="w-full bg-hayat-surface/50 border border-white/10 rounded-xl px-4 py-4 text-xs text-white placeholder-hayat-muted focus:outline-none focus:border-hayat-accent transition-colors">
+                        </div>
+                        <select required class="w-full bg-hayat-surface/50 border border-white/10 rounded-xl px-4 py-4 text-xs text-hayat-muted focus:outline-none focus:border-hayat-accent transition-colors">
+                            <option value="" class="bg-hayat-dark">CHOOSE A PREFERRED TRAINING OBJECTIVE</option>
+                            <option value="muscle" class="bg-hayat-dark">Muscle Building / Hypertrophy</option>
+                            <option value="loss" class="bg-hayat-dark">Fat Loss / Caloric Management</option>
+                            <option value="coaching" class="bg-hayat-dark">Elite 1-on-1 Personal Coaching</option>
+                        </select>
+                        <button type="submit" class="w-full bg-hayat-accent text-white font-black text-xs tracking-widest py-4.5 rounded-xl hover:bg-white hover:text-hayat-dark transition-colors shadow-[0_0_20px_rgba(230,57,70,0.2)]">
+                            SUBMIT ACCESS PASS REQUEST
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Google Maps Embed Container -->
+                <div class="w-full h-64 rounded-3xl overflow-hidden border border-white/10 relative">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.453396783935!2d73.8893111!3d18.4631333!2m3!1f0!2f0!3f0!3m2!1i1020!2i768!4f13.1!3m3!1m2!1s0x3bc2ea5f7c508249%3A0xc3f837bd6365bb51!2sHayat%20Fitness%20Gym!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" 
+                        class="w-full h-full border-0 grayscale invert opacity-75 contrast-125" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PREMIUM FOOTER -->
+    <footer class="bg-hayat-dark border-t border-white/5 py-12">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-white text-hayat-dark font-display font-black rounded-lg flex items-center justify-center text-xs">H</div>
+                <p class="text-xs font-bold tracking-widest uppercase text-white">HAYAT FITNESS GYM © 2026</p>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-6 text-[10px] tracking-widest text-hayat-muted font-bold uppercase">
+                <a href="#about" class="hover:text-hayat-accent transition-colors">The Gym</a>
+                <a href="#services" class="hover:text-hayat-accent transition-colors">Programs</a>
+                <a href="#why-us" class="hover:text-hayat-accent transition-colors">Why Us</a>
+                <a href="#gallery" class="hover:text-hayat-accent transition-colors">Gallery</a>
+                <a href="#contact" class="hover:text-hayat-accent transition-colors">Location</a>
+            </div>
+
+            <p class="text-[10px] text-hayat-muted/40 font-medium">Concept concept created by Top-Tier UI/UX Premium Agency.</p>
+        </div>
+    </footer>
+
+    <!-- VANILLA JAVASCRIPT LOGIC -->
+    <script>
+        // Navbar scroll resizing
+        const navbar = document.getElementById('navbar');
+        const navContainer = document.getElementById('nav-container');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                navContainer.classList.replace('h-24', 'h-20');
+                navbar.classList.add('shadow-xl', 'bg-hayat-dark/95');
+            } else {
+                navContainer.classList.replace('h-20', 'h-24');
+                navbar.classList.remove('shadow-xl', 'bg-hayat-dark/95');
+            }
+        });
+
+        // Mobile Menu interactions
+        const menuOpenBtn = document.getElementById('menu-open-btn');
+        const menuCloseBtn = document.getElementById('menu-close-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+        menuOpenBtn.addEventListener('click', () => mobileMenu.classList.remove('hidden'));
+        menuCloseBtn.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        mobileLinks.forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+        // FAQ Accordeon mechanics
+        const faqBtns = document.querySelectorAll('.faq-btn');
+        faqBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                const icon = btn.querySelector('i');
+                
+                if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                    content.style.maxHeight = '0px';
+                    icon.classList.replace('fa-minus', 'fa-plus');
+                    btn.classList.remove('text-hayat-accent');
+                } else {
+                    document.querySelectorAll('.faq-content').forEach(c => c.style.maxHeight = '0px');
+                    document.querySelectorAll('.faq-btn i').forEach(i => i.classList.replace('fa-minus', 'fa-plus'));
+                    document.querySelectorAll('.faq-btn').forEach(b => b.classList.remove('text-hayat-accent'));
+
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    icon.classList.replace('fa-plus', 'fa-minus');
+                    btn.classList.add('text-hayat-accent');
+                }
+            });
+        });
+
+        // Gallery scroll track commands
+        const galleryContainer = document.getElementById('gallery-container');
+        document.getElementById('slider-next').addEventListener('click', () => {
+            galleryContainer.scrollBy({ left: 320, behavior: 'smooth' });
+        });
+        document.getElementById('slider-prev').addEventListener('click', () => {
+            galleryContainer.scrollBy({ left: -320, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

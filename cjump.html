@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Jump Fitness & Stretch | You Belong Here</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Montserrat"', 'sans-serif'],
+                        display: ['"Space Grotesk"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            pink: '#FF007F',      
+                            dark: '#0A0A0C',      
+                            surface: '#121216',   
+                            muted: '#1E1E24',     
+                            neonLight: '#FF66B2'
+                        }
+                    },
+                    boxShadow: {
+                        'neon-pink': '0 0 20px rgba(255, 0, 127, 0.4)',
+                        'neon-pink-thick': '0 0 35px rgba(255, 0, 127, 0.6)',
+                        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.37)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0A0C;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1E1E24;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FF007F;
+        }
+
+        .glass-nav {
+            background: rgba(10, 10, 12, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 0, 127, 0.1);
+        }
+
+        .glass-card {
+            background: rgba(18, 18, 22, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(255, 0, 127, 0.3);
+            box-shadow: 0 0 25px rgba(255, 0, 127, 0.15);
+        }
+
+        .text-neon {
+            text-shadow: 0 0 10px rgba(255, 0, 127, 0.6), 0 0 20px rgba(255, 0, 127, 0.4);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-white font-sans overflow-x-hidden antialiased">
+
+    <!-- Top App Alert Strip -->
+    <div class="w-full bg-brand-pink text-brand-dark font-bold text-center py-2 px-4 text-xs tracking-widest uppercase transition-all duration-300 hover:bg-white cursor-pointer relative z-50">
+        <a href="#" class="flex items-center justify-center space-x-2">
+            <i class="fa-solid fa-mobile-screen-button animate-bounce"></i>
+            <span>Get Our App - Click Here</span>
+        </a>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <nav class="fixed top-8 left-0 w-full z-40 glass-nav py-4 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+            
+            <!-- Logo Brand Element -->
+            <a href="#" class="flex flex-col group">
+                <span class="font-display text-2xl md:text-3xl font-black tracking-tighter text-white group-hover:text-brand-pink transition-colors">CLUB<span class="text-brand-pink">JUMP</span></span>
+                <span class="text-[9px] tracking-[0.35em] text-gray-400 uppercase -mt-1 font-semibold">Fitness & Stretch</span>
+            </a>
+
+            <!-- Navigation Links -->
+            <div class="hidden lg:flex items-center space-x-8 text-xs font-semibold uppercase tracking-[0.2em] text-gray-300">
+                <a href="#" class="text-brand-pink transition-colors">Home</a>
+                <a href="#schedule" class="hover:text-brand-pink transition-colors">Schedule</a>
+                <a href="#passes" class="hover:text-brand-pink transition-colors">Passes</a>
+                <a href="#formats" class="hover:text-brand-pink transition-colors">Formats</a>
+                <a href="#virtual" class="hover:text-brand-pink transition-colors">Virtual</a>
+                <a href="#contact" class="hover:text-brand-pink transition-colors">Contact</a>
+            </div>
+
+            <!-- Header Action Elements -->
+            <div class="hidden sm:flex items-center space-x-4">
+                <a href="#login" class="text-xs uppercase tracking-widest font-bold hover:text-brand-pink transition-colors py-2 px-4"><i class="fa-solid fa-user-lock mr-2"></i>Login</a>
+                <a href="#schedule" class="bg-brand-pink hover:bg-white text-brand-dark font-extrabold text-xs uppercase tracking-[0.15em] px-6 py-3 rounded-full transition-all duration-300 shadow-neon-pink">Jump In!</a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="menuBtn" class="lg:hidden text-white hover:text-brand-pink transition-colors focus:outline-none" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars-staggered text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Dynamic Navigation Dropdown -->
+        <div id="mobileMenu" class="hidden absolute top-full left-0 w-full bg-brand-dark/95 border-b border-brand-pink/20 backdrop-blur-xl transition-all duration-300">
+            <div class="flex flex-col p-6 space-y-4 text-sm font-semibold uppercase tracking-[0.15em] text-center">
+                <a href="#" class="py-2 text-brand-pink">Home</a>
+                <a href="#schedule" class="py-2 hover:text-brand-pink">Schedule</a>
+                <a href="#passes" class="py-2 hover:text-brand-pink">Passes</a>
+                <a href="#formats" class="py-2 hover:text-brand-pink">Formats</a>
+                <a href="#virtual" class="py-2 hover:text-brand-pink">Virtual</a>
+                <a href="#contact" class="py-2 hover:text-brand-pink">Contact</a>
+                <a href="#login" class="py-2 text-brand-pink/80"><i class="fa-solid fa-user-lock mr-2"></i>Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Luxury High-Energy Hero Section -->
+    <header class="relative min-h-screen w-full flex items-center justify-center pt-24 overflow-hidden bg-gradient-to-b from-brand-dark via-brand-surface to-brand-dark">
+        <div class="absolute w-[600px] h-[600px] rounded-full bg-brand-pink/10 blur-[150px] -top-64 -right-64 pointer-events-none"></div>
+        <div class="absolute w-[500px] h-[500px] rounded-full bg-brand-pink/5 blur-[120px] bottom-0 -left-64 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10 py-12">
+            <!-- Typography Hero Block -->
+            <div class="lg:col-span-7 text-center lg:text-left order-2 lg:order-1 flex flex-col justify-center">
+                <div class="inline-flex items-center space-x-2 justify-center lg:justify-start mb-4">
+                    <span class="h-[2px] w-8 bg-brand-pink"></span>
+                    <span class="text-xs uppercase tracking-[0.35em] font-bold text-brand-pink text-neon">Ashburn's Ultimate Fitness Club</span>
+                </div>
+                <h1 class="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.95] tracking-tight text-white mb-6 uppercase">
+                    You <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-pink via-brand-neonLight to-white text-neon">Belong</span> <br>Here
+                </h1>
+                <p class="text-gray-400 text-sm sm:text-base leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8 font-medium">
+                    Experience high-energy rebounding routines, deep restorative stretches, and a welcoming ecosystem built to let loose, have fun, and level up your physical fitness strategy.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                    <a href="#schedule" class="w-full sm:w-auto text-center bg-brand-pink hover:bg-white text-brand-dark font-extrabold text-xs uppercase tracking-[0.2em] px-8 py-4 rounded-full transition-all duration-300 shadow-neon-pink-thick">
+                        View Schedule
+                    </a>
+                    <a href="#passes" class="w-full sm:w-auto text-center border border-white/20 hover:border-brand-pink hover:text-brand-pink text-white font-bold text-xs uppercase tracking-[0.2em] px-8 py-4 rounded-full transition-all duration-300 backdrop-blur-sm">
+                        Purchase Passes
+                    </a>
+                </div>
+            </div>
+
+            <!-- High Quality Media Grid Container -->
+            <div class="lg:col-span-5 order-1 lg:order-2 flex justify-center items-center relative">
+                <div class="relative w-full aspect-video sm:aspect-square max-w-[420px] rounded-[2.5rem] p-3 bg-gradient-to-tr from-brand-pink/30 to-white/10 border border-white/10 shadow-2xl group overflow-hidden">
+                    <div class="w-full h-full rounded-[2rem] overflow-hidden relative bg-brand-surface">
+                        <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1000&auto=format&fit=crop" 
+                             alt="Club Jump Class Experience" 
+                             class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-black/30"></div>
+                        
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <button class="w-16 h-16 rounded-full bg-brand-pink text-brand-dark flex items-center justify-center text-lg pl-1 shadow-neon-pink-thick hover:scale-110 transition-transform duration-300" aria-label="Play Studio Trailer">
+                                <i class="fa-solid fa-play"></i>
+                            </button>
+                        </div>
+                        <div class="absolute bottom-4 left-0 w-full text-center text-[10px] uppercase tracking-widest text-brand-pink font-bold">
+                            <span>01:37 Live Studio Preview</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="#formats" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center space-y-2 group cursor-pointer">
+            <span class="text-[9px] uppercase tracking-[0.3em] text-gray-400 group-hover:text-brand-pink transition-colors">Discover Studio</span>
+            <div class="w-[1px] h-10 bg-gradient-to-b from-brand-pink to-transparent"></div>
+        </a>
+    </header>
+
+    <!-- Studio Metrics Strip -->
+    <section class="py-12 bg-brand-surface border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="font-display text-3xl md:text-4xl font-black text-brand-pink text-neon">200+</div>
+                    <div class="text-[10px] uppercase tracking-widest text-gray-400 mt-1 font-bold">Club Members</div>
+                </div>
+                <div>
+                    <div class="font-display text-3xl md:text-4xl font-black text-white">45+</div>
+                    <div class="text-[10px] uppercase tracking-widest text-gray-400 mt-1 font-bold">Weekly Formats</div>
+                </div>
+                <div>
+                    <div class="font-display text-3xl md:text-4xl font-black text-brand-pink text-neon">100%</div>
+                    <div class="text-[10px] uppercase tracking-widest text-gray-400 mt-1 font-bold">Inclusive Environment</div>
+                </div>
+                <div>
+                    <div class="font-display text-3xl md:text-4xl font-black text-white">0%</div>
+                    <div class="text-[10px] uppercase tracking-widest text-gray-400 mt-1 font-bold">Bad Energy Tolerated</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About / Studio Statement -->
+    <section class="py-24 relative overflow-hidden bg-brand-dark">
+        <div class="max-w-4xl mx-auto px-6 text-center reveal">
+            <i class="fa-solid fa-quote-left text-brand-pink text-4xl mb-6 text-neon"></i>
+            <h2 class="font-display text-2xl sm:text-3xl md:text-4xl uppercase font-black tracking-tight leading-relaxed max-w-3xl mx-auto">
+                "I am no longer available for things that <span class="text-brand-pink text-neon">make me feel like sh*t</span>"
+            </h2>
+            <div class="w-12 h-[2px] bg-brand-pink mx-auto mt-8 mb-6"></div>
+            <p class="text-xs uppercase tracking-[0.25em] text-brand-pink font-bold">The Club Jump Fitness Manifesto</p>
+        </div>
+    </section>
+
+    <!-- Services / Program Formats Section -->
+    <section id="formats" class="py-24 bg-brand-surface relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 reveal">
+                <div>
+                    <span class="text-xs uppercase tracking-[0.2em] font-bold text-brand-pink block mb-2">Select Your Vibe</span>
+                    <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-black uppercase">Studio Formats</h2>
+                </div>
+                <div class="flex gap-4">
+                    <a href="#schedule" class="bg-brand-muted hover:bg-brand-pink hover:text-brand-dark px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300">Explore Formats Detail</a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between group relative overflow-hidden transition-all duration-300 hover:-translate-y-2 reveal">
+                    <div class="w-full aspect-video rounded-2xl overflow-hidden mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=600&auto=format&fit=crop" alt="Jumping Fitness" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-brand-dark/40 mix-blend-multiply"></div>
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-bold tracking-widest uppercase text-brand-pink mb-1 block">Cardio Power</span>
+                        <h3 class="font-display text-xl font-extrabold uppercase text-white mb-3">Jumping Fitness</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed font-medium mb-6">
+                            High intensity, low impact routine executed on elite personal rebounder trampolines. Maximum caloric burn, heavy cardiovascular activation, total fun.
+                        </p>
+                    </div>
+                    <a href="#schedule" class="w-full text-center border border-white/10 group-hover:border-brand-pink group-hover:bg-brand-pink group-hover:text-brand-dark text-white font-bold text-xs uppercase tracking-widest py-3.5 rounded-xl transition-all duration-300">Book Session</a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between group relative overflow-hidden transition-all duration-300 hover:-translate-y-2 reveal">
+                    <div class="w-full aspect-video rounded-2xl overflow-hidden mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1603988363607-e1e4a66962c6?q=80&w=600&auto=format&fit=crop" alt="Stretch" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-brand-dark/40 mix-blend-multiply"></div>
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-bold tracking-widest uppercase text-brand-pink mb-1 block">Recovery Focus</span>
+                        <h3 class="font-display text-xl font-extrabold uppercase text-white mb-3">Stretch & Mobility</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed font-medium mb-6">
+                            Deep anatomical reset techniques targeting muscle flexibility, joint decompression, and mental centering to balance out high-impact activities.
+                        </p>
+                    </div>
+                    <a href="#schedule" class="w-full text-center border border-white/10 group-hover:border-brand-pink group-hover:bg-brand-pink group-hover:text-brand-dark text-white font-bold text-xs uppercase tracking-widest py-3.5 rounded-xl transition-all duration-300">Book Session</a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between group relative overflow-hidden transition-all duration-300 hover:-translate-y-2 reveal">
+                    <div class="w-full aspect-video rounded-2xl overflow-hidden mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1548690312-e3b507d8c110?q=80&w=600&auto=format&fit=crop" alt="Virtual Streaming" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-brand-dark/40 mix-blend-multiply"></div>
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-bold tracking-widest uppercase text-brand-pink mb-1 block">Anywhere Access</span>
+                        <h3 class="font-display text-xl font-extrabold uppercase text-white mb-3">Virtual Studio</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed font-medium mb-6">
+                            Access top-tier Club Jump coaching infrastructure right from your domestic setting. Stream dynamic live formats or on-demand modules flawlessly.
+                        </p>
+                    </div>
+                    <a href="#virtual" class="w-full text-center border border-white/10 group-hover:border-brand-pink group-hover:bg-brand-pink group-hover:text-brand-dark text-white font-bold text-xs uppercase tracking-widest py-3.5 rounded-xl transition-all duration-300">Stream Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Access Passes / Pricing Grid -->
+    <section id="passes" class="py-24 bg-brand-dark relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <span class="text-xs uppercase tracking-[0.25em] font-bold text-brand-pink text-neon block mb-2">Flexible Memberships</span>
+                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-black uppercase">Studio Access Passes</h2>
+                <div class="w-16 h-[2px] bg-brand-pink mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto items-center">
+                <!-- Tier 1 -->
+                <div class="glass-card rounded-3xl p-8 flex flex-col justify-between border border-white/5 reveal">
+                    <div>
+                        <h4 class="text-sm font-bold uppercase tracking-wider text-gray-400 mb-2">Single Drop-In</h4>
+                        <div class="font-display text-4xl font-black text-white mb-6">Jump Pass</div>
+                        <ul class="space-y-4 text-xs font-semibold text-gray-300 mb-8">
+                            <li><i class="fa-solid fa-check text-brand-pink mr-2"></i> Access to 1 Live Studio Format</li>
+                            <li><i class="fa-solid fa-check text-brand-pink mr-2"></i> Premium Rebounder Equipment Provided</li>
+                            <li><i class="fa-solid fa-check text-brand-pink mr-2"></i> Valid for 30 Days From Purchase</li>
+                        </ul>
+                    </div>
+                    <button class="w-full bg-brand-muted hover:bg-brand-pink hover:text-brand-dark text-white font-bold text-xs uppercase tracking-widest py-4 rounded-xl transition-all duration-300">Buy Pass</button>
+                </div>
+
+                <!-- Tier 2 -->
+                <div class="glass-card rounded-3xl p-8 flex flex-col justify-between border-2 border-brand-pink shadow-neon-pink relative bg-brand-surface scale-105 z-10 reveal">
+                    <span class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-brand-pink text-brand-dark text-[9px] uppercase tracking-widest font-black px-4 py-1 rounded-full">Most Popular</span>
+                    <div>
+                        <h4 class="text-sm font-bold uppercase tracking-wider text-brand-pink text-neon mb-2">Unlimited Access</h4>
+                        <div class="font-display text-4xl font-black text-white mb-6">Club Membership</div>
+                        <ul class="space-y-4 text-xs font-semibold text-gray-300 mb-8">
+                            <li><i class="fa-solid fa-check text-brand-pink mr-2"></i> Unlimited In-Person Jumping Classes</li>
+                            <li><i class="fa-solid fa-check text-brand-pink mr-2"></i> Complimentary Virtual Streaming Bundle</li>
+                            <li><i class="fa-solid fa-check text-brand-pink mr-2"></i> 10% Discount on Club Merchandise</li>
+                            <li><i class="fa-solid fa-check text-brand-pink mr-2"></i> Priority Booking for High-Demand Slots</li>
+                        </ul>
+                    </div>
+                    <button class="w-full bg-brand-pink hover:bg-white text-brand-dark font-black text-xs uppercase tracking-widest py-4 rounded-xl transition-all duration-300 shadow-neon-pink">Join Club 200</button>
+                </div>
+
+                <!-- Tier 3 -->
+                <div class="glass-card rounded-3xl p-8 flex flex-col justify-between border border-white/5 reveal">
+                    <div>
+                        <h4 class="text-sm font-bold uppercase tracking-wider text-gray-400 mb-2">Digital Only</h4>
+                        <div class="font-display text-4xl font-black text-white mb-6">Virtual Pass</div>
+                        <ul class="space-y-4 text-xs font-semibold text-gray-300 mb-8">
+                            <li><i class="fa-solid fa-check text-brand-pink mr-2"></i> Full On-Demand Workout Catalog</li>
+                            <li><i class="fa-solid fa-check text-brand-pink mr-2"></i> Live Stream Format Admissions</li>
+                            <li><i class="fa-solid fa-check text-brand-pink mr-2"></i> Cancel or Pause Anytime Easily</li>
+                        </ul>
+                    </div>
+                    <button class="w-full bg-brand-muted hover:bg-brand-pink hover:text-brand-dark text-white font-bold text-xs uppercase tracking-widest py-4 rounded-xl transition-all duration-300">Get Streaming</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-24 bg-brand-surface relative">
+        <div class="max-w-4xl mx-auto px-6 text-center reveal">
+            <span class="text-xs uppercase tracking-[0.25em] font-bold text-brand-pink text-neon block mb-4">Real Members, Real Results</span>
+            <div class="font-display text-xl sm:text-2xl md:text-3xl font-extrabold uppercase text-white mb-8 leading-relaxed">
+                "Who knew <span class="text-brand-pink">JUMPING ON A TRAMPOLINE is a workout!????</span> Such a fun, hip way to let loose and get fit... I highly recommend this class, it was amazing!"
+            </div>
+            <div class="flex items-center justify-center space-x-3">
+                <div class="w-10 h-10 rounded-full bg-brand-pink flex items-center justify-center text-brand-dark font-black text-xs shadow-neon-pink">
+                    A
+                </div>
+                <div class="text-left">
+                    <span class="text-sm font-bold text-white block">- Annzie -</span>
+                    <span class="text-[10px] uppercase text-gray-400 tracking-wider">Club Jump Member</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integrated Lifestyle & Social Feed Grid -->
+    <section class="py-24 bg-brand-dark overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 mb-12">
+            <span class="text-xs uppercase tracking-[0.2em] font-bold text-brand-pink block mb-2">Media Feed</span>
+            <h2 class="font-display text-3xl sm:text-4xl font-black uppercase">Let's Get Social! <span class="text-brand-pink text-neon">Like Follow Listen</span></h2>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 px-4 max-w-[1600px] mx-auto">
+            <div class="rounded-3xl overflow-hidden aspect-square relative border border-white/5 group">
+                <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=600&auto=format&fit=crop" alt="Jump Fit Routine" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-60"></div>
+                <span class="absolute bottom-4 left-4 text-[10px] font-bold tracking-widest uppercase text-brand-pink"><i class="fa-brands fa-instagram mr-2"></i>Jump Like The Wind</span>
+            </div>
+            <div class="rounded-3xl overflow-hidden aspect-square relative border border-white/5 group">
+                <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=600&auto=format&fit=crop" alt="Stretch Mobility Studio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-60"></div>
+                <span class="absolute bottom-4 left-4 text-[10px] font-bold tracking-widest uppercase text-white"><i class="fa-brands fa-instagram mr-2"></i>I Love SD</span>
+            </div>
+            <div class="rounded-3xl overflow-hidden aspect-square relative border border-white/5 group">
+                <img src="https://images.unsplash.com/photo-1524594152303-9fd13543fe6e?q=80&w=600&auto=format&fit=crop" alt="Team Club 200" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-60"></div>
+                <span class="absolute bottom-4 left-4 text-[10px] font-bold tracking-widest uppercase text-brand-pink"><i class="fa-brands fa-instagram mr-2"></i>Club 200 Elite</span>
+            </div>
+            <div class="rounded-3xl overflow-hidden aspect-square relative border border-white/5 group">
+                <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=600&auto=format&fit=crop" alt="Relaxation recovery segment" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-60"></div>
+                <span class="absolute bottom-4 left-4 text-[10px] font-bold tracking-widest uppercase text-white"><i class="fa-brands fa-instagram mr-2"></i>Studio Vibe</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Connect / Newsletter Signup Block -->
+    <section id="contact" class="py-24 bg-brand-surface relative overflow-hidden border-t border-white/5">
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10 reveal">
+            <h2 class="font-display text-4xl sm:text-5xl font-black uppercase mb-4">You Can <span class="text-brand-pink text-neon">Jump</span> With Us!</h2>
+            <p class="text-gray-400 text-sm font-medium max-w-xl mx-auto mb-10">
+                Sign up with your verified email address below to receive exclusive class alerts, format upgrades, and special event announcements.
+            </p>
+            
+            <form class="glass-card p-6 rounded-3xl grid grid-cols-1 sm:grid-cols-4 gap-4 max-w-3xl mx-auto border border-white/10" onsubmit="event.preventDefault();">
+                <input type="text" placeholder="First Name" class="bg-brand-dark/60 border border-white/10 focus:border-brand-pink rounded-xl px-4 py-3 text-xs text-white placeholder-gray-500 focus:outline-none transition-colors" required>
+                <input type="text" placeholder="Last Name" class="bg-brand-dark/60 border border-white/10 focus:border-brand-pink rounded-xl px-4 py-3 text-xs text-white placeholder-gray-500 focus:outline-none transition-colors" required>
+                <input type="email" placeholder="Email Address" class="bg-brand-dark/60 border border-white/10 focus:border-brand-pink rounded-xl px-4 py-3 text-xs text-white placeholder-gray-500 focus:outline-none transition-colors" required>
+                <button type="submit" class="bg-brand-pink hover:bg-white text-brand-dark text-xs font-black uppercase tracking-widest py-3 rounded-xl transition-all duration-300 shadow-neon-pink">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Premium Clean Footer Component -->
+    <footer class="bg-brand-dark border-t border-white/5 text-gray-400 font-medium text-xs">
+        <div class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-12 gap-12">
+            
+            <div class="md:col-span-5 space-y-4">
+                <a href="#" class="flex flex-col">
+                    <span class="font-display text-2xl font-black tracking-tighter text-white">CLUB<span class="text-brand-pink">JUMP</span></span>
+                    <span class="text-[9px] tracking-[0.35em] text-brand-pink uppercase -mt-1 font-semibold">Fitness & Stretch</span>
+                </a>
+                <p class="text-gray-500 leading-relaxed text-xs max-w-sm font-medium">
+                    Ashburn's premier destination for boutique rhythmic rebounding workout systems and advanced physical recovery routines.
+                </p>
+                <div class="flex items-center space-x-3 pt-4 text-gray-500">
+                    <a href="#" class="w-8 h-8 rounded-full border border-white/5 flex items-center justify-center hover:border-brand-pink hover:text-brand-pink transition-colors"><i class="fa-brands fa-facebook-f text-xs"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full border border-white/5 flex items-center justify-center hover:border-brand-pink hover:text-brand-pink transition-colors"><i class="fa-brands fa-instagram text-xs"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full border border-white/5 flex items-center justify-center hover:border-brand-pink hover:text-brand-pink transition-colors"><i class="fa-brands fa-youtube text-xs"></i></a>
+                </div>
+            </div>
+
+            <div class="md:col-span-3 space-y-3">
+                <span class="text-[10px] uppercase tracking-[0.2em] font-bold text-white block mb-2">Explore Directory</span>
+                <a href="#schedule" class="block hover:text-brand-pink transition-colors">Class Schedule</a>
+                <a href="#passes" class="block hover:text-brand-pink transition-colors">Studio Passes</a>
+                <a href="#formats" class="block hover:text-brand-pink transition-colors">Workout Formats</a>
+                <a href="#virtual" class="block hover:text-brand-pink transition-colors">Virtual Ecosystem</a>
+            </div>
+
+            <div class="md:col-span-4 space-y-3">
+                <span class="text-[10px] uppercase tracking-[0.2em] font-bold text-white block mb-2">Studio Headquarters</span>
+                <div class="flex items-start space-x-2 text-gray-300 font-semibold leading-relaxed">
+                    <i class="fa-solid fa-location-dot text-brand-pink text-sm mt-0.5"></i>
+                    <span>
+                        20604 Gordon Park Sq #130<br>
+                        Ashburn, VA 20147
+                    </span>
+                </div>
+                <div class="pt-4 text-[10px] text-gray-500 tracking-wide uppercase">
+                    <span>Ashburn, Virginia Location</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="border-t border-white/5 py-8 max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] text-gray-600 font-semibold tracking-wider">
+            <p>&copy; 2026 ClubJump Fitness & Stretch. All rights reserved globally.</p>
+            <div class="flex space-x-6">
+                <a href="#" class="hover:text-brand-pink transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-brand-pink transition-colors">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script Logic Configurations -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuBtn = document.getElementById('menuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            const targets = mobileMenu.querySelectorAll('a');
+            targets.forEach(tgt => {
+                tgt.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            const items = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.12,
+                rootMargin: '0px 0px -30px 0px'
+            });
+
+            items.forEach(item => observer.observe(item));
+
+            setTimeout(() => {
+                window.dispatchEvent(new Event('scroll'));
+            }, 100);
+        });
+    </script>
+
+</body>
+</html>

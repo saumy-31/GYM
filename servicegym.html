@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Gym | Nationwide Gym Equipment Installation, Maintenance & Repair</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0d0d0d',
+                            darker: '#060606',
+                            red: '#e51a1a',
+                            redHover: '#c41212',
+                            gray: '#1c1c1e',
+                            lightGray: '#2c2c2e',
+                            textMuted: '#9a9a9e'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Orbitron', 'sans-serif']
+                    },
+                    letterSpacing: {
+                        widest: '0.15em',
+                        ultra: '0.25em'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .glass-nav {
+            background: rgba(13, 13, 13, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glass-card {
+            background: rgba(28, 28, 30, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            background: rgba(28, 28, 30, 0.7);
+            border-color: rgba(229, 26, 26, 0.3);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px -15px rgba(229, 26, 26, 0.1);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #ffffff 50%, #9a9a9e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .red-gradient {
+            background: linear-gradient(135deg, #e51a1a 0%, #990a0a 100%);
+        }
+        .red-glow {
+            box-shadow: 0 0 25px rgba(229, 26, 26, 0.2);
+        }
+        .red-glow:hover {
+            box-shadow: 0 0 35px rgba(229, 26, 26, 0.4);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0d0d0d;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2c2c2e;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #e51a1a;
+        }
+    </style>
+</head>
+<body class="bg-brand-darker text-neutral-200 font-sans antialiased overflow-x-hidden">
+
+    <header id="navbar-sticky" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 sm:py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-nav rounded-2xl px-6 py-4 flex items-center justify-between shadow-2xl">
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="relative flex items-center justify-center w-10 h-10 rounded-xl bg-brand-gray border border-neutral-800 group-hover:border-brand-red transition-all">
+                        <span class="font-display font-extrabold text-lg text-neutral-400 group-hover:text-white transition-colors">S</span>
+                        <span class="font-display font-extrabold text-lg text-brand-red absolute translate-x-2 translate-y-1">G</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-white font-display font-extrabold text-sm tracking-widest uppercase leading-tight">Service</span>
+                        <span class="text-brand-red font-display font-extrabold text-xs tracking-ultra uppercase leading-none">Gym</span>
+                    </div>
+                </a>
+
+                <nav class="hidden md:flex items-center space-x-8 font-medium text-xs tracking-wider uppercase text-brand-textMuted">
+                    <a href="#" class="text-white hover:text-brand-red transition-colors">Home</a>
+                    <a href="#about" class="hover:text-white transition-colors">About Us</a>
+                    <a href="#services" class="hover:text-white transition-colors">What We Offer</a>
+                    <a href="#discounts" class="hover:text-white transition-colors">Bulk Pricing</a>
+                    <a href="#reviews" class="hover:text-white transition-colors">Reviews</a>
+                    <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+                </nav>
+
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="tel:01458258536" class="text-xs font-semibold text-neutral-300 hover:text-white transition-colors flex items-center space-x-2">
+                        <i class="fa-solid fa-phone text-brand-red"></i>
+                        <span>01458 258 536</span>
+                    </a>
+                    <a href="#contact" class="red-gradient red-glow px-5 py-2.5 rounded-xl font-display font-bold text-xs tracking-wider uppercase text-white transition-all duration-300">
+                        Request Quote
+                    </a>
+                </div>
+
+                <button id="mobile-toggle-btn" class="md:hidden text-white focus:outline-none" aria-label="Toggle Menu">
+                    <i class="fa-solid fa-bars-staggered text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-panel" class="hidden absolute top-full inset-x-0 mx-4 mt-2 p-6 rounded-2xl glass-nav flex-col space-y-4 shadow-2xl border border-white/5 md:hidden">
+            <a href="#" class="mobile-route text-white font-medium text-sm tracking-wider uppercase block py-1">Home</a>
+            <a href="#about" class="mobile-route text-brand-textMuted hover:text-white font-medium text-sm tracking-wider uppercase block py-1">About Us</a>
+            <a href="#services" class="mobile-route text-brand-textMuted hover:text-white font-medium text-sm tracking-wider uppercase block py-1">What We Offer</a>
+            <a href="#discounts" class="mobile-route text-brand-textMuted hover:text-white font-medium text-sm tracking-wider uppercase block py-1">Bulk Pricing</a>
+            <a href="#reviews" class="mobile-route text-brand-textMuted hover:text-white font-medium text-sm tracking-wider uppercase block py-1">Reviews</a>
+            <a href="#contact" class="mobile-route text-brand-textMuted hover:text-white font-medium text-sm tracking-wider uppercase block py-1">Contact</a>
+            <hr class="border-white/10 my-2">
+            <div class="flex flex-col space-y-3">
+                <a href="tel:01458258536" class="text-xs font-semibold text-center text-neutral-300 py-2 block"><i class="fa-solid fa-phone text-brand-red mr-2"></i> 01458 258 536</a>
+                <a href="#contact" class="mobile-route text-center block w-full red-gradient py-3 rounded-xl font-display font-bold text-xs tracking-wider uppercase text-white">Request Quote</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=2000&q=80" alt="Gym engineering facility layout" class="w-full h-full object-cover opacity-15">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-darker via-brand-darker/80 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-darker via-transparent to-brand-darker"></div>
+        </div>
+
+        <div class="absolute top-1/4 left-[-10%] w-[500px] h-[500px] bg-brand-red/5 rounded-full blur-[150px] pointer-events-none animate-pulse"></div>
+        <div class="absolute bottom-1/4 right-[-10%] w-[500px] h-[500px] bg-neutral-800/10 rounded-full blur-[150px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 bg-brand-red/10 border border-brand-red/20 px-4 py-1.5 rounded-full">
+                        <span class="w-2 h-2 rounded-full bg-brand-red animate-ping"></span>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-brand-red">Somerset Based • UK Wide Logistics</span>
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold tracking-tight text-white leading-tight">
+                        Gym Equipment <br>
+                        <span class="text-gradient">Installation & Servicing</span> 
+                    </h1>
+                    <p class="text-base sm:text-lg text-brand-textMuted font-light max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                        Offering precision engineering throughout the whole of the UK. From commercial premium fitness centers to custom home spaces—there is absolutely no job too small.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#services" class="w-full sm:w-auto text-center px-8 py-4 red-gradient red-glow text-white font-display font-bold text-xs tracking-widest uppercase rounded-xl transition-all duration-300">
+                            Explore Services <i class="fa-solid fa-angle-right ml-2"></i>
+                        </a>
+                        <a href="#contact" class="w-full sm:w-auto text-center px-8 py-4 bg-brand-gray hover:bg-brand-lightGray border border-neutral-800 text-neutral-300 hover:text-white font-display font-bold text-xs tracking-widest uppercase rounded-xl transition-all duration-300">
+                            Contact Engineers
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 relative hidden lg:block">
+                    <div class="relative w-full aspect-square max-w-[440px] mx-auto">
+                        <div class="absolute inset-0 border border-neutral-800 rounded-3xl transform rotate-3 scale-95 transition-transform duration-500 hover:rotate-0"></div>
+                        <div class="absolute inset-0 rounded-3xl overflow-hidden shadow-2xl border border-white/5">
+                            <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=800&q=80" alt="Gym equipment mechanics asset" class="w-full h-full object-cover">
+                        </div>
+                        
+                        <div class="absolute -bottom-6 -left-6 glass-card p-4 rounded-2xl flex items-center space-x-3 border border-white/5 shadow-xl">
+                            <div class="w-10 h-10 rounded-xl red-gradient flex items-center justify-center text-white">
+                                <i class="fa-solid fa-screwdriver-wrench"></i>
+                            </div>
+                            <div>
+                                <p class="text-[9px] uppercase text-brand-textMuted tracking-wider font-semibold">Reliability Scope</p>
+                                <p class="text-xs font-bold text-white">100% Secure Guarantee</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 relative z-10 bg-brand-dark border-y border-neutral-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="p-4">
+                    <p class="text-2xl sm:text-3xl font-display font-bold text-white mb-1">UK WIDE</p>
+                    <p class="text-[10px] text-brand-red uppercase tracking-widest font-bold">Delivery & Setup</p>
+                </div>
+                <div class="p-4 border-l border-neutral-800/60">
+                    <p class="text-2xl sm:text-3xl font-display font-bold text-white mb-1">REFURBISHED</p>
+                    <p class="text-[10px] text-neutral-400 uppercase tracking-widest font-bold">Approved Unit Sales</p>
+                </div>
+                <div class="p-4 border-l border-neutral-800/60">
+                    <p class="text-2xl sm:text-3xl font-display font-bold text-white mb-1">ANY SCALE</p>
+                    <p class="text-[10px] text-neutral-400 uppercase tracking-widest font-bold">Commercial & Residential</p>
+                </div>
+                <div class="p-4 border-l border-neutral-800/60">
+                    <p class="text-2xl sm:text-3xl font-display font-bold text-white mb-1">PROMPT</p>
+                    <p class="text-[10px] text-brand-red uppercase tracking-widest font-bold">Maintenance & Repairs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <div class="grid grid-cols-12 gap-4">
+                    <div class="col-span-7">
+                        <div class="rounded-2xl overflow-hidden shadow-2xl aspect-[4/5] border border-white/5">
+                            <img src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77?auto=format&fit=crop&w=700&q=80" alt="Gym fitness asset setup" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="col-span-5 space-y-4 pt-12">
+                        <div class="rounded-2xl overflow-hidden shadow-2xl aspect-square border border-white/5">
+                            <img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&w=600&q=80" alt="Equipment verification" class="w-full h-full object-cover">
+                        </div>
+                        <div class="glass-card p-6 rounded-2xl border border-white/5 text-center">
+                            <i class="fa-solid fa-gears text-2xl text-brand-red mb-2"></i>
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-white">Somerset Hub</h4>
+                            <p class="text-[11px] text-brand-textMuted mt-1">Strategically situated to handle nationwide fleet asset dispatch deployments seamlessly.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="inline-flex items-center space-x-2 bg-neutral-800 px-3 py-1 rounded-full border border-neutral-700">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-neutral-300">Corporate Overview</span>
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-display font-extrabold text-white tracking-tight leading-snug">
+                        Elite Solutions For <br>
+                        <span class="text-gradient">Every Fitness Environment</span>
+                    </h2>
+                    <p class="text-brand-textMuted font-light leading-relaxed text-sm sm:text-base">
+                        We are a Somerset based company proud to offer expert engineering services throughout the entirety of the United Kingdom. Our versatile technicians execute an expansive spectrum of operational tasks including structured hardware logistics, asset management diagnostics, and mechanical overhaul servicing.
+                    </p>
+                    <p class="text-brand-textMuted font-light leading-relaxed text-sm">
+                        Whether you supervise a commercial health brand network deployment or require single equipment maintenance within a personal residential training layout—there is no task deemed too minor or complex for our team.
+                    </p>
+                    
+                    <div class="pt-6 border-t border-neutral-900 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-5 h-5 rounded-md bg-brand-red/10 flex items-center justify-center text-brand-red text-xs mt-0.5"><i class="fa-solid fa-check"></i></div>
+                            <div>
+                                <h4 class="text-xs font-bold text-white uppercase tracking-wider">Fast Turnaround</h4>
+                                <p class="text-[11px] text-neutral-500">Minimizing equipment down-time protocols.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-5 h-5 rounded-md bg-brand-red/10 flex items-center justify-center text-brand-red text-xs mt-0.5"><i class="fa-solid fa-check"></i></div>
+                            <div>
+                                <h4 class="text-xs font-bold text-white uppercase tracking-wider">Certified Safe</h4>
+                                <p class="text-[11px] text-neutral-500">Compliant structural safety check protocols.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 bg-brand-dark/50 border-y border-neutral-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <div class="inline-flex items-center space-x-2 bg-brand-red/10 border border-brand-red/20 px-3 py-1 rounded-full">
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-brand-red">Operational Capabilities</span>
+                </div>
+                <h2 class="text-3xl font-display font-extrabold text-white tracking-tight">Our Core Offerings</h2>
+                <p class="text-xs sm:text-sm text-brand-textMuted font-light">Engineered to keep your fitness spaces running safely, smoothly, and precisely at any operational parameter scale.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-3xl flex flex-col justify-between space-y-6 group">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-neutral-800 group-hover:bg-brand-red/10 text-neutral-300 group-hover:text-brand-red transition-colors flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-truck-loading"></i>
+                        </div>
+                        <h3 class="text-lg font-display font-bold text-white uppercase tracking-wider">Delivery & Installation</h3>
+                        <p class="text-xs text-brand-textMuted font-light leading-relaxed">
+                            Comprehensive end-to-end transport logistical pathways integrated with flawless on-site anchoring, assembly configurations, and layout calibration optimization arrays.
+                        </p>
+                    </div>
+                    <a href="#contact" class="text-[10px] font-bold tracking-widest text-brand-red uppercase group-hover:underline">Inquire Setup <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl flex flex-col justify-between space-y-6 group">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-neutral-800 group-hover:bg-brand-red/10 text-neutral-300 group-hover:text-brand-red transition-colors flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-wrench"></i>
+                        </div>
+                        <h3 class="text-lg font-display font-bold text-white uppercase tracking-wider">Maintenance Servicing</h3>
+                        <p class="text-xs text-brand-textMuted font-light leading-relaxed">
+                            Preventative engineering metrics, structural weld safety reviews, multi-cable diagnostic tracking checks, and component re-lubrication patterns.
+                        </p>
+                    </div>
+                    <a href="#contact" class="text-[10px] font-bold tracking-widest text-brand-red uppercase group-hover:underline">Schedule Checkup <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl flex flex-col justify-between space-y-6 group">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-neutral-800 group-hover:bg-brand-red/10 text-neutral-300 group-hover:text-brand-red transition-colors flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-shop"></i>
+                        </div>
+                        <h3 class="text-lg font-display font-bold text-white uppercase tracking-wider">Refurbished Equipment</h3>
+                        <p class="text-xs text-brand-textMuted font-light leading-relaxed">
+                            Access premium-tier certified mechanical refurbishments, offering top international commercial station performance variables at exceptional budget thresholds.
+                        </p>
+                    </div>
+                    <a href="#contact" class="text-[10px] font-bold tracking-widest text-brand-red uppercase group-hover:underline">Browse Catalog <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="discounts" class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 bg-neutral-800 px-3 py-1 rounded-full border border-neutral-700">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-neutral-400">Scale Optimization</span>
+                    </div>
+                    <h2 class="text-3xl font-display font-extrabold text-white uppercase tracking-wider">Bulk Order Pricing Discounts</h2>
+                    <p class="text-brand-textMuted font-light text-sm sm:text-base leading-relaxed">
+                        Are you mapping a comprehensive multi-site franchise upgrade configuration, executing educational academy health suite fitouts, or outfitting commercial warehouse environments? 
+                    </p>
+                    <p class="text-brand-textMuted font-light text-sm leading-relaxed">
+                        We provision specialized tier-structured financial pricing channels to maximize return parameters on bulk hardware asset fulfillment acquisitions and continuous fleet servicing contract pipelines.
+                    </p>
+                    <blockquote class="border-l-2 border-brand-red pl-4 italic text-neutral-300 text-xs text-left max-w-lg mx-auto lg:mx-0">
+                        "Unlock aggressive institutional pricing adjustments custom tailored to fit the exact blueprint parameters of your rollout budget goals."
+                    </blockquote>
+                    <div class="pt-2">
+                        <a href="#contact" class="inline-flex items-center space-x-2 text-xs font-bold text-brand-red uppercase tracking-wider group">
+                            <span>Inquire About Corporate Tier Rates</span>
+                            <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5">
+                    <div class="relative max-w-[360px] mx-auto group">
+                        <div class="absolute inset-0 bg-brand-red/10 rounded-2xl blur-3xl opacity-50 group-hover:opacity-80 transition-opacity"></div>
+                        <div class="relative rounded-2xl bg-brand-gray border border-neutral-800 p-6 overflow-hidden shadow-2xl">
+                            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=600&q=80" alt="B2B volume line infrastructure" class="w-full h-auto rounded-xl object-cover mix-blend-luminosity">
+                            <div class="absolute bottom-4 left-4 right-4 bg-brand-darker/90 backdrop-blur-md p-4 rounded-xl border border-neutral-800 text-center">
+                                <span class="text-[9px] font-bold uppercase tracking-widest text-brand-red">Volume Contract Array</span>
+                                <h4 class="text-xs font-bold text-white mt-0.5">Multi-Unit Institutional Logistics</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="py-24 bg-brand-dark/50 border-t border-neutral-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-16 gap-4 text-center sm:text-left">
+                <div class="space-y-3">
+                    <div class="inline-flex items-center space-x-2 bg-brand-red/10 border border-brand-red/20 px-3 py-1 rounded-full">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-brand-red">Operational Validation</span>
+                    </div>
+                    <h2 class="text-3xl font-display font-extrabold text-white tracking-tight">Verified Customer Reviews</h2>
+                </div>
+                <p class="text-xs text-brand-textMuted max-w-xs font-light">Why asset managers and fitness facility supervisors rely explicitly on the engineering standard of Service Gym.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-card p-6 rounded-2xl flex flex-col justify-between space-y-6">
+                    <div class="space-y-3">
+                        <div class="flex text-amber-500 space-x-1 text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-xs text-neutral-300 italic font-light leading-relaxed">
+                            "Flawless logistics framework execution during our recent commercial facility swap. Transporting, recalibrating, and anchoring heavy stack hardware lines was handled effortlessly. Incredible nationwide coverage."
+                        </p>
+                    </div>
+                    <div class="border-t border-neutral-900/60 pt-4 flex items-center space-x-2">
+                        <div class="w-8 h-8 rounded-full bg-neutral-800 flex items-center justify-center text-[10px] text-white font-bold">GB</div>
+                        <div>
+                            <h4 class="text-xs font-bold text-white">Gavin B.</h4>
+                            <p class="text-[9px] text-brand-textMuted">Commercial Gym Chain Director</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl flex flex-col justify-between space-y-6">
+                    <div class="space-y-3">
+                        <div class="flex text-amber-500 space-x-1 text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-xs text-neutral-300 italic font-light leading-relaxed">
+                            "Needed repair operations inside my small home garage cage config. They handled the diagnostics with outstanding meticulous professionalism. Truly no task is too small for them!"
+                        </p>
+                    </div>
+                    <div class="border-t border-neutral-900/60 pt-4 flex items-center space-x-2">
+                        <div class="w-8 h-8 rounded-full bg-neutral-800 flex items-center justify-center text-[10px] text-white font-bold">ML</div>
+                        <div>
+                            <h4 class="text-xs font-bold text-white">Markus L.</h4>
+                            <p class="text-[9px] text-brand-textMuted">Residential Home Gym Owner</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl flex flex-col justify-between space-y-6">
+                    <div class="space-y-3">
+                        <div class="flex text-amber-500 space-x-1 text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-xs text-neutral-300 italic font-light leading-relaxed">
+                            "The certified refurbished items we bought operate exactly like fresh production units. Excellent value, robust structural support variables, and phenomenal aftercare maintenance assistance on loop."
+                        </p>
+                    </div>
+                    <div class="border-t border-neutral-900/60 pt-4 flex items-center space-x-2">
+                        <div class="w-8 h-8 rounded-full bg-neutral-800 flex items-center justify-center text-[10px] text-white font-bold">SC</div>
+                        <div>
+                            <h4 class="text-xs font-bold text-white">Sarah C.</h4>
+                            <p class="text-[9px] text-brand-textMuted">Performance Suite Asset Head</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="glass-card rounded-3xl p-8 sm:p-12 border border-neutral-800 shadow-2xl relative overflow-hidden">
+                
+                <div class="text-center max-w-xl mx-auto mb-10 space-y-3">
+                    <h2 class="text-3xl font-display font-extrabold text-white uppercase tracking-wider">Initiate An Engineering Request</h2>
+                    <p class="text-xs sm:text-sm text-brand-textMuted font-light">
+                        Submit the operational variables of your gym space configuration below to secure a prompt technical service evaluation quote.
+                    </p>
+                </div>
+
+                <form class="space-y-4 max-w-lg mx-auto" onsubmit="event.preventDefault(); alert('Logistics pipeline submission validated. A Service Gym technical agent will reach out to confirm your data matrix promptly.');">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="space-y-1">
+                            <label class="text-[10px] text-brand-textMuted uppercase font-bold tracking-wider">Full Name *</label>
+                            <input type="text" required class="w-full bg-brand-dark border border-neutral-800 rounded-xl px-4 py-3 text-xs text-white placeholder-neutral-600 focus:outline-none focus:border-brand-red transition-colors" placeholder="e.g. Alexander Vance">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-[10px] text-brand-textMuted uppercase font-bold tracking-wider">Email Address *</label>
+                            <input type="email" required class="w-full bg-brand-dark border border-neutral-800 rounded-xl px-4 py-3 text-xs text-white placeholder-neutral-600 focus:outline-none focus:border-brand-red transition-colors" placeholder="e.g. vance@gymspace.co.uk">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="space-y-1">
+                            <label class="text-[10px] text-brand-textMuted uppercase font-bold tracking-wider">Location / Postal Sector *</label>
+                            <input type="text" required class="w-full bg-brand-dark border border-neutral-800 rounded-xl px-4 py-3 text-xs text-white placeholder-neutral-600 focus:outline-none focus:border-brand-red transition-colors" placeholder="e.g. Somerset TA11">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-[10px] text-brand-textMuted uppercase font-bold tracking-wider">Scope Assignment Type *</label>
+                            <select required class="w-full bg-brand-dark border border-neutral-800 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-red transition-colors cursor-pointer appearance-none">
+                                <option value="installation" class="bg-brand-dark text-white">Logistics & Installation Setup</option>
+                                <option value="servicing" class="bg-brand-dark text-white">Diagnostics & Repair Service</option>
+                                <option value="refurbished" class="bg-brand-dark text-white">Refurbished Unit Purchasing</option>
+                                <option value="bulk" class="bg-brand-dark text-white">Bulk Multi-Unit Tier Evaluation</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="space-y-1">
+                        <label class="text-[10px] text-brand-textMuted uppercase font-bold tracking-wider">Hardware Blueprint Specifications</label>
+                        <textarea rows="3" class="w-full bg-brand-dark border border-neutral-800 rounded-xl px-4 py-3 text-xs text-white placeholder-neutral-600 focus:outline-none focus:border-brand-red transition-colors resize-none" placeholder="Provide equipment models, numbers, or unique access specifications to assist our logistics dispatch team..."></textarea>
+                    </div>
+
+                    <div class="pt-2">
+                        <button type="submit" class="w-full py-4 red-gradient red-glow rounded-xl font-display font-bold text-xs tracking-widest text-white uppercase transition-all duration-300 shadow-xl">
+                            Transmit Engineering File <i class="fa-solid fa-paper-plane ml-2 text-[10px]"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-brand-dark border-t border-neutral-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 font-display">
+                <div class="flex items-center space-x-4 p-4 glass-card rounded-2xl">
+                    <div class="w-10 h-10 rounded-xl bg-neutral-800/80 flex items-center justify-center text-brand-red"><i class="fa-solid fa-truck-ramp-box"></i></div>
+                    <div>
+                        <p class="text-[9px] uppercase text-brand-textMuted font-bold tracking-wider">Logistics Line</p>
+                        <h4 class="text-xs font-bold text-white mt-0.5">Delivery & Installation Service</h4>
+                    </div>
+                </div>
+
+                <a href="mailto:info@servicegym.co.uk" class="flex items-center space-x-4 p-4 glass-card rounded-2xl group transition-all">
+                    <div class="w-10 h-10 rounded-xl bg-neutral-800/80 group-hover:bg-brand-red/10 flex items-center justify-center text-brand-red transition-colors"><i class="fa-regular fa-envelope"></i></div>
+                    <div>
+                        <p class="text-[9px] uppercase text-brand-textMuted font-bold tracking-wider">Digital Correspondence</p>
+                        <h4 class="text-xs font-bold text-white group-hover:text-brand-red mt-0.5 transition-colors">info@servicegym.co.uk</h4>
+                    </div>
+                </a>
+
+                <a href="tel:01458258536" class="flex items-center space-x-4 p-4 glass-card rounded-2xl group transition-all">
+                    <div class="w-10 h-10 rounded-xl bg-neutral-800/80 group-hover:bg-brand-red/10 flex items-center justify-center text-brand-red transition-colors"><i class="fa-solid fa-phone"></i></div>
+                    <div>
+                        <p class="text-[9px] uppercase text-brand-textMuted font-bold tracking-wider">Hotline Registry</p>
+                        <h4 class="text-xs font-bold text-white group-hover:text-brand-red mt-0.5 transition-colors">01458 258 536</h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-brand-darker border-t border-neutral-900 pt-16 pb-12 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 mb-12">
+                
+                <div class="md:col-span-6 space-y-4">
+                    <a href="#" class="flex items-center space-x-3 group">
+                        <div class="relative flex items-center justify-center w-8 h-8 rounded-lg bg-brand-gray border border-neutral-800">
+                            <span class="font-display font-extrabold text-sm text-neutral-400">S</span>
+                            <span class="font-display font-extrabold text-sm text-brand-red absolute translate-x-1.5 translate-y-1">G</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-white font-display font-extrabold text-xs tracking-widest uppercase leading-tight">Service Gym</span>
+                        </div>
+                    </a>
+                    <p class="text-xs text-brand-textMuted max-w-xs leading-relaxed font-light">
+                        UK wide gym layout implementation, heavy item precision tracking engineering, mechanics refurbishing, and preventative maintenance deployment array systems.
+                    </p>
+                    <div class="flex items-center space-x-3 pt-2">
+                        <a href="#" class="w-8 h-8 rounded-lg bg-neutral-900 border border-neutral-800 flex items-center justify-center text-neutral-400 hover:text-white hover:border-neutral-700 transition-colors" aria-label="Instagram Link"><i class="fa-brands fa-instagram text-xs"></i></a>
+                    </div>
+                </div>
+
+                <div class="md:col-span-3 space-y-3">
+                    <h4 class="text-xs font-bold text-white uppercase tracking-widest font-display">Logistics Registry</h4>
+                    <ul class="text-[11px] text-brand-textMuted space-y-2 font-light">
+                        <li><a href="#services" class="hover:text-white transition-colors">Delivery Routing Parameters</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">Returns & Operational Warranties</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors">Technical Query Desk</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-3 space-y-3">
+                    <h4 class="text-xs font-bold text-white uppercase tracking-widest font-display">System Status</h4>
+                    <p class="text-[11px] text-brand-textMuted font-light leading-relaxed">
+                        To guarantee peak calendar response variables, our maintenance team prioritizes local Somerset TA route diagnostics sequentially. Transmit your coordinates via our request portal.
+                    </p>
+                </div>
+            </div>
+
+            <div class="border-t border-neutral-900 pt-8 flex flex-col sm:flex-row items-center justify-between text-[10px] text-neutral-600 gap-4">
+                <p>© 2026 Service Gym. All rights reserved. Premium UX Engineering Overhaul Framework.</p>
+                <div class="flex space-x-4 items-center">
+                    <a href="#" class="hover:text-neutral-400 transition-colors uppercase tracking-wider">Privacy Policy</a>
+                    <span class="text-neutral-800">•</span>
+                    <span>Powered securely via Shopify Ecosystem</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileToggleBtn = document.getElementById('mobile-toggle-btn');
+        const mobilePanel = document.getElementById('mobile-panel');
+        const headerContainer = document.getElementById('navbar-sticky');
+        const mobileRoutes = document.querySelectorAll('.mobile-route');
+
+        // Toggle dropdown logic mapping 
+        mobileToggleBtn.addEventListener('click', () => {
+            if (mobilePanel.classList.contains('hidden')) {
+                mobilePanel.classList.remove('hidden');
+                mobilePanel.classList.add('flex');
+            } else {
+                mobilePanel.classList.add('hidden');
+                mobilePanel.classList.remove('flex');
+            }
+        });
+
+        // Close on action map click
+        mobileRoutes.forEach(route => {
+            route.addEventListener('click', () => {
+                mobilePanel.classList.add('hidden');
+                mobilePanel.classList.remove('flex');
+            });
+        });
+
+        // Track scroll events to minimize menu padding footprint 
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                headerContainer.classList.remove('py-4', 'sm:py-6');
+                headerContainer.classList.add('py-2');
+            } else {
+                headerContainer.classList.remove('py-2');
+                headerContainer.classList.add('py-4', 'sm:py-6');
+            }
+        });
+    </script>
+</body>
+</html>

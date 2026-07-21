@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360 Degree Dining | Luxury Multi-Cuisine & Open Lawn Restaurant Varanasi</title>
+    <meta name="description" content="Experience premium global cuisine at 360 Degree Dining, Varanasi. Enjoy a 'Vintage India' themed environment with expansive open lawns, serving North Indian, Pan-Asian, Italian, and Mediterranean delicacies.">
+    
+    <!-- Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- BRAND STYLE ARCHITECTURE --- */
+        :root {
+            --gold: #C5A880;            /* Vintage Gold/Champagne */
+            --gold-glow: rgba(197, 168, 128, 0.3);
+            --dark: #0D0E10;            /* Velvet Noir */
+            --surface: #16181C;         /* Elevated Surface */
+            --terracotta: #A95C42;      /* Brick Arch Accent */
+            --text-light: #F3F4F6;
+            --text-muted: #9CA3AF;
+            --font-display: 'Cinzel', serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+            --border-glass: rgba(255, 255, 255, 0.05);
+            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* --- BASIC STRUCTURAL RESET --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--text-light);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #252830;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gold);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1320px;
+            margin: 0 auto;
+        }
+
+        /* --- TYPOGRAPHY ENGINE --- */
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            font-weight: 600;
+            letter-spacing: 0.03em;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 90px;
+        }
+
+        .tagline {
+            color: var(--gold);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.35em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: block;
+            font-family: var(--font-body);
+        }
+
+        .section-title {
+            font-size: clamp(2.4rem, 5vw, 4rem);
+            line-height: 1.2;
+            color: var(--text-light);
+        }
+
+        .section-title span {
+            color: var(--gold);
+        }
+
+        section {
+            padding: 140px 0;
+            position: relative;
+        }
+
+        /* --- INTERACTIVE ACTION ACCELERATORS --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 18px 42px;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            text-decoration: none;
+            cursor: pointer;
+            border-radius: 0;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--dark);
+            border: 1px solid var(--gold);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px var(--gold-glow);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border: 1px solid var(--border-glass);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        /* --- SCROLL ANIMATION DRIVERS --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(45px);
+            transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- HEADER NAVIGATION STRUCTURE --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 35px 0;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 20px 0;
+            background: rgba(13, 14, 16, 0.92);
+            backdrop-filter: blur(25px);
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .nav-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-box {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            color: var(--text-light);
+            text-decoration: none;
+            letter-spacing: 0.05em;
+        }
+
+        .logo-box span {
+            color: var(--gold);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--gold);
+        }
+
+        .menu-toggle {
+            display: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- HERO DISPLAY AREA --- */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(180deg, rgba(13,14,16,0.2) 0%, rgba(13,14,16,0.95) 100%), 
+                        url('https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+            padding-top: 120px;
+        }
+
+        .hero-container {
+            max-width: 950px;
+        }
+
+        .hero-container h1 {
+            font-size: clamp(3rem, 7vw, 6rem);
+            line-height: 1.1;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .hero-container h1 span {
+            color: transparent;
+            -webkit-text-stroke: 1px var(--text-light);
+        }
+
+        .hero-subtext {
+            font-size: 1.3rem;
+            font-family: var(--font-display);
+            color: var(--text-muted);
+            margin-bottom: 50px;
+            max-width: 700px;
+        }
+
+        .hero-btn-layout {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* --- THE LEGACY CONCEPT SECTION --- */
+        .legacy-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 90px;
+            align-items: center;
+        }
+
+        .legacy-content p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .legacy-visuals {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .visual-block {
+            border: 1px solid var(--border-glass);
+            padding: 10px;
+            background: rgba(255,255,255,0.01);
+        }
+
+        .legacy-visuals img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: sepia(20%) contrast(105%);
+            transition: var(--transition);
+        }
+
+        .legacy-visuals img:hover {
+            filter: sepia(0%) contrast(100%);
+        }
+
+        /* --- AMENITIES & FEATURES --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background: var(--surface);
+            border: 1px solid var(--border-glass);
+            padding: 65px 45px;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        }
+
+        .feature-card i {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 30px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 18px;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* --- HIGH CONVERSION MENU PRESENTATION --- */
+        .menu-tabs-row {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+
+        .tab-trigger {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            cursor: pointer;
+            padding: 5px 20px;
+            transition: var(--transition);
+            border-bottom: 1px solid transparent;
+        }
+
+        .tab-trigger.active, .tab-trigger:hover {
+            color: var(--gold);
+            border-bottom-color: var(--gold);
+        }
+
+        .menu-items-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px 80px;
+        }
+
+        .food-item-card {
+            display: flex;
+            flex-direction: column;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+            padding-bottom: 25px;
+        }
+
+        .food-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 10px;
+        }
+
+        .food-header h4 {
+            font-size: 1.4rem;
+            color: var(--text-light);
+        }
+
+        .food-price {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .food-item-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- OPEN LAWN & EXPERIENTIAL GALLERY --- */
+        .gallery-mosaic {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 25px;
+        }
+
+        .mosaic-item {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            border: 1px solid var(--border-glass);
+        }
+
+        .mosaic-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .mosaic-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* --- AGGREGATED PATRON REVIEWS --- */
+        .reputation-banner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            background: rgba(255,255,255,0.01);
+            border: 1px solid var(--border-glass);
+            width: max-content;
+            margin: 0 auto 80px auto;
+            padding: 25px 55px;
+        }
+
+        .reputation-score {
+            font-family: var(--font-display);
+            font-size: 4rem;
+            color: var(--gold);
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .stars-group i {
+            color: #FFC72C;
+            font-size: 1.1rem;
+            margin-right: 3px;
+        }
+
+        .reviews-container-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .patron-card {
+            background: var(--surface);
+            padding: 55px 45px;
+            border: 1px solid var(--border-glass);
+            position: relative;
+        }
+
+        .patron-card p {
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 35px;
+            font-size: 1.05rem;
+        }
+
+        .patron-name h5 {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 4px;
+        }
+
+        .patron-name span {
+            color: var(--gold);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        /* --- IMMERSIVE CTA BLOCK --- */
+        .conversion-cta {
+            background: linear-gradient(rgba(13,14,16,0.9), rgba(13,14,16,0.9)), 
+                        url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+            padding: 130px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-glass);
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .conversion-cta h2 {
+            font-size: clamp(2.4rem, 5vw, 4.4rem);
+            margin-bottom: 25px;
+        }
+
+        .conversion-cta p {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            max-width: 650px;
+            margin: 0 auto 45px auto;
+            font-family: var(--font-display);
+        }
+
+        /* --- LOCATION PANEL & TARGETED MAP --- */
+        .contact-layout-box {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 90px;
+        }
+
+        .contact-info-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 45px;
+        }
+
+        .contact-node {
+            display: flex;
+            gap: 25px;
+        }
+
+        .contact-node i {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-top: 5px;
+        }
+
+        .contact-node h4 {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+
+        .contact-node p, .contact-node a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 1.05rem;
+        }
+
+        .map-frame-holder {
+            height: 100%;
+            min-height: 450px;
+            border: 1px solid var(--border-glass);
+        }
+
+        /* --- PREMIUM BASE FOOTER --- */
+        footer {
+            background: #08090B;
+            padding: 95px 0 45px 0;
+            border-top: 1px solid var(--border-glass);
+        }
+
+        .footer-grid-layout {
+            display: grid;
+            grid-template-columns: 1.5fr 0.8fr 0.8fr;
+            gap: 80px;
+            margin-bottom: 70px;
+        }
+
+        .footer-brand h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            max-width: 380px;
+        }
+
+        .footer-links-group h4 {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 25px;
+        }
+
+        .footer-links-group ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .footer-links-group a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .footer-links-group a:hover {
+            color: var(--gold);
+            padding-left: 6px;
+        }
+
+        .social-media-strip {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-btn-node {
+            width: 42px;
+            height: 42px;
+            border: 1px solid var(--border-glass);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-btn-node:hover {
+            background: var(--gold);
+            color: var(--dark);
+            border-color: var(--gold);
+            transform: translateY(-4px);
+        }
+
+        .footer-copyright-bar {
+            border-top: 1px solid rgba(255,255,255,0.03);
+            padding-top: 35px;
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* --- SCREEN RESPONSIVE RESTRUCTURING --- */
+        @media (max-width: 992px) {
+            .menu-toggle {
+                display: block;
+            }
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background: #111317;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 35px;
+                transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+                box-shadow: -15px 0 45px rgba(0,0,0,0.7);
+                border-left: 1px solid var(--border-glass);
+            }
+            .nav-menu.active {
+                right: 0;
+            }
+            .legacy-layout, .menu-items-grid, .contact-layout-box, .footer-grid-layout {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+            .reputation-banner {
+                width: 100%;
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- --- FLOATING TRANSPARENT NAVBAR --- -->
+    <header id="navigation-bar">
+        <div class="container nav-flex">
+            <a href="#hero" class="logo-box">360&deg; DINING<span>.</span></a>
+            <ul class="nav-menu" id="drawer-menu">
+                <li><a href="#hero" class="nav-link">Home</a></li>
+                <li><a href="#legacy" class="nav-link">Our Concept</a></li>
+                <li><a href="#features" class="nav-link">Amenities</a></li>
+                <li><a href="#menu" class="nav-link">Menu Highlights</a></li>
+                <li><a href="#gallery" class="nav-link">The Lawns</a></li>
+                <li><a href="#reviews" class="nav-link">Reviews</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="menu-trigger-btn">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- --- IMPACT HERO SCREEN --- -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-container">
+                <span class="tagline">Vintage India Themed Multi-Cuisine Culinary Art</span>
+                <h1>CULINARY SPLENDOR<br>FROM EVERY <span>ANGLE</span></h1>
+                <p class="hero-subtext">Immerse your senses inside Varanasi's landmark estate. A majestic fusion of heritage arched architectures, open air alfresco lawns, and custom multi-cuisine recipes.</p>
+                <div class="hero-btn-layout">
+                    <a href="tel:09415920147" class="btn btn-primary">Reserve A Table</a>
+                    <a href="#menu" class="btn btn-secondary">Explore Highlights</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- THE HISTORIC LEGACY --- -->
+    <section id="legacy">
+        <div class="container">
+            <div class="legacy-layout">
+                <div class="legacy-content reveal">
+                    <span class="tagline">The Concept Architecture</span>
+                    <h2 class="section-title">Nostalgic Luxury, <span>Global Flavor Profile</span></h2>
+                    <p>360 Degree Dining provides a curated escape situated directly on the Varanasi Lucknow Road in Ganeshpur. Designed around a thoughtful 'Vintage India' aesthetic framework, the estate bridges regional culinary roots with modern presentation aesthetics.</p>
+                    <p>From expansive twilight open-air lawns to sophisticated interior fireplace dining zones, our structure easily formats memorable multi course family banquets and elegant corporate sessions.</p>
+                    <a href="#features" class="btn btn-secondary">View Amenities</a>
+                </div>
+                <div class="legacy-visuals reveal">
+                    <div class="visual-block">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=600&auto=format&fit=crop" alt="Vintage Interior Dining Ambience at 360 Degree Dining">
+                    </div>
+                    <div class="visual-block" style="margin-top: 30px;">
+                        <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=600&auto=format&fit=crop" alt="Premium Multi-Cuisine Plating Design">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- AMENITIES MATRIX --- -->
+    <section id="features" style="background: rgba(255,255,255,0.01);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="tagline">Estate Features</span>
+                <h2 class="section-title">Designed For Elite <span>Hospitality</span></h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <i class="fa-solid fa-tree"></i>
+                    <h3>Expansive Alfresco Lawns</h3>
+                    <p>Dine beneath structural fairy lit wooden trellises and lush green landscaping optimized for atmospheric open air gatherings.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <i class="fa-solid fa-fire-burner"></i>
+                    <h3>Vintage Indoor Seating</h3>
+                    <p>Dine inside architectural brick masonry arches featuring rich heritage motifs and custom warm amber glow points.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <i class="fa-solid fa-utensils"></i>
+                    <h3>Vast Global Portfolio</h3>
+                    <p>A broad multi-cuisine matrix highlighting authentic North Indian, Pan Asian, Italian, Mediterranean, and Mexican recipes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- PERSUASIVE MENU SYSTEM --- -->
+    <section id="menu">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="tagline">The Gastronomy</span>
+                <h2 class="section-title">Signature <span>Menu Highlights</span></h2>
+            </div>
+            
+            <div class="menu-tabs-row reveal">
+                <button class="tab-trigger active" onclick="toggleMenuCategory('indian')">North Indian Core</button>
+                <button class="tab-trigger" onclick="toggleMenuCategory('global')">Global Specialties</button>
+            </div>
+
+            <div class="menu-items-grid reveal" id="menu-injected-container">
+                <!-- Programmatically generated content outputs safely here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- --- ESTATED OPEN LAWN GALLERY --- -->
+    <section id="gallery" style="background: rgba(255,255,255,0.01);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="tagline">The Estate Architecture</span>
+                <h2 class="section-title">Visual <span>Atmosphere</span></h2>
+            </div>
+            <div class="gallery-mosaic">
+                <div class="gallery-mosaic reveal">
+                    <div class="mosaic-item">
+                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=600&auto=format&fit=crop" alt="Heritage Arches Storefront Seating Layout">
+                    </div>
+                </div>
+                <div class="gallery-mosaic reveal">
+                    <div class="mosaic-item">
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=600&auto=format&fit=crop" alt="Premium Global Gourmet Cuisines">
+                    </div>
+                </div>
+                <div class="gallery-mosaic reveal">
+                    <div class="mosaic-item">
+                        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=600&auto=format&fit=crop" alt="Open Air Evening Lawn Lighting Trellis">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- GOOGLE REVIEWS AGGREGATION --- -->
+    <section id="reviews">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="tagline">Verified Social Proof</span>
+                <h2 class="section-title">The Benchmark of <span>Trust</span></h2>
+            </div>
+
+            <div class="reputation-banner reveal">
+                <div class="reputation-score">4.6</div>
+                <div>
+                    <div class="stars-group">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <div style="color: var(--text-muted); font-size: 0.95rem; margin-top: 5px;">3,382+ Verified Google Customer Ratings</div>
+                </div>
+            </div>
+
+            <div class="reviews-container-grid">
+                <div class="patron-card reveal">
+                    <p>"Breathtaking vintage storefront combined with absolute gourmet luxury. The Kadhai Paneer possesses deep authentic spice texture, and the outdoor lawns are pure bliss."</p>
+                    <div class="patron-name">
+                        <h5>Rohan Malhotra</h5>
+                        <span>Verified Local Guide</span>
+                    </div>
+                </div>
+                <div class="patron-card reveal">
+                    <p>"Exceptional design layouts for hosting family get-togethers. The choice across Pan-Asian and Continental items ensures total group satisfaction."</p>
+                    <div class="patron-name">
+                        <h5>Dr. Kriti Jaiswal</h5>
+                        <span>Premium Estate Regular</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- IMPACT CONVERSION CALL TO ACTION --- -->
+    <section class="conversion-cta">
+        <div class="container reveal">
+            <h2>Secure Your Heritage Fine Dining Experience</h2>
+            <p>Ensure your family or corporate reservation table is fully locked in ahead of schedule.</p>
+            <a href="tel:09415920147" class="btn btn-primary">Call Guest Desk: 094159 20147</a>
+        </div>
+    </section>
+
+    <!-- --- MAPS & DIRECTION PATHWAYS --- -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="tagline">Find The Estate</span>
+                <h2 class="section-title">Directions & <span>Hours</span></h2>
+            </div>
+            <div class="contact-layout-box">
+                <div class="contact-info-stack reveal">
+                    <div class="contact-node">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        <div>
+                            <h4>Estate Address</h4>
+                            <p>Varanasi Lucknow Road, Ganeshpur, Tarna, Varanasi, Uttar Pradesh 221003</p>
+                        </div>
+                    </div>
+                    <div class="contact-node">
+                        <i class="fa-solid fa-phone-volume"></i>
+                        <div>
+                            <h4>Helpline Phone Operations</h4>
+                            <p><a href="tel:09415920147">094159 20147</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-node">
+                        <i class="fa-solid fa-hourglass-start"></i>
+                        <div>
+                            <h4>Daily Service Timings</h4>
+                            <p>Open Daily: 11:00 AM – 10:45 PM</p>
+                            <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 5px;">Happy-Hour Food & All-You-Can-Eat Arrays Available</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-container reveal">
+                    <div class="map-frame-holder">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3604.288220807775!2d82.9515647!3d25.3616666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e217dce2d6f27%3A0xc6cf39a3f29a008a!2s360%20Degree%20Dining!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" 
+                                width="100%" height="100%" style="border:0; filter: invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- LUXURY BRAND FOOTER --- -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid-layout">
+                <div class="footer-brand">
+                    <a href="#hero" class="logo-box">360&deg; DINING<span>.</span></a>
+                    <p style="margin-top: 20px;">Setting unprecedented limits across the heritage dining sector through multi-cuisine precision and curated architecture layouts.</p>
+                    <div class="social-media-strip">
+                        <a href="https://instagram.com/360_dining" target="_blank" class="social-btn-node"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-btn-node"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links-group">
+                    <h4>The Brand Hub</h4>
+                    <ul>
+                        <li><a href="#legacy">Our Concept Philosophy</a></li>
+                        <li><a href="#features">Estate Amenities</a></li>
+                        <li><a href="#menu">Signature Global Menu</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-group">
+                    <h4>Reservations</h4>
+                    <ul>
+                        <li><a href="#contact">Find Map Route</a></li>
+                        <li><a href="https://www.zomato.com" target="_blank">Order on Zomato</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-copyright-bar">
+                <p>&copy; 2026 360 Degree Dining. All Rights Reserved.</p>
+                <p>Designed for Culinary Luxury</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- --- VANILLA INTERACTION ENGINE --- -->
+    <script>
+        // --- MOBILE NAV BAR OVERLAY TOGGLE ---
+        const triggerBtn = document.getElementById('menu-trigger-btn');
+        const drawerMenu = document.getElementById('drawer-menu');
+        const navigationLinks = document.querySelectorAll('.nav-link');
+
+        triggerBtn.addEventListener('click', () => {
+            drawerMenu.classList.toggle('active');
+            const icon = triggerBtn.querySelector('i');
+            icon.classList.toggle('fa-bars-staggered');
+            icon.classList.toggle('fa-xmark');
+        });
+
+        navigationLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                drawerMenu.classList.remove('active');
+                triggerBtn.querySelector('i').className = 'fa-solid fa-bars-staggered';
+            });
+        });
+
+        // --- STICKY TRANSPARENT NAVIGATION HEADER BEHAVIOR ---
+        const headerNode = document.getElementById('navigation-bar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                headerNode.classList.add('scrolled');
+            } else {
+                headerNode.classList.remove('scrolled');
+            }
+        });
+
+        // --- CORE MENU DATA ARCHITECTURE ---
+        const restaurantMenuData = {
+            indian: [
+                { name: "Kadhai Paneer Butter Masala", price: "₹340", desc: "Fresh artisanal cottage cheese chunks simmered within a rich velvety, buttery cashew paste gravy and freshly roasted house spices." },
+                { name: "Chilli Garlic Tandoori Naan", price: "₹90", desc: "Leavened traditional wheat flatbread layered intensely with minced aromatic garlic and green bird's-eye chillies, clay-baked." },
+                { name: "Dal Bukhari Heritage", price: "₹280", desc: "Black lentils slow-cooked overnight over live charcoal embers, deeply finished with farm-churned butter and raw organic cream." },
+                { name: "Murg Dum Biryani Awadh", price: "₹420", desc: "Aromatically layered long-grain basmati rice with tender spice-marinated chicken, sealed and slow dum-cooked." }
+            ],
+            global: [
+                { name: "Pan-Asian Chilli Garlic Noodles", price: "₹290", desc: "Wok-tossed fiery handmade noodles infused with high-heat charred garlic bulbs and garden fresh scallions." },
+                { name: "Fettuccine Alfredo Classico", price: "₹380", desc: "Imported flat ribbon pasta folded gently inside a reducing white sauce matrix of rich aged parmesan and wild field mushrooms." },
+                { name: "Mediterranean Hummus & Warm Pita", price: "₹260", desc: "Creamy stone-ground chickpea purée spiked with rich tahini oil and sumac dust, served with fire-baked pita." },
+                { name: "Artisanal Cake of the Day", price: "₹220", desc: "Decadent multi-layered premium dark chocolate sponge layered with rich dark cocoa ganache and glazed wild berries." }
+            ]
+        };
+
+        function toggleMenuCategory(selectedCategory) {
+            const containerNode = document.getElementById('menu-injected-container');
+            const tabButtons = document.querySelectorAll('.tab-trigger');
+            
+            // Sync active visual state on tab triggers
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+            
+            // Build and inject clean layout element rows safely
+            let matrixString = '';
+            restaurantMenuData[selectedCategory].forEach(item => {
+                matrixString += `
+                    <div class="food-item-card">
+                        <div class="food-header">
+                            <h4>${item.name}</h4>
+                            <span class="food-price">${item.price}</span>
+                        </div>
+                        <p>${item.desc}</p>
+                    </div>
+                `;
+            });
+            containerNode.innerHTML = matrixString;
+        }
+
+        // Initialize Core Structural State
+        window.addEventListener('DOMContentLoaded', () => {
+            toggleMenuCategory('indian');
+        });
+
+        // --- ELEMENT TRACKER VISIBILITY REVEALS ---
+        const elementsToReveal = document.querySelectorAll('.reveal');
+        
+        const computeScrollReveals = () => {
+            elementsToReveal.forEach(el => {
+                const innerViewportLimit = window.innerHeight;
+                const topMarginDistance = el.getBoundingClientRect().top;
+                const activatingOffset = 80;
+
+                if (topMarginDistance < innerViewportLimit - activatingOffset) {
+                    el.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', computeScrollReveals);
+        window.addEventListener('load', computeScrollReveals);
+
+        // --- SPY MECHANISM FOR NAV-LINKS STYLES ---
+        const layoutSections = document.querySelectorAll('section');
+        window.addEventListener('scroll', () => {
+            let trackedId = '';
+            layoutSections.forEach(s => {
+                const sTop = s.offsetTop;
+                if (window.pageYOffset >= (sTop - 250)) {
+                    trackedId = s.getAttribute('id');
+                }
+            });
+
+            navigationLinks.forEach(l => {
+                l.classList.remove('active');
+                if (l.getAttribute('href').includes(trackedId)) {
+                    l.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

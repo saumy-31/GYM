@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Fit GYM Kothrud | Premium Fitness & Transformation Destination Pune</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0A0A0C',
+                            surface: '#121216',
+                            accent: '#FF2A3B',
+                            muted: '#A0A0AA',
+                            gold: '#D4AF37'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        display: ['Syne', 'sans-serif']
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .glass-card {
+            background: rgba(18, 18, 22, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glass-nav {
+            background: rgba(10, 10, 12, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #FFFFFF 30%, #A0A0AA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .accent-gradient {
+            background: linear-gradient(135deg, #FF2A3B 0%, #B31220 100%);
+        }
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-white font-sans antialiased overflow-x-hidden">
+
+    <!-- STICKY NAVIGATION -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300 transition-all duration-300" id="main-nav">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 h-24 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 accent-gradient rounded-xl flex items-center justify-center font-display font-extrabold text-xl tracking-tighter skew-x-[-10deg] group-hover:scale-105 transition-transform">
+                    LA
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display font-bold text-xl tracking-tight leading-none">LA FIT <span class="text-brand-accent">GYM</span></span>
+                    <span class="text-[10px] tracking-[0.2em] text-brand-muted uppercase">Kothrud, Pune</span>
+                </div>
+            </a>
+            
+            <div class="hidden md:flex items-center gap-8 font-medium text-sm tracking-wide">
+                <a href="#about" class="hover:text-brand-accent transition-colors">ABOUT</a>
+                <a href="#services" class="hover:text-brand-accent transition-colors">PROGRAMS</a>
+                <a href="#why-choose-us" class="hover:text-brand-accent transition-colors">WHY US</a>
+                <a href="#gallery" class="hover:text-brand-accent transition-colors">GALLERY</a>
+                <a href="#testimonials" class="hover:text-brand-accent transition-colors">REVIEWS</a>
+                <a href="#contact" class="hover:text-brand-accent transition-colors">LOCATION</a>
+            </div>
+
+            <div class="hidden md:flex items-center gap-4">
+                <a href="tel:+918408804848" class="text-sm font-medium hover:text-brand-accent transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-phone text-brand-accent"></i> +91 840 880 4848
+                </a>
+                <a href="#contact" class="accent-gradient text-xs font-bold tracking-wider px-6 py-3.5 rounded-full hover:shadow-[0_0_30px_rgba(255,42,59,0.3)] transition-all duration-300 transform hover:-translate-y-0.5">
+                    JOIN THE FITHOLIC COMMUNITY
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-white focus:outline-none" id="menu-btn" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars-staggered text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Dropdown -->
+        <div class="hidden md:hidden bg-brand-surface border-b border-white/5 px-6 py-8 flex flex-col gap-6 font-medium tracking-wide absolute top-full left-0 right-0 shadow-2xl" id="mobile-menu">
+            <a href="#about" class="hover:text-brand-accent transition-colors text-lg py-1">ABOUT</a>
+            <a href="#services" class="hover:text-brand-accent transition-colors text-lg py-1">PROGRAMS</a>
+            <a href="#why-choose-us" class="hover:text-brand-accent transition-colors text-lg py-1">WHY US</a>
+            <a href="#gallery" class="hover:text-brand-accent transition-colors text-lg py-1">GALLERY</a>
+            <a href="#testimonials" class="hover:text-brand-accent transition-colors text-lg py-1">REVIEWS</a>
+            <a href="#contact" class="hover:text-brand-accent transition-colors text-lg py-1">LOCATION</a>
+            <hr class="border-white/10">
+            <div class="flex flex-col gap-4">
+                <a href="tel:+918408804848" class="text-base font-medium flex items-center gap-3">
+                    <i class="fa-solid fa-phone text-brand-accent"></i> +91 840 880 4848
+                </a>
+                <a href="#contact" class="accent-gradient text-center text-sm font-bold tracking-wider px-6 py-4 rounded-xl">
+                    JOIN THE FITHOLIC COMMUNITY
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO BANNER -->
+    <section class="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden">
+        <!-- Background Image with precise dark overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1920" class="w-full h-full object-cover opacity-35 scale-105" alt="Premium Gym Training Base">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/70 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-dark via-transparent to-brand-dark/50"></div>
+        </div>
+
+        <!-- Animated Ambient Lights -->
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 accent-gradient rounded-full blur-[150px] opacity-10 animate-pulse-slow"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600 rounded-full blur-[150px] opacity-5 animate-pulse-slow"></div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 w-full pt-12 pb-20 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7 flex flex-col justify-center text-center lg:text-left">
+                <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full self-center lg:self-start mb-6 backdrop-blur-md">
+                    <span class="w-2 h-2 rounded-full bg-brand-accent animate-ping"></span>
+                    <span class="text-xs font-semibold tracking-widest text-brand-muted uppercase">PUNE'S ULTIMATE DESTINATION FOR STRENGTH</span>
+                </div>
+                
+                <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-black tracking-tight uppercase leading-[0.9] mb-6">
+                    WE DON'T<br>
+                    <span class="text-gradient">JUST TRAIN.</span><br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-red-400">WE TRANSFORM.</span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-brand-muted max-w-xl mb-10 mx-auto lg:mx-0 font-light leading-relaxed">
+                    Welcome to <span class="text-white font-medium">La Fit Gym, Kothrud</span>—recognized as one of the best gyms in Pune. Experience state-of-the-art equipment, elite certified trainers, and an electric, motivating atmosphere.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                    <a href="#contact" class="w-full sm:w-auto text-center accent-gradient px-8 py-5 rounded-xl font-bold tracking-wider hover:shadow-[0_0_40px_rgba(255,42,59,0.4)] transition-all duration-300 transform hover:-translate-y-1">
+                        CLAIM MONSOON OFFER <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+                    </a>
+                    <a href="#gallery" class="w-full sm:w-auto text-center bg-white/5 border border-white/10 hover:bg-white/10 px-8 py-5 rounded-xl font-bold tracking-wider transition-all backdrop-blur-sm">
+                        EXPLORE THE GYM
+                    </a>
+                </div>
+
+                <!-- Trust Stats -->
+                <div class="grid grid-cols-3 gap-4 md:gap-8 border-t border-white/10 mt-16 pt-8 max-w-md mx-auto lg:mx-0">
+                    <div>
+                        <div class="font-display text-3xl md:text-4xl font-extrabold text-white">4.9<span class="text-brand-accent text-2xl"><i class="fa-solid fa-star text-sm ml-1 align-middle"></i></span></div>
+                        <div class="text-[11px] tracking-wider text-brand-muted uppercase mt-1">50+ Google Reviews</div>
+                    </div>
+                    <div>
+                        <div class="font-display text-3xl md:text-4xl font-extrabold text-white">Top</div>
+                        <div class="text-[11px] tracking-wider text-brand-muted uppercase mt-1">Notch Equipment</div>
+                    </div>
+                    <div>
+                        <div class="font-display text-3xl md:text-4xl font-extrabold text-white">100%</div>
+                        <div class="text-[11px] tracking-wider text-brand-muted uppercase mt-1">Transformation Rate</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Floating Hero Premium Widget -->
+            <div class="lg:col-span-5 hidden lg:block relative">
+                <div class="glass-card p-8 rounded-3xl relative overflow-hidden border border-white/10 shadow-2xl max-w-sm mx-auto skew-y-1 hover:skew-y-0 transition-all duration-500">
+                    <div class="absolute -top-10 -right-10 w-32 h-32 accent-gradient rounded-full blur-2xl opacity-20"></div>
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="bg-brand-accent/20 text-brand-accent text-[11px] font-bold tracking-widest px-3 py-1 rounded-md uppercase">LIMITED OFFER</span>
+                        <div class="text-right">
+                            <span class="text-xs text-brand-muted block">Status</span>
+                            <span class="text-xs font-bold text-green-400 flex items-center gap-1 justify-end"><span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span> OPEN NOW</span>
+                        </div>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-2">Monsoon Fitness Pack</h3>
+                    <p class="text-xs text-brand-muted mb-6">Get top-tier personal training slots and structural body assessment blueprints.</p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center gap-3 bg-white/5 p-3 rounded-xl border border-white/5">
+                            <i class="fa-solid fa-circle-check text-brand-accent"></i>
+                            <span class="text-xs font-medium">Access to all premium equipment</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-white/5 p-3 rounded-xl border border-white/5">
+                            <i class="fa-solid fa-circle-check text-brand-accent"></i>
+                            <span class="text-xs font-medium">Custom Workout Blueprint</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-white/5 p-3 rounded-xl border border-white/5">
+                            <i class="fa-solid fa-circle-check text-brand-accent"></i>
+                            <span class="text-xs font-medium">Certified Trainer Guidance</span>
+                        </div>
+                    </div>
+
+                    <a href="#contact" class="block w-full text-center bg-white text-brand-dark font-bold text-xs tracking-wider py-4 rounded-xl hover:bg-brand-accent hover:text-white transition-colors">
+                        INQUIRE VIA WHATSAPP
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-24 lg:py-32 relative bg-brand-surface">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+                <div class="lg:col-span-5 grid grid-cols-2 gap-4 relative">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-brand-accent/20 to-transparent blur-2xl -z-10"></div>
+                    <div class="space-y-4">
+                        <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=600" class="w-full h-64 object-cover rounded-2xl border border-white/10" alt="Gym training session">
+                        <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80&w=600" class="w-full h-44 object-cover rounded-2xl border border-white/10" alt="Male weightlifter">
+                    </div>
+                    <div class="space-y-4 pt-8">
+                        <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=600" class="w-full h-44 object-cover rounded-2xl border border-white/10" alt="Female runner">
+                        <div class="w-full h-64 glass-card rounded-2xl border border-brand-accent/30 flex flex-col justify-center items-center p-6 text-center">
+                            <span class="font-display text-4xl font-black text-brand-accent mb-1">4th</span>
+                            <span class="text-xs font-bold tracking-widest text-white uppercase">FLOOR LUXURY</span>
+                            <span class="text-[11px] text-brand-muted mt-2">Spacious Facility with Majestic City Views</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7">
+                    <span class="text-xs font-bold tracking-widest text-brand-accent uppercase block mb-3">WHO WE ARE</span>
+                    <h2 class="font-display text-4xl md:text-5xl font-black uppercase tracking-tight mb-6">
+                        WELCOME TO LA FIT GYM KOTHRUD – YOUR ULTIMATE FITNESS DESTINATION
+                    </h2>
+                    <p class="text-brand-muted text-base md:text-lg mb-6 leading-relaxed">
+                        Situated perfectly in the heart of Pune at Mayur Colony, Kothrud, La Fit Gym stands proudly as a premier haven for physical transformation, relentless strength building, and optimal health conditioning. 
+                    </p>
+                    <p class="text-brand-muted text-base md:text-lg mb-8 leading-relaxed">
+                        We blend a welcoming, community-focused philosophy with advanced fitness architecture. Our expansive, exceptionally well-ventilated 4th-floor environment provides a rich selection of state-of-the-art machines, free weights, and cross-functional sectors crafted precisely to elevate your performance thresholds.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-brand-accent shrink-0 border border-white/5">
+                                <i class="fa-solid fa-dumbbell text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm uppercase tracking-wider text-white mb-1">Top-Notch Equipment</h4>
+                                <p class="text-xs text-brand-muted">Flawlessly maintained ergonomic machines and high-tier free weights.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-brand-accent shrink-0 border border-white/5">
+                                <i class="fa-solid fa-id-card-clip text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm uppercase tracking-wider text-white mb-1">Expert Certified Trainers</h4>
+                                <p class="text-xs text-brand-muted">Elite, deeply passionate specialists completely dedicated to your milestone achievements.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES / PROGRAMS SECTION -->
+    <section id="services" class="py-24 lg:py-32 relative">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+                <div>
+                    <span class="text-xs font-bold tracking-widest text-brand-accent uppercase block mb-3">ELITE PROGRAMS</span>
+                    <h2 class="font-display text-4xl md:text-5xl font-black uppercase tracking-tight">DESIGNED FOR MAXIMUM IMPACT</h2>
+                </div>
+                <p class="text-brand-muted max-w-sm mt-4 md:mt-0 text-sm font-light">
+                    Whether you are an absolute beginner starting your journey or an advanced elite athlete tracking peak output, we have engineered dedicated pathways for you.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Program 1 -->
+                <div class="glass-card rounded-2xl overflow-hidden group hover:border-brand-accent/50 transition-all duration-300 flex flex-col h-full">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Strength & Conditioning">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-surface to-transparent"></div>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <h3 class="font-display text-xl font-bold uppercase tracking-wide mb-3 text-white">Strength & Conditioning</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed mb-6 flex-grow">
+                            Unlock true foundational strength using precise biomechanics, heavy multi-joint compound barbell lifting, and calculated progressive overload regimens.
+                        </p>
+                        <a href="#contact" class="text-xs font-bold tracking-widest text-brand-accent uppercase group-hover:text-white transition-colors flex items-center gap-2 mt-auto">
+                            EXPLORE PROGRAM <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Program 2 -->
+                <div class="glass-card rounded-2xl overflow-hidden group hover:border-brand-accent/50 transition-all duration-300 flex flex-col h-full">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Weight Transformation">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-surface to-transparent"></div>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <h3 class="font-display text-xl font-bold uppercase tracking-wide mb-3 text-white">Weight Transformation</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed mb-6 flex-grow">
+                            A fully comprehensive framework structuring customized functional cardio circuits, high-density interval training, and expert nutritional blueprints.
+                        </p>
+                        <a href="#contact" class="text-xs font-bold tracking-widest text-brand-accent uppercase group-hover:text-white transition-colors flex items-center gap-2 mt-auto">
+                            EXPLORE PROGRAM <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Program 3 -->
+                <div class="glass-card rounded-2xl overflow-hidden group hover:border-brand-accent/50 transition-all duration-300 flex flex-col h-full">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Personal Coaching">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-surface to-transparent"></div>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <h3 class="font-display text-xl font-bold uppercase tracking-wide mb-3 text-white">Elite 1-on-1 Coaching</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed mb-6 flex-grow">
+                            Accelerate your performance milestones with exclusive, tailored personal monitoring, regular body composition tracking, and posture correction.
+                        </p>
+                        <a href="#contact" class="text-xs font-bold tracking-widest text-brand-accent uppercase group-hover:text-white transition-colors flex items-center gap-2 mt-auto">
+                            EXPLORE PROGRAM <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US SECTION -->
+    <section id="why-choose-us" class="py-24 lg:py-32 bg-brand-surface relative overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-accent/5 rounded-full blur-[180px] -z-10"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <span class="text-xs font-bold tracking-widest text-brand-accent uppercase block mb-3">THE LA FIT ADVANTAGE</span>
+                <h2 class="font-display text-4xl md:text-5xl font-black uppercase tracking-tight mb-6">WHY PUNE'S FITNESS ENTHUSIASTS SWEAR BY LA FIT</h2>
+                <p class="text-brand-muted text-base md:text-lg font-light">
+                    We transcend the standard gym framework. We harbor an energetic community explicitly driven by progress, standard-setting execution, and total bodily evolution.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-brand-dark/50 border border-white/5 p-8 rounded-2xl hover:bg-brand-dark transition-colors duration-300">
+                    <div class="text-brand-accent text-3xl mb-6"><i class="fa-solid fa-clock"></i></div>
+                    <h3 class="font-bold text-sm uppercase tracking-wider mb-2">Flexible Hours</h3>
+                    <p class="text-xs text-brand-muted leading-relaxed">Open daily from 6:00 AM right through 11:00 PM to seamlessly blend with your professional lifestyle.</p>
+                </div>
+                
+                <div class="bg-brand-dark/50 border border-white/5 p-8 rounded-2xl hover:bg-brand-dark transition-colors duration-300">
+                    <div class="text-brand-accent text-3xl mb-6"><i class="fa-solid fa-street-view"></i></div>
+                    <h3 class="font-bold text-sm uppercase tracking-wider mb-2">Prime Location</h3>
+                    <p class="text-xs text-brand-muted leading-relaxed">Perfectly positioned at Nandan Pride, Kothrud, directly opposite Karve Putla next to the HP fuel pump.</p>
+                </div>
+
+                <div class="bg-brand-dark/50 border border-white/5 p-8 rounded-2xl hover:bg-brand-dark transition-colors duration-300">
+                    <div class="text-brand-accent text-3xl mb-6"><i class="fa-solid fa-users"></i></div>
+                    <h3 class="font-bold text-sm uppercase tracking-wider mb-2">The Fitholic Vibe</h3>
+                    <p class="text-xs text-brand-muted leading-relaxed">Surround yourself with a community that continually keeps your focus high and standard sharp.</p>
+                </div>
+
+                <div class="bg-brand-dark/50 border border-white/5 p-8 rounded-2xl hover:bg-brand-dark transition-colors duration-300">
+                    <div class="text-brand-accent text-3xl mb-6"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3 class="font-bold text-sm uppercase tracking-wider mb-2">Premium Maintenance</h3>
+                    <p class="text-xs text-brand-muted leading-relaxed">Strict parameters ensuring sanitization, fresh airflow loops, and impeccably calibrated machines.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PREMIUM INTERIOR GALLERY -->
+    <section id="gallery" class="py-24 lg:py-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 mb-12 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+            <div>
+                <span class="text-xs font-bold tracking-widest text-brand-accent uppercase block mb-3">INSIDE THE ZONE</span>
+                <h2 class="font-display text-4xl md:text-5xl font-black uppercase tracking-tight">EXPERIENCE THE FACILITY</h2>
+            </div>
+            <!-- Slider Controls -->
+            <div class="flex gap-3">
+                <button id="prev-btn" class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/5 active:scale-95 transition-all" aria-label="Previous Slide">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <button id="next-btn" class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/5 active:scale-95 transition-all" aria-label="Next Slide">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Horizontal Scrollable Gallery Container -->
+        <div id="gallery-track" class="flex gap-6 overflow-x-auto px-6 lg:px-[calc((100vw-1280px)/2)] no-scrollbar scroll-smooth snap-x snap-mandatory pb-6">
+            <div class="min-w-[300px] md:min-w-[450px] aspect-[4/3] rounded-2xl overflow-hidden snap-start relative group shrink-0 border border-white/10">
+                <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Premium Cardio Zone">
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-80"></div>
+                <span class="absolute bottom-6 left-6 font-display font-bold uppercase tracking-wider text-sm">Advanced Cardio Arena</span>
+            </div>
+            <div class="min-w-[300px] md:min-w-[450px] aspect-[4/3] rounded-2xl overflow-hidden snap-start relative group shrink-0 border border-white/10">
+                <img src="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Free Weights Area">
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-80"></div>
+                <span class="absolute bottom-6 left-6 font-display font-bold uppercase tracking-wider text-sm">Heavy Strength Zone</span>
+            </div>
+            <div class="min-w-[300px] md:min-w-[450px] aspect-[4/3] rounded-2xl overflow-hidden snap-start relative group shrink-0 border border-white/10">
+                <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Cross-functional sector">
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-80"></div>
+                <span class="absolute bottom-6 left-6 font-display font-bold uppercase tracking-wider text-sm">Functional Training Deck</span>
+            </div>
+            <div class="min-w-[300px] md:min-w-[450px] aspect-[4/3] rounded-2xl overflow-hidden snap-start relative group shrink-0 border border-white/10">
+                <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Custom wall art area">
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-80"></div>
+                <span class="absolute bottom-6 left-6 font-display font-bold uppercase tracking-wider text-sm">Motivating Ambience Walls</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section id="testimonials" class="py-24 lg:py-32 bg-brand-surface relative">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-bold tracking-widest text-brand-accent uppercase block mb-3">TESTIMONIALS</span>
+                <h2 class="font-display text-4xl md:text-5xl font-black uppercase tracking-tight mb-4">WHAT THE FITHOLIC COMMUNITY SAYS</h2>
+                <p class="text-xs font-semibold text-brand-gold uppercase tracking-widest"><i class="fa-solid fa-star"></i> 4.9 Rated Out of 50+ Google Reviews</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="glass-card p-8 rounded-2xl border border-white/5 flex flex-col justify-between">
+                    <div>
+                        <div class="flex gap-1 text-brand-gold text-xs mb-6">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-xs md:text-sm text-brand-muted leading-relaxed italic mb-6">
+                            "Gym goers say this gym offers a spacious facility with a variety of well-maintained equipment, including machines and free weights. The space on the 4th floor gives fantastic views while training."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 border-t border-white/5 pt-4">
+                        <div class="w-10 h-10 rounded-full bg-brand-accent/20 flex items-center justify-center font-bold text-brand-accent text-sm">S</div>
+                        <div>
+                            <h5 class="text-xs font-bold uppercase tracking-wide">Sarang A.</h5>
+                            <span class="text-[10px] text-brand-muted uppercase">Google Reviewer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-card p-8 rounded-2xl border border-white/5 flex flex-col justify-between">
+                    <div>
+                        <div class="flex gap-1 text-brand-gold text-xs mb-6">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-xs md:text-sm text-brand-muted leading-relaxed italic mb-6">
+                            "The community atmosphere here is unmatched. The trainers are incredibly encouraging and take the time to correct your posture during heavy compound lifts. Absolutely recommended!"
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 border-t border-white/5 pt-4">
+                        <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center font-bold text-blue-400 text-sm">P</div>
+                        <div>
+                            <h5 class="text-xs font-bold uppercase tracking-wide">Pranav M.</h5>
+                            <span class="text-[10px] text-brand-muted uppercase">Kothrud Resident</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card p-8 rounded-2xl border border-white/5 flex flex-col justify-between">
+                    <div>
+                        <div class="flex gap-1 text-brand-gold text-xs mb-6">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-xs md:text-sm text-brand-muted leading-relaxed italic mb-6">
+                            "Joined for their transformation pack and down 8kgs safely. The customized exercise matrix and strict tracking routines from trainers keep you extremely consistent."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 border-t border-white/5 pt-4">
+                        <div class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center font-bold text-green-400 text-sm">A</div>
+                        <div>
+                            <h5 class="text-xs font-bold uppercase tracking-wide">Anjali K.</h5>
+                            <span class="text-[10px] text-brand-muted uppercase">Fitness Enthusiast</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="py-24 lg:py-32 relative">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-xs font-bold tracking-widest text-brand-accent uppercase block mb-3">QUESTIONS</span>
+                <h2 class="font-display text-4xl font-black uppercase tracking-tight">FREQUENTLY ASKED QUESTIONS</h2>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ item 1 -->
+                <div class="glass-card rounded-xl border border-white/5 overflow-hidden transition-colors">
+                    <button class="w-full text-left px-6 py-5 flex justify-between items-center font-bold text-sm tracking-wide uppercase hover:text-brand-accent focus:outline-none faq-toggle">
+                        <span>What are the operation timings of La Fit Gym Kothrud?</span>
+                        <i class="fa-solid fa-plus transition-transform duration-300"></i>
+                    </button>
+                    <div class="max-h-0 overflow-hidden transition-all duration-300 bg-white/[0.02]">
+                        <p class="p-6 text-xs text-brand-muted leading-relaxed">
+                            We operate seamlessly from Monday to Sunday, opening early at 6:00 AM and closing late at 11:00 PM to help match your demanding modern scheduling constraints perfectly.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ item 2 -->
+                <div class="glass-card rounded-xl border border-white/5 overflow-hidden transition-colors">
+                    <button class="w-full text-left px-6 py-5 flex justify-between items-center font-bold text-sm tracking-wide uppercase hover:text-brand-accent focus:outline-none faq-toggle">
+                        <span>Where exactly is the gym located?</span>
+                        <i class="fa-solid fa-plus transition-transform duration-300"></i>
+                    </button>
+                    <div class="max-h-0 overflow-hidden transition-all duration-300 bg-white/[0.02]">
+                        <p class="p-6 text-xs text-brand-muted leading-relaxed">
+                            We are located on the 4th Floor, Nandan Pride, Karve Road, directly opposite the Karve Putla, and right next to the HP Petrol Pump in Mayur Colony, Kothrud, Pune, Maharashtra 411038.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ item 3 -->
+                <div class="glass-card rounded-xl border border-white/5 overflow-hidden transition-colors">
+                    <button class="w-full text-left px-6 py-5 flex justify-between items-center font-bold text-sm tracking-wide uppercase hover:text-brand-accent focus:outline-none faq-toggle">
+                        <span>Do you offer personal training and customized diet plans?</span>
+                        <i class="fa-solid fa-plus transition-transform duration-300"></i>
+                    </button>
+                    <div class="max-h-0 overflow-hidden transition-all duration-300 bg-white/[0.02]">
+                        <p class="p-6 text-xs text-brand-muted leading-relaxed">
+                            Yes! We offer dedicated Elite 1-on-1 Personal Training packages. Our certified coaches design completely customized workout matrices paired with macro-calculated nutrition frameworks specifically calibrated to ensure safe and sustainable body transformations.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT, CALL-TO-ACTION & MAP SECTION -->
+    <section id="contact" class="py-24 lg:py-32 bg-brand-surface relative border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+            
+            <!-- Contact Form/CTA info -->
+            <div class="lg:col-span-5 flex flex-col justify-between">
+                <div>
+                    <span class="text-xs font-bold tracking-widest text-brand-accent uppercase block mb-3">START TODAY</span>
+                    <h2 class="font-display text-4xl md:text-5xl font-black uppercase tracking-tight mb-6">CLAIM YOUR TRIAL MEMBERSHIP PASS</h2>
+                    <p class="text-brand-muted text-xs md:text-sm leading-relaxed mb-8">
+                        Stop delaying your health potential. Give us a message or call right now to lock in exclusive seasonal packages, structured body scans, and access slots.
+                    </p>
+
+                    <div class="space-y-4 text-xs md:text-sm">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-brand-dark flex items-center justify-center text-brand-accent border border-white/5"><i class="fa-solid fa-location-dot"></i></div>
+                            <span class="text-brand-muted">4th Floor, Nandan Pride, Opposite Karve Putla, Next to HP Petrol Pump, Mayur Colony, Kothrud, Pune - 411038</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-brand-dark flex items-center justify-center text-brand-accent border border-white/5"><i class="fa-solid fa-phone"></i></div>
+                            <a href="tel:+918408804848" class="hover:text-brand-accent transition-colors">+91 840 880 4848</a>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-brand-dark flex items-center justify-center text-brand-accent border border-white/5"><i class="fa-solid fa-envelope"></i></div>
+                            <span class="text-brand-muted">contact@lafitgymkothrud.com</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12 pt-6 border-t border-white/5">
+                    <h4 class="font-display font-bold uppercase tracking-wider text-xs mb-4">Connect Instantly on Socials</h4>
+                    <div class="flex gap-3">
+                        <a href="https://www.instagram.com/lafit_kothrud/" target="_blank" rel="noopener" class="w-12 h-12 rounded-xl bg-brand-dark border border-white/10 flex items-center justify-center text-xl text-brand-muted hover:text-white hover:border-brand-accent transition-all" aria-label="Instagram Profile">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/918408804848" target="_blank" rel="noopener" class="w-12 h-12 rounded-xl bg-brand-dark border border-white/10 flex items-center justify-center text-xl text-brand-muted hover:text-green-400 hover:border-green-400 transition-all" aria-label="WhatsApp Chat">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Conversion Lead Card / Embedded Map -->
+            <div class="lg:col-span-7 flex flex-col gap-6">
+                <div class="glass-card p-8 rounded-2xl border border-white/10 shadow-xl">
+                    <h3 class="font-display text-xl font-bold uppercase tracking-wide mb-6">Drop a Booking Request</h3>
+                    <form id="lead-form" class="space-y-4" onsubmit="event.preventDefault(); alert('Thank you! Our fitness consultant will reach out via call/WhatsApp within 2 hours.');">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <input type="text" placeholder="YOUR FULL NAME" required class="w-full bg-brand-dark border border-white/10 rounded-xl px-4 py-3.5 text-xs text-white focus:outline-none focus:border-brand-accent transition-colors">
+                            <input type="tel" placeholder="MOBILE NUMBER" required class="w-full bg-brand-dark border border-white/10 rounded-xl px-4 py-3.5 text-xs text-white focus:outline-none focus:border-brand-accent transition-colors">
+                        </div>
+                        <select class="w-full bg-brand-dark border border-white/10 rounded-xl px-4 py-3.5 text-xs text-brand-muted focus:outline-none focus:border-brand-accent transition-colors">
+                            <option value="">SELECT FITNESS GOAL</option>
+                            <option value="weight-loss">Weight Loss Transformation</option>
+                            <option value="muscle-gain">Strength & Muscle Mass</option>
+                            <option value="personal-training">Elite Personal Coaching</option>
+                        </select>
+                        <button type="submit" class="w-full accent-gradient font-bold text-xs tracking-widest py-4 rounded-xl hover:shadow-[0_0_30px_rgba(255,42,59,0.3)] transition-all">
+                            SECURE PREMIUM APPOINTMENT PASS
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Google Maps Placeholder/Iframe Container -->
+                <div class="w-full h-64 rounded-2xl overflow-hidden border border-white/10 relative">
+                    <!-- Standard high-end placeholder layout representing real location map -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.5413063595565!2d73.8117769!3d18.5044738!2m3!1f0!2f0!3f0!3m2!1i1020!2i768!4f13.1!3m3!1m2!1s0x3bc2bfb65e2be13f%3A0x6d8ef9c727a20286!2sLa%20Fit%20GYM%20Kothrud!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" 
+                        class="w-full h-full border-0 grayscale invert opacity-80 contrast-125" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODERN PREMIUM FOOTER -->
+    <footer class="bg-brand-dark border-t border-white/5 py-12">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 accent-gradient rounded-lg flex items-center justify-center font-display font-extrabold text-sm skew-x-[-10deg]">
+                    LA
+                </div>
+                <span class="text-xs font-bold text-white tracking-widest uppercase">LA FIT GYM KOTHRUD © 2026</span>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-6 text-[11px] text-brand-muted tracking-wider uppercase font-medium">
+                <a href="#about" class="hover:text-white transition-colors">About</a>
+                <a href="#services" class="hover:text-white transition-colors">Programs</a>
+                <a href="#why-choose-us" class="hover:text-white transition-colors">Why Us</a>
+                <a href="#gallery" class="hover:text-white transition-colors">Gallery</a>
+                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+            </div>
+
+            <p class="text-[10px] text-brand-muted/60 text-center md:text-right">
+                Designed with precision. Engineered for elite performance.
+            </p>
+        </div>
+    </footer>
+
+    <!-- JS FOR INTERACTIVITY -->
+    <script>
+        // Sticky Navigation effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('main-nav');
+            if (window.scrollY > 50) {
+                nav.classList.remove('h-24');
+                nav.classList.add('h-20', 'bg-brand-dark/95', 'shadow-2xl');
+            } else {
+                nav.classList.remove('h-20', 'bg-brand-dark/95', 'shadow-2xl');
+                nav.classList.add('h-24');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
+        // FAQ Accordion Interactivity
+        document.querySelectorAll('.faq-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                // Toggle active state
+                if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                    content.style.maxHeight = '0px';
+                    icon.classList.replace('fa-minus', 'fa-plus');
+                    button.classList.remove('text-brand-accent');
+                } else {
+                    // Close others
+                    document.querySelectorAll('.faq-toggle').forEach(otherBtn => {
+                        otherBtn.nextElementSibling.style.maxHeight = '0px';
+                        const otherIcon = otherBtn.querySelector('i');
+                        if (otherIcon) otherIcon.classList.replace('fa-minus', 'fa-plus');
+                        otherBtn.classList.remove('text-brand-accent');
+                    });
+                    
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    icon.classList.replace('fa-plus', 'fa-minus');
+                    button.classList.add('text-brand-accent');
+                }
+            });
+        });
+
+        // Gallery Slider Scroll Action
+        const track = document.getElementById('gallery-track');
+        document.getElementById('next-btn').addEventListener('click', () => {
+            track.scrollBy({ left: 350, behavior: 'smooth' });
+        });
+        document.getElementById('prev-btn').addEventListener('click', () => {
+            track.scrollBy({ left: -350, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

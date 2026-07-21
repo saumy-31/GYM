@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelpDesk Coach | Customer Service Training for Tech Support</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            navy: '#0B192C',
+                            blue: '#1E3E62',
+                            orange: '#E69500',
+                            gold: '#D68A00',
+                            lightBg: '#F8FAFC'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at 90% 10%, rgba(230, 149, 0, 0.1) 0%, transparent 40%), 
+                        linear-gradient(135deg, #0B192C 0%, #1E3E62 100%);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-brand-navy font-sans antialiased overflow-x-hidden">
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300 glassmorphism border-b border-slate-200/60 shadow-sm" id="main-nav">
+        <!-- Top Contact Strip -->
+        <div class="bg-brand-navy text-white text-xs py-2 px-4 hidden sm:block">
+            <div class="max-w-7xl mx-auto flex justify-between items-center opacity-90">
+                <div class="flex items-center space-x-6">
+                    <span><i class="fa-solid fa-phone text-brand-orange mr-2"></i>US: +1 (415) 929 8110</span>
+                    <span><i class="fa-solid fa-phone text-brand-orange mr-2"></i>UK: +44 (0)7783 352 886</span>
+                </div>
+                <a href="mailto:coach@helpdeskcoach.com" class="hover:text-brand-orange transition-colors">
+                    <i class="fa-solid fa-envelope text-brand-orange mr-2"></i>coach@helpdeskcoach.com
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Navigation Bar -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Branding / Identity Logo -->
+                <a href="#" class="flex flex-col">
+                    <span class="text-2xl font-extrabold tracking-tight text-brand-navy">
+                        HelpDesk<span class="text-brand-orange">Coach</span>
+                    </span>
+                    <span class="text-[10px] uppercase tracking-widest font-semibold text-slate-500 -mt-1">
+                        Customer Service Training
+                    </span>
+                </a>
+
+                <!-- Navigation Links Grid -->
+                <div class="hidden lg:flex items-center space-x-8 font-semibold text-sm">
+                    <a href="#" class="text-brand-navy hover:text-brand-orange transition-colors">Home</a>
+                    <a href="#training" class="text-brand-navy hover:text-brand-orange transition-colors">Training Workshops</a>
+                    <a href="#coaching" class="text-brand-navy hover:text-brand-orange transition-colors">Management Coaching</a>
+                    <a href="#why-choose-us" class="text-brand-navy hover:text-brand-orange transition-colors">Why Coach</a>
+                    <a href="#articles" class="text-brand-navy hover:text-brand-orange transition-colors">Articles & Quizzes</a>
+                    <a href="#about" class="text-brand-navy hover:text-brand-orange transition-colors">About</a>
+                </div>
+
+                <!-- Main Conversion Call-To-Action Button -->
+                <div class="hidden lg:flex items-center">
+                    <a href="#assessment" class="bg-brand-orange hover:bg-brand-gold text-white font-bold text-sm px-6 py-3 rounded-xl transition-all shadow-md shadow-brand-orange/20 hover:-translate-y-0.5">
+                        Free Assessment
+                    </a>
+                </div>
+
+                <!-- Mobile Navigation Toggle Menu Button -->
+                <div class="lg:hidden">
+                    <button type="button" id="mobile-menu-btn" class="text-brand-navy hover:text-brand-orange focus:outline-none" aria-label="Toggle Menu">
+                        <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Full Overlay Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 bg-white w-full absolute top-20 left-0 shadow-xl">
+            <div class="px-4 pt-4 pb-6 space-y-3 font-semibold text-base">
+                <a href="#" class="block px-3 py-2 rounded-xl text-brand-navy hover:bg-slate-50 hover:text-brand-orange transition-all">Home</a>
+                <a href="#training" class="block px-3 py-2 rounded-xl text-brand-navy hover:bg-slate-50 hover:text-brand-orange transition-all">Training Workshops</a>
+                <a href="#coaching" class="block px-3 py-2 rounded-xl text-brand-navy hover:bg-slate-50 hover:text-brand-orange transition-all">Management Coaching</a>
+                <a href="#why-choose-us" class="block px-3 py-2 rounded-xl text-brand-navy hover:bg-slate-50 hover:text-brand-orange transition-all">Why Coach</a>
+                <a href="#articles" class="block px-3 py-2 rounded-xl text-brand-navy hover:bg-slate-50 hover:text-brand-orange transition-all">Articles & Quizzes</a>
+                <a href="#about" class="block px-3 py-2 rounded-xl text-brand-navy hover:bg-slate-50 hover:text-brand-orange transition-all">About Us</a>
+                <div class="pt-4 border-t border-slate-100 flex flex-col gap-3">
+                    <a href="#assessment" class="text-center py-3 font-bold text-white bg-brand-orange rounded-xl hover:bg-brand-gold transition-colors shadow-md">Take Free Assessment</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-36 hero-gradient text-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <!-- Left Narrative Area -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider text-brand-orange uppercase border border-white/10">
+                        <span class="flex h-2 w-2 relative">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-orange opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-orange"></span>
+                        </span>
+                        Elite Customer Service Training for Tech Support
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                        You Understand Technology. <span class="text-brand-orange block mt-1">We Understand Customer Satisfaction.</span>
+                    </h1>
+                    <p class="text-lg text-slate-200 max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+                        Whether your service desk delivers internal IT support or your field service engineers support external enterprise clients, equip your technical team with best-in-class skills to drive retention, consistency, and metrics.
+                    </p>
+                    
+                    <!-- Bullet Feature Checklist items -->
+                    <div class="pt-2 space-y-3 max-w-lg mx-auto lg:mx-0 text-left">
+                        <div class="flex items-center gap-3 text-sm font-medium text-slate-200">
+                            <i class="fa-solid fa-circle-check text-brand-orange text-lg"></i>
+                            <span>Earn an undisputed market reputation for great tech service</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm font-medium text-slate-200">
+                            <i class="fa-solid fa-circle-check text-brand-orange text-lg"></i>
+                            <span>Inject reliable best-in-class customer service workflows</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm font-medium text-slate-200">
+                            <i class="fa-solid fa-circle-check text-brand-orange text-lg"></i>
+                            <span>Achieve total team performance consistency across all tiers</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-6">
+                        <a href="#assessment" class="px-8 py-4 bg-brand-orange hover:bg-brand-gold text-white font-bold rounded-xl transition-all transform hover:-translate-y-0.5 shadow-xl shadow-brand-orange/20 text-center">
+                            Take Free Assessment <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </a>
+                        <a href="#contact" class="px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/20 transition-all backdrop-blur-sm text-center">
+                            Find Out How We Can Help
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Graphic Stack column -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <div class="absolute -inset-4 bg-brand-orange rounded-3xl opacity-20 blur-xl"></div>
+                        <div class="relative bg-brand-blue/60 p-4 rounded-3xl border border-white/10 shadow-2xl overflow-hidden group">
+                            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=800&q=80" alt="Tech Support Professional providing excellent customer service" class="rounded-2xl w-full h-[380px] object-cover object-center group-hover:scale-102 transition-transform duration-500">
+                            <!-- Overlay Floating Metric Badge -->
+                            <div class="absolute top-8 right-8 bg-brand-navy/90 border border-white/10 p-4 rounded-xl shadow-lg">
+                                <p class="text-xs uppercase font-bold tracking-wider text-brand-orange">Help Desk Core Objective</p>
+                                <p class="text-lg font-bold text-white mt-1">100% User Satisfaction</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Free Assessment Highlight Bar Section -->
+    <section id="assessment" class="bg-gradient-to-r from-brand-orange to-brand-gold text-white py-12 shadow-inner">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-6 text-center lg:text-left">
+            <div class="space-y-1">
+                <h3 class="text-2xl font-extrabold tracking-tight">Evaluate Your IT Help Desk Team's Readiness</h3>
+                <p class="text-white/90 text-sm font-light">Uncover operational gaps, communication bottlenecks, and skill enhancement opportunities within 5 minutes.</p>
+            </div>
+            <a href="#contact" class="bg-brand-navy hover:bg-brand-navy/95 text-white font-bold text-sm px-8 py-4 rounded-xl shadow-lg transition-transform transform hover:scale-105 whitespace-nowrap">
+                Start Free Assessment Form →
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section / Intro Business Core Ecosystem -->
+    <section id="about" class="py-20 lg:py-28 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                
+                <div class="relative order-2 lg:order-1">
+                    <div class="absolute -inset-2 bg-slate-100 rounded-3xl transform -rotate-2"></div>
+                    <div class="relative bg-slate-50 p-6 rounded-3xl border border-slate-200 grid grid-cols-2 gap-4">
+                        <div class="space-y-4">
+                            <div class="p-5 bg-white rounded-2xl border border-slate-100 shadow-sm text-center">
+                                <i class="fa-solid fa-laptop-code text-brand-orange text-3xl mb-2"></i>
+                                <h4 class="font-bold text-sm">MSP Optimization</h4>
+                                <p class="text-xs text-slate-500 mt-1">Drive maximum market competitive advantage.</p>
+                            </div>
+                            <div class="p-5 bg-white rounded-2xl border border-slate-100 shadow-sm text-center">
+                                <i class="fa-solid fa-bolt text-brand-orange text-3xl mb-2"></i>
+                                <h4 class="font-bold text-sm">Efficient Desk</h4>
+                                <p class="text-xs text-slate-500 mt-1">Eliminate call repeat metrics easily.</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4 pt-6">
+                            <div class="p-5 bg-white rounded-2xl border border-slate-100 shadow-sm text-center">
+                                <i class="fa-solid fa-truck-ramp-box text-brand-orange text-3xl mb-2"></i>
+                                <h4 class="font-bold text-sm">Field Support</h4>
+                                <p class="text-xs text-slate-500 mt-1">Deliver immense frontline user satisfaction.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-6 order-1 lg:order-2">
+                    <div class="flex items-center gap-2 text-brand-orange font-bold text-xs uppercase tracking-widest">
+                        <span class="w-8 h-[2px] bg-brand-orange"></span> Bring Out The Absolute Best In Your Teams
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-brand-navy">
+                        Bridging The Gap Between Technological Logic & Human Satisfaction
+                    </h2>
+                    <p class="text-slate-600 font-light leading-relaxed">
+                        Technical managers, engineers, and support experts possess unmatched technological processing capabilities. However, translating complex logic into user-friendly, empathetic help desk workflows requires structured training. 
+                    </p>
+                    <p class="text-slate-600 font-light leading-relaxed">
+                        HelpDesk Coach designs tailor-made curricula crafted explicitly for support architectures to systematically eliminate client attrition, improve response ratings, and align cross-tier operational consistencies.
+                    </p>
+                    <div class="pt-2">
+                        <a href="#training" class="inline-flex items-center gap-2 text-brand-orange font-bold hover:text-brand-gold group transition-colors">
+                            Explore Our Specific Workshops <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="training" class="py-20 lg:py-28 bg-slate-50 border-y border-slate-200/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="text-xs uppercase tracking-widest text-brand-orange font-bold px-3 py-1 bg-amber-100 text-brand-gold rounded-full">Customized Programs</span>
+                <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-brand-navy">Core Methodologies & Training Formats</h2>
+                <p class="text-slate-600 font-light">Explore premium engagement frameworks built cleanly around customized interactive architectures.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Card 1: Remote Management Skills -->
+                <div id="coaching" class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-xl transition-all group hover:-translate-y-1 flex flex-col justify-between">
+                    <div class="space-y-6">
+                        <div class="w-14 h-14 bg-amber-50 rounded-2xl flex items-center justify-center text-brand-orange group-hover:bg-brand-orange group-hover:text-white transition-all shadow-sm">
+                            <i class="fa-solid fa-users-gear text-2xl"></i>
+                        </div>
+                        <div class="space-y-2">
+                            <h3 class="text-xl font-bold text-brand-navy group-hover:text-brand-orange transition-colors">Remote Management Skills</h3>
+                            <span class="inline-block text-[11px] font-bold text-slate-400 uppercase tracking-wider">Management Coaching</span>
+                        </div>
+                        <p class="text-sm text-slate-600 font-light leading-relaxed">
+                            Elite management coaching specifically engineered for remote technical managers. Providing analytical individuals with concrete tools to navigate hybrid workflow dependencies, track key diagnostic output metrics, and master remote help desk performance.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-slate-100">
+                        <a href="#contact" class="text-sm font-bold text-brand-orange flex items-center gap-1 group-hover:gap-2 transition-all">Request Syllabus <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 2: Online Training Workshops -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-xl transition-all group hover:-translate-y-1 flex flex-col justify-between">
+                    <div class="space-y-6">
+                        <div class="w-14 h-14 bg-amber-50 rounded-2xl flex items-center justify-center text-brand-orange group-hover:bg-brand-orange group-hover:text-white transition-all shadow-sm">
+                            <i class="fa-solid fa-display text-2xl"></i>
+                        </div>
+                        <div class="space-y-2">
+                            <h3 class="text-xl font-bold text-brand-navy group-hover:text-brand-orange transition-colors">Customized Online Workshops</h3>
+                            <span class="inline-block text-[11px] font-bold text-slate-400 uppercase tracking-wider">Digital Instruction</span>
+                        </div>
+                        <p class="text-sm text-slate-600 font-light leading-relaxed">
+                            Comprehensive, completely customized live digital workshops engineered explicitly for distributed tech support environments. Packed with immediately applicable dialogue techniques your service desk or engineers need to master remote user interactions.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-slate-100">
+                        <a href="#contact" class="text-sm font-bold text-brand-orange flex items-center gap-1 group-hover:gap-2 transition-all">Request Syllabus <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 3: On-Site Masterclasses -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-xl transition-all group hover:-translate-y-1 flex flex-col justify-between">
+                    <div class="space-y-6">
+                        <div class="w-14 h-14 bg-amber-50 rounded-2xl flex items-center justify-center text-brand-orange group-hover:bg-brand-orange group-hover:text-white transition-all shadow-sm">
+                            <i class="fa-solid fa-chalkboard-user text-2xl"></i>
+                        </div>
+                        <div class="space-y-2">
+                            <h3 class="text-xl font-bold text-brand-navy group-hover:text-brand-orange transition-colors">Customized On-Site Workshops</h3>
+                            <span class="inline-block text-[11px] font-bold text-slate-400 uppercase tracking-wider">Immersive Training</span>
+                        </div>
+                        <p class="text-sm text-slate-600 font-light leading-relaxed">
+                            Immersive face-to-face workshops tailored to your unique internal IT operational culture. Equips agents and field technicians with the practical best-practice capabilities needed to systematically execute user-friendly customer support.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-slate-100">
+                        <a href="#contact" class="text-sm font-bold text-brand-orange flex items-center gap-1 group-hover:gap-2 transition-all">Request Syllabus <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us & Statistics Combined Paradigm -->
+    <section id="why-choose-us" class="py-20 lg:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs font-bold tracking-widest text-brand-orange uppercase px-3 py-1 bg-amber-50 rounded-md">The HelpDesk Coach Advantage</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-brand-navy">Why Elite Technical Frameworks Win</h2>
+                    <p class="text-slate-600 font-light leading-relaxed">
+                        We don't provide generic customer service advice. Our modules are curated completely around the realistic, daily pressure scenarios technical support experts face from frustrated, non-technical users.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center text-brand-navy shrink-0 font-bold"><i class="fa-solid fa-shield-halved"></i></div>
+                            <div>
+                                <h4 class="font-bold text-brand-navy text-base">MSP Competitive Dominance</h4>
+                                <p class="text-xs text-slate-500 mt-0.5">Stand out distinctively in high-volume request bidding processes by verifying elite satisfaction metrics.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center text-brand-navy shrink-0 font-bold"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                            <div>
+                                <h4 class="font-bold text-brand-navy text-base">Accelerated Call Resolutions</h4>
+                                <p class="text-xs text-slate-500 mt-0.5">Provide frontline support agents with precise conversational scripts to resolve issues on the initial touchpoint.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 bg-brand-navy text-white rounded-[2rem] p-8 sm:p-12 relative overflow-hidden shadow-xl">
+                    <div class="absolute -right-16 -bottom-16 w-64 h-64 bg-brand-blue rounded-full opacity-30 blur-2xl"></div>
+                    
+                    <h3 class="text-xl font-bold text-brand-orange mb-6">Proven Industry Testimonial Metrics</h3>
+                    <div class="space-y-6 relative z-10">
+                        <p class="text-base sm:text-lg text-slate-200 italic font-light leading-relaxed">
+                            "HelpDesk Coach perfectly understood the specialized language barriers existing between our technical engineering staff and standard operational users. The customized workshops dramatically regularized team-wide communication strategies almost overnight."
+                        </p>
+                        <div class="flex items-center gap-4 pt-6 border-t border-white/10">
+                            <div class="w-12 h-12 bg-brand-orange rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md">
+                                IT
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-sm">Director of Global Enterprise IT Support</h5>
+                                <p class="text-xs text-brand-orange font-medium mt-0.5">Fortune 500 Infrastructure Client</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles & Interactive Quizzes Section -->
+    <section id="articles" class="py-20 bg-slate-50 border-t border-slate-200/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto space-y-3 mb-16">
+                <h2 class="text-3xl font-bold text-brand-navy tracking-tight">Help Desk Resource Hub</h2>
+                <p class="text-slate-500 text-sm font-light">Explore educational insights, expert diagnostic quizzes, and industry-standard training tools.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Resource 1 -->
+                <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <span class="text-[10px] uppercase font-bold text-brand-orange bg-amber-50 px-2.5 py-1 rounded-md">Diagnostic Tool</span>
+                        <h4 class="text-base font-bold text-brand-navy">The Help Desk Assessment Quiz</h4>
+                        <p class="text-xs text-slate-500 font-light leading-relaxed">Test your desk professionals against standardized cross-examination situational queries.</p>
+                    </div>
+                    <a href="#contact" class="text-xs font-bold text-brand-blue mt-4 flex items-center gap-1 hover:text-brand-orange transition-colors">Launch Free Quiz <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
+                </div>
+                <!-- Resource 2 -->
+                <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <span class="text-[10px] uppercase font-bold text-brand-orange bg-amber-50 px-2.5 py-1 rounded-md">Expert Insights</span>
+                        <h4 class="text-base font-bold text-brand-navy">Ask The HelpDesk Coach Column</h4>
+                        <p class="text-xs text-slate-500 font-light leading-relaxed">Direct answers dealing with complex user profiles, pushback management, and tracking parameters.</p>
+                    </div>
+                    <a href="#contact" class="text-xs font-bold text-brand-blue mt-4 flex items-center gap-1 hover:text-brand-orange transition-colors">Read Columns <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
+                </div>
+                <!-- Resource 3 -->
+                <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <span class="text-[10px] uppercase font-bold text-brand-orange bg-amber-50 px-2.5 py-1 rounded-md">Whitepapers</span>
+                        <h4 class="text-base font-bold text-brand-navy">Best-In-Class Support Practices</h4>
+                        <p class="text-xs text-slate-500 font-light leading-relaxed">Structural deep dives detailing modern customer satisfaction architectures for field engineers.</p>
+                    </div>
+                    <a href="#contact" class="text-xs font-bold text-brand-blue mt-4 flex items-center gap-1 hover:text-brand-orange transition-colors">Download PDF <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6">
+            <div class="text-center space-y-3 mb-12">
+                <h2 class="text-3xl font-bold tracking-tight text-brand-navy">Frequently Answered Queries</h2>
+                <p class="text-slate-500 text-sm font-light">Understand deployment options, customization formats, and programmatic alignment metrics.</p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="bg-slate-50 rounded-xl border border-slate-200 overflow-hidden transition-all duration-200">
+                    <button class="w-full text-left px-6 py-4.5 font-bold text-brand-navy flex justify-between items-center focus:outline-none gap-4 py-4" onclick="toggleFaq(this)">
+                        <span class="text-sm sm:text-base">Are workshops tailored to our specific technical platform?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-200 text-xs"></i>
+                    </button>
+                    <div class="hidden px-6 pb-5 text-xs sm:text-sm text-slate-600 font-light leading-relaxed border-t border-slate-200/60 pt-3">
+                        Yes. Whether your technical agents manage complex cloud integration requests, external field hardware diagnostics, or basic internal help desk tickets, all operational scenarios inside the workshops are customized explicitly around your tech landscape.
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 rounded-xl border border-slate-200 overflow-hidden transition-all duration-200">
+                    <button class="w-full text-left px-6 py-4.5 font-bold text-brand-navy flex justify-between items-center focus:outline-none gap-4 py-4" onclick="toggleFaq(this)">
+                        <span class="text-sm sm:text-base">What is the baseline duration for online training workshops?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-200 text-xs"></i>
+                    </button>
+                    <div class="hidden px-6 pb-5 text-xs sm:text-sm text-slate-600 font-light leading-relaxed border-t border-slate-200/60 pt-3">
+                        Durations are highly responsive to team structures. Standard online frameworks generally scale across interactive half-day structural modules to avoid disrupting operational desk queue management.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & High Converting Consultation Form Section -->
+    <section id="contact" class="py-20 lg:py-28 bg-slate-50 border-t border-slate-200/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-brand-navy rounded-[2.5rem] shadow-2xl overflow-hidden relative">
+                <div class="absolute inset-0 opacity-10">
+                    <div class="absolute bottom-0 right-0 w-96 h-96 bg-brand-blue rounded-full blur-3xl"></div>
+                </div>
+
+                <div class="grid lg:grid-cols-12 relative z-10">
+                    <!-- Contact Column Info Info -->
+                    <div class="lg:col-span-5 p-8 sm:p-12 lg:p-16 text-white flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-white/10">
+                        <div class="space-y-4">
+                            <h3 class="text-3xl font-bold tracking-tight">Optimize Your Support Desk Performance Today</h3>
+                            <p class="text-slate-300 font-light text-sm leading-relaxed">
+                                Get in touch directly to explore customized corporate options, establish deployment dates, or register for immediate programmatic evaluation loops.
+                            </p>
+                        </div>
+                        
+                        <div class="space-y-4 pt-8">
+                            <div class="flex items-center gap-3 text-xs sm:text-sm text-slate-200">
+                                <i class="fa-solid fa-phone text-brand-orange w-5 text-base"></i>
+                                <span>US: +1 (415) 929 8110</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-xs sm:text-sm text-slate-200">
+                                <i class="fa-solid fa-phone text-brand-orange w-5 text-base"></i>
+                                <span>UK: +44 (0)7783 352 886</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-xs sm:text-sm text-slate-200">
+                                <i class="fa-solid fa-envelope text-brand-orange w-5 text-base"></i>
+                                <span>coach@helpdeskcoach.com</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Form Column -->
+                    <div class="lg:col-span-7 p-8 sm:p-12 lg:p-16 bg-white/5 backdrop-blur-md">
+                        <form class="space-y-4" onsubmit="event.preventDefault(); alert('Thank you! Your inquiry details have been successfully received. HelpDesk Coach will reach out shortly.');">
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="space-y-1">
+                                    <label class="text-[11px] font-bold uppercase tracking-wider text-slate-300">Your Full Name</label>
+                                    <input type="text" required class="w-full bg-white/10 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-brand-orange transition-all" placeholder="John Doe">
+                                </div>
+                                <div class="space-y-1">
+                                    <label class="text-[11px] font-bold uppercase tracking-wider text-slate-300">Company Email Address</label>
+                                    <input type="email" required class="w-full bg-white/10 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-brand-orange transition-all" placeholder="johndoe@company.com">
+                                </div>
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-[11px] font-bold uppercase tracking-wider text-slate-300">Primary Core Operational Need</label>
+                                <select class="w-full bg-brand-navy border border-white/10 rounded-xl px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-brand-orange transition-all">
+                                    <option class="bg-brand-navy text-white">Customized Online Workshops for Tech Support Agents</option>
+                                    <option class="bg-brand-navy text-white">Remote Technical Management Coaching</option>
+                                    <option class="bg-brand-navy text-white">Customized On-Site Interactive Masterclasses</option>
+                                    <option class="bg-brand-navy text-white">General Inquiry / Strategic Consultation</option>
+                                </select>
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-[11px] font-bold uppercase tracking-wider text-slate-300">Brief Desk Profile Context</label>
+                                <textarea rows="3" class="w-full bg-white/10 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-brand-orange transition-all" placeholder="Tell us briefly about your team size or specific customer satisfaction metric challenges..."></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-4 bg-brand-orange hover:bg-brand-gold text-white font-bold uppercase text-xs tracking-widest rounded-xl transition-all shadow-lg shadow-brand-orange/20">
+                                Send Consultation Inquiry
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Modern Footer Section -->
+    <footer class="bg-brand-navy text-white pt-16 pb-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-8 pb-12 border-b border-white/5">
+            
+            <div class="col-span-2 md:col-span-1 space-y-4">
+                <span class="text-xl font-extrabold text-white">HelpDesk<span class="text-brand-orange">Coach</span></span>
+                <p class="text-xs text-slate-400 font-light leading-relaxed">Providing high-performance customer service training frameworks exclusively calibrated for technical support ecosystems, internal IT help desks, and field service structures globally since inception.</p>
+            </div>
+
+            <div class="space-y-3">
+                <h4 class="text-xs uppercase font-bold tracking-widest text-brand-orange">Training Formats</h4>
+                <ul class="space-y-2 text-xs font-light text-slate-300">
+                    <li><a href="#training" class="hover:text-brand-orange transition-colors">Online Workshops</a></li>
+                    <li><a href="#training" class="hover:text-brand-orange transition-colors">On-Site Masterclasses</a></li>
+                    <li><a href="#coaching" class="hover:text-brand-orange transition-colors">Management Coaching</a></li>
+                    <li><a href="#assessment" class="hover:text-brand-orange transition-colors">Diagnostic Assessments</a></li>
+                </ul>
+            </div>
+
+            <div class="space-y-3">
+                <h4 class="text-xs uppercase font-bold tracking-widest text-brand-orange">Resources Vault</h4>
+                <ul class="space-y-2 text-xs font-light text-slate-300">
+                    <li><a href="#articles" class="hover:text-brand-orange transition-colors">Knowledge Base Articles</a></li>
+                    <li><a href="#articles" class="hover:text-brand-orange transition-colors">Diagnostic Quizzes</a></li>
+                    <li><a href="#articles" class="hover:text-brand-orange transition-colors">Ask The Coach Columns</a></li>
+                    <li><a href="#" class="hover:text-brand-orange transition-colors">External Resource Links</a></li>
+                </ul>
+            </div>
+
+            <div class="space-y-3">
+                <h4 class="text-xs uppercase font-bold tracking-widest text-brand-orange">Corporate Identity</h4>
+                <ul class="space-y-2 text-xs font-light text-slate-300">
+                    <li><a href="#about" class="hover:text-brand-orange transition-colors">About Our Methods</a></li>
+                    <li><a href="#why-choose-us" class="hover:text-brand-orange transition-colors">Testimonials Profile</a></li>
+                    <li><a href="#" class="hover:text-brand-orange transition-colors">Privacy Policy Architecture</a></li>
+                    <li><a href="#contact" class="hover:text-brand-orange transition-colors">Contact Support Gates</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 flex flex-col sm:flex-row justify-between items-center text-[11px] text-slate-500 font-light gap-4">
+            <p>&copy; 2026 HelpDesk Coach. All corporate rights reserved globally.</p>
+            <p>Designed for Ultimate Help Desk User Satisfaction.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Interactivity Layer -->
+    <script>
+        // Mobile Responsive Toggle Control Block
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.className = "fa-solid fa-bars text-2xl";
+            } else {
+                menuIcon.className = "fa-solid fa-xmark text-2xl";
+            }
+        });
+
+        // Sticky Navbar Depth Transition Effects
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('main-nav');
+            if (window.scrollY > 40) {
+                nav.classList.add('shadow-md', 'py-1');
+            } else {
+                nav.classList.remove('shadow-md', 'py-1');
+            }
+        });
+
+        // Interactive Accordion Engine for FAQs
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('i');
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+    </script>
+</body>
+</html>

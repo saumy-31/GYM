@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arabella Store | Boutique Apparel, Jewelry & Lifestyle</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        arabella: {
+                            rose: '#E8C5C8',
+                            blush: '#F9F0F1',
+                            plum: '#4A2E35',
+                            gold: '#D4AF37',
+                            softDark: '#2C2224',
+                            sand: '#F5F0EB'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #4A2E35 0%, #8C525F 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-arabella-sand/30 text-arabella-softDark font-sans antialiased overflow-x-hidden">
+
+    <div class="bg-arabella-plum text-white text-xs py-2.5 px-4 text-center tracking-wider uppercase font-medium">
+        <span class="inline-block mr-2"><i class="fa-solid fa-gift text-arabella-rose"></i></span>
+        Free USA Shipping On Orders Over $100 &bull; Explore Our Made In The USA Collection
+    </div>
+
+    <nav class="fixed top-[34px] left-0 w-full z-50 transition-all duration-300 glass-nav border-b border-arabella-rose/30 shadow-sm" id="main-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <a href="#" class="flex flex-col group">
+                    <span class="text-2xl sm:text-3xl font-serif font-bold tracking-widest text-arabella-plum leading-none">
+                        ARABELLA
+                    </span>
+                    <span class="text-[9px] uppercase tracking-[0.25em] font-semibold text-arabella-plum/70 mt-1">
+                        Boutique & Collection
+                    </span>
+                </a>
+
+                <div class="hidden lg:flex items-center space-x-8 font-medium text-xs uppercase tracking-widest text-arabella-softDark">
+                    <a href="#" class="hover:text-arabella-plum transition-colors">Home</a>
+                    <a href="#featured" class="hover:text-arabella-plum transition-colors">Featured</a>
+                    <a href="#new-arrivals" class="hover:text-arabella-plum transition-colors">New Arrivals</a>
+                    <a href="#brands" class="hover:text-arabella-plum transition-colors">Shop By Brand</a>
+                    <a href="#about" class="hover:text-arabella-plum transition-colors">About Us</a>
+                    <a href="#faqs" class="hover:text-arabella-plum transition-colors">FAQ & Shipping</a>
+                </div>
+
+                <div class="hidden sm:flex items-center space-x-6 text-arabella-plum">
+                    <a href="#" class="hover:text-arabella-rose transition-colors" title="Search"><i class="fa-solid fa-magnifying-glass text-lg"></i></a>
+                    <a href="#" class="hover:text-arabella-rose transition-colors" title="My Account / Sign In"><i class="fa-regular fa-user text-lg"></i></a>
+                    <a href="#" class="hover:text-arabella-rose transition-colors" title="Wish List"><i class="fa-regular fa-heart text-lg"></i></a>
+                    <a href="#" class="relative hover:text-arabella-rose transition-colors" title="Cart">
+                        <i class="fa-solid fa-bag-shopping text-lg"></i>
+                        <span class="absolute -top-2 -right-2 bg-arabella-plum text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+                    </a>
+                </div>
+
+                <div class="lg:hidden">
+                    <button type="button" id="mobile-menu-btn" class="text-arabella-plum focus:outline-none p-2" aria-label="Toggle Menu">
+                        <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden lg:hidden bg-white/95 border-t border-arabella-rose/30 w-full absolute top-[80px] left-0 shadow-2xl">
+            <div class="px-6 pt-4 pb-6 space-y-3 font-medium text-xs uppercase tracking-widest">
+                <a href="#" class="block py-2 text-arabella-plum border-b border-gray-100">Home</a>
+                <a href="#featured" class="block py-2 text-arabella-softDark hover:text-arabella-plum border-b border-gray-100">Featured Products</a>
+                <a href="#new-arrivals" class="block py-2 text-arabella-softDark hover:text-arabella-plum border-b border-gray-100">New Arrivals</a>
+                <a href="#brands" class="block py-2 text-arabella-softDark hover:text-arabella-plum border-b border-gray-100">Shop By Brand</a>
+                <a href="#about" class="block py-2 text-arabella-softDark hover:text-arabella-plum border-b border-gray-100">About Us</a>
+                <a href="#faqs" class="block py-2 text-arabella-softDark hover:text-arabella-plum border-b border-gray-100">FAQ & Policies</a>
+                <div class="pt-4 flex justify-around text-arabella-plum text-lg">
+                    <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    <a href="#"><i class="fa-regular fa-user"></i> Sign In</a>
+                    <a href="#"><i class="fa-regular fa-heart"></i> Wishlist</a>
+                    <a href="#"><i class="fa-solid fa-bag-shopping"></i> Cart</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative min-h-screen pt-40 pb-20 flex items-center bg-arabella-blush/60 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-1.5 rounded-full border border-arabella-rose/40 text-xs font-semibold tracking-widest text-arabella-plum uppercase mx-auto lg:mx-0">
+                        <i class="fa-solid fa-sparkles text-arabella-gold"></i> Premium American & Artisanal Fashion
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-arabella-plum leading-tight">
+                        Elegance Redefined with <span class="text-gradient block mt-1">Timeless Comfort</span>
+                    </h1>
+                    <p class="text-base sm:text-lg text-arabella-softDark/80 max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+                        Discover curated artisanal styles, USA-made apparel, soft floral prints, and luxury loungewear crafted for lasting grace.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#featured" class="px-8 py-4 bg-arabella-plum hover:bg-arabella-plum/90 text-white font-semibold text-xs uppercase tracking-widest rounded-full shadow-lg shadow-arabella-plum/20 text-center transition-all hover:-translate-y-0.5">
+                            Shop Featured Collection
+                        </a>
+                        <a href="#brands" class="px-8 py-4 bg-white hover:bg-arabella-blush text-arabella-plum font-semibold text-xs uppercase tracking-widest rounded-full border border-arabella-rose transition-all text-center">
+                            Explore Brands
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <div class="absolute -inset-4 bg-arabella-rose/30 rounded-3xl blur-2xl transform rotate-3"></div>
+                        <div class="relative bg-white p-3 rounded-2xl shadow-xl border border-arabella-rose/30">
+                            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80" alt="Arabella Fashion Collection Showcase" class="rounded-xl w-full h-[460px] object-cover object-center">
+                            <div class="absolute bottom-6 left-6 right-6 p-4 bg-white/90 backdrop-blur-md rounded-xl border border-arabella-rose/30 text-center shadow-lg">
+                                <p class="text-xs uppercase tracking-widest text-arabella-plum font-bold">Featured Arrival</p>
+                                <p class="text-sm font-serif font-semibold text-arabella-softDark mt-0.5">Johnny Was 3J Workshop Floral Shirt</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-white border-y border-arabella-rose/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 text-center">
+                <a href="#brands" class="p-4 rounded-xl bg-arabella-blush/50 hover:bg-arabella-rose/20 transition-all border border-arabella-rose/20 group">
+                    <i class="fa-solid fa-shirt text-2xl text-arabella-plum mb-2 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-arabella-plum">Clothing</h3>
+                </a>
+                <a href="#brands" class="p-4 rounded-xl bg-arabella-blush/50 hover:bg-arabella-rose/20 transition-all border border-arabella-rose/20 group">
+                    <i class="fa-solid fa-flag-usa text-2xl text-arabella-plum mb-2 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-arabella-plum">Made In USA</h3>
+                </a>
+                <a href="#brands" class="p-4 rounded-xl bg-arabella-blush/50 hover:bg-arabella-rose/20 transition-all border border-arabella-rose/20 group">
+                    <i class="fa-solid fa-gem text-2xl text-arabella-plum mb-2 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-arabella-plum">Jewelry</h3>
+                </a>
+                <a href="#brands" class="p-4 rounded-xl bg-arabella-blush/50 hover:bg-arabella-rose/20 transition-all border border-arabella-rose/20 group">
+                    <i class="fa-solid fa-baby text-2xl text-arabella-plum mb-2 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-arabella-plum">Baby & Child</h3>
+                </a>
+                <a href="#brands" class="p-4 rounded-xl bg-arabella-blush/50 hover:bg-arabella-rose/20 transition-all border border-arabella-rose/20 group">
+                    <i class="fa-solid fa-cloud text-2xl text-arabella-plum mb-2 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-arabella-plum">Color Me Cotton</h3>
+                </a>
+                <a href="#brands" class="p-4 rounded-xl bg-arabella-blush/50 hover:bg-arabella-rose/20 transition-all border border-arabella-rose/20 group">
+                    <i class="fa-solid fa-ellipsis text-2xl text-arabella-plum mb-2 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-arabella-plum">MISC Shop</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="featured" class="py-20 bg-arabella-sand/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto space-y-3 mb-16">
+                <span class="text-xs uppercase tracking-widest text-arabella-plum font-bold px-3 py-1 bg-arabella-rose/30 rounded-full">Curated Selection</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold tracking-tight text-arabella-plum">Featured Products</h2>
+                <p class="text-arabella-softDark/70 text-sm font-light">Explore our handpicked timeless apparel and luxury pajamas crafted with organic textures.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white rounded-2xl overflow-hidden border border-arabella-rose/30 shadow-sm hover:shadow-xl transition-all group flex flex-col justify-between">
+                    <div class="relative overflow-hidden aspect-[4/5]">
+                        <img src="https://images.unsplash.com/photo-1584273143981-41c073dfe8f8?auto=format&fit=crop&w=600&q=80" alt="Pine Cone Hill Pajamas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 left-3 bg-arabella-plum text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">Featured</span>
+                    </div>
+                    <div class="p-5 space-y-3 flex-grow flex flex-col justify-between">
+                        <div>
+                            <p class="text-[10px] uppercase font-bold text-arabella-gold tracking-widest">Pine Cone Hill</p>
+                            <h3 class="font-serif font-semibold text-arabella-plum text-sm line-clamp-2 mt-1">Luxury Pine Cone Hill Red & White Bold Print Cotton Percale Pajamas</h3>
+                        </div>
+                        <div class="pt-2 flex justify-between items-center border-t border-arabella-blush">
+                            <span class="text-base font-bold text-arabella-plum">$88.00</span>
+                            <button onclick="alert('Options window opened for Pine Cone Hill Pajamas!')" class="px-4 py-2 bg-arabella-blush hover:bg-arabella-plum hover:text-white text-arabella-plum text-xs font-bold uppercase tracking-wider rounded-lg transition-colors">Choose Options</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl overflow-hidden border border-arabella-rose/30 shadow-sm hover:shadow-xl transition-all group flex flex-col justify-between">
+                    <div class="relative overflow-hidden aspect-[4/5]">
+                        <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=600&q=80" alt="Johnny Was Shirt" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 space-y-3 flex-grow flex flex-col justify-between">
+                        <div>
+                            <p class="text-[10px] uppercase font-bold text-arabella-gold tracking-widest">Johnny Was 3J Workshop</p>
+                            <h3 class="font-serif font-semibold text-arabella-plum text-sm line-clamp-2 mt-1">Fine Cotton Floral Print Shirt - Large</h3>
+                        </div>
+                        <div class="pt-2 flex justify-between items-center border-t border-arabella-blush">
+                            <span class="text-base font-bold text-arabella-plum">$189.00</span>
+                            <button onclick="alert('Options window opened for Johnny Was Shirt!')" class="px-4 py-2 bg-arabella-blush hover:bg-arabella-plum hover:text-white text-arabella-plum text-xs font-bold uppercase tracking-wider rounded-lg transition-colors">Choose Options</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl overflow-hidden border border-arabella-rose/30 shadow-sm hover:shadow-xl transition-all group flex flex-col justify-between">
+                    <div class="relative overflow-hidden aspect-[4/5]">
+                        <img src="https://images.unsplash.com/photo-1564257631407-4deb1f99d992?auto=format&fit=crop&w=600&q=80" alt="Dressori Silk Top" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 left-3 bg-rose-600 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">Sale</span>
+                    </div>
+                    <div class="p-5 space-y-3 flex-grow flex flex-col justify-between">
+                        <div>
+                            <p class="text-[10px] uppercase font-bold text-arabella-gold tracking-widest">Dressori Silk</p>
+                            <h3 class="font-serif font-semibold text-arabella-plum text-sm line-clamp-2 mt-1">Dressori Silk Top in Peony Garden Print</h3>
+                        </div>
+                        <div class="pt-2 flex justify-between items-center border-t border-arabella-blush">
+                            <div>
+                                <span class="text-xs line-through text-gray-400 font-light mr-1">$172.00</span>
+                                <span class="text-base font-bold text-rose-700">$140.00</span>
+                            </div>
+                            <button onclick="alert('Options window opened for Dressori Silk Top!')" class="px-4 py-2 bg-arabella-blush hover:bg-arabella-plum hover:text-white text-arabella-plum text-xs font-bold uppercase tracking-wider rounded-lg transition-colors">Choose Options</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl overflow-hidden border border-arabella-rose/30 shadow-sm hover:shadow-xl transition-all group flex flex-col justify-between">
+                    <div class="relative overflow-hidden aspect-[4/5]">
+                        <img src="https://images.unsplash.com/photo-1534126511673-b6899657816a?auto=format&fit=crop&w=600&q=80" alt="Citron Silk Top" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 space-y-3 flex-grow flex flex-col justify-between">
+                        <div>
+                            <p class="text-[10px] uppercase font-bold text-arabella-gold tracking-widest">Citron of Santa Monica</p>
+                            <h3 class="font-serif font-semibold text-arabella-plum text-sm line-clamp-2 mt-1">Camilla Sleeveless Silk Top with Asian Garden Print</h3>
+                        </div>
+                        <div class="pt-2 flex justify-between items-center border-t border-arabella-blush">
+                            <span class="text-base font-bold text-arabella-plum">$88.00</span>
+                            <button onclick="alert('Options window opened for Citron Silk Top!')" class="px-4 py-2 bg-arabella-blush hover:bg-arabella-plum hover:text-white text-arabella-plum text-xs font-bold uppercase tracking-wider rounded-lg transition-colors">Choose Options</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="new-arrivals" class="py-20 bg-white border-t border-arabella-rose/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto space-y-3 mb-16">
+                <span class="text-xs uppercase tracking-widest text-arabella-plum font-bold px-3 py-1 bg-arabella-rose/30 rounded-full">Just In</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold tracking-tight text-arabella-plum">New Arrivals</h2>
+                <p class="text-arabella-softDark/70 text-sm font-light">Fresh seasonal tunics, delicate lace tops, and waffle classic jackets.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-arabella-blush/30 rounded-2xl overflow-hidden border border-arabella-rose/30 shadow-sm hover:shadow-xl transition-all group flex flex-col justify-between">
+                    <div class="relative overflow-hidden aspect-[4/5]">
+                        <img src="https://images.unsplash.com/photo-1576995853123-5a10305d93c0?auto=format&fit=crop&w=600&q=80" alt="Focus Fashions Waffle Jacket" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 left-3 bg-rose-600 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">Sale</span>
+                    </div>
+                    <div class="p-5 space-y-3 flex-grow flex flex-col justify-between">
+                        <div>
+                            <p class="text-[10px] uppercase font-bold text-arabella-gold tracking-widest">Focus Fashions</p>
+                            <h3 class="font-serif font-semibold text-arabella-plum text-sm line-clamp-2 mt-1">Classic Waffle Jacket in Black</h3>
+                        </div>
+                        <div class="pt-2 flex justify-between items-center border-t border-arabella-rose/20">
+                            <div>
+                                <span class="text-xs line-through text-gray-400 font-light mr-1">$78.00</span>
+                                <span class="text-base font-bold text-rose-700">$48.00</span>
+                            </div>
+                            <button onclick="alert('Added Focus Fashions Jacket to Cart!')" class="px-4 py-2 bg-arabella-plum text-white hover:bg-arabella-plum/90 text-xs font-bold uppercase tracking-wider rounded-lg transition-colors">Add To Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-arabella-blush/30 rounded-2xl overflow-hidden border border-arabella-rose/30 shadow-sm hover:shadow-xl transition-all group flex flex-col justify-between">
+                    <div class="relative overflow-hidden aspect-[4/5]">
+                        <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=600&q=80" alt="Tencel Tessa Top" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 space-y-3 flex-grow flex flex-col justify-between">
+                        <div>
+                            <p class="text-[10px] uppercase font-bold text-arabella-gold tracking-widest">Tessa Collection</p>
+                            <h3 class="font-serif font-semibold text-arabella-plum text-sm line-clamp-2 mt-1">Tencel Sleeveless Tessa Top in Tribal Blue Print</h3>
+                        </div>
+                        <div class="pt-2 flex justify-between items-center border-t border-arabella-rose/20">
+                            <div>
+                                <span class="text-xs line-through text-gray-400 font-light mr-1">$70.00</span>
+                                <span class="text-base font-bold text-arabella-plum">$68.00</span>
+                            </div>
+                            <button onclick="alert('Options window opened for Tessa Top!')" class="px-4 py-2 bg-arabella-blush hover:bg-arabella-plum hover:text-white text-arabella-plum text-xs font-bold uppercase tracking-wider rounded-lg transition-colors">Choose Options</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-arabella-blush/30 rounded-2xl overflow-hidden border border-arabella-rose/30 shadow-sm hover:shadow-xl transition-all group flex flex-col justify-between">
+                    <div class="relative overflow-hidden aspect-[4/5]">
+                        <img src="https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?auto=format&fit=crop&w=600&q=80" alt="Katina Angels Top" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 left-3 bg-amber-600 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">Last One - L</span>
+                    </div>
+                    <div class="p-5 space-y-3 flex-grow flex flex-col justify-between">
+                        <div>
+                            <p class="text-[10px] uppercase font-bold text-arabella-gold tracking-widest">Katina</p>
+                            <h3 class="font-serif font-semibold text-arabella-plum text-sm line-clamp-2 mt-1">Light Chalky Blue Fleur Des Lis "Angels" Top</h3>
+                        </div>
+                        <div class="pt-2 flex justify-between items-center border-t border-arabella-rose/20">
+                            <span class="text-base font-bold text-arabella-plum">$52.00</span>
+                            <button onclick="alert('Options window opened for Katina Top!')" class="px-4 py-2 bg-arabella-blush hover:bg-arabella-plum hover:text-white text-arabella-plum text-xs font-bold uppercase tracking-wider rounded-lg transition-colors">Choose Options</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-arabella-blush/30 rounded-2xl overflow-hidden border border-arabella-rose/30 shadow-sm hover:shadow-xl transition-all group flex flex-col justify-between">
+                    <div class="relative overflow-hidden aspect-[4/5]">
+                        <img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=600&q=80" alt="Dreamy Desert Sunset Top" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 space-y-3 flex-grow flex flex-col justify-between">
+                        <div>
+                            <p class="text-[10px] uppercase font-bold text-arabella-gold tracking-widest">Tucson Dreams</p>
+                            <h3 class="font-serif font-semibold text-arabella-plum text-sm line-clamp-2 mt-1">Dreamy Desert Sunset Lightweight Knit Tunic Top</h3>
+                        </div>
+                        <div class="pt-2 flex justify-between items-center border-t border-arabella-rose/20">
+                            <span class="text-base font-bold text-arabella-plum">$62.00</span>
+                            <button onclick="alert('Options window opened for Desert Top!')" class="px-4 py-2 bg-arabella-blush hover:bg-arabella-plum hover:text-white text-arabella-plum text-xs font-bold uppercase tracking-wider rounded-lg transition-colors">Choose Options</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="brands" class="py-16 bg-arabella-plum text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-xl mx-auto space-y-2 mb-10">
+                <span class="text-xs uppercase tracking-widest font-bold text-arabella-rose">Handpicked Designers</span>
+                <h2 class="text-2xl sm:text-3xl font-serif font-bold tracking-tight">Our Premium Brands</h2>
+            </div>
+
+            <div class="flex flex-wrap justify-center items-center gap-6 text-center font-serif text-sm">
+                <span class="px-4 py-2 rounded-full border border-arabella-rose/30 bg-white/5 hover:bg-white/10 transition-colors">Color Me Cotton</span>
+                <span class="px-4 py-2 rounded-full border border-arabella-rose/30 bg-white/5 hover:bg-white/10 transition-colors">Tianello</span>
+                <span class="px-4 py-2 rounded-full border border-arabella-rose/30 bg-white/5 hover:bg-white/10 transition-colors">Neon Buddha</span>
+                <span class="px-4 py-2 rounded-full border border-arabella-rose/30 bg-white/5 hover:bg-white/10 transition-colors">La Vie Parisienne</span>
+                <span class="px-4 py-2 rounded-full border border-arabella-rose/30 bg-white/5 hover:bg-white/10 transition-colors">Pine Cone Hill</span>
+                <span class="px-4 py-2 rounded-full border border-arabella-rose/30 bg-white/5 hover:bg-white/10 transition-colors">Barefoot Dreams</span>
+                <span class="px-4 py-2 rounded-full border border-arabella-rose/30 bg-white/5 hover:bg-white/10 transition-colors">Johnny Was</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-xs font-bold tracking-widest text-arabella-plum uppercase px-3 py-1 bg-arabella-blush rounded-full border border-arabella-rose/30">Behind Arabella</span>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-arabella-plum">Welcome to Arabella</h2>
+                    <p class="text-arabella-softDark/80 font-light leading-relaxed text-sm sm:text-base">
+                        At Arabella Store, we carefully select every single piece of apparel, jewelry, and lifestyle design with an eye for exceptional quality, tactile comfort, and American craftsmanship.
+                    </p>
+                    <p class="text-arabella-softDark/80 font-light leading-relaxed text-sm sm:text-base">
+                        From natural cotton textures by <strong>Color Me Cotton</strong> to artisan jewelry from <strong>La Vie Parisienne</strong>, our boutique offers timeless elegance for women who appreciate distinct, graceful style.
+                    </p>
+                    <div class="pt-2">
+                        <a href="#faqs" class="inline-flex items-center gap-2 text-xs font-bold text-arabella-plum uppercase tracking-widest hover:text-arabella-rose transition-colors">
+                            Read Our Shipping & Return Policies <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 relative">
+                    <div class="bg-arabella-blush p-8 rounded-3xl border border-arabella-rose/30 space-y-6">
+                        <blockquote class="font-serif italic text-arabella-plum text-lg leading-relaxed">
+                            "We hope you'll enjoy looking around our online boutique. Please take a few minutes to read our sizing guides, FAQ's, and return policies to ensure the perfect fit."
+                        </blockquote>
+                        <div class="border-t border-arabella-rose/40 pt-4 flex items-center gap-4">
+                            <div class="w-12 h-12 bg-arabella-plum text-white font-serif font-bold text-lg rounded-full flex items-center justify-center">L</div>
+                            <div>
+                                <h4 class="font-bold text-sm text-arabella-plum">Lis</h4>
+                                <p class="text-xs text-arabella-softDark/70 font-light">Founder, Arabella Store</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faqs" class="py-20 bg-arabella-sand/30 border-y border-arabella-rose/20">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6">
+            <div class="text-center space-y-3 mb-12">
+                <h2 class="text-3xl font-serif font-bold tracking-tight text-arabella-plum">Frequently Asked Questions</h2>
+                <p class="text-arabella-softDark/70 text-sm font-light">Everything you need to know about sizing, shipping, and boutique policies.</p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="bg-white rounded-xl border border-arabella-rose/30 overflow-hidden shadow-sm">
+                    <button class="w-full text-left px-6 py-4 font-serif font-bold text-arabella-plum flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="text-sm sm:text-base">How do I find my correct size?</span>
+                        <i class="fa-solid fa-chevron-down text-arabella-plum text-xs transition-transform duration-200"></i>
+                    </button>
+                    <div class="hidden px-6 pb-5 text-xs sm:text-sm text-arabella-softDark/80 font-light leading-relaxed border-t border-arabella-blush pt-3">
+                        We provide a detailed Size Guide accessible on each product page and in our footer. Since many of our artisan brands like Color Me Cotton fit comfortably relaxed, we recommend reviewing specific garment dimensions listed in descriptions.
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl border border-arabella-rose/30 overflow-hidden shadow-sm">
+                    <button class="w-full text-left px-6 py-4 font-serif font-bold text-arabella-plum flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="text-sm sm:text-base">What are your return and shipping policies?</span>
+                        <i class="fa-solid fa-chevron-down text-arabella-plum text-xs transition-transform duration-200"></i>
+                    </button>
+                    <div class="hidden px-6 pb-5 text-xs sm:text-sm text-arabella-softDark/80 font-light leading-relaxed border-t border-arabella-blush pt-3">
+                        We process domestic orders within 1-2 business days. Returns are accepted within 14 days of delivery for unworn items in original condition. Please review our full Shipping & Returns page prior to purchase.
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl border border-arabella-rose/30 overflow-hidden shadow-sm">
+                    <button class="w-full text-left px-6 py-4 font-serif font-bold text-arabella-plum flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="text-sm sm:text-base">Are your Made In USA items authentic?</span>
+                        <i class="fa-solid fa-chevron-down text-arabella-plum text-xs transition-transform duration-200"></i>
+                    </button>
+                    <div class="hidden px-6 pb-5 text-xs sm:text-sm text-arabella-softDark/80 font-light leading-relaxed border-t border-arabella-blush pt-3">
+                        Yes! We take immense pride in supporting American design studios. All Made In The USA tagged items are sourced directly from domestic workshops.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-arabella-blush">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-6">
+            <span class="text-xs uppercase tracking-widest text-arabella-plum font-bold">Stay Connected</span>
+            <h2 class="text-3xl sm:text-4xl font-serif font-bold text-arabella-plum">Sign Up For Our Newsletter</h2>
+            <p class="text-arabella-softDark/70 text-sm font-light max-w-lg mx-auto">
+                Be the first to know about new artisan arrivals, private sales, and seasonal collection releases.
+            </p>
+            <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto pt-2" onsubmit="event.preventDefault(); alert('Thank you for subscribing to Arabella Store!');">
+                <input type="text" placeholder="Your Name" required class="px-4 py-3 rounded-full text-xs border border-arabella-rose/50 focus:outline-none focus:border-arabella-plum w-full">
+                <input type="email" placeholder="Your Email Address" required class="px-4 py-3 rounded-full text-xs border border-arabella-rose/50 focus:outline-none focus:border-arabella-plum w-full">
+                <button type="submit" class="px-8 py-3 bg-arabella-plum text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-arabella-plum/90 transition-colors whitespace-nowrap">
+                    Submit
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-arabella-plum text-white pt-16 pb-8 border-t border-arabella-rose/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-8 pb-12 border-b border-white/10">
+            
+            <div class="col-span-2 md:col-span-1 space-y-4">
+                <span class="text-2xl font-serif font-bold tracking-widest">ARABELLA</span>
+                <p class="text-xs text-white/70 font-light leading-relaxed">
+                    A curated boutique offering fine women's apparel, Made in USA designs, luxury loungewear, and artisan jewelry.
+                </p>
+                <div class="flex space-x-3 text-white/80 pt-2">
+                    <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-arabella-rose hover:text-arabella-plum transition-all"><i class="fa-brands fa-facebook-f text-xs"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-arabella-rose hover:text-arabella-plum transition-all"><i class="fa-brands fa-instagram text-xs"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-arabella-rose hover:text-arabella-plum transition-all"><i class="fa-brands fa-pinterest-p text-xs"></i></a>
+                </div>
+            </div>
+
+            <div class="space-y-3">
+                <h4 class="text-xs uppercase font-bold tracking-widest text-arabella-rose">Quick Links</h4>
+                <ul class="space-y-2 text-xs font-light text-white/80">
+                    <li><a href="#about" class="hover:text-white transition-colors">About Lis</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+                    <li><a href="#brands" class="hover:text-white transition-colors">Made in the USA</a></li>
+                    <li><a href="#faqs" class="hover:text-white transition-colors">Sizing Guide</a></li>
+                    <li><a href="#faqs" class="hover:text-white transition-colors">FAQ & Policies</a></li>
+                </ul>
+            </div>
+
+            <div class="space-y-3">
+                <h4 class="text-xs uppercase font-bold tracking-widest text-arabella-rose">Categories</h4>
+                <ul class="space-y-2 text-xs font-light text-white/80">
+                    <li><a href="#featured" class="hover:text-white transition-colors">Clothing Collection</a></li>
+                    <li><a href="#brands" class="hover:text-white transition-colors">Color Me Cotton</a></li>
+                    <li><a href="#featured" class="hover:text-white transition-colors">Artisan Jewelry</a></li>
+                    <li><a href="#featured" class="hover:text-white transition-colors">Baby & Child</a></li>
+                    <li><a href="#featured" class="hover:text-white transition-colors">MISC Accessories</a></li>
+                </ul>
+            </div>
+
+            <div class="space-y-3">
+                <h4 class="text-xs uppercase font-bold tracking-widest text-arabella-rose">Customer Service</h4>
+                <ul class="space-y-2 text-xs font-light text-white/80">
+                    <li><a href="#faqs" class="hover:text-white transition-colors">Shipping & Returns</a></li>
+                    <li><a href="#faqs" class="hover:text-white transition-colors">Disclosures</a></li>
+                    <li><a href="#faqs" class="hover:text-white transition-colors">Contact Us</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">My Account / Wishlists</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 flex flex-col sm:flex-row justify-between items-center text-[11px] text-white/50 font-light gap-4">
+            <p>&copy; 2026 Arabella Store. All rights reserved.</p>
+            <p>Powered by BigCommerce &bull; Redesigned for Modern Elegance</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Navigation Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.className = "fa-solid fa-bars text-2xl";
+            } else {
+                menuIcon.className = "fa-solid fa-xmark text-2xl";
+            }
+        });
+
+        // FAQ Collapse Toggle
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('i');
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+    </script>
+</body>
+</html>

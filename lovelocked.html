@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Locked | Fine Jewelry, Apothecary & Home | Jersey City</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#1a1f1c',      /* Deep Charcoal/Forest Green almost black */
+                            gold: '#cba052',      /* Elegant Muted Gold */
+                            goldHover: '#b58a3d', 
+                            light: '#f9f8f6',     /* Soft Pearl/Alabaster */
+                            stone: '#e5e3de',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..800;1,400..800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom Utilities */
+        .glass-header {
+            background: rgba(249, 248, 246, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #cba052 0%, #8a6d3b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .clip-diagonal {
+            clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+        }
+        /* Subtitle line flourish */
+        .title-flourish::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background-color: #cba052;
+            margin: 1.5rem auto 0;
+        }
+        .title-flourish-left::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background-color: #cba052;
+            margin: 1.5rem 0 0;
+        }
+    </style>
+</head>
+<body class="font-sans text-brand-dark bg-brand-light antialiased selection:bg-brand-gold selection:text-white overflow-x-hidden">
+
+    <!-- Top Alert Bar -->
+    <div class="bg-brand-dark text-brand-light text-xs sm:text-sm py-2 px-4 text-center font-medium tracking-wide z-50 relative">
+        <span class="inline-block mr-2"><i class="fa-regular fa-calendar-check text-brand-gold"></i></span>
+        Currently closed to the public. <a href="#contact" class="text-brand-gold hover:text-white underline transition-colors">Book a Private Appointment</a> to visit our Jersey City boutique.
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-40 transition-all duration-300 bg-transparent py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <a href="#" class="flex flex-col items-center sm:items-start group">
+                    <span class="font-serif text-2xl sm:text-3xl font-bold tracking-widest uppercase group-hover:text-brand-gold transition-colors duration-300">Love Locked</span>
+                    <span class="text-[9px] sm:text-[10px] tracking-[0.3em] uppercase font-semibold text-gray-500 mt-1">Fine Jewelry & Apothecary</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#about" class="text-sm font-semibold tracking-widest uppercase hover:text-brand-gold transition-colors">About</a>
+                    <a href="#collections" class="text-sm font-semibold tracking-widest uppercase hover:text-brand-gold transition-colors">Bespoke & Shop</a>
+                    <a href="#sustainability" class="text-sm font-semibold tracking-widest uppercase hover:text-brand-gold transition-colors">Sustainability</a>
+                    <a href="#contact" class="px-6 py-2.5 bg-brand-dark text-white text-xs font-bold uppercase tracking-widest border border-brand-dark hover:bg-brand-gold hover:border-brand-gold transition-all duration-300 rounded-sm shadow-lg hover:-translate-y-0.5">
+                        Book Appointment
+                    </a>
+                </div>
+
+                <!-- Mobile Hamburger -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-brand-dark focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-brand-light shadow-xl border-t border-brand-stone z-40">
+            <div class="flex flex-col px-6 py-8 space-y-6 text-center">
+                <a href="#about" class="mobile-link text-base font-semibold tracking-widest uppercase text-brand-dark">About Us</a>
+                <a href="#collections" class="mobile-link text-base font-semibold tracking-widest uppercase text-brand-dark">Bespoke & Shop</a>
+                <a href="#sustainability" class="mobile-link text-base font-semibold tracking-widest uppercase text-brand-dark">Sustainability</a>
+                <a href="#contact" class="mobile-link mt-4 inline-block px-6 py-3 bg-brand-dark text-white text-sm font-bold uppercase tracking-widest rounded-sm">Book Appointment</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1599643477874-c5a89467664e?auto=format&fit=crop&q=80&w=2000" alt="Fine Custom Jewelry Rings" class="w-full h-full object-cover object-center scale-105 animate-[slowZoom_20s_ease-in-out_infinite_alternate]" />
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-light/70 via-brand-light/40 to-brand-dark/80"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-16">
+            <span class="inline-block py-1 px-3 border border-brand-gold/50 text-brand-dark bg-white/30 backdrop-blur-sm text-[10px] uppercase tracking-[0.2em] font-bold mb-6 rounded-sm">
+                Jersey City, NJ &bull; Curated & Crafted
+            </span>
+            <h1 class="text-5xl sm:text-6xl md:text-7xl font-serif font-bold text-brand-dark mb-6 leading-tight drop-shadow-sm">
+                Sophistication Rooted in <br/><span class="text-gradient">Sustainability</span>
+            </h1>
+            <p class="text-lg md:text-xl text-brand-dark/90 font-light mb-10 max-w-2xl mx-auto leading-relaxed">
+                Unique, one-of-a-kind jewelry that adds to your brilliance while adhering to strict ethical standards. Partnering with over 160 fair-trade artisans globally.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#bespoke" class="w-full sm:w-auto px-8 py-4 bg-brand-dark text-white text-xs font-bold uppercase tracking-widest hover:bg-brand-gold transition-colors duration-300 rounded-sm shadow-xl">
+                    Discover Bespoke
+                </a>
+                <a href="#collections" class="w-full sm:w-auto px-8 py-4 bg-white/80 backdrop-blur-sm text-brand-dark border border-brand-dark text-xs font-bold uppercase tracking-widest hover:bg-brand-dark hover:text-white transition-all duration-300 rounded-sm">
+                    View Lookbook
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
+            <a href="#about" class="text-white/80 hover:text-brand-gold transition-colors">
+                <i class="fa-solid fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About / Welcome Section -->
+    <section id="about" class="py-24 bg-brand-light relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Image Collage -->
+                <div class="relative">
+                    <div class="aspect-[4/5] overflow-hidden rounded-sm shadow-2xl relative z-10">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800" alt="Kerry Lynn, Founder" class="w-full h-full object-cover" />
+                    </div>
+                    <div class="absolute -bottom-8 -right-8 w-2/3 aspect-square overflow-hidden rounded-sm shadow-xl border-4 border-brand-light z-20 hidden sm:block">
+                        <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&q=80&w=600" alt="Jewelry details" class="w-full h-full object-cover" />
+                    </div>
+                    <!-- Decorative element -->
+                    <div class="absolute -top-10 -left-10 w-40 h-40 border border-brand-gold/30 rounded-full z-0"></div>
+                </div>
+
+                <!-- Text Content -->
+                <div class="lg:pl-10">
+                    <span class="text-brand-gold text-xs font-bold tracking-[0.2em] uppercase mb-4 block">Our Story</span>
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold text-brand-dark mb-6 title-flourish-left">Welcome to Love Locked</h2>
+                    
+                    <div class="space-y-6 text-brand-dark/70 font-light leading-relaxed">
+                        <p>
+                            For over 8 years, we've curated and crafted the finest pieces of jewelry in the heart of Jersey City. Our boutique specializes in unique, one-of-a-kind treasures that are as mindful of the earth as they are beautiful.
+                        </p>
+                        <p>
+                            We partner with small independent businesses and over 160 artisans from around the world. Every stone, every object, and every metal that sits in our shop is strictly vetted for ethical sourcing.
+                        </p>
+                        <blockquote class="pl-6 border-l-2 border-brand-gold italic text-brand-dark font-serif text-lg my-8">
+                            "I've taken great care to provide an intimate experience at Love Locked where people can enter and feel delighted by all the treasures within. My team provides one-on-one assistance to ensure they find the perfect piece."
+                            <footer class="text-xs font-sans font-bold tracking-widest uppercase mt-3 not-italic text-brand-gold">— Kerry Lynn, Founder</footer>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services / Collections Overview -->
+    <section id="collections" class="py-24 bg-brand-stone/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-brand-gold text-xs font-bold tracking-[0.2em] uppercase mb-2 block">Our Curations</span>
+                <h2 class="text-4xl font-serif font-bold text-brand-dark title-flourish">Explore The Collections</h2>
+                <p class="mt-6 text-brand-dark/70 max-w-2xl mx-auto font-light">From ready-to-wear artisanal pieces to custom wedding bands, discover jewelry that tells a story.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <a href="#rings" class="group block relative overflow-hidden rounded-sm shadow-md hover:shadow-2xl transition-all duration-500 h-96">
+                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b2548e?auto=format&fit=crop&q=80&w=600" alt="Rings" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/20 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-6 text-center transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-white font-serif text-2xl mb-1">Rings</h3>
+                        <span class="text-brand-gold text-xs font-bold tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">View Collection <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                    </div>
+                </a>
+
+                <!-- Card 2 -->
+                <a href="#necklaces" class="group block relative overflow-hidden rounded-sm shadow-md hover:shadow-2xl transition-all duration-500 h-96">
+                    <img src="https://images.unsplash.com/photo-1599643478514-4a8e27dc5b49?auto=format&fit=crop&q=80&w=600" alt="Necklaces" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/20 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-6 text-center transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-white font-serif text-2xl mb-1">Necklaces</h3>
+                        <span class="text-brand-gold text-xs font-bold tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">View Collection <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                    </div>
+                </a>
+
+                <!-- Card 3 -->
+                <a href="#earrings" class="group block relative overflow-hidden rounded-sm shadow-md hover:shadow-2xl transition-all duration-500 h-96">
+                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&q=80&w=600" alt="Earrings" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/20 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-6 text-center transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-white font-serif text-2xl mb-1">Earrings</h3>
+                        <span class="text-brand-gold text-xs font-bold tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">View Collection <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                    </div>
+                </a>
+
+                <!-- Card 4 -->
+                <a href="#bracelets" class="group block relative overflow-hidden rounded-sm shadow-md hover:shadow-2xl transition-all duration-500 h-96">
+                    <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&q=80&w=600" alt="Bracelets" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/20 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-6 text-center transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-white font-serif text-2xl mb-1">Bracelets</h3>
+                        <span class="text-brand-gold text-xs font-bold tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">View Collection <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deep Dive Featured Services (Wedding & Bespoke) -->
+    <section id="bespoke" class="py-0 relative">
+        <div class="grid grid-cols-1 lg:grid-cols-2">
+            <!-- Wedding Jewelry -->
+            <div class="relative bg-brand-dark text-white p-12 md:p-20 flex flex-col justify-center min-h-[500px]">
+                <div class="absolute inset-0 opacity-20">
+                    <img src="https://images.unsplash.com/photo-1596773344686-22442436d5fc?auto=format&fit=crop&q=80&w=1000" alt="Wedding Ring Background" class="w-full h-full object-cover grayscale" />
+                </div>
+                <div class="relative z-10 max-w-lg mx-auto lg:ml-auto lg:mr-0 text-center lg:text-left">
+                    <h3 class="text-3xl md:text-4xl font-serif font-bold mb-6">Wedding Jewelry</h3>
+                    <p class="text-white/70 font-light mb-8 leading-relaxed">
+                        Thinking about proposing soon? Let us help! From popular to unique settings, we'll guide you through every step—from picking the perfect ethical stone to nailing the setting. We also craft amazing wedding bands for the big day.
+                    </p>
+                    <a href="#contact" class="inline-flex items-center text-xs font-bold tracking-widest uppercase text-brand-gold hover:text-white transition-colors group">
+                        Start the Journey <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Bespoke Jewelry -->
+            <div class="relative bg-brand-gold text-brand-dark p-12 md:p-20 flex flex-col justify-center min-h-[500px]">
+                <div class="absolute inset-0 opacity-10">
+                    <img src="https://images.unsplash.com/photo-1589674781759-c21c37956a44?auto=format&fit=crop&q=80&w=1000" alt="Custom Jewelry Design Sketch" class="w-full h-full object-cover" />
+                </div>
+                <div class="relative z-10 max-w-lg mx-auto lg:mr-auto lg:ml-0 text-center lg:text-left">
+                    <h3 class="text-3xl md:text-4xl font-serif font-bold mb-6">Bespoke Design</h3>
+                    <p class="text-brand-dark/80 font-light mb-8 leading-relaxed">
+                        We live for a treasure hunt. We find immense happiness working on one-of-a-kind pieces that feature traceable stones and a fair-trade story. Every last detail is designed based on your specifications, mindful of your budget, to create a piece that transcends time.
+                    </p>
+                    <a href="#contact" class="inline-flex items-center text-xs font-bold tracking-widest uppercase text-brand-dark hover:text-white transition-colors group">
+                        Design With Us <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Spotlight Feature: Montana Sapphires -->
+    <section class="py-24 bg-brand-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-sm shadow-xl p-8 md:p-16 flex flex-col md:flex-row items-center gap-12 relative overflow-hidden">
+                <!-- Abstract shape -->
+                <div class="absolute -right-20 -top-20 w-64 h-64 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+                
+                <div class="w-full md:w-1/2 rounded-sm overflow-hidden shadow-lg relative">
+                    <img src="https://images.ctfassets.net/lfcjandeqf77/5HqEK504vNGAE1pAE9qHBq/5dcf6675dddf5c10a8c512886127cd53/3.png" alt="Montana Sapphire Gemstone" class="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700" />
+                </div>
+                
+                <div class="w-full md:w-1/2">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 bg-brand-dark text-brand-gold text-[10px] uppercase font-bold tracking-widest rounded-sm mb-4">
+                        <i class="fa-solid fa-star"></i> Love Locked Loves
+                    </div>
+                    <h3 class="text-3xl md:text-4xl font-serif font-bold text-brand-dark mb-6">Montana Sapphires</h3>
+                    <p class="text-brand-dark/70 font-light leading-relaxed mb-6">
+                        We're absolutely loving Montana sapphires right now! We can't get enough of their multifaceted beauty, magical coloring, and love that they're grown domestically. 
+                    </p>
+                    <p class="text-brand-dark/70 font-light leading-relaxed mb-8">
+                        The miners we work with are world-class, ensuring the use of ethical practices and providing the highest quality stones. Perfect for customizing a one-of-a-kind engagement ring or statement piece.
+                    </p>
+                    <a href="#contact" class="px-6 py-3 border border-brand-dark text-brand-dark hover:bg-brand-dark hover:text-white text-xs font-bold uppercase tracking-widest transition-colors duration-300 rounded-sm">
+                        Source a Sapphire
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curated Goods & Apothecary -->
+    <section class="py-24 bg-brand-stone/40 clip-diagonal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-20">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-serif font-bold text-brand-dark title-flourish">Apothecary & Home</h2>
+                <p class="mt-6 text-brand-dark/70 max-w-2xl mx-auto font-light">We carry over 90 artists from around the country that we absolutely love, including amazing pieces from local Jersey City designers exclusive to our shop.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Item 1 -->
+                <div class="bg-white rounded-sm shadow-sm hover:shadow-xl transition-all p-6 text-center group cursor-pointer border border-transparent hover:border-brand-gold/30">
+                    <div class="w-16 h-16 mx-auto bg-brand-light rounded-full flex items-center justify-center mb-6 text-brand-gold text-2xl group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-spray-can-sparkles"></i>
+                    </div>
+                    <h4 class="font-serif text-xl font-bold mb-3">Wellness & Care</h4>
+                    <p class="text-sm font-light text-brand-dark/60">Curated personal care items crafted with natural, soothing ingredients.</p>
+                </div>
+                <!-- Item 2 -->
+                <div class="bg-white rounded-sm shadow-sm hover:shadow-xl transition-all p-6 text-center group cursor-pointer border border-transparent hover:border-brand-gold/30">
+                    <div class="w-16 h-16 mx-auto bg-brand-light rounded-full flex items-center justify-center mb-6 text-brand-gold text-2xl group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-fire-flame-simple"></i>
+                    </div>
+                    <h4 class="font-serif text-xl font-bold mb-3">Artisanal Candles</h4>
+                    <p class="text-sm font-light text-brand-dark/60">Hand-poured candles with complex, earthy, and floral botanical notes.</p>
+                </div>
+                <!-- Item 3 -->
+                <div class="bg-white rounded-sm shadow-sm hover:shadow-xl transition-all p-6 text-center group cursor-pointer border border-transparent hover:border-brand-gold/30">
+                    <div class="w-16 h-16 mx-auto bg-brand-light rounded-full flex items-center justify-center mb-6 text-brand-gold text-2xl group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-box-open"></i>
+                    </div>
+                    <h4 class="font-serif text-xl font-bold mb-3">Themed Gift Boxes</h4>
+                    <p class="text-sm font-light text-brand-dark/60">Perfectly curated sets for special occasions, ready to delight.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us / Values & Sustainability -->
+    <section id="sustainability" class="py-24 bg-brand-dark text-brand-light relative overflow-hidden">
+        <!-- Abstract BG elements -->
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-brand-light/5 opacity-50 transform skew-x-12 translate-x-20"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div>
+                    <span class="text-brand-gold text-xs font-bold tracking-[0.2em] uppercase mb-4 block">Our Values</span>
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold mb-8">Transparency & Community</h2>
+                    
+                    <div class="space-y-6 font-light text-brand-light/80 leading-relaxed">
+                        <p>
+                            "It is really important to me to be transparent about the political and environmental implications of metal and stone sourcing. I hold very firm to my core principles and vet every stone, every object, every metal that sits in our shop."
+                        </p>
+                        <p>
+                            In addition to ethical and sustainable practices, supporting our community and local non-profits is a core value of Love Locked. 
+                        </p>
+                        
+                        <div class="mt-8 pt-8 border-t border-white/10">
+                            <h4 class="text-sm font-bold uppercase tracking-widest text-brand-gold mb-4">Proudly Supporting:</h4>
+                            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <li class="flex items-center gap-3">
+                                    <i class="fa-solid fa-check text-brand-gold"></i> York Street Project
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i class="fa-solid fa-check text-brand-gold"></i> The Flow Initiative
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i class="fa-solid fa-check text-brand-gold"></i> Angela Cares
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i class="fa-solid fa-check text-brand-gold"></i> Waterfront Project
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats/Icon Grid -->
+                <div class="grid grid-cols-2 gap-6 content-center">
+                    <div class="bg-white/5 border border-white/10 p-6 rounded-sm text-center backdrop-blur-sm">
+                        <div class="text-3xl md:text-4xl font-serif font-bold text-brand-gold mb-2">8+</div>
+                        <div class="text-xs font-bold uppercase tracking-widest text-brand-light/70">Years in Jersey City</div>
+                    </div>
+                    <div class="bg-white/5 border border-white/10 p-6 rounded-sm text-center backdrop-blur-sm mt-8">
+                        <div class="text-3xl md:text-4xl font-serif font-bold text-brand-gold mb-2">160+</div>
+                        <div class="text-xs font-bold uppercase tracking-widest text-brand-light/70">Global Artisans</div>
+                    </div>
+                    <div class="bg-white/5 border border-white/10 p-6 rounded-sm text-center backdrop-blur-sm -mt-8">
+                        <div class="text-3xl md:text-4xl font-serif font-bold text-brand-gold mb-2">90+</div>
+                        <div class="text-xs font-bold uppercase tracking-widest text-brand-light/70">Local Artists</div>
+                    </div>
+                    <div class="bg-white/5 border border-white/10 p-6 rounded-sm text-center backdrop-blur-sm">
+                        <div class="text-3xl md:text-4xl font-serif font-bold text-brand-gold mb-2">100%</div>
+                        <div class="text-xs font-bold uppercase tracking-widest text-brand-light/70">Ethically Sourced</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-24 bg-brand-light">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-dark title-flourish">Frequently Asked Questions</h2>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="border border-brand-stone bg-white rounded-sm overflow-hidden">
+                    <button class="faq-button w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                        <span class="font-serif font-bold text-lg text-brand-dark">How does the bespoke design process work?</span>
+                        <i class="fa-solid fa-plus text-brand-gold transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
+                        <p class="pb-5 text-sm font-light text-brand-dark/70 leading-relaxed">
+                            We start with a consultation to understand your vision, budget, and timeline. From there, we begin a "treasure hunt" for the perfect ethically-sourced stones. Once stones are selected, we collaborate on sketches and CAD renderings before finalizing the piece in our workshop.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="border border-brand-stone bg-white rounded-sm overflow-hidden">
+                    <button class="faq-button w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                        <span class="font-serif font-bold text-lg text-brand-dark">How do you ensure ethical sourcing?</span>
+                        <i class="fa-solid fa-plus text-brand-gold transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
+                        <p class="pb-5 text-sm font-light text-brand-dark/70 leading-relaxed">
+                            We meticulously vet every vendor, miner, and artisan we partner with. We prioritize recycled metals and trace our stones directly to mines that adhere to strict fair-trade and environmentally conscious mining practices, like our trusted Montana Sapphire sources.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="border border-brand-stone bg-white rounded-sm overflow-hidden">
+                    <button class="faq-button w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                        <span class="font-serif font-bold text-lg text-brand-dark">Why is the store closed to the public right now?</span>
+                        <i class="fa-solid fa-plus text-brand-gold transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
+                        <p class="pb-5 text-sm font-light text-brand-dark/70 leading-relaxed">
+                            To provide the highest level of intimate, one-on-one service—especially for complex bespoke and wedding jewelry consultations—we are currently operating via private appointments. This ensures our team can dedicate uninterrupted time to finding or crafting your perfect piece.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Booking CTA -->
+    <section id="contact" class="py-24 bg-brand-stone/30 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-sm shadow-2xl overflow-hidden flex flex-col lg:flex-row">
+                
+                <!-- Info Side -->
+                <div class="w-full lg:w-5/12 bg-brand-dark text-white p-10 md:p-16 flex flex-col justify-between relative">
+                    <!-- Overlay graphic -->
+                    <div class="absolute inset-0 opacity-10 flex items-center justify-center pointer-events-none">
+                        <i class="fa-regular fa-gem text-[15rem]"></i>
+                    </div>
+
+                    <div class="relative z-10">
+                        <h3 class="text-3xl font-serif font-bold mb-6">Visit Our Boutique</h3>
+                        <p class="text-brand-light/70 font-light mb-10 text-sm">
+                            We are temporarily closed to walk-ins to provide a more intimate, focused experience. Please schedule a private appointment below.
+                        </p>
+                        
+                        <div class="space-y-6 font-light text-sm">
+                            <div class="flex items-start gap-4">
+                                <i class="fa-solid fa-location-dot mt-1 text-brand-gold"></i>
+                                <div>
+                                    <strong class="block font-semibold mb-1">Location</strong>
+                                    353 Grove Street<br>Jersey City, NJ 07302
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <i class="fa-solid fa-envelope mt-1 text-brand-gold"></i>
+                                <div>
+                                    <strong class="block font-semibold mb-1">Email</strong>
+                                    <a href="mailto:kerrylynn@shoplovelocked.com" class="hover:text-brand-gold transition-colors">kerrylynn@shoplovelocked.com</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <i class="fa-solid fa-phone mt-1 text-brand-gold"></i>
+                                <div>
+                                    <strong class="block font-semibold mb-1">Phone</strong>
+                                    <a href="tel:8456129523" class="hover:text-brand-gold transition-colors">(845) 612-9523</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Side -->
+                <div class="w-full lg:w-7/12 p-10 md:p-16">
+                    <h3 class="text-2xl font-serif font-bold text-brand-dark mb-2">Request an Appointment</h3>
+                    <p class="text-sm text-brand-dark/60 font-light mb-8">Fill out the form below and our team will get back to you to confirm your private viewing or bespoke consultation.</p>
+                    
+                    <form class="space-y-6" onsubmit="event.preventDefault(); alert('Appointment request sent! We will contact you shortly.');">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-xs font-bold uppercase tracking-widest text-brand-dark mb-2">Full Name</label>
+                                <input type="text" id="name" class="w-full border-b border-brand-stone py-2 focus:outline-none focus:border-brand-gold bg-transparent transition-colors text-sm" placeholder="Jane Doe" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-xs font-bold uppercase tracking-widest text-brand-dark mb-2">Email Address</label>
+                                <input type="email" id="email" class="w-full border-b border-brand-stone py-2 focus:outline-none focus:border-brand-gold bg-transparent transition-colors text-sm" placeholder="jane@example.com" required>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="interest" class="block text-xs font-bold uppercase tracking-widest text-brand-dark mb-2">Area of Interest</label>
+                            <select id="interest" class="w-full border-b border-brand-stone py-2 focus:outline-none focus:border-brand-gold bg-transparent transition-colors text-sm text-brand-dark/70">
+                                <option value="">Select an option...</option>
+                                <option value="bespoke">Bespoke / Custom Design</option>
+                                <option value="wedding">Wedding / Engagement Rings</option>
+                                <option value="ready-to-wear">Ready-to-Wear Jewelry Viewing</option>
+                                <option value="other">Apothecary / Gifts / Other</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-xs font-bold uppercase tracking-widest text-brand-dark mb-2">Tell us about your needs</label>
+                            <textarea id="message" rows="3" class="w-full border-b border-brand-stone py-2 focus:outline-none focus:border-brand-gold bg-transparent transition-colors text-sm resize-none" placeholder="Looking for a specific Montana Sapphire..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 bg-brand-gold text-brand-dark text-xs font-bold uppercase tracking-widest hover:bg-brand-dark hover:text-white transition-colors duration-300 rounded-sm shadow-md mt-4">
+                            Submit Request
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-light pt-20 pb-10 border-t border-brand-stone">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Brand col -->
+                <div class="lg:col-span-1">
+                    <a href="#" class="flex flex-col items-start mb-6">
+                        <span class="font-serif text-2xl font-bold tracking-widest uppercase text-brand-dark">Love Locked</span>
+                    </a>
+                    <p class="text-sm font-light text-brand-dark/70 leading-relaxed mb-6">
+                        Curated and crafted fine jewelry, apothecary, and home goods in the heart of Jersey City. Rooted in ethics, sustainability, and community.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-8 h-8 rounded-full border border-brand-stone flex items-center justify-center text-brand-dark hover:bg-brand-gold hover:text-white hover:border-brand-gold transition-colors">
+                            <i class="fa-brands fa-instagram text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded-full border border-brand-stone flex items-center justify-center text-brand-dark hover:bg-brand-gold hover:text-white hover:border-brand-gold transition-colors">
+                            <i class="fa-brands fa-facebook-f text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded-full border border-brand-stone flex items-center justify-center text-brand-dark hover:bg-brand-gold hover:text-white hover:border-brand-gold transition-colors">
+                            <i class="fa-brands fa-pinterest-p text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-brand-dark mb-6">Explore</h4>
+                    <ul class="space-y-3 text-sm font-light text-brand-dark/70">
+                        <li><a href="#collections" class="hover:text-brand-gold transition-colors">Shop Bespoke</a></li>
+                        <li><a href="#collections" class="hover:text-brand-gold transition-colors">Lookbook</a></li>
+                        <li><a href="#about" class="hover:text-brand-gold transition-colors">About Us</a></li>
+                        <li><a href="#sustainability" class="hover:text-brand-gold transition-colors">Sustainability</a></li>
+                        <li><a href="#contact" class="hover:text-brand-gold transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Details -->
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-brand-dark mb-6">Visit</h4>
+                    <ul class="space-y-3 text-sm font-light text-brand-dark/70">
+                        <li>353 Grove Street</li>
+                        <li>Jersey City, NJ 07302</li>
+                        <li class="pt-2 italic">Temporarily Closed to Public</li>
+                        <li><a href="#contact" class="text-brand-gold font-medium hover:underline">Available by Appointment</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-brand-dark mb-6">Stay Connected</h4>
+                    <p class="text-sm font-light text-brand-dark/70 mb-4">Subscribe for updates on new artisans, bespoke creations, and private events.</p>
+                    <form onsubmit="event.preventDefault(); alert('Subscribed!');" class="relative">
+                        <input type="email" placeholder="Email Address" required class="w-full border-b border-brand-stone py-2 pr-10 focus:outline-none focus:border-brand-gold bg-transparent transition-colors text-sm">
+                        <button type="submit" class="absolute right-0 top-2 text-brand-dark hover:text-brand-gold transition-colors">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-brand-stone pt-8 flex flex-col md:flex-row justify-between items-center text-xs font-light text-brand-dark/50">
+                <p>&copy; 2026 Love Locked. All Rights Reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-brand-dark transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-brand-dark transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Sticky Navbar Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('glass-header', 'shadow-sm', 'py-2');
+                navbar.classList.remove('bg-transparent', 'py-4');
+            } else {
+                navbar.classList.remove('glass-header', 'shadow-sm', 'py-2');
+                navbar.classList.add('bg-transparent', 'py-4');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        const menuIcon = mobileBtn.querySelector('i');
+
+        const toggleMenu = () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            } else {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            }
+        };
+
+        mobileBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+
+        // FAQ Accordion
+        const faqButtons = document.querySelectorAll('.faq-button');
+        faqButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                // Close all others
+                document.querySelectorAll('.faq-content').forEach(otherContent => {
+                    if (otherContent !== content) {
+                        otherContent.style.maxHeight = null;
+                        otherContent.previousElementSibling.querySelector('i').classList.remove('rotate-45');
+                    }
+                });
+
+                // Toggle current
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    icon.classList.remove('rotate-45');
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    icon.classList.add('rotate-45');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

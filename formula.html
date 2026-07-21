@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formula Fitness | Premium Gym & Fitness Center in Varanasi</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#E50914',
+                            crimson: '#B81D24',
+                            darkRed: '#7F0000',
+                            darkBg: '#0A0A0C',
+                            cardBg: '#141418',
+                            borderDark: '#22222A',
+                            accentGold: '#D4AF37'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        .glass-nav {
+            background: rgba(10, 10, 12, 0.88);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(229, 9, 20, 0.2);
+        }
+        .glass-card {
+            background: rgba(20, 20, 24, 0.75);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .glass-card-hover:hover {
+            border-color: rgba(229, 9, 20, 0.4);
+            box-shadow: 0 14px 40px -10px rgba(229, 9, 20, 0.25);
+        }
+        .text-gradient-red {
+            background: linear-gradient(135deg, #FF4D4D 0%, #E50914 50%, #B81D24 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-gradient-red {
+            background: linear-gradient(135deg, #FF1E27 0%, #E50914 50%, #B81D24 100%);
+        }
+        .subtle-red-glow {
+            background: radial-gradient(circle at 50% 10%, rgba(229, 9, 20, 0.15) 0%, transparent 65%);
+        }
+    </style>
+</head>
+<body class="bg-brand-darkBg text-slate-300 antialiased font-sans selection:bg-brand-red selection:text-white">
+
+    <!-- Sticky Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between">
+                
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-red flex items-center justify-center text-white font-extrabold text-xl shadow-lg shadow-red-600/30 transition-transform group-hover:scale-105">
+                        <i class="fa-solid fa-dumbbell"></i>
+                    </div>
+                    <div>
+                        <span class="font-extrabold text-lg sm:text-xl text-white tracking-tight block leading-none">FORMULA <span class="text-brand-red">FITNESS</span></span>
+                        <span class="text-[9px] uppercase tracking-[0.25em] text-slate-400 font-bold block mt-1">Gym & Fitness Center • Varanasi</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <div class="hidden lg:flex items-center gap-8 text-xs font-semibold uppercase tracking-wider">
+                    <a href="#about" class="hover:text-brand-red transition-colors">Our Arena</a>
+                    <a href="#programs" class="hover:text-brand-red transition-colors">Programs</a>
+                    <a href="#equipment" class="hover:text-brand-red transition-colors">Equipment</a>
+                    <a href="#why-us" class="hover:text-brand-red transition-colors">Why Formula</a>
+                    <a href="#reviews" class="hover:text-brand-red transition-colors">Reviews</a>
+                    <a href="#contact" class="hover:text-brand-red transition-colors">Location</a>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="hidden sm:flex items-center gap-4">
+                    <a href="tel:08887708104" class="text-xs font-bold text-slate-300 hover:text-brand-red flex items-center gap-2">
+                        <i class="fa-solid fa-phone text-brand-red"></i>
+                        <span>088877 08104</span>
+                    </a>
+                    <a href="#contact" class="bg-gradient-red hover:brightness-110 text-white font-extrabold text-xs uppercase tracking-wider px-5 py-2.5 rounded-xl transition-all transform hover:-translate-y-0.5 shadow-lg shadow-red-600/25">
+                        Free Trial Pass
+                    </a>
+                </div>
+
+                <!-- Mobile Switch Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-slate-300 hover:text-brand-red focus:outline-none p-2">
+                    <i class="fa-solid fa-bars-staggered text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden px-4 pt-4 pb-6 mt-2 bg-slate-950/95 border-b border-brand-borderDark">
+            <div class="flex flex-col gap-4 text-sm font-semibold uppercase tracking-wider text-slate-300">
+                <a href="#about" class="py-2 border-b border-slate-800 hover:text-brand-red">Our Arena</a>
+                <a href="#programs" class="py-2 border-b border-slate-800 hover:text-brand-red">Programs</a>
+                <a href="#equipment" class="py-2 border-b border-slate-800 hover:text-brand-red">Equipment</a>
+                <a href="#why-us" class="py-2 border-b border-slate-800 hover:text-brand-red">Why Formula</a>
+                <a href="#reviews" class="py-2 border-b border-slate-800 hover:text-brand-red">Reviews</a>
+                <a href="#contact" class="py-2 hover:text-brand-red">Location & Contact</a>
+                <div class="pt-2 flex flex-col gap-3">
+                    <a href="tel:08887708104" class="w-full text-center border border-slate-700 font-bold py-3 rounded-xl text-xs uppercase">
+                        <i class="fa-solid fa-phone text-brand-red mr-2"></i> Call: 088877 08104
+                    </a>
+                    <a href="#contact" class="w-full text-center bg-gradient-red text-white font-extrabold py-3 rounded-xl shadow-md uppercase text-xs tracking-wider">
+                        Get Free Pass
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Premium Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-28 pb-20 overflow-hidden subtle-red-glow">
+        <div class="absolute top-1/4 right-0 w-[500px] h-[500px] bg-brand-red/10 rounded-full blur-[150px] pointer-events-none"></div>
+        <div class="absolute bottom-10 left-10 w-96 h-96 bg-red-800/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <!-- Hero Text -->
+                <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/90 border border-brand-red/30 text-brand-red text-xs font-bold tracking-wider uppercase">
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+                        Maqbool Alam Rd, Khajuri Colony • Open Until 11 PM
+                    </div>
+
+                    <h1 class="font-extrabold text-4xl sm:text-6xl lg:text-7xl text-white leading-[1.08] tracking-tight">
+                        Engineer Your <br>
+                        <span class="text-gradient-red">Ultimate Physique.</span>
+                    </h1>
+
+                    <p class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Step into Varanasi's premier strength arena. Featuring heavy-duty squat racks, dumbbell stations, cardio machines, and personalized training programs for every fitness goal.
+                    </p>
+
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#contact" class="bg-gradient-red hover:brightness-110 text-white font-black px-8 py-4 rounded-xl shadow-xl shadow-red-600/20 transition-all transform hover:-translate-y-1 text-xs uppercase tracking-wider">
+                            Book Free Trial Workout
+                        </a>
+                        <a href="#programs" class="glass-card hover:bg-slate-800/80 text-white font-bold px-8 py-4 rounded-xl border border-slate-700/80 transition-all flex items-center gap-2 text-xs uppercase tracking-wider">
+                            <i class="fa-solid fa-person-running text-brand-red"></i> View Programs
+                        </a>
+                    </div>
+
+                    <!-- Metrics -->
+                    <div class="pt-8 border-t border-slate-800/80 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0">
+                        <div>
+                            <div class="flex items-center justify-center lg:justify-start text-brand-red font-extrabold text-2xl sm:text-3xl">
+                                4.8 <i class="fa-solid fa-star text-sm ml-1 text-amber-400"></i>
+                            </div>
+                            <p class="text-xs text-slate-500 uppercase font-semibold mt-1">93+ Google Reviews</p>
+                        </div>
+                        <div>
+                            <div class="font-extrabold text-2xl sm:text-3xl text-white">4.8 / 5</div>
+                            <p class="text-xs text-slate-500 uppercase font-semibold mt-1">123+ Justdial Votes</p>
+                        </div>
+                        <div>
+                            <div class="font-extrabold text-2xl sm:text-3xl text-brand-red">5 / 5</div>
+                            <p class="text-xs text-slate-500 uppercase font-semibold mt-1">Facebook Rating</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Image Showcase -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        
+                        <!-- Main Frame Showcase -->
+                        <div class="relative rounded-3xl overflow-hidden border-2 border-brand-red/30 shadow-2xl group">
+                            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=80" alt="Formula Fitness Arena Varanasi" class="w-full h-[480px] object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                            
+                            <div class="absolute bottom-6 left-6 right-6">
+                                <span class="bg-brand-red text-white text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full">Maqbool Alam Road</span>
+                                <h3 class="font-bold text-2xl text-white mt-2">Formula Fitness Center</h3>
+                                <p class="text-xs text-slate-300 mt-1">S-8/415A, Raza Colony, Khajuri Colony, Varanasi</p>
+                            </div>
+                        </div>
+
+                        <!-- Float Card 1 -->
+                        <div class="absolute -top-6 -left-6 glass-card p-4 rounded-2xl shadow-2xl hidden sm:flex items-center gap-3 border border-brand-red/20 max-w-[220px]">
+                            <div class="w-10 h-10 rounded-xl bg-brand-red/10 text-brand-red flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-dumbbell"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold text-white">Heavy Dumbbell Racks</h4>
+                                <p class="text-[10px] text-slate-400">Complete Resistance Zone</p>
+                            </div>
+                        </div>
+
+                        <!-- Float Card 2 -->
+                        <div class="absolute -bottom-6 -right-6 glass-card p-4 rounded-2xl shadow-2xl hidden sm:flex items-center gap-3 border border-brand-red/20 max-w-[220px]">
+                            <div class="w-10 h-10 rounded-xl bg-brand-red/10 text-brand-red flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-heart-pulse"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold text-white">Cardio & Turf Arena</h4>
+                                <p class="text-[10px] text-slate-400">HIIT & Stamina Building</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Preview Section -->
+    <section id="about" class="py-24 bg-brand-cardBg/60 relative border-y border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                
+                <!-- Collage Images Grid -->
+                <div class="grid grid-cols-2 gap-4 relative">
+                    <div class="space-y-4">
+                        <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=600&q=80" alt="Bodybuilder Heavy Press" class="rounded-2xl shadow-lg border border-slate-800 object-cover h-56 w-full">
+                        <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=600&q=80" alt="Cardio Treadmill Section" class="rounded-2xl shadow-lg border border-slate-800 object-cover h-40 w-full">
+                    </div>
+                    <div class="space-y-4 pt-8">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=600&q=80" alt="Personal Trainer Guidance" class="rounded-2xl shadow-lg border border-slate-800 object-cover h-40 w-full">
+                        <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=600&q=80" alt="Turf HIIT Functional Zone" class="rounded-2xl shadow-lg border border-slate-800 object-cover h-56 w-full">
+                    </div>
+                </div>
+
+                <!-- Text Content Column -->
+                <div class="space-y-6">
+                    <div class="inline-block text-brand-red text-xs font-bold uppercase tracking-widest">Welcome To Formula Fitness</div>
+                    <h2 class="font-extrabold text-3xl sm:text-5xl text-white leading-tight">
+                        Science-Backed Fitness <br><span class="text-gradient-red">For Real Physical Results.</span>
+                    </h2>
+                    <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                        Located at <strong class="text-white">Raza Colony, S-8/415A, Maqbool Alam Rd, Khajuri Colony, Varanasi</strong>, Formula Fitness is dedicated to delivering hard-hitting physical workout routines in a clean, spacious, and highly motivating environment.
+                    </p>
+                    <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                        Consistently rated <strong class="text-white">4.8/5 on Google & Justdial</strong> and <strong class="text-white">5/5 on Facebook</strong>, our gym combines commercial-grade plate-loaded machines, dedicated cardio zones, and experienced trainers ready to sculpt your fitness journey.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 pt-2">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-brand-red text-lg"></i>
+                            <span class="text-xs sm:text-sm font-semibold text-slate-200">Heavy Dumbbell & Squat Racks</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-brand-red text-lg"></i>
+                            <span class="text-xs sm:text-sm font-semibold text-slate-200">Cardio & Fat-Loss Deck</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-brand-red text-lg"></i>
+                            <span class="text-xs sm:text-sm font-semibold text-slate-200">Personal Workout Coaching</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-brand-red text-lg"></i>
+                            <span class="text-xs sm:text-sm font-semibold text-slate-200">Clean Rubberized Flooring</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Workout Programs Section -->
+    <section id="programs" class="py-24 bg-brand-darkBg relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-brand-red font-bold text-xs uppercase tracking-widest">Goal Oriented Fitness</span>
+                <h2 class="font-extrabold text-3xl sm:text-5xl text-white">Targeted Training Programs</h2>
+                <p class="text-slate-400 text-sm sm:text-base">Customized workout splits and guidance crafted for beginners, bodybuilders, and fitness enthusiasts.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Program 1 -->
+                <div class="glass-card p-8 rounded-3xl glass-card-hover transition-all duration-300 group border-brand-red/20">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-red/10 text-brand-red flex items-center justify-center text-2xl mb-6 transition-transform group-hover:scale-110">
+                        <i class="fa-solid fa-dumbbell"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-white mb-2">Strength & Hypertrophy</h3>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                        Full spectrum of free weights, barbell stations, cable crossovers, and leg press units for maximum muscle development.
+                    </p>
+                </div>
+
+                <!-- Program 2 -->
+                <div class="glass-card p-8 rounded-3xl glass-card-hover transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-slate-800 text-brand-red flex items-center justify-center text-2xl mb-6 transition-transform group-hover:scale-110">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-white mb-2">Cardio & Weight Loss</h3>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                        High-efficiency calorie burn sessions utilizing commercial treadmills, cycle sprints, and metabolic conditioning.
+                    </p>
+                </div>
+
+                <!-- Program 3 -->
+                <div class="glass-card p-8 rounded-3xl glass-card-hover transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-slate-800 text-brand-red flex items-center justify-center text-2xl mb-6 transition-transform group-hover:scale-110">
+                        <i class="fa-solid fa-user-ninja"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-white mb-2">1-on-1 Personal Training</h3>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                        Dedicated coaching with customized workout splits, posture guidance, technique correction, and progress tracking.
+                    </p>
+                </div>
+
+                <!-- Program 4 -->
+                <div class="glass-card p-8 rounded-3xl glass-card-hover transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-slate-800 text-brand-red flex items-center justify-center text-2xl mb-6 transition-transform group-hover:scale-110">
+                        <i class="fa-solid fa-child-reaching"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-white mb-2">Functional & Cross-Fit</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Kettlebell swings, battle ropes, agility drills, plyometric box jumps, and core endurance exercises.
+                    </p>
+                </div>
+
+                <!-- Program 5 -->
+                <div class="glass-card p-8 rounded-3xl glass-card-hover transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-slate-800 text-brand-red flex items-center justify-center text-2xl mb-6 transition-transform group-hover:scale-110">
+                        <i class="fa-solid fa-apple-whole"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-white mb-2">Diet & Nutrition Advice</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Macro-calculated dietary advice tailored to support your fitness journey—whether bulking or lean cutting.
+                    </p>
+                </div>
+
+                <!-- Program 6 -->
+                <div class="glass-card p-8 rounded-3xl glass-card-hover transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-slate-800 text-brand-red flex items-center justify-center text-2xl mb-6 transition-transform group-hover:scale-110">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-white mb-2">Beginner Orientation</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Onboarding guidance for newcomers to master machine safety, form fundamentals, and habit consistency.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities / Equipment Section -->
+    <section id="equipment" class="py-24 bg-brand-cardBg/80 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
+                <div>
+                    <span class="text-brand-red font-bold text-xs uppercase tracking-widest">Built For Results</span>
+                    <h2 class="font-extrabold text-3xl sm:text-5xl text-white mt-2">World-Class Gym Equipment</h2>
+                </div>
+                <p class="text-slate-400 text-sm max-w-md">
+                    Commercial-grade equipment engineered for smooth biomechanics, maximal safety, and optimal muscle targeting.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Facility 1 -->
+                <div class="glass-card rounded-2xl overflow-hidden group hover:border-brand-red/40 transition-all">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&w=500&q=80" alt="Free Dumbbell Weights Rack" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 bg-brand-red text-white text-[10px] font-black px-3 py-1 rounded-full uppercase">Free Weights</span>
+                    </div>
+                    <div class="p-6 space-y-2">
+                        <h4 class="font-bold text-lg text-white">Full Free Weight Rack</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">Precision dumbbells, Olympic barbells, and rubber bumper plates for heavy lifting.</p>
+                    </div>
+                </div>
+
+                <!-- Facility 2 -->
+                <div class="glass-card rounded-2xl overflow-hidden group hover:border-brand-red/40 transition-all">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=500&q=80" alt="Cardio Treadmill Deck" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 bg-amber-400 text-slate-950 text-[10px] font-black px-3 py-1 rounded-full uppercase">Cardio Deck</span>
+                    </div>
+                    <div class="p-6 space-y-2">
+                        <h4 class="font-bold text-lg text-white">Commercial Treadmills</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">Digital treadmills and cross-trainers for high-efficiency calorie burns.</p>
+                    </div>
+                </div>
+
+                <!-- Facility 3 -->
+                <div class="glass-card rounded-2xl overflow-hidden group hover:border-brand-red/40 transition-all">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=500&q=80" alt="Functional Crossfit Area" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 space-y-2">
+                        <h4 class="font-bold text-lg text-white">Functional Turf Zone</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">Artificial grass floor layout for kettlebells, battle ropes, and agility exercises.</p>
+                    </div>
+                </div>
+
+                <!-- Facility 4 -->
+                <div class="glass-card rounded-2xl overflow-hidden group hover:border-brand-red/40 transition-all">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=500&q=80" alt="Cable Machine Station" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 bg-emerald-500 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase">Isolation</span>
+                    </div>
+                    <div class="p-6 space-y-2">
+                        <h4 class="font-bold text-lg text-white">Cable & Resistance Station</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">Multi-station cable crossovers and plate-loaded machines for targeted muscle sets.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-us" class="py-24 bg-brand-darkBg relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                
+                <div class="space-y-6">
+                    <span class="text-brand-red font-bold text-xs uppercase tracking-widest">Why Formula Fitness</span>
+                    <h2 class="font-extrabold text-3xl sm:text-5xl text-white leading-tight">
+                        Varanasi's Top Choice For Real Transformation
+                    </h2>
+                    <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                        At Formula Fitness, we prioritize clean facilities, supportive community culture, and certified trainers who care about your transformation.
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start gap-4 p-4 rounded-2xl glass-card">
+                            <div class="w-10 h-10 rounded-xl bg-brand-red/10 text-brand-red flex items-center justify-center shrink-0 font-bold">1</div>
+                            <div>
+                                <h4 class="text-white font-bold text-sm">Motivating & Friendly Environment</h4>
+                                <p class="text-xs text-slate-400 mt-1">Our gym culture welcomes everyone—from absolute beginners to competitive lifters.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-2xl glass-card">
+                            <div class="w-10 h-10 rounded-xl bg-brand-red/10 text-brand-red flex items-center justify-center shrink-0 font-bold">2</div>
+                            <div>
+                                <h4 class="text-white font-bold text-sm">Flexible & Affordable Packages</h4>
+                                <p class="text-xs text-slate-400 mt-1">Budget-friendly plans created to suit student schedules and working professionals in Varanasi.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-2xl glass-card">
+                            <div class="w-10 h-10 rounded-xl bg-brand-red/10 text-brand-red flex items-center justify-center shrink-0 font-bold">3</div>
+                            <div>
+                                <h4 class="text-white font-bold text-sm">Prime Location on Maqbool Alam Road</h4>
+                                <p class="text-xs text-slate-400 mt-1">Located in Raza Colony, Khajuri Colony with convenient parking and accessibility.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="rounded-3xl overflow-hidden border border-brand-red/30 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80" alt="Formula Fitness Arena Atmosphere" class="w-full h-[450px] object-cover">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials / Google Reviews Section -->
+    <section id="reviews" class="py-24 bg-brand-cardBg/60 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-brand-red font-bold text-xs uppercase tracking-widest">Real Gym Members</span>
+                <h2 class="font-extrabold text-3xl sm:text-5xl text-white">What Our Members Say</h2>
+                <div class="flex items-center justify-center gap-2 text-amber-400 text-lg">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                    <span class="text-white font-bold text-sm ml-2">4.8 / 5.0 (93+ Google Reviews) • 4.8 Justdial • 5/5 FB</span>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Review 1 -->
+                <div class="glass-card p-8 rounded-3xl flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="text-amber-400 text-xs flex gap-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-xs sm:text-sm italic leading-relaxed">
+                            "Best gym in Maqbool Alam Road! High quality machines, clean environment, and super supportive trainers who guide you every step of the way."
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-slate-800 mt-6 flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-brand-red text-white font-extrabold flex items-center justify-center text-xs">V</div>
+                        <div>
+                            <h4 class="text-white text-xs font-bold">Varanasi Gym Member</h4>
+                            <p class="text-[10px] text-slate-500">Google Verified Review</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="glass-card p-8 rounded-3xl flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="text-amber-400 text-xs flex gap-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-xs sm:text-sm italic leading-relaxed">
+                            "4.8/5 on Justdial with 123+ votes! Great dumbbell section, clean rubber floor, and very reasonable membership packages."
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-slate-800 mt-6 flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-slate-700 text-white font-bold flex items-center justify-center text-xs">A</div>
+                        <div>
+                            <h4 class="text-white text-xs font-bold">Anand Verma</h4>
+                            <p class="text-[10px] text-slate-500">Justdial Reviewer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="glass-card p-8 rounded-3xl flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="text-amber-400 text-xs flex gap-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-xs sm:text-sm italic leading-relaxed">
+                            "Perfect gym for both serious lifters and beginners. Friendly environment and open till 11 PM so I can workout after work!"
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-slate-800 mt-6 flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-slate-700 text-white font-bold flex items-center justify-center text-xs">R</div>
+                        <div>
+                            <h4 class="text-white text-xs font-bold">Rahul Srivastava</h4>
+                            <p class="text-[10px] text-slate-500">Facebook 5/5 Reviewer</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <section class="py-16 bg-gradient-red text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
+            <h2 class="font-extrabold text-3xl sm:text-5xl">Ready To Build Your Ultimate Physique?</h2>
+            <p class="text-red-100 max-w-xl mx-auto text-xs sm:text-sm font-semibold">Claim your free workout trial pass today and experience Formula Fitness in Khajuri Colony, Varanasi!</p>
+            <div class="pt-2 flex flex-wrap justify-center gap-4">
+                <a href="tel:08887708104" class="bg-brand-darkBg text-white font-bold px-8 py-4 rounded-xl shadow-xl hover:bg-slate-900 transition-all uppercase text-xs tracking-wider flex items-center gap-2">
+                    <i class="fa-solid fa-phone text-brand-red"></i> Call 088877 08104
+                </a>
+                <a href="#contact" class="bg-white text-brand-darkBg font-black px-8 py-4 rounded-xl shadow-xl hover:bg-slate-100 transition-all uppercase text-xs tracking-wider">
+                    Claim Free Workout Pass
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Location Section -->
+    <section id="contact" class="py-24 bg-brand-darkBg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12">
+                
+                <!-- Info Column -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <span class="text-brand-red font-bold text-xs uppercase tracking-widest">Visit Formula Fitness</span>
+                        <h2 class="font-extrabold text-3xl text-white mt-1">Location & Timings</h2>
+                        <p class="text-slate-400 text-xs sm:text-sm mt-2">Centrally located in Raza Colony, Khajuri Colony, Varanasi.</p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-11 h-11 rounded-xl bg-brand-red/10 text-brand-red flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Gym Address</h4>
+                                <p class="text-xs sm:text-sm text-slate-400 mt-1 leading-relaxed">
+                                    Raza Colony, S-8/415A, Maqbool Alam Rd,<br>
+                                    Khajuri Colony, Varanasi, Uttar Pradesh 221002
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-11 h-11 rounded-xl bg-brand-red/10 text-brand-red flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Operating Hours</h4>
+                                <p class="text-xs sm:text-sm text-slate-400 mt-1">Open Daily: Closes 11:00 PM</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-11 h-11 rounded-xl bg-brand-red/10 text-brand-red flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Phone Number</h4>
+                                <p class="text-xs sm:text-sm text-slate-400 mt-1">
+                                    <a href="tel:08887708104" class="hover:text-brand-red">088877 08104</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Column -->
+                <div class="lg:col-span-7">
+                    <div class="glass-card rounded-3xl p-8 sm:p-10 border border-slate-800">
+                        <h3 class="font-extrabold text-2xl text-white mb-2">Claim Free Gym Trial Pass</h3>
+                        <p class="text-xs text-slate-400 mb-8">Fill out your details below to schedule your workout trial session.</p>
+
+                        <form onsubmit="event.preventDefault(); alert('Thank you! Your free pass request has been received. Our team will contact you shortly.');" class="space-y-5">
+                            <div class="grid sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label class="block text-xs font-semibold uppercase text-slate-300 mb-2">Full Name</label>
+                                    <input type="text" required placeholder="e.g. Anand Verma" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-white text-sm focus:outline-none focus:border-brand-red transition-colors">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold uppercase text-slate-300 mb-2">Phone Number</label>
+                                    <input type="tel" required placeholder="e.g. 8887708104" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-white text-sm focus:outline-none focus:border-brand-red transition-colors">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-slate-300 mb-2">Fitness Goal</label>
+                                <select class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 text-sm focus:outline-none focus:border-brand-red transition-colors">
+                                    <option>Muscle Gain & Strength Training</option>
+                                    <option>Weight Loss & Fat Burn</option>
+                                    <option>Personal Trainer Assistance</option>
+                                    <option>General Stamina & Conditioning</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-slate-300 mb-2">Message / Preferred Workout Time</label>
+                                <textarea rows="3" placeholder="Specify your preferred workout slot..." class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-white text-sm focus:outline-none focus:border-brand-red transition-colors"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-gradient-red text-white font-extrabold py-4 rounded-xl shadow-lg hover:brightness-110 transition-all uppercase text-xs tracking-wider">
+                                Claim My Free Pass Now
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Modern Footer -->
+    <footer class="bg-slate-950 text-slate-400 pt-16 pb-8 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-slate-900">
+                
+                <div class="md:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-gradient-red flex items-center justify-center text-white font-extrabold text-lg">
+                            <i class="fa-solid fa-dumbbell"></i>
+                        </div>
+                        <span class="font-bold text-xl text-white tracking-wider">FORMULA <span class="text-brand-red">FITNESS</span></span>
+                    </div>
+                    <p class="text-xs leading-relaxed text-slate-400 max-w-sm">
+                        Varanasi's premier gym & fitness center offering heavy strength equipment, personal training, and cardio workout programs in Khajuri Colony.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold text-white uppercase tracking-widest mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#about" class="hover:text-brand-red transition-colors">Our Arena</a></li>
+                        <li><a href="#programs" class="hover:text-brand-red transition-colors">Training Programs</a></li>
+                        <li><a href="#equipment" class="hover:text-brand-red transition-colors">Equipment</a></li>
+                        <li><a href="#reviews" class="hover:text-brand-red transition-colors">Member Reviews</a></li>
+                        <li><a href="#contact" class="hover:text-brand-red transition-colors">Location & Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold text-white uppercase tracking-widest mb-4">Address</h4>
+                    <p class="text-xs leading-relaxed text-slate-400 mb-3">
+                        S-8/415A, Raza Colony, Maqbool Alam Rd, Khajuri Colony, Varanasi, UP 221002
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-600 gap-4">
+                <p>&copy; 2026 Formula Fitness Varanasi. All rights reserved.</p>
+                <p class="uppercase tracking-widest text-[10px]">Website Redesign Concept Proposal</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive JS -->
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SITTANOS | Bar & Restaurant | Penrith</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        sittanos: {
+                            black: '#050505',
+                            dark: '#0f0f11',
+                            card: '#18181b',
+                            gold: '#D4AF37',
+                            goldHover: '#B5952F',
+                            red: '#C8102E',
+                            light: '#FAFAFA',
+                            muted: '#A1A1AA'
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #050505;
+            color: #FAFAFA;
+        }
+
+        /* Glassmorphism Utilities */
+        .glass {
+            background: rgba(24, 24, 27, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .glass-nav {
+            background: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Gradients */
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #FDE08B 0%, #D4AF37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .text-gradient-red {
+            background: linear-gradient(135deg, #FF4B4B 0%, #C8102E 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Scroll Reveal Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050505;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #27272a;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4AF37;
+        }
+
+        /* Image Hover Zoom */
+        .img-hover-zoom {
+            overflow: hidden;
+        }
+        .img-hover-zoom img {
+            transition: transform 0.7s ease;
+        }
+        .img-hover-zoom:hover img {
+            transform: scale(1.08);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-sittanos-gold selection:text-sittanos-black overflow-x-hidden relative">
+
+    <div class="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-[-1]">
+        <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-sittanos-gold/5 blur-[120px] animate-pulse-slow"></div>
+        <div class="absolute bottom-[20%] right-[-10%] w-[30%] h-[50%] rounded-full bg-sittanos-red/5 blur-[150px] animate-pulse-slow" style="animation-delay: 2s;"></div>
+    </div>
+
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <a href="#" class="flex flex-col group z-50">
+                    <span class="font-serif text-2xl sm:text-3xl font-bold tracking-[0.2em] text-white uppercase leading-none group-hover:text-sittanos-gold transition-colors duration-300">
+                        SITTANOS
+                    </span>
+                    <span class="text-[8px] sm:text-[9px] tracking-[0.4em] uppercase font-medium text-sittanos-gold mt-1.5">
+                        Bar & Restaurant
+                    </span>
+                </a>
+
+                <div class="hidden lg:flex items-center space-x-10">
+                    <a href="#about" class="text-xs font-semibold tracking-widest uppercase text-sittanos-light hover:text-sittanos-gold transition-colors">About</a>
+                    <a href="#menu" class="text-xs font-semibold tracking-widest uppercase text-sittanos-light hover:text-sittanos-gold transition-colors">Menu</a>
+                    <a href="#lunch" class="text-xs font-semibold tracking-widest uppercase text-sittanos-light hover:text-sittanos-gold transition-colors">Lunch Specials</a>
+                    <a href="#contact" class="text-xs font-semibold tracking-widest uppercase text-sittanos-light hover:text-sittanos-gold transition-colors">Contact</a>
+                    
+                    <a href="#book" class="group relative px-7 py-3 overflow-hidden rounded-full bg-sittanos-gold text-sittanos-black text-xs font-bold uppercase tracking-widest hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all duration-300 hover:-translate-y-0.5">
+                        <span class="relative z-10">Book A Table</span>
+                        <div class="absolute inset-0 h-full w-full scale-0 rounded-full transition-all duration-300 group-hover:scale-100 group-hover:bg-white/20"></div>
+                    </a>
+                </div>
+
+                <button id="mobile-btn" class="lg:hidden text-white hover:text-sittanos-gold focus:outline-none z-50 transition-colors">
+                    <i class="fa-solid fa-bars text-2xl" id="mobile-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="fixed inset-0 bg-sittanos-black/95 backdrop-blur-2xl z-40 transform translate-x-full transition-transform duration-500 flex flex-col justify-center items-center">
+            <div class="flex flex-col space-y-8 text-center w-full px-6">
+                <a href="#about" class="mobile-link text-xl font-serif tracking-widest uppercase text-white hover:text-sittanos-gold transition-colors">About Us</a>
+                <a href="#menu" class="mobile-link text-xl font-serif tracking-widest uppercase text-white hover:text-sittanos-gold transition-colors">View Menu</a>
+                <a href="#lunch" class="mobile-link text-xl font-serif tracking-widest uppercase text-white hover:text-sittanos-gold transition-colors">Lunch Specials</a>
+                <a href="#contact" class="mobile-link text-xl font-serif tracking-widest uppercase text-white hover:text-sittanos-gold transition-colors">Contact</a>
+                <div class="pt-8">
+                    <a href="#book" class="mobile-link inline-block px-8 py-4 bg-sittanos-gold text-sittanos-black text-sm font-bold uppercase tracking-widest rounded-full">Book A Table</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative min-h-screen flex items-center justify-center pt-20">
+        <div class="absolute inset-0 w-full h-full z-0">
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80&w=2000" alt="Restaurant Interior" class="w-full h-full object-cover object-center opacity-40">
+            <div class="absolute inset-0 bg-gradient-to-b from-sittanos-black/80 via-sittanos-black/50 to-sittanos-black"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="text-center lg:text-left reveal">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-sittanos-gold/30 bg-sittanos-gold/10 text-sittanos-gold text-[10px] font-bold uppercase tracking-[0.2em] mb-6">
+                        <span class="w-1.5 h-1.5 rounded-full bg-sittanos-gold animate-pulse"></span>
+                        Penrith's Premier Dining
+                    </div>
+                    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-serif font-bold text-white leading-[1.1] mb-6">
+                        Tasty Food Is <br>
+                        <span class="text-gradient-gold">What You Deserve.</span>
+                    </h1>
+                    <p class="text-base sm:text-lg text-sittanos-muted font-light max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed">
+                        Experience our family restaurant's passion for excellence. In-house or al fresco dining with a fully licensed bar, fresh seafood, wood-fired pizzas, and succulent steaks.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-5">
+                        <a href="#book" class="w-full sm:w-auto px-8 py-4 bg-sittanos-gold text-sittanos-black text-xs font-bold uppercase tracking-widest rounded-full hover:bg-sittanos-goldHover transition-all shadow-[0_0_20px_rgba(212,175,55,0.2)] hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] text-center">
+                            Reserve Your Table
+                        </a>
+                        <a href="#menu" class="w-full sm:w-auto px-8 py-4 bg-transparent text-white border border-white/20 text-xs font-bold uppercase tracking-widest rounded-full hover:bg-white/10 transition-all text-center">
+                            View Menu
+                        </a>
+                    </div>
+                </div>
+
+                <div class="reveal delay-200 hidden lg:block">
+                    <div class="glass rounded-[2rem] p-8 relative overflow-hidden animate-float">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-sittanos-gold/20 blur-3xl rounded-full"></div>
+                        
+                        <div class="mb-8">
+                            <h3 class="text-2xl font-serif font-bold text-white mb-2">Make a booking</h3>
+                            <p class="text-xs text-sittanos-muted font-light">Secure your table instantly via OpenTable.</p>
+                        </div>
+
+                        <form class="space-y-5" onsubmit="event.preventDefault(); alert('Redirecting to OpenTable...');">
+                            <div class="relative group">
+                                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                    <i class="fa-regular fa-calendar text-sittanos-gold"></i>
+                                </div>
+                                <input type="date" value="2026-07-13" class="w-full bg-sittanos-dark/50 border border-white/10 text-white text-sm rounded-xl py-4 pl-12 pr-4 focus:outline-none focus:border-sittanos-gold transition-colors appearance-none cursor-pointer">
+                            </div>
+
+                            <div class="relative group">
+                                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                    <i class="fa-regular fa-clock text-sittanos-gold"></i>
+                                </div>
+                                <select class="w-full bg-sittanos-dark/50 border border-white/10 text-white text-sm rounded-xl py-4 pl-12 pr-4 focus:outline-none focus:border-sittanos-gold transition-colors appearance-none cursor-pointer">
+                                    <option value="18:00" class="bg-sittanos-dark">6:00 pm</option>
+                                    <option value="19:00" class="bg-sittanos-dark">7:00 pm</option>
+                                    <option value="20:00" class="bg-sittanos-dark" selected>8:00 pm</option>
+                                    <option value="21:00" class="bg-sittanos-dark">9:00 pm</option>
+                                </select>
+                                <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
+                                    <i class="fa-solid fa-chevron-down text-sittanos-muted text-xs"></i>
+                                </div>
+                            </div>
+
+                            <div class="relative group">
+                                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                    <i class="fa-solid fa-user-group text-sittanos-gold"></i>
+                                </div>
+                                <select class="w-full bg-sittanos-dark/50 border border-white/10 text-white text-sm rounded-xl py-4 pl-12 pr-4 focus:outline-none focus:border-sittanos-gold transition-colors appearance-none cursor-pointer">
+                                    <option value="1" class="bg-sittanos-dark">1 person</option>
+                                    <option value="2" class="bg-sittanos-dark" selected>2 people</option>
+                                    <option value="3" class="bg-sittanos-dark">3 people</option>
+                                    <option value="4" class="bg-sittanos-dark">4 people</option>
+                                    <option value="5" class="bg-sittanos-dark">5+ people</option>
+                                </select>
+                                <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
+                                    <i class="fa-solid fa-chevron-down text-sittanos-muted text-xs"></i>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 bg-sittanos-red text-white text-xs font-bold uppercase tracking-widest rounded-xl hover:bg-red-700 transition-colors shadow-lg shadow-sittanos-red/20 mt-2">
+                                Find a Table
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <a href="#features" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-sittanos-muted hover:text-sittanos-gold transition-colors z-10">
+            <span class="text-[9px] uppercase tracking-[0.2em] mb-2 font-semibold">Scroll Discover</span>
+            <i class="fa-solid fa-chevron-down animate-bounce text-sm"></i>
+        </a>
+    </section>
+
+    <section id="features" class="py-16 border-y border-white/5 bg-sittanos-card/30 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x-0 md:divide-x divide-white/10 text-center">
+                <div class="reveal p-4">
+                    <i class="fa-solid fa-award text-3xl text-sittanos-gold mb-4"></i>
+                    <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-1">Quality Certified</h4>
+                    <p class="text-xs text-sittanos-muted font-light">Only the freshest food</p>
+                </div>
+                <div class="reveal delay-100 p-4">
+                    <i class="fa-solid fa-plate-wheat text-3xl text-sittanos-gold mb-4"></i>
+                    <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-1">Wide Range</h4>
+                    <p class="text-xs text-sittanos-muted font-light">Dishes for every palate</p>
+                </div>
+                <div class="reveal delay-200 p-4">
+                    <i class="fa-solid fa-mobile-screen-button text-3xl text-sittanos-gold mb-4"></i>
+                    <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-1">Easy To Order</h4>
+                    <p class="text-xs text-sittanos-muted font-light">Dine-in or Takeaway</p>
+                </div>
+                <div class="reveal delay-300 p-4">
+                    <i class="fa-solid fa-child-reaching text-3xl text-sittanos-gold mb-4"></i>
+                    <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-1">Family Friendly</h4>
+                    <p class="text-xs text-sittanos-muted font-light">Kids menu & activities</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 lg:py-32 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="relative reveal">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-4 pt-12">
+                            <div class="img-hover-zoom rounded-2xl border border-white/10 aspect-[4/5]">
+                                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=800" alt="Succulent Steak" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="img-hover-zoom rounded-2xl border border-white/10 aspect-[4/5]">
+                                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&q=80&w=800" alt="Fresh Pizza" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-sittanos-black/90 backdrop-blur-md border border-sittanos-gold/30 p-6 rounded-full w-40 h-40 flex flex-col items-center justify-center text-center shadow-2xl">
+                        <span class="text-3xl font-serif font-bold text-sittanos-gold mb-1">7</span>
+                        <span class="text-[9px] uppercase tracking-widest text-white font-medium">Days A Week<br>Till Late</span>
+                    </div>
+                </div>
+
+                <div class="reveal delay-200">
+                    <h4 class="text-sittanos-gold text-xs font-bold uppercase tracking-[0.2em] mb-4 flex items-center gap-3">
+                        <span class="w-8 h-[1px] bg-sittanos-gold"></span> Our Story
+                    </h4>
+                    <h2 class="text-4xl sm:text-5xl font-serif font-bold text-white mb-6 leading-tight">
+                        Passion For Food & <br>Unforgettable Moments.
+                    </h2>
+                    <p class="text-sittanos-muted font-light leading-relaxed mb-6">
+                        At Sittanos, we are passionate about food and about you. We are a family restaurant that strives for excellence in serving you and creating amazing, delicious food that you will love to come back for.
+                    </p>
+                    <p class="text-sittanos-muted font-light leading-relaxed mb-10">
+                        Join us for a quick bite, intimate evening, or large group celebration with friends. We don't forget the children with a yummy kids menu and activities to keep them happy and you relaxed. 
+                    </p>
+
+                    <div class="flex items-center gap-6">
+                        <a href="#menu" class="group flex items-center gap-3 text-sm font-bold uppercase tracking-widest text-white hover:text-sittanos-gold transition-colors">
+                            Discover The Menu 
+                            <span class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:border-sittanos-gold transition-colors">
+                                <i class="fa-solid fa-arrow-right -rotate-45"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="py-24 lg:py-32 bg-sittanos-card/40 border-y border-white/5 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal">
+                <div>
+                    <h4 class="text-sittanos-gold text-xs font-bold uppercase tracking-[0.2em] mb-4">Curated Selection</h4>
+                    <h2 class="text-4xl sm:text-5xl font-serif font-bold text-white leading-tight">
+                        Explore Our <span class="italic font-light">Menu</span>
+                    </h2>
+                </div>
+                <a href="#" class="hidden md:inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white hover:text-sittanos-gold transition-colors pb-2 border-b border-white/20 hover:border-sittanos-gold">
+                    View Full PDF Menu
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <a href="#" class="group block glass rounded-2xl p-4 reveal">
+                    <div class="img-hover-zoom rounded-xl overflow-hidden aspect-[4/3] mb-5">
+                        <img src="https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?auto=format&fit=crop&q=80&w=600" alt="Starters" class="w-full h-full object-cover">
+                    </div>
+                    <div class="px-2">
+                        <h3 class="text-xl font-serif font-bold text-white mb-2 group-hover:text-sittanos-gold transition-colors">Starters & Breads</h3>
+                        <p class="text-xs text-sittanos-muted font-light leading-relaxed mb-4 line-clamp-2">Crispy bruschetta, garlic bread, and tantalising bites to begin your meal.</p>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-sittanos-gold">View Category →</span>
+                    </div>
+                </a>
+
+                <a href="#" class="group block glass rounded-2xl p-4 reveal delay-100">
+                    <div class="img-hover-zoom rounded-xl overflow-hidden aspect-[4/3] mb-5">
+                        <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&q=80&w=600" alt="Pastas" class="w-full h-full object-cover">
+                    </div>
+                    <div class="px-2">
+                        <h3 class="text-xl font-serif font-bold text-white mb-2 group-hover:text-sittanos-gold transition-colors">Mains & Pastas</h3>
+                        <p class="text-xs text-sittanos-muted font-light leading-relaxed mb-4 line-clamp-2">Traditional Italian recipes, rich sauces, and hearty main courses.</p>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-sittanos-gold">View Category →</span>
+                    </div>
+                </a>
+
+                <a href="#" class="group block glass rounded-2xl p-4 reveal delay-200">
+                    <div class="img-hover-zoom rounded-xl overflow-hidden aspect-[4/3] mb-5">
+                        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&q=80&w=600" alt="Pizzas" class="w-full h-full object-cover">
+                    </div>
+                    <div class="px-2">
+                        <h3 class="text-xl font-serif font-bold text-white mb-2 group-hover:text-sittanos-gold transition-colors">Wood-Fired Pizzas</h3>
+                        <p class="text-xs text-sittanos-muted font-light leading-relaxed mb-4 line-clamp-2">Authentic crusts with premium toppings baked to absolute perfection.</p>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-sittanos-gold">View Category →</span>
+                    </div>
+                </a>
+
+                <a href="#" class="group block glass rounded-2xl p-4 reveal delay-300">
+                    <div class="img-hover-zoom rounded-xl overflow-hidden aspect-[4/3] mb-5">
+                        <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=600" alt="Drinks" class="w-full h-full object-cover">
+                    </div>
+                    <div class="px-2">
+                        <h3 class="text-xl font-serif font-bold text-white mb-2 group-hover:text-sittanos-gold transition-colors">Drinks & Desserts</h3>
+                        <p class="text-xs text-sittanos-muted font-light leading-relaxed mb-4 line-clamp-2">Fully licensed bar, cocktails, and decadent sweet treats.</p>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-sittanos-gold">View Category →</span>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="mt-10 text-center md:hidden reveal">
+                <a href="#" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white hover:text-sittanos-gold transition-colors pb-2 border-b border-white/20">
+                    View Full PDF Menu
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 lg:py-32 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-0 lg:gap-16 rounded-[2.5rem] overflow-hidden glass border border-white/10 shadow-2xl reveal">
+                
+                <div class="p-8 sm:p-12 lg:p-16">
+                    <h4 class="text-sittanos-gold text-xs font-bold uppercase tracking-[0.2em] mb-3">Join Us</h4>
+                    <h2 class="text-3xl font-serif font-bold text-white mb-8">Reserve Your Experience</h2>
+                    
+                    <form class="space-y-6" onsubmit="event.preventDefault(); alert('Redirecting to OpenTable...');">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-[10px] font-bold uppercase tracking-widest text-sittanos-muted">Date</label>
+                                <div class="relative">
+                                    <i class="fa-regular fa-calendar absolute left-4 top-1/2 transform -translate-y-1/2 text-sittanos-gold"></i>
+                                    <input type="date" value="2026-07-13" class="w-full bg-sittanos-dark/50 border border-white/10 text-white text-sm rounded-xl py-3.5 pl-11 pr-4 focus:outline-none focus:border-sittanos-gold transition-colors cursor-pointer">
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-[10px] font-bold uppercase tracking-widest text-sittanos-muted">Time</label>
+                                <div class="relative">
+                                    <i class="fa-regular fa-clock absolute left-4 top-1/2 transform -translate-y-1/2 text-sittanos-gold"></i>
+                                    <select class="w-full bg-sittanos-dark/50 border border-white/10 text-white text-sm rounded-xl py-3.5 pl-11 pr-4 focus:outline-none focus:border-sittanos-gold transition-colors appearance-none cursor-pointer">
+                                        <option class="bg-sittanos-dark">7:00 pm</option>
+                                        <option class="bg-sittanos-dark" selected>8:00 pm</option>
+                                        <option class="bg-sittanos-dark">9:00 pm</option>
+                                    </select>
+                                    <i class="fa-solid fa-chevron-down absolute right-4 top-1/2 transform -translate-y-1/2 text-sittanos-muted text-xs pointer-events-none"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-bold uppercase tracking-widest text-sittanos-muted">Number of People</label>
+                            <div class="relative">
+                                <i class="fa-solid fa-user-group absolute left-4 top-1/2 transform -translate-y-1/2 text-sittanos-gold"></i>
+                                <select class="w-full bg-sittanos-dark/50 border border-white/10 text-white text-sm rounded-xl py-3.5 pl-11 pr-4 focus:outline-none focus:border-sittanos-gold transition-colors appearance-none cursor-pointer">
+                                    <option class="bg-sittanos-dark">2 People</option>
+                                    <option class="bg-sittanos-dark">4 People</option>
+                                    <option class="bg-sittanos-dark">6+ People</option>
+                                </select>
+                                <i class="fa-solid fa-chevron-down absolute right-4 top-1/2 transform -translate-y-1/2 text-sittanos-muted text-xs pointer-events-none"></i>
+                            </div>
+                        </div>
+
+                        <div class="pt-4">
+                            <button type="submit" class="w-full py-4 bg-sittanos-gold text-sittanos-black text-xs font-bold uppercase tracking-widest rounded-xl hover:bg-sittanos-goldHover transition-colors shadow-lg shadow-sittanos-gold/20">
+                                Find a Table
+                            </button>
+                        </div>
+                        <p class="text-[10px] text-center text-sittanos-muted mt-4">
+                            Powered by OpenTable. For dietary requirements, please contact staff.
+                        </p>
+                    </form>
+                </div>
+
+                <div class="bg-sittanos-dark p-8 sm:p-12 lg:p-16 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-white/5 relative overflow-hidden">
+                    <div class="absolute -right-20 -bottom-20 opacity-5 pointer-events-none">
+                        <i class="fa-solid fa-utensils text-[20rem]"></i>
+                    </div>
+
+                    <div class="relative z-10 space-y-10">
+                        <div>
+                            <h4 class="text-sittanos-gold text-xs font-bold uppercase tracking-[0.2em] mb-3">Our Location</h4>
+                            <p class="text-xl font-serif text-white mb-2">R03 Westfield Penrith</p>
+                            <p class="text-sm text-sittanos-muted font-light leading-relaxed">Level 1/585 Riley St, <br>Penrith NSW 2750</p>
+                        </div>
+
+                        <div>
+                            <h4 class="text-sittanos-gold text-xs font-bold uppercase tracking-[0.2em] mb-3">Contact</h4>
+                            <a href="tel:0247224444" class="text-xl font-serif text-white hover:text-sittanos-gold transition-colors inline-block mb-1">(02) 4722 4444</a>
+                            <p class="text-sm text-sittanos-muted font-light">Call for large bookings or inquiries</p>
+                        </div>
+
+                        <div>
+                            <h4 class="text-sittanos-gold text-xs font-bold uppercase tracking-[0.2em] mb-3">Opening Hours</h4>
+                            <div class="space-y-2">
+                                <div class="flex justify-between text-sm font-light border-b border-white/5 pb-2">
+                                    <span class="text-sittanos-muted">Mon - Fri</span>
+                                    <span class="text-white">11:00 AM — 09:00 PM</span>
+                                </div>
+                                <div class="flex justify-between text-sm font-light pt-1">
+                                    <span class="text-sittanos-muted">Sat - Sun</span>
+                                    <span class="text-white">11:00 AM — 09:00 PM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-sittanos-black pt-20 pb-10 border-t border-white/5 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+                
+                <div class="lg:col-span-1">
+                    <a href="#" class="flex flex-col group mb-6">
+                        <span class="font-serif text-2xl font-bold tracking-[0.2em] text-white uppercase leading-none">
+                            SITTANOS
+                        </span>
+                        <span class="text-[8px] tracking-[0.4em] uppercase font-medium text-sittanos-gold mt-1.5">
+                            Bar & Restaurant
+                        </span>
+                    </a>
+                    <p class="text-xs text-sittanos-muted font-light leading-relaxed mb-6 pr-4">
+                        Penrith's best destination for great service, sensational food, and affordable prices. Join us for a quick bite or large celebration.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-sittanos-muted hover:text-white hover:border-sittanos-gold transition-colors">
+                            <i class="fa-brands fa-facebook-f text-xs"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-sittanos-muted hover:text-white hover:border-sittanos-gold transition-colors">
+                            <i class="fa-brands fa-instagram text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-white text-sm font-serif font-bold mb-6">Explore</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-xs font-light text-sittanos-muted hover:text-sittanos-gold transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-xs font-light text-sittanos-muted hover:text-sittanos-gold transition-colors">About Us</a></li>
+                        <li><a href="#menu" class="text-xs font-light text-sittanos-muted hover:text-sittanos-gold transition-colors">Main Menu</a></li>
+                        <li><a href="#lunch" class="text-xs font-light text-sittanos-muted hover:text-sittanos-gold transition-colors">Lunch Specials</a></li>
+                        <li><a href="#menu" class="text-xs font-light text-sittanos-muted hover:text-sittanos-gold transition-colors">Drinks & Desserts</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white text-sm font-serif font-bold mb-6">Information</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#book" class="text-xs font-light text-sittanos-muted hover:text-sittanos-gold transition-colors">Book A Table</a></li>
+                        <li><a href="#contact" class="text-xs font-light text-sittanos-muted hover:text-sittanos-gold transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="text-xs font-light text-sittanos-muted hover:text-sittanos-gold transition-colors">Dietary Requirements</a></li>
+                        <li><a href="#" class="text-xs font-light text-sittanos-muted hover:text-sittanos-gold transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white text-sm font-serif font-bold mb-6">Reservations</h4>
+                    <p class="text-xs text-sittanos-muted font-light leading-relaxed mb-4">
+                        Secure your spot instantly online. We highly recommend booking ahead for weekends and large groups.
+                    </p>
+                    <a href="#book" class="inline-block px-6 py-3 border border-sittanos-gold text-sittanos-gold text-[10px] font-bold uppercase tracking-widest rounded-full hover:bg-sittanos-gold hover:text-sittanos-black transition-all">
+                        Book via OpenTable
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-[10px] text-sittanos-muted font-light uppercase tracking-wider">
+                    &copy; 2026 Sittanos Penrith. All Rights Reserved.
+                </p>
+                <p class="text-[10px] text-sittanos-muted font-light uppercase tracking-wider">
+                    Designed for Culinary Excellence
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('glass-nav', 'py-4', 'shadow-2xl');
+                navbar.classList.remove('py-6');
+            } else {
+                navbar.classList.remove('glass-nav', 'py-4', 'shadow-2xl');
+                navbar.classList.add('py-6');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileIcon = document.getElementById('mobile-icon');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            const isClosed = mobileMenu.classList.contains('translate-x-full');
+            if (isClosed) {
+                mobileMenu.classList.remove('translate-x-full');
+                mobileIcon.classList.remove('fa-bars');
+                mobileIcon.classList.add('fa-xmark');
+                document.body.style.overflow = 'hidden'; // prevent scroll
+            } else {
+                mobileMenu.classList.add('translate-x-full');
+                mobileIcon.classList.remove('fa-xmark');
+                mobileIcon.classList.add('fa-bars');
+                document.body.style.overflow = 'auto'; // allow scroll
+            }
+        }
+
+        mobileBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>

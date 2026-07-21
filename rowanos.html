@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rowanos | Family-Friendly Restaurant & Pizzeria - Croydon, Seville, Chirnside Park</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        heading: ['Syne', 'sans-serif'],
+                    },
+                    colors: {
+                        rowanos: {
+                            gold: '#D97706',
+                            amber: '#F59E0B',
+                            red: '#DC2626',
+                            teal: '#0D9488',
+                            dark: '#0F172A',
+                            card: '#1E293B',
+                        }
+                    },
+                    backgroundImage: {
+                        'hero-gradient': 'linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(30, 41, 59, 0.85) 100%)',
+                        'accent-gradient': 'linear-gradient(135deg, #F59E0B 0%, #DC2626 100%)',
+                        'teal-gradient': 'linear-gradient(135deg, #0D9488 0%, #0284C7 100%)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/css">
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.88);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #F59E0B 0%, #EF4444 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glow-effect {
+            box-shadow: 0 0 35px -5px rgba(245, 158, 11, 0.35);
+        }
+    </style>
+</head>
+<body class="bg-rowanos-dark text-slate-100 font-sans antialiased selection:bg-rowanos-amber selection:text-white">
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="bg-accent-gradient py-2 px-4 text-xs font-bold text-slate-950 tracking-wide text-center">
+        <span>🍕 PROUDLY SERVING SOUTH EAST MELBOURNE — CROYDON, SEVILLE & CHIRNSIDE PARK</span>
+    </div>
+
+    <!-- STICKY NAVIGATION -->
+    <header class="fixed top-8 left-0 right-0 z-50 transition-all duration-300 glass-nav border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-accent-gradient flex items-center justify-center font-heading font-extrabold text-slate-950 text-2xl shadow-lg group-hover:scale-105 transition-transform">
+                        R
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-heading font-extrabold text-2xl tracking-wider text-white leading-none">ROWANOS</span>
+                        <span class="text-[9px] font-bold tracking-[0.2em] text-rowanos-amber uppercase">Restaurante & Pizzeria</span>
+                    </div>
+                </a>
+
+                <!-- Navigation Links -->
+                <nav class="hidden lg:flex items-center space-x-8 text-sm font-semibold uppercase tracking-wider">
+                    <a href="#about" class="text-slate-300 hover:text-rowanos-amber transition-colors">About</a>
+                    <a href="#menu" class="text-slate-300 hover:text-rowanos-amber transition-colors">Menu</a>
+                    <a href="#locations" class="text-slate-300 hover:text-rowanos-amber transition-colors">Locations</a>
+                    <a href="#events" class="text-slate-300 hover:text-rowanos-amber transition-colors">Events</a>
+                    <a href="#testimonials" class="text-slate-300 hover:text-rowanos-amber transition-colors">Reviews</a>
+                    <a href="#vouchers" class="text-slate-300 hover:text-rowanos-amber transition-colors">Vouchers</a>
+                </nav>
+
+                <!-- Action Buttons -->
+                <div class="hidden md:flex items-center gap-3">
+                    <a href="#reservations" class="px-5 py-2.5 rounded-full glass-panel text-white text-xs font-extrabold uppercase tracking-wider hover:bg-white/10 transition-all border border-white/15">
+                        Reservations
+                    </a>
+                    <a href="#order" class="bg-accent-gradient text-slate-950 px-5 py-2.5 rounded-full text-xs font-extrabold uppercase tracking-wider hover:opacity-95 transition-all shadow-md glow-effect">
+                        Order Online
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" type="button" class="lg:hidden p-2 rounded-lg text-slate-300 hover:text-white" aria-label="Toggle menu">
+                    <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden border-b border-white/10 bg-rowanos-dark/95 backdrop-blur-2xl px-4 pt-3 pb-6 space-y-3">
+            <a href="#about" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-semibold text-slate-200 hover:bg-white/5">About Us</a>
+            <a href="#menu" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-semibold text-slate-200 hover:bg-white/5">Our Menu</a>
+            <a href="#locations" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-semibold text-slate-200 hover:bg-white/5">Locations</a>
+            <a href="#events" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-semibold text-slate-200 hover:bg-white/5">Events & Function</a>
+            <a href="#testimonials" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-semibold text-slate-200 hover:bg-white/5">Reviews</a>
+            <a href="#vouchers" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-semibold text-slate-200 hover:bg-white/5">Gift Vouchers</a>
+            <div class="pt-2 border-t border-white/10 flex flex-col gap-2">
+                <a href="#reservations" class="w-full text-center block glass-panel text-white py-3 rounded-xl font-bold uppercase text-xs tracking-wider">
+                    Book A Table
+                </a>
+                <a href="#order" class="w-full text-center block bg-accent-gradient text-slate-950 py-3 rounded-xl font-bold uppercase text-xs tracking-wider">
+                    Order Online
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-44 pb-24 lg:pt-56 lg:pb-36 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1920&q=80" alt="Rowanos Gourmet Pizza" class="w-full h-full object-cover brightness-40">
+            <div class="absolute inset-0 bg-gradient-to-t from-rowanos-dark via-rowanos-dark/60 to-transparent"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-panel text-xs font-semibold text-rowanos-amber uppercase tracking-widest border border-white/10">
+                        <i class="fa-solid fa-heart text-rowanos-red"></i> Family-Friendly Dining Experience
+                    </div>
+                    
+                    <h1 class="font-heading text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-none text-white">
+                        Crafted with <br /><span class="text-gradient">Precision & Passion.</span>
+                    </h1>
+                    
+                    <p class="text-base sm:text-lg text-slate-300 font-light leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        Indulge in a slice of heaven with our master pizzas. Every dish is a result of decades of honing our craft, bringing joy, great food, and a true sense of home to South East Melbourne.
+                    </p>
+
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#order" class="px-8 py-4 rounded-full bg-accent-gradient text-slate-950 font-extrabold text-xs uppercase tracking-wider shadow-lg glow-effect hover:scale-105 transition-all">
+                            <i class="fa-solid fa-pizza-slice mr-2"></i> Order Online Now
+                        </a>
+                        <a href="#reservations" class="px-8 py-4 rounded-full glass-panel text-white font-bold text-xs uppercase tracking-wider border border-white/20 hover:bg-white/10 transition-all">
+                            <i class="fa-solid fa-calendar-check mr-2"></i> Reserve A Table
+                        </a>
+                    </div>
+
+                    <!-- Trust Rating Badge -->
+                    <div class="pt-6 border-t border-white/10 flex items-center justify-center lg:justify-start gap-4">
+                        <div class="flex items-center text-amber-400 gap-1 text-sm">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                        </div>
+                        <div class="text-xs text-slate-300">
+                            <span class="font-bold text-white">4.2 / 5.0</span> Rating based on <span class="font-bold text-white">615+ Google Reviews</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Image Card -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <div class="absolute -inset-1 bg-accent-gradient rounded-3xl opacity-30 blur-2xl"></div>
+                        
+                        <div class="relative rounded-2xl overflow-hidden glass-panel border border-white/10 shadow-2xl">
+                            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1000&q=80" alt="Rowanos Fresh Pizza" class="w-full h-[440px] object-cover object-center brightness-95 hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-rowanos-dark via-transparent to-transparent"></div>
+                            
+                            <div class="absolute bottom-6 left-6 right-6 p-4 rounded-xl glass-panel border border-white/15 flex items-center justify-between">
+                                <div>
+                                    <p class="text-xs text-slate-400 uppercase font-semibold">Rowanos Signature</p>
+                                    <p class="text-sm font-bold text-white">Fresh Ingredients • Oven Baked</p>
+                                </div>
+                                <span class="px-3 py-1 rounded-full bg-accent-gradient text-slate-950 text-xs font-bold uppercase">Delicious</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- KEY HIGHLIGHTS / STATS -->
+    <section class="py-12 border-y border-white/10 bg-slate-900/60 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <p class="font-heading text-3xl sm:text-4xl font-extrabold text-gradient">3 Locations</p>
+                    <p class="text-xs text-slate-400 mt-1 uppercase tracking-wider font-semibold">South East Melbourne</p>
+                </div>
+                <div class="text-center">
+                    <p class="font-heading text-3xl sm:text-4xl font-extrabold text-white">40+ Years</p>
+                    <p class="text-xs text-slate-400 mt-1 uppercase tracking-wider font-semibold">Serving Local Families</p>
+                </div>
+                <div class="text-center">
+                    <p class="font-heading text-3xl sm:text-4xl font-extrabold text-gradient">615+</p>
+                    <p class="text-xs text-slate-400 mt-1 uppercase tracking-wider font-semibold">5-Star Customer Reviews</p>
+                </div>
+                <div class="text-center">
+                    <p class="font-heading text-3xl sm:text-4xl font-extrabold text-white">100%</p>
+                    <p class="text-xs text-slate-400 mt-1 uppercase tracking-wider font-semibold">Fresh & Passionate</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 relative">
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80" alt="Rowanos Restaurant Atmosphere" class="rounded-2xl object-cover h-64 w-full glass-panel border border-white/10">
+                        <img src="https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=600&q=80" alt="Rowanos Bar & Drinks" class="rounded-2xl object-cover h-64 w-full translate-y-6 glass-panel border border-white/10">
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rowanos-amber/10 border border-rowanos-amber/30 text-xs font-bold text-rowanos-amber uppercase tracking-wider">
+                        OUR STORY & VISION
+                    </div>
+                    
+                    <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white leading-tight">
+                        Welcome to Our Family-Friendly <span class="text-gradient">Restaurant & Pizzeria</span>
+                    </h2>
+                    
+                    <p class="text-slate-300 text-base leading-relaxed font-light">
+                        Proudly serving the communities of Croydon, Seville, and Chirnside Park. We're dedicated to creating a warm, welcoming atmosphere where families and friends can gather, share delicious meals, and make lasting memories.
+                    </p>
+
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        With a menu that caters to all ages and tastes, our pizzas and dishes are a result of years of honing our craft and perfecting our recipes. Whether you're a seasoned pizza connoisseur or just looking for a wholesome meal with loved ones, Rowanos is sure to satisfy.
+                    </p>
+
+                    <div class="space-y-3 pt-2">
+                        <div class="flex items-center gap-3 text-xs text-slate-200 font-semibold">
+                            <i class="fa-solid fa-circle-check text-rowanos-amber text-sm"></i>
+                            Freshly prepared dough & signature secret sauces
+                        </div>
+                        <div class="flex items-center gap-3 text-xs text-slate-200 font-semibold">
+                            <i class="fa-solid fa-circle-check text-rowanos-amber text-sm"></i>
+                            Warm brick-wall interiors & comfortable family seating
+                        </div>
+                        <div class="flex items-center gap-3 text-xs text-slate-200 font-semibold">
+                            <i class="fa-solid fa-circle-check text-rowanos-amber text-sm"></i>
+                            Catering for family dinners, dates, and group events
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- MENU HIGHLIGHTS SECTION -->
+    <section id="menu" class="py-24 bg-slate-900/40 border-y border-white/5 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rowanos-amber/10 border border-rowanos-amber/30 text-xs font-bold text-rowanos-amber uppercase tracking-wider">
+                    OUR SPECIALTIES
+                </div>
+                <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white">Delicious Dishes For Every Taste</h2>
+                <p class="text-slate-400 text-sm">Explore our signature pizzas, pastas, sides, and bar menu.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Category 1 -->
+                <div class="glass-panel rounded-2xl p-6 border border-white/10 hover:border-rowanos-amber/50 transition-all group">
+                    <div class="h-48 rounded-xl overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?auto=format&fit=crop&w=600&q=80" alt="Traditional Pizzas" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-white mb-2">Artisan & Traditional Pizzas</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed mb-4">Hand-stretched crusts loaded with fresh mozzarella, premium meats, and garden herbs.</p>
+                    <a href="#order" class="inline-flex items-center gap-2 text-xs font-bold text-rowanos-amber hover:text-white transition-colors">
+                        View Pizza Menu <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Category 2 -->
+                <div class="glass-panel rounded-2xl p-6 border border-white/10 hover:border-rowanos-amber/50 transition-all group">
+                    <div class="h-48 rounded-xl overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=600&q=80" alt="Pasta & Mains" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-white mb-2">Pasta & Italian Mains</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed mb-4">Hearty risottos, rich bolognese, schnitzels, and fresh seafood specialties.</p>
+                    <a href="#order" class="inline-flex items-center gap-2 text-xs font-bold text-rowanos-amber hover:text-white transition-colors">
+                        View Mains Menu <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Category 3 -->
+                <div class="glass-panel rounded-2xl p-6 border border-white/10 hover:border-rowanos-amber/50 transition-all group">
+                    <div class="h-48 rounded-xl overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=600&q=80" alt="Sides & Desserts" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-white mb-2">Starters, Sides & Desserts</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed mb-4">Golden arancini balls, garlic bread, fresh salads, and decadent desserts.</p>
+                    <a href="#order" class="inline-flex items-center gap-2 text-xs font-bold text-rowanos-amber hover:text-white transition-colors">
+                        View Sides & Desserts <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATIONS SECTION -->
+    <section id="locations" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rowanos-amber/10 border border-rowanos-amber/30 text-xs font-bold text-rowanos-amber uppercase tracking-wider">
+                    FIND YOUR NEAREST ROWANOS
+                </div>
+                <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white">Three Locations Across SE Melbourne</h2>
+                <p class="text-slate-400 text-sm">Dine in or takeaway at any of our convenient venues.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Location 1 -->
+                <div class="glass-panel rounded-2xl p-8 border border-white/10 hover:border-rowanos-amber/50 transition-all group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-rowanos-amber/20 text-rowanos-amber flex items-center justify-center text-xl mb-6">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <h3 class="font-heading text-2xl font-bold text-white mb-2">Chirnside Park</h3>
+                        <p class="text-xs text-slate-300 mb-4">99 Switchback Rd, Chirnside Park VIC 3116</p>
+                    </div>
+                    <a href="#order" class="w-full py-3 rounded-xl bg-accent-gradient text-slate-950 font-extrabold text-center text-xs uppercase tracking-wider shadow-md hover:opacity-95 transition-all mt-4">
+                        Order From Chirnside
+                    </a>
+                </div>
+
+                <!-- Location 2 -->
+                <div class="glass-panel rounded-2xl p-8 border border-white/10 hover:border-rowanos-amber/50 transition-all group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-rowanos-amber/20 text-rowanos-amber flex items-center justify-center text-xl mb-6">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <h3 class="font-heading text-2xl font-bold text-white mb-2">Seville</h3>
+                        <p class="text-xs text-slate-300 mb-4">658 Warburton Hwy, Seville VIC 3139</p>
+                    </div>
+                    <a href="#order" class="w-full py-3 rounded-xl bg-accent-gradient text-slate-950 font-extrabold text-center text-xs uppercase tracking-wider shadow-md hover:opacity-95 transition-all mt-4">
+                        Order From Seville
+                    </a>
+                </div>
+
+                <!-- Location 3 -->
+                <div class="glass-panel rounded-2xl p-8 border border-white/10 hover:border-rowanos-amber/50 transition-all group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-rowanos-amber/20 text-rowanos-amber flex items-center justify-center text-xl mb-6">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <h3 class="font-heading text-2xl font-bold text-white mb-2">Croydon</h3>
+                        <p class="text-xs text-slate-300 mb-4">122 Bayswater Rd, Croydon South VIC 3136</p>
+                    </div>
+                    <a href="#order" class="w-full py-3 rounded-xl bg-accent-gradient text-slate-950 font-extrabold text-center text-xs uppercase tracking-wider shadow-md hover:opacity-95 transition-all mt-4">
+                        Order From Croydon
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section id="testimonials" class="py-24 bg-slate-900/40 border-t border-white/5 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rowanos-amber/10 border border-rowanos-amber/30 text-xs font-bold text-rowanos-amber uppercase tracking-wider">
+                    REAL CUSTOMER REVIEWS
+                </div>
+                <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white">What Our Guests Say</h2>
+                <p class="text-slate-400 text-sm">Rated 4.2 stars with over 615+ verified Google reviews.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="glass-panel rounded-2xl p-6 border border-white/10 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 text-xs gap-1 mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-xs text-slate-300 italic leading-relaxed mb-6">
+                            "Great food, generous sizes and friendly service!"
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/10">
+                        <div class="w-9 h-9 rounded-full bg-accent-gradient flex items-center justify-center font-bold text-slate-950 text-xs">
+                            RR
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-white">Rach Rushton</p>
+                            <p class="text-[10px] text-slate-400">13 April 2025 • Google Review</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="glass-panel rounded-2xl p-6 border border-white/10 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 text-xs gap-1 mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-xs text-slate-300 italic leading-relaxed mb-6">
+                            "I think the last time I was here was 40 years ago. Food tonight was great as was service. Definitely be back."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/10">
+                        <div class="w-9 h-9 rounded-full bg-accent-gradient flex items-center justify-center font-bold text-slate-950 text-xs">
+                            DE
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-white">Debra Ellen</p>
+                            <p class="text-[10px] text-slate-400">27 March 2025 • Google Review</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="glass-panel rounded-2xl p-6 border border-white/10 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 text-xs gap-1 mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-xs text-slate-300 italic leading-relaxed mb-6">
+                            "Had an amazing time at Rowanos! Me and my girlfriend went there for dinner the other night and everything about the place was amazing—the food and prompt staff!"
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/10">
+                        <div class="w-9 h-9 rounded-full bg-accent-gradient flex items-center justify-center font-bold text-slate-950 text-xs">
+                            SS
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-white">Sienna Sloane</p>
+                            <p class="text-[10px] text-slate-400">13 March 2025 • Google Review</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="#order" class="inline-flex items-center gap-2 px-6 py-3 rounded-full glass-panel text-slate-300 hover:text-white border border-white/10 text-xs font-semibold">
+                    <i class="fa-brands fa-google text-amber-400"></i> Leave a Review on Google
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section id="faq" class="py-24 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 space-y-3">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rowanos-amber/10 border border-rowanos-amber/30 text-xs font-bold text-rowanos-amber uppercase tracking-wider">
+                    QUESTIONS & ANSWERS
+                </div>
+                <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white">Frequently Asked Questions</h2>
+                <p class="text-slate-400 text-sm">Everything you need to know about dining or ordering with Rowanos.</p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="glass-panel rounded-xl border border-white/10 overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-4 text-left font-bold text-white text-sm flex justify-between items-center hover:bg-white/5 transition-colors">
+                        <span>How do I place an online order for pickup or delivery?</span>
+                        <i class="fa-solid fa-chevron-down text-rowanos-amber transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4 text-xs text-slate-300 leading-relaxed border-t border-white/5 pt-3">
+                        You can easily place an order through our official online ordering page by selecting your nearest location (Croydon, Seville, or Chirnside Park).
+                    </div>
+                </div>
+
+                <div class="glass-panel rounded-xl border border-white/10 overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-4 text-left font-bold text-white text-sm flex justify-between items-center hover:bg-white/5 transition-colors">
+                        <span>Do I need to make a reservation for table dining?</span>
+                        <i class="fa-solid fa-chevron-down text-rowanos-amber transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4 text-xs text-slate-300 leading-relaxed border-t border-white/5 pt-3">
+                        While walk-ins are welcome, we highly recommend reserving a table online—especially for weekend dinners and large family gatherings.
+                    </div>
+                </div>
+
+                <div class="glass-panel rounded-xl border border-white/10 overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-4 text-left font-bold text-white text-sm flex justify-between items-center hover:bg-white/5 transition-colors">
+                        <span>Are Rowanos restaurants family-friendly?</span>
+                        <i class="fa-solid fa-chevron-down text-rowanos-amber transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4 text-xs text-slate-300 leading-relaxed border-t border-white/5 pt-3">
+                        Yes! Rowanos is built on family values. We feature dedicated children's options, comfortable group seating, and a warm atmosphere for all ages.
+                    </div>
+                </div>
+
+                <div class="glass-panel rounded-xl border border-white/10 overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-4 text-left font-bold text-white text-sm flex justify-between items-center hover:bg-white/5 transition-colors">
+                        <span>Can I buy Rowanos Gift Vouchers online?</span>
+                        <i class="fa-solid fa-chevron-down text-rowanos-amber transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4 text-xs text-slate-300 leading-relaxed border-t border-white/5 pt-3">
+                        Yes, gift vouchers are available to purchase online or in-store—making them the perfect gift for food lovers in South East Melbourne!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION / RESERVATIONS / ORDER -->
+    <section id="order" class="py-24 bg-slate-900/40 border-t border-white/5 relative overflow-hidden">
+        <div id="reservations" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- CTA Text -->
+                <div class="space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rowanos-amber/10 border border-rowanos-amber/30 text-xs font-bold text-rowanos-amber uppercase tracking-wider">
+                        READY TO DINE?
+                    </div>
+                    
+                    <h2 class="font-heading text-4xl sm:text-5xl font-extrabold text-white leading-tight">
+                        Order Rowanos <br /><span class="text-gradient">Tonight!</span>
+                    </h2>
+                    
+                    <p class="text-slate-300 text-base leading-relaxed font-light">
+                        Gather your family and friends for an unforgettable meal or order online for fast, hot takeaway delivery.
+                    </p>
+
+                    <div class="grid sm:grid-cols-2 gap-4 pt-4">
+                        <div class="glass-panel p-6 rounded-2xl border border-white/10 space-y-3">
+                            <i class="fa-solid fa-bag-shopping text-2xl text-rowanos-amber"></i>
+                            <h4 class="font-heading text-lg font-bold text-white">Order Online</h4>
+                            <p class="text-xs text-slate-400">Order directly from our online portal for fast pickup or delivery.</p>
+                            <a href="#" class="inline-block text-xs font-bold text-rowanos-amber hover:text-white transition-colors">Visit Ordering Page →</a>
+                        </div>
+
+                        <div class="glass-panel p-6 rounded-2xl border border-white/10 space-y-3">
+                            <i class="fa-solid fa-chair text-2xl text-rowanos-amber"></i>
+                            <h4 class="font-heading text-lg font-bold text-white">Table Booking</h4>
+                            <p class="text-xs text-slate-400">Reserve your table online in seconds for any location.</p>
+                            <a href="#" class="inline-block text-xs font-bold text-rowanos-amber hover:text-white transition-colors">Visit Booking Page →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Booking Form -->
+                <div class="glass-panel p-8 rounded-3xl border border-white/10 shadow-2xl">
+                    <h3 class="font-heading text-2xl font-bold text-white mb-2">Book A Table</h3>
+                    <p class="text-xs text-slate-400 mb-6">Fill in your details to secure your family dinner table.</p>
+
+                    <form id="booking-form" onsubmit="event.preventDefault(); alert('Table reservation request sent to Rowanos! We will confirm your booking shortly.');" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Select Location</label>
+                            <select class="w-full px-4 py-3 rounded-xl bg-rowanos-card border border-white/10 text-white text-sm focus:outline-none focus:border-rowanos-amber">
+                                <option>Croydon (122 Bayswater Rd)</option>
+                                <option>Seville (658 Warburton Hwy)</option>
+                                <option>Chirnside Park (99 Switchback Rd)</option>
+                            </select>
+                        </div>
+
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Full Name</label>
+                                <input type="text" required placeholder="John Doe" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder-slate-500 focus:outline-none focus:border-rowanos-amber">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Phone</label>
+                                <input type="tel" required placeholder="0400 000 000" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder-slate-500 focus:outline-none focus:border-rowanos-amber">
+                            </div>
+                        </div>
+
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Guests</label>
+                                <input type="number" min="1" max="20" value="2" required class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-rowanos-amber">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Date & Time</label>
+                                <input type="datetime-local" required class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-rowanos-amber">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-xl bg-accent-gradient text-slate-950 font-extrabold text-xs uppercase tracking-widest shadow-lg glow-effect hover:opacity-95 transition-all">
+                            CONFIRM RESERVATION
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-white/10 bg-slate-950 pt-16 pb-12 text-slate-400 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+                
+                <!-- Col 1 -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-accent-gradient flex items-center justify-center font-heading font-extrabold text-slate-950 text-xl">
+                            R
+                        </div>
+                        <span class="font-heading font-extrabold text-base tracking-wider text-white">ROWANOS</span>
+                    </div>
+                    <p class="text-slate-400 leading-relaxed">
+                        A family-friendly restaurant and pizzeria dedicated to delicious food, warm hospitality, and bringing communities together in South East Melbourne.
+                    </p>
+                </div>
+
+                <!-- Col 2 -->
+                <div>
+                    <p class="font-bold text-white uppercase tracking-wider mb-4 text-xs">Our Locations</p>
+                    <ul class="space-y-2.5">
+                        <li><a href="#locations" class="hover:text-white transition-colors">Chirnside Park</a></li>
+                        <li><a href="#locations" class="hover:text-white transition-colors">Seville</a></li>
+                        <li><a href="#locations" class="hover:text-white transition-colors">Croydon South</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3 -->
+                <div>
+                    <p class="font-bold text-white uppercase tracking-wider mb-4 text-xs">Quick Links</p>
+                    <ul class="space-y-2.5">
+                        <li><a href="#about" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#menu" class="hover:text-white transition-colors">Our Menu</a></li>
+                        <li><a href="#events" class="hover:text-white transition-colors">Events & Functions</a></li>
+                        <li><a href="#vouchers" class="hover:text-white transition-colors">Gift Vouchers</a></li>
+                        <li><a href="#reservations" class="hover:text-white transition-colors">Reservations</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4 -->
+                <div>
+                    <p class="font-bold text-white uppercase tracking-wider mb-4 text-xs">Connect With Us</p>
+                    <div class="flex items-center gap-4 text-base text-slate-300 mb-4">
+                        <a href="#" aria-label="Facebook" class="hover:text-rowanos-amber transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram" class="hover:text-rowanos-amber transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                    <p class="text-[11px] text-slate-500">© 2026 Rowanos. All Rights Reserved.</p>
+                </div>
+
+            </div>
+
+            <!-- Bottom Legal -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 text-[11px]">
+                <p>Copyrights Reserved - Rowanos</p>
+                <div class="flex items-center gap-6">
+                    <a href="#" class="hover:text-slate-300 transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-slate-300 transition-colors">Terms & Conditions</a>
+                    <a href="#" class="hover:text-slate-300 transition-colors">Site by Order Now</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if(mobileMenu.classList.contains('hidden')) {
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            } else {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            }
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            });
+        });
+
+        // FAQ Accordion Toggle
+        const faqToggles = document.querySelectorAll('.faq-toggle');
+
+        faqToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const content = toggle.nextElementSibling;
+                const icon = toggle.querySelector('i');
+
+                content.classList.toggle('hidden');
+
+                if(content.classList.contains('hidden')) {
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGOVIA | Fine Handcrafted Jewellery</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0D0F12',
+                            muted: '#1E2229',
+                            accent: '#D4AF37', // Premium Gold
+                            silver: '#E5E8EB',
+                            light: '#F8F9FA'
+                        }
+                    },
+                    backdropBlur: {
+                        xs: '2px',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Modern Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0D0F12;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #252A34;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4AF37;
+        }
+
+        /* Glassmorphism Classes */
+        .glass-nav {
+            background: rgba(13, 15, 18, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .glass-card {
+            background: rgba(30, 34, 41, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glass-card:hover {
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        /* Custom Scroll Reveal Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Modern text stroke effect */
+        .text-stroke {
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
+            color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-white font-sans overflow-x-hidden antialiased">
+
+    <!-- Sticky Glassmorphic Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300 py-4 md:py-5">
+        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+            
+            <!-- Mobile Menu Toggle Button -->
+            <button id="menuBtn" class="lg:hidden text-white hover:text-brand-accent transition-colors focus:outline-none" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars-staggered text-xl"></i>
+            </button>
+
+            <!-- Navigation Links (Left) -->
+            <div class="hidden lg:flex items-center space-x-8 text-xs font-medium uppercase tracking-[0.2em] text-gray-300">
+                <a href="#shop" class="hover:text-brand-accent transition-colors duration-300">Shop</a>
+                <a href="#bespoke" class="hover:text-brand-accent transition-colors duration-300">Bespoke</a>
+                <a href="#consultation" class="hover:text-brand-accent transition-colors duration-300">Consultation</a>
+            </div>
+
+            <!-- Central Luxury Logo -->
+            <a href="#" class="absolute left-1/2 transform -translate-x-1/2 flex flex-col items-center group">
+                <span class="font-serif text-2xl md:text-3xl tracking-[0.3em] font-medium text-white group-hover:text-brand-accent transition-colors duration-500">AGOVIA</span>
+                <span class="text-[9px] tracking-[0.5em] text-brand-accent uppercase mt-0.5">Studio</span>
+            </a>
+
+            <!-- Interface Icons (Right) -->
+            <div class="flex items-center space-x-5 text-gray-300">
+                <button class="hover:text-brand-accent transition-colors duration-300 text-sm hidden sm:inline-block tracking-wider uppercase text-xs font-semibold px-2">INR (₹)</button>
+                <button class="hover:text-brand-accent transition-colors duration-300 text-base" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="hover:text-brand-accent transition-colors duration-300 text-base relative" aria-label="Cart">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="absolute -top-1.5 -right-2 bg-brand-accent text-brand-dark font-bold text-[9px] w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Expandable Navigation Menu -->
+        <div id="mobileMenu" class="hidden absolute top-full left-0 w-full bg-brand-dark/95 border-b border-white/10 backdrop-blur-xl transition-all duration-300 ease-in-out">
+            <div class="flex flex-col p-6 space-y-4 text-sm font-medium uppercase tracking-[0.15em] text-center">
+                <a href="#shop" class="py-2 hover:text-brand-accent transition-colors">Shop All</a>
+                <a href="#collection" class="py-2 hover:text-brand-accent transition-colors">New In</a>
+                <a href="#bespoke" class="py-2 hover:text-brand-accent transition-colors">Bespoke Ordering</a>
+                <a href="#consultation" class="py-2 hover:text-brand-accent transition-colors">Book a Consultation</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Luxury Hero Section -->
+    <header class="relative min-h-screen w-full flex items-center justify-center bg-gradient-to-b from-brand-dark via-brand-muted/20 to-brand-dark pt-16 overflow-hidden">
+        <!-- Abstract premium mesh gradient background items -->
+        <div class="absolute w-[500px] h-[500px] rounded-full bg-brand-accent/5 blur-[120px] top-1/4 -left-64 pointer-events-none"></div>
+        <div class="absolute w-[600px] h-[600px] rounded-full bg-white/5 blur-[150px] bottom-1/4 -right-64 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10 py-12">
+            <!-- Hero Typography Content -->
+            <div class="lg:col-span-6 flex flex-col justify-center text-center lg:text-left order-2 lg:order-1 mt-6 lg:mt-0">
+                <div class="inline-flex items-center space-x-2 justify-center lg:justify-start mb-4">
+                    <span class="h-[1px] w-8 bg-brand-accent"></span>
+                    <span class="text-xs uppercase tracking-[0.3em] font-semibold text-brand-accent">New In Collection</span>
+                </div>
+                <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6 tracking-wide text-white">
+                    The <span class="italic font-light">Mariner</span> <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-300 to-brand-accent">Chain Concept</span>
+                </h1>
+                <p class="text-gray-400 text-sm sm:text-base leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8 font-light">
+                    Chain links masterfully forged in Italy, then meticulously finished by hand in Melbourne. Available pristine in premium sterling silver, or customized in gold via our exclusive bespoke service.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                    <a href="#featured-product" class="w-full sm:w-auto text-center bg-brand-accent hover:bg-white text-brand-dark font-medium text-xs uppercase tracking-[0.2em] px-8 py-4 rounded-full transition-all duration-300 shadow-lg shadow-brand-accent/10">
+                        Shop Now
+                    </a>
+                    <a href="#bespoke" class="w-full sm:w-auto text-center border border-white/20 hover:border-brand-accent hover:text-brand-accent text-white font-medium text-xs uppercase tracking-[0.2em] px-8 py-4 rounded-full transition-all duration-300 backdrop-blur-sm">
+                        Bespoke Request
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero High-End Image Showcase Container -->
+            <div class="lg:col-span-6 order-1 lg:order-2 flex justify-center items-center relative">
+                <div class="absolute inset-0 bg-gradient-to-r from-brand-accent/10 to-transparent blur-3xl opacity-30 transform scale-75 rounded-full"></div>
+                <!-- Frame Wrapper for Imagery -->
+                <div class="relative w-72 sm:w-80 md:w-96 h-[420px] sm:h-[480px] md:h-[540px] rounded-[2rem] overflow-hidden p-3 bg-gradient-to-tr from-white/10 to-white/5 border border-white/10 shadow-2xl group">
+                    <div class="w-full h-full rounded-[1.5rem] overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=1000&auto=format&fit=crop" 
+                             alt="Agovia Fine Jewelry Mariner Chain Detail" 
+                             class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-60"></div>
+                        <div class="absolute bottom-6 left-6 right-6 text-center bg-brand-dark/40 backdrop-blur-md p-4 rounded-xl border border-white/5">
+                            <span class="text-[10px] uppercase tracking-[0.2em] text-brand-accent block mb-1">Authentic Quality</span>
+                            <span class="text-xs tracking-widest text-white uppercase font-medium">Made in Italy • Sterling Silver 925</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator Badge -->
+        <a href="#shop" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center space-y-2 group cursor-pointer">
+            <span class="text-[9px] uppercase tracking-[0.3em] text-gray-400 group-hover:text-brand-accent transition-colors">Discover Studio</span>
+            <div class="w-[1px] h-10 bg-gradient-to-b from-brand-accent to-transparent"></div>
+        </a>
+    </header>
+
+    <!-- Quick Collection Links Section -->
+    <section class="py-12 border-y border-white/5 bg-brand-muted/10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <a href="#shop" class="flex flex-col items-center justify-center p-6 rounded-2xl glass-card transition-all duration-300 hover:-translate-y-1">
+                    <span class="font-serif text-lg tracking-wide text-white group-hover:text-brand-accent">Rings</span>
+                    <span class="text-[9px] uppercase tracking-widest text-brand-accent mt-1">Explore Collection</span>
+                </a>
+                <a href="#shop" class="flex flex-col items-center justify-center p-6 rounded-2xl glass-card transition-all duration-300 hover:-translate-y-1">
+                    <span class="font-serif text-lg tracking-wide text-white group-hover:text-brand-accent">Pendants</span>
+                    <span class="text-[9px] uppercase tracking-widest text-brand-accent mt-1">Explore Collection</span>
+                </a>
+                <a href="#shop" class="flex flex-col items-center justify-center p-6 rounded-2xl glass-card transition-all duration-300 hover:-translate-y-1">
+                    <span class="font-serif text-lg tracking-wide text-white group-hover:text-brand-accent">Chains</span>
+                    <span class="text-[9px] uppercase tracking-widest text-brand-accent mt-1">Explore Collection</span>
+                </a>
+                <a href="#shop" class="flex flex-col items-center justify-center p-6 rounded-2xl glass-card transition-all duration-300 hover:-translate-y-1">
+                    <span class="font-serif text-lg tracking-wide text-white group-hover:text-brand-accent">Earrings</span>
+                    <span class="text-[9px] uppercase tracking-widest text-brand-accent mt-1">Explore Collection</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deep-Dive Highlight Product Feature -->
+    <section id="featured-product" class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            
+            <div class="lg:col-span-6 relative order-2 lg:order-1 reveal">
+                <!-- Stacked structural layout representing agency design -->
+                <div class="grid grid-cols-12 gap-4">
+                    <div class="col-span-8 rounded-3xl overflow-hidden shadow-2xl relative h-[420px] group border border-white/5">
+                        <img src="https://images.unsplash.com/photo-1599643478524-fb66f7ca066b?q=80&w=1000&auto=format&fit=crop" 
+                             alt="Mariner product macro shot" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="col-span-4 rounded-3xl overflow-hidden shadow-2xl relative h-[280px] mt-auto group border border-white/5">
+                        <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=600&auto=format&fit=crop" 
+                             alt="Mariner craftsmanship detail" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-6 flex flex-col justify-center order-1 lg:order-2 reveal">
+                <span class="text-xs uppercase tracking-[0.2em] font-medium text-brand-accent mb-3">Signature Artistry</span>
+                <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl tracking-wide mb-6 leading-tight">The Mariner Chain <br><span class="italic font-light">Product Architecture</span></h2>
+                
+                <p class="text-gray-400 font-light text-sm sm:text-base leading-relaxed mb-8">
+                    An exceptional standalone aesthetic expression, or optimally paired in dynamic layering combinations alongside your existing fine jewellery portfolio.
+                </p>
+
+                <!-- Premium Key-Value Details List -->
+                <div class="grid grid-cols-2 gap-6 mb-8 border-t border-white/10 pt-8">
+                    <div>
+                        <span class="text-[10px] uppercase tracking-wider text-gray-500 block mb-1">Chain Spec</span>
+                        <span class="text-sm font-medium text-white">Mariner Link Profile</span>
+                    </div>
+                    <div>
+                        <span class="text-[10px] uppercase tracking-wider text-gray-500 block mb-1">Standard Weight</span>
+                        <span class="text-sm font-medium text-white">Regular Luxury Gauge</span>
+                    </div>
+                    <div>
+                        <span class="text-[10px] uppercase tracking-wider text-gray-500 block mb-1">Clasp Mechanism</span>
+                        <span class="text-sm font-medium text-white">925 Bolt Ring Integration</span>
+                    </div>
+                    <div>
+                        <span class="text-[10px] uppercase tracking-wider text-gray-500 block mb-1">Default Length</span>
+                        <span class="text-sm font-medium text-white">19cm Base Dimension</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 items-center">
+                    <span class="text-2xl font-serif text-white px-2">From ₹19,500 <span class="text-xs text-gray-400 uppercase tracking-widest block mt-0.5">Custom duties included</span></span>
+                    <button class="w-full sm:flex-1 bg-white hover:bg-brand-accent text-brand-dark font-semibold text-xs uppercase tracking-[0.2em] px-8 py-4 rounded-full transition-all duration-300">
+                        Acquire Piece
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Luxury E-Commerce Curated Catalogue Showcase Grid -->
+    <section id="shop" class="py-24 bg-gradient-to-b from-brand-dark to-brand-muted/30">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <!-- Section Title and Filtering Structure -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 reveal">
+                <div>
+                    <span class="text-xs uppercase tracking-[0.2em] font-medium text-brand-accent mb-3 block">Curated Catalogues</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl tracking-wide">The AGOVIA Collection</h2>
+                </div>
+                <!-- Navigation Tabs styled as micro agency details -->
+                <div class="flex flex-wrap gap-3 text-xs uppercase tracking-widest font-semibold text-gray-400 border-b border-white/5 pb-2">
+                    <button class="text-brand-accent border-b border-brand-accent pb-2 px-1">All Creations</button>
+                    <button class="hover:text-white transition-colors pb-2 px-1">Rings</button>
+                    <button class="hover:text-white transition-colors pb-2 px-1">Pendants</button>
+                    <button class="hover:text-white transition-colors pb-2 px-1">Chains</button>
+                </div>
+            </div>
+
+            <!-- Custom 4-Column Product Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Card 1 -->
+                <div class="glass-card rounded-3xl p-4 flex flex-col justify-between group relative transition-all duration-300 hover:-translate-y-2 reveal">
+                    <div class="aspect-square w-full rounded-2xl overflow-hidden bg-brand-dark relative border border-white/5 mb-4">
+                        <img src="https://images.unsplash.com/photo-1605100804763-247f66127228?q=80&w=600&auto=format&fit=crop" alt="Mariner Chain Product" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <span class="absolute top-3 left-3 bg-brand-accent text-brand-dark text-[9px] uppercase tracking-widest font-bold px-2.5 py-1 rounded-full">New In</span>
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-lg text-white mb-1 group-hover:text-brand-accent transition-colors">Mariner Chain</h3>
+                        <div class="flex items-center justify-between mt-2 pt-2 border-t border-white/5">
+                            <span class="text-xs uppercase tracking-wider text-gray-400">From ₹19,500</span>
+                            <i class="fa-solid fa-arrow-right-long text-gray-500 group-hover:text-brand-accent group-hover:translate-x-1 transition-all"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-card rounded-3xl p-4 flex flex-col justify-between group relative transition-all duration-300 hover:-translate-y-2 reveal">
+                    <div class="aspect-square w-full rounded-2xl overflow-hidden bg-brand-dark relative border border-white/5 mb-4">
+                        <img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?q=80&w=600&auto=format&fit=crop" alt="Siena Ring Product" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-lg text-white mb-1 group-hover:text-brand-accent transition-colors">Siena Ring</h3>
+                        <div class="flex items-center justify-between mt-2 pt-2 border-t border-white/5">
+                            <span class="text-xs uppercase tracking-wider text-gray-400">From ₹154,900</span>
+                            <i class="fa-solid fa-arrow-right-long text-gray-500 group-hover:text-brand-accent group-hover:translate-x-1 transition-all"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card rounded-3xl p-4 flex flex-col justify-between group relative transition-all duration-300 hover:-translate-y-2 reveal">
+                    <div class="aspect-square w-full rounded-2xl overflow-hidden bg-brand-dark relative border border-white/5 mb-4">
+                        <img src="https://images.unsplash.com/photo-1605100804763-247f66127228?q=80&w=600&auto=format&fit=crop" alt="Astro Signet Ring Product" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-lg text-white mb-1 group-hover:text-brand-accent transition-colors">Astro Signet Ring</h3>
+                        <div class="flex items-center justify-between mt-2 pt-2 border-t border-white/5">
+                            <span class="text-xs uppercase tracking-wider text-gray-400">₹215,600</span>
+                            <i class="fa-solid fa-arrow-right-long text-gray-500 group-hover:text-brand-accent group-hover:translate-x-1 transition-all"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="glass-card rounded-3xl p-4 flex flex-col justify-between group relative transition-all duration-300 hover:-translate-y-2 reveal">
+                    <div class="aspect-square w-full rounded-2xl overflow-hidden bg-brand-dark relative border border-white/5 mb-4">
+                        <img src="https://images.unsplash.com/photo-1599643478524-fb66f7ca066b?q=80&w=600&auto=format&fit=crop" alt="Milo Ring Product" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <span class="absolute top-3 right-3 bg-red-900/40 border border-red-500/30 text-red-200 text-[9px] uppercase tracking-widest font-semibold px-2.5 py-1 rounded-full backdrop-blur-md">Sold Out</span>
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-lg text-white mb-1 group-hover:text-brand-accent transition-colors">Milo Ring</h3>
+                        <div class="flex items-center justify-between mt-2 pt-2 border-t border-white/5">
+                            <span class="text-xs uppercase tracking-wider text-gray-400">₹103,300</span>
+                            <i class="fa-solid fa-arrow-right-long text-gray-500 group-hover:text-brand-accent group-hover:translate-x-1 transition-all"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="glass-card rounded-3xl p-4 flex flex-col justify-between group relative transition-all duration-300 hover:-translate-y-2 reveal">
+                    <div class="aspect-square w-full rounded-2xl overflow-hidden bg-brand-dark relative border border-white/5 mb-4">
+                        <img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=600&auto=format&fit=crop" alt="Varo Ring Product" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-lg text-white mb-1 group-hover:text-brand-accent transition-colors">Varo Ring</h3>
+                        <div class="flex items-center justify-between mt-2 pt-2 border-t border-white/5">
+                            <span class="text-xs uppercase tracking-wider text-gray-400">₹70,300</span>
+                            <i class="fa-solid fa-arrow-right-long text-gray-500 group-hover:text-brand-accent group-hover:translate-x-1 transition-all"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="glass-card rounded-3xl p-4 flex flex-col justify-between group relative transition-all duration-300 hover:-translate-y-2 reveal">
+                    <div class="aspect-square w-full rounded-2xl overflow-hidden bg-brand-dark relative border border-white/5 mb-4">
+                        <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=600&auto=format&fit=crop" alt="Marigold Product" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-lg text-white mb-1 group-hover:text-brand-accent transition-colors">Marigold</h3>
+                        <div class="flex items-center justify-between mt-2 pt-2 border-t border-white/5">
+                            <span class="text-xs uppercase tracking-wider text-gray-400">₹130,200</span>
+                            <i class="fa-solid fa-arrow-right-long text-gray-500 group-hover:text-brand-accent group-hover:translate-x-1 transition-all"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="glass-card rounded-3xl p-4 flex flex-col justify-between group relative transition-all duration-300 hover:-translate-y-2 reveal">
+                    <div class="aspect-square w-full rounded-2xl overflow-hidden bg-brand-dark relative border border-white/5 mb-4">
+                        <img src="https://images.unsplash.com/photo-1599643478524-fb66f7ca066b?q=80&w=600&auto=format&fit=crop" alt="Felix Pendant Product" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-lg text-white mb-1 group-hover:text-brand-accent transition-colors">Felix Pendant</h3>
+                        <div class="flex items-center justify-between mt-2 pt-2 border-t border-white/5">
+                            <span class="text-xs uppercase tracking-wider text-gray-400">From ₹16,500</span>
+                            <i class="fa-solid fa-arrow-right-long text-gray-500 group-hover:text-brand-accent group-hover:translate-x-1 transition-all"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="glass-card rounded-3xl p-4 flex flex-col justify-between group relative transition-all duration-300 hover:-translate-y-2 reveal">
+                    <div class="aspect-square w-full rounded-2xl overflow-hidden bg-brand-dark relative border border-white/5 mb-4">
+                        <img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?q=80&w=600&auto=format&fit=crop" alt="Akira Ring Product" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-lg text-white mb-1 group-hover:text-brand-accent transition-colors">Akira Ring</h3>
+                        <div class="flex items-center justify-between mt-2 pt-2 border-t border-white/5">
+                            <span class="text-xs uppercase tracking-wider text-gray-400">₹190,700</span>
+                            <i class="fa-solid fa-arrow-right-long text-gray-500 group-hover:text-brand-accent group-hover:translate-x-1 transition-all"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Bespoke Philosophy & Structural Section -->
+    <section id="bespoke" class="py-24 relative overflow-hidden bg-brand-dark">
+        <div class="absolute w-[800px] h-[300px] rounded-full bg-brand-accent/5 blur-[100px] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+        
+        <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
+            <span class="text-xs uppercase tracking-[0.4em] font-semibold text-brand-accent mb-6 block">Tailored Execution</span>
+            <h2 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-white mb-8 tracking-wide font-light leading-tight">
+                Crafting Your Vision via <br><span class="italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-white">Bespoke Ordering</span>
+            </h2>
+            <div class="w-16 h-[1px] bg-brand-accent mx-auto mb-8"></div>
+            <p class="text-gray-400 font-light text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mb-12">
+                Every customized jewelry item reflects a deep creative journey. Through rigorous conceptualization, sketch prototyping, and pure handcrafting, we produce physical objects that stand the test of time.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left mt-16">
+                <div class="glass-card p-8 rounded-2xl">
+                    <div class="text-brand-accent text-xl font-serif mb-4">01 / Consult</div>
+                    <p class="text-xs uppercase tracking-widest text-white font-medium mb-2">Creative Alignment</p>
+                    <p class="text-gray-400 text-xs leading-relaxed font-light">We outline initial conceptual baselines, preferred metal profiles, and rare gemstone sourcing needs.</p>
+                </div>
+                <div class="glass-card p-8 rounded-2xl">
+                    <div class="text-brand-accent text-xl font-serif mb-4">02 / Design</div>
+                    <p class="text-xs uppercase tracking-widest text-white font-medium mb-2">Prototyping & Sketching</p>
+                    <p class="text-gray-400 text-xs leading-relaxed font-light">Meticulous precision drafting maps out standard weights and component integration variables.</p>
+                </div>
+                <div class="glass-card p-8 rounded-2xl">
+                    <div class="text-brand-accent text-xl font-serif mb-4">03 / Forge</div>
+                    <p class="text-gray-400 text-xl font-serif mb-4"><span class="text-brand-accent">03 /</span> Forge</p>
+                    <p class="text-xs uppercase tracking-widest text-white font-medium mb-2">Handmade Execution</p>
+                    <p class="text-gray-400 text-xs leading-relaxed font-light">Master artisans transform raw silver or premium gold alloy profiles into finished luxury pieces.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Engagement & Interactive Consultation Form -->
+    <section id="consultation" class="py-24 bg-brand-muted/20 relative">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            
+            <div class="lg:col-span-5 reveal">
+                <span class="text-xs uppercase tracking-[0.2em] font-medium text-brand-accent mb-3 block">Private Scheduling</span>
+                <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl tracking-wide mb-6">Book an AGOVIA Studio Consultation</h2>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6 font-light">
+                    Schedule an exclusive immersive design meeting with our premium curators. Available via remote digital workspace streams or physically at our private Melbourne lab facilities.
+                </p>
+                <div class="space-y-4 text-xs tracking-wider uppercase text-gray-300">
+                    <div class="flex items-center space-x-3">
+                        <i class="fa-solid fa-circle-check text-brand-accent"></i>
+                        <span>Complimentary Material Assessments</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <i class="fa-solid fa-circle-check text-brand-accent"></i>
+                        <span>Digital Architecture Previews</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-7 reveal">
+                <!-- Premium Dark Form Structure -->
+                <form class="glass-card p-8 sm:p-10 rounded-3xl space-y-6" onsubmit="event.preventDefault();">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-[10px] uppercase tracking-widest text-gray-400 block font-medium">Your Name</label>
+                            <input type="text" class="w-full bg-brand-dark/50 border border-white/10 rounded-xl px-4 py-3.5 text-xs text-white focus:outline-none focus:border-brand-accent transition-colors" placeholder="e.g. Sterling Archer">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[10px] uppercase tracking-widest text-gray-400 block font-medium">Email Address</label>
+                            <input type="email" class="w-full bg-brand-dark/50 border border-white/10 rounded-xl px-4 py-3.5 text-xs text-white focus:outline-none focus:border-brand-accent transition-colors" placeholder="e.g. archer@agovia.com">
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-[10px] uppercase tracking-widest text-gray-400 block font-medium">Interest Category</label>
+                        <select class="w-full bg-brand-dark/50 border border-white/10 rounded-xl px-4 py-3.5 text-xs text-gray-400 focus:outline-none focus:border-brand-accent transition-colors">
+                            <option>Bespoke Custom Chain Engineering</option>
+                            <option>Rare Gemstone Ring Prototyping</option>
+                            <option>Wedding Portfolio Curation</option>
+                            <option>General Studio Inspection</option>
+                        </select>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-[10px] uppercase tracking-widest text-gray-400 block font-medium">Additional Directives</label>
+                        <textarea rows="4" class="w-full bg-brand-dark/50 border border-white/10 rounded-xl px-4 py-3.5 text-xs text-white focus:outline-none focus:border-brand-accent transition-colors resize-none" placeholder="Describe your design specifications..."></textarea>
+                    </div>
+                    <button class="w-full bg-white hover:bg-brand-accent text-brand-dark font-semibold text-xs uppercase tracking-[0.2em] py-4 rounded-xl transition-all duration-300 shadow-md">
+                        Request Studio Placement
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Studio Newsletter Curation System -->
+    <section class="py-24 border-t border-white/5 relative overflow-hidden bg-brand-dark">
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10 reveal">
+            <h2 class="font-serif text-3xl sm:text-4xl tracking-wide mb-4">Join the AGOVIA Newsletter</h2>
+            <p class="text-gray-400 text-sm font-light max-w-xl mx-auto mb-8">
+                Receive direct analytical overviews of collection updates, rare architectural jewelry releases, and studio arrivals.
+            </p>
+            <div class="max-w-md mx-auto relative flex items-center p-1.5 rounded-full bg-brand-muted/40 border border-white/10 focus-within:border-brand-accent/40 transition-colors">
+                <input type="email" placeholder="Enter your email address" class="w-full bg-transparent px-5 py-3 text-xs text-white focus:outline-none font-light">
+                <button class="bg-brand-accent hover:bg-white text-brand-dark text-[10px] uppercase tracking-widest font-bold px-6 py-3 rounded-full transition-all duration-300 shrink-0">
+                    Subscribe
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Luxury High-Fidelity Footer Component -->
+    <footer class="bg-brand-dark text-gray-500 text-xs border-t border-white/5 font-light">
+        <div class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-12 gap-12">
+            
+            <!-- Brand Identity Panel -->
+            <div class="md:col-span-4 space-y-4">
+                <span class="font-serif text-xl tracking-[0.3em] font-medium text-white block">AGOVIA</span>
+                <p class="text-gray-400 leading-relaxed text-xs max-w-sm">
+                    Premium custom design and handcrafted fine jewelry architectural models. Finished by hand in Melbourne, engineered globally.
+                </p>
+                <div class="flex space-x-4 pt-2">
+                    <a href="#" class="text-gray-400 hover:text-brand-accent transition-colors"><i class="fa-brands fa-instagram text-sm"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-brand-accent transition-colors"><i class="fa-brands fa-pinterest-p text-sm"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-brand-accent transition-colors"><i class="fa-brands fa-vimeo-v text-sm"></i></a>
+                </div>
+            </div>
+
+            <!-- Portfolio Index Column -->
+            <div class="md:col-span-3 space-y-3">
+                <span class="text-[10px] uppercase tracking-[0.2em] font-semibold text-white block mb-2">Portfolio</span>
+                <a href="#shop" class="block hover:text-white transition-colors">Mariner Chains Portfolio</a>
+                <a href="#shop" class="block hover:text-white transition-colors">Siena Ring Editions</a>
+                <a href="#shop" class="block hover:text-white transition-colors">Astro Signet Curation</a>
+                <a href="#shop" class="block hover:text-white transition-colors">Milo Structural Rings</a>
+            </div>
+
+            <!-- Studio Services Column -->
+            <div class="md:col-span-3 space-y-3">
+                <span class="text-[10px] uppercase tracking-[0.2em] font-semibold text-white block mb-2">Services</span>
+                <a href="#bespoke" class="block hover:text-white transition-colors">Bespoke Custom Forging</a>
+                <a href="#consultation" class="block hover:text-white transition-colors">Studio Consultations</a>
+                <a href="#" class="block hover:text-white transition-colors">Material Authentication</a>
+                <a href="#" class="block hover:text-white transition-colors">Chain Specification Guides</a>
+            </div>
+
+            <!-- Strategic Compliance Column -->
+            <div class="md:col-span-2 space-y-3">
+                <span class="text-[10px] uppercase tracking-[0.2em] font-semibold text-white block mb-2">Legal</span>
+                <a href="#" class="block hover:text-white transition-colors">Refund Policy</a>
+                <a href="#" class="block hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" class="block hover:text-white transition-colors">Terms of Service</a>
+                <a href="#" class="block hover:text-white transition-colors">Shipping Policy</a>
+            </div>
+
+        </div>
+
+        <!-- Strict Baseline Info Bar -->
+        <div class="border-t border-white/5 py-8 max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] text-gray-600">
+            <p>&copy; 2026, AGOVIA Studio. All rights reserved globally.</p>
+            <div class="flex items-center space-x-1.5 font-medium tracking-wider">
+                <span>SYSTEM REGION: INDIA | INR (₹)</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Vanilla Javascript Logic Configurations -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Control Logic
+            const menuBtn = document.getElementById('menuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close menu if a navigational link is selected
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Scroll Reveal Intersection Observer Execution
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        // Option to unobserve after triggering once
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -40px 0px'
+            });
+
+            revealElements.forEach(element => {
+                revealObserver.observe(element);
+            });
+
+            // Trigger immediate review of elements matching screen location on load
+            setTimeout(() => {
+                window.dispatchEvent(new Event('scroll'));
+            }, 150);
+        });
+    </script>
+
+</body>
+</html>

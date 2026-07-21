@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coco Kanela Design | Handmade Boho Jewellery</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            sand: '#F7F4F0',
+                            terracotta: '#A65D46',
+                            clay: '#D49A89',
+                            charcoal: '#2D2825',
+                            gold: '#C5A059',
+                            sage: '#8F9B8B'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'spin-slow': 'spin 12s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #F7F4F0;
+            color: #2D2825;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism */
+        .glass-nav {
+            background: rgba(247, 244, 240, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px 0 rgba(45, 40, 37, 0.05);
+        }
+
+        /* Scroll Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 150ms; }
+        .reveal-delay-2 { transition-delay: 300ms; }
+        .reveal-delay-3 { transition-delay: 450ms; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F7F4F0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D49A89;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #A65D46;
+        }
+
+        /* Image Hover Zoom */
+        .img-zoom-container {
+            overflow: hidden;
+        }
+        .img-zoom-container img {
+            transition: transform 0.6s ease;
+        }
+        .img-zoom-container:hover img {
+            transform: scale(1.08);
+        }
+
+        /* Gradient Text */
+        .text-gradient {
+            background: linear-gradient(135deg, #A65D46 0%, #C5A059 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .product-overlay {
+            background: linear-gradient(to top, rgba(45, 40, 37, 0.8) 0%, rgba(45, 40, 37, 0) 100%);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-clay selection:text-white">
+
+    <div class="bg-brand-charcoal text-white text-xs font-sans tracking-widest text-center py-2 relative z-50">
+        <p>FREE SHIPPING ON AUSTRALIAN ORDERS OVER $100 | MELBOURNE MADE</p>
+    </div>
+
+    <nav id="navbar" class="fixed w-full z-40 transition-all duration-300 py-4 top-[32px]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-brand-charcoal hover:text-brand-terracotta focus:outline-none transition-colors">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+
+                <div class="hidden md:flex space-x-8 items-center flex-1">
+                    <a href="#store" class="text-xs font-semibold tracking-widest uppercase hover:text-brand-terracotta transition-colors duration-300">Store</a>
+                    <div class="group relative">
+                        <a href="#categories" class="text-xs font-semibold tracking-widest uppercase hover:text-brand-terracotta transition-colors duration-300 flex items-center gap-1">
+                            Collections <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                        </a>
+                    </div>
+                    <a href="#gemstones" class="text-xs font-semibold tracking-widest uppercase hover:text-brand-terracotta transition-colors duration-300">Gemstones</a>
+                </div>
+
+                <div class="flex-shrink-0 flex justify-center flex-1">
+                    <a href="#" class="text-2xl lg:text-3xl font-serif font-bold tracking-widest text-brand-charcoal uppercase flex flex-col items-center">
+                        Coco Kanela
+                        <span class="text-[9px] font-sans tracking-[0.3em] font-normal text-brand-terracotta mt-1">Design</span>
+                    </a>
+                </div>
+
+                <div class="hidden md:flex space-x-8 items-center justify-end flex-1">
+                    <a href="#about" class="text-xs font-semibold tracking-widest uppercase hover:text-brand-terracotta transition-colors duration-300">About</a>
+                    
+                    <div class="flex space-x-5 ml-4">
+                        <button class="text-brand-charcoal hover:text-brand-terracotta transition-colors">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                        <button class="text-brand-charcoal hover:text-brand-terracotta transition-colors">
+                            <i class="fa-regular fa-user"></i>
+                        </button>
+                        <button class="text-brand-charcoal hover:text-brand-terracotta transition-colors relative">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            <span class="absolute -top-1.5 -right-2 bg-brand-terracotta text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="md:hidden flex space-x-4 items-center">
+                    <button class="text-brand-charcoal hover:text-brand-terracotta transition-colors relative">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span class="absolute -top-1.5 -right-2 bg-brand-terracotta text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="fixed inset-0 bg-brand-sand z-50 transform -translate-x-full transition-transform duration-500 ease-in-out">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-10">
+                    <span class="font-serif text-xl font-bold tracking-widest uppercase text-brand-charcoal">Menu</span>
+                    <button id="close-menu-btn" class="text-brand-charcoal hover:text-brand-terracotta text-2xl">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="flex flex-col space-y-6 text-lg font-serif">
+                    <a href="#store" class="mobile-link text-brand-charcoal border-b border-brand-clay/30 pb-4">Store</a>
+                    <a href="#categories" class="mobile-link text-brand-charcoal border-b border-brand-clay/30 pb-4">Earrings</a>
+                    <a href="#categories" class="mobile-link text-brand-charcoal border-b border-brand-clay/30 pb-4">Necklaces</a>
+                    <a href="#categories" class="mobile-link text-brand-charcoal border-b border-brand-clay/30 pb-4">Rings</a>
+                    <a href="#gemstones" class="mobile-link text-brand-charcoal border-b border-brand-clay/30 pb-4">Gemstones</a>
+                    <a href="#about" class="mobile-link text-brand-charcoal pb-4">About</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative h-[90vh] md:h-screen w-full flex items-center justify-center pt-16 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Beautiful Boho Jewellery" class="w-full h-full object-cover object-center scale-105 transform origin-center animate-[pulse_20s_ease-in-out_infinite] brightness-90">
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-charcoal/60 via-brand-charcoal/20 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col items-start justify-center">
+            <div class="max-w-2xl reveal">
+                <span class="inline-block py-1 px-3 border border-brand-sand/30 bg-brand-sand/10 backdrop-blur-sm text-brand-sand text-xs tracking-[0.2em] font-medium mb-6 uppercase rounded-full">
+                    <i class="fa-regular fa-gem mr-1 text-brand-gold"></i> Melbourne Made
+                </span>
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white leading-[1.1] mb-6 drop-shadow-md">
+                    Feel the Energy of the <span class="text-gradient">Earth.</span>
+                </h1>
+                <p class="text-lg md:text-xl text-white/90 font-light mb-10 max-w-lg leading-relaxed drop-shadow-sm">
+                    Handmade boho jewellery blending traditional Mexican artisan skills with contemporary Australian design.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#store" class="px-8 py-4 bg-brand-terracotta text-white font-sans text-xs font-bold uppercase tracking-widest text-center hover:bg-white hover:text-brand-terracotta transition-colors duration-300 rounded-sm">
+                        Shop Latest Arrivals
+                    </a>
+                    <a href="#about" class="px-8 py-4 bg-transparent border border-white/50 text-white font-sans text-xs font-bold uppercase tracking-widest text-center hover:bg-white/10 transition-colors duration-300 rounded-sm backdrop-blur-sm">
+                        Our Story
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce z-10">
+            <span class="text-white/60 text-[10px] tracking-widest uppercase mb-2">Scroll</span>
+            <i class="fa-solid fa-chevron-down text-white/60"></i>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 bg-brand-sand relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal relative">
+                    <div class="aspect-[4/5] md:aspect-square lg:aspect-[4/5] overflow-hidden rounded-t-full img-zoom-container shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Woman wearing boho jewellery" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -z-10 -bottom-8 -left-8 w-48 h-48 border border-brand-terracotta/30 rounded-full animate-spin-slow"></div>
+                </div>
+
+                <div class="reveal reveal-delay-1">
+                    <h4 class="text-brand-terracotta text-xs font-bold tracking-[0.2em] uppercase mb-4 flex items-center">
+                        <span class="w-8 h-[1px] bg-brand-terracotta mr-3"></span> About Coco Kanela
+                    </h4>
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold text-brand-charcoal mb-6 leading-tight">
+                        Connecting Women with Nature's Healing Properties.
+                    </h2>
+                    <p class="text-brand-charcoal/70 font-light leading-relaxed mb-6">
+                        Cocokanela Design is an Australian-based boho lifestyle brand. We are founded with the primary objective of helping women connect with nature and the earth's healing properties through the utilisation of gemstones and crystal healing.
+                    </p>
+                    <p class="text-brand-charcoal/70 font-light leading-relaxed mb-10">
+                        Traditional Mexican artisan skills and culture are expressed through the colours and style of our jewellery. We integrate these techniques with contemporary design to create unique, marketable products crafted with love.
+                    </p>
+                    <a href="#" class="inline-flex items-center text-xs font-bold uppercase tracking-widest text-brand-charcoal hover:text-brand-terracotta transition-colors group">
+                        Discover the Magic 
+                        <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="categories" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h4 class="text-brand-sage text-xs font-bold tracking-[0.2em] uppercase mb-2">Curated Collections</h4>
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-brand-charcoal">Shop by Category</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <a href="#" class="group relative h-96 overflow-hidden rounded-sm reveal">
+                    <img src="https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Earrings" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-brand-charcoal/20 group-hover:bg-brand-charcoal/40 transition-colors duration-500"></div>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center p-6">
+                        <h3 class="text-3xl font-serif font-bold text-white mb-2 tracking-wide">Earrings</h3>
+                        <span class="text-xs uppercase tracking-widest text-white/80 border-b border-white/50 pb-1 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">View Collection</span>
+                    </div>
+                </a>
+
+                <a href="#" class="group relative h-96 overflow-hidden rounded-sm reveal reveal-delay-1">
+                    <img src="https://images.unsplash.com/photo-1599643478514-4a8e27dc5b49?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Necklaces" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-brand-charcoal/20 group-hover:bg-brand-charcoal/40 transition-colors duration-500"></div>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center p-6">
+                        <h3 class="text-3xl font-serif font-bold text-white mb-2 tracking-wide">Necklaces</h3>
+                        <span class="text-xs uppercase tracking-widest text-white/80 border-b border-white/50 pb-1 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">View Collection</span>
+                    </div>
+                </a>
+
+                <a href="#" class="group relative h-96 overflow-hidden rounded-sm reveal reveal-delay-2">
+                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b2548e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Rings" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-brand-charcoal/20 group-hover:bg-brand-charcoal/40 transition-colors duration-500"></div>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center p-6">
+                        <h3 class="text-3xl font-serif font-bold text-white mb-2 tracking-wide">Rings</h3>
+                        <span class="text-xs uppercase tracking-widest text-white/80 border-b border-white/50 pb-1 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">View Collection</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="store" class="py-24 bg-brand-sand relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-end mb-12 reveal">
+                <div>
+                    <h4 class="text-brand-terracotta text-xs font-bold tracking-[0.2em] uppercase mb-2">New In</h4>
+                    <h2 class="text-4xl font-serif font-bold text-brand-charcoal">Latest Arrivals</h2>
+                </div>
+                <a href="#" class="hidden sm:inline-block text-xs font-bold uppercase tracking-widest text-brand-charcoal border-b border-brand-charcoal pb-1 hover:text-brand-terracotta hover:border-brand-terracotta transition-colors">
+                    View All Products
+                </a>
+            </div>
+
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                <div class="group reveal">
+                    <div class="relative aspect-[4/5] overflow-hidden rounded-sm bg-white mb-4 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Boho Tribal Necklace" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 w-full p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 product-overlay flex justify-center">
+                            <button class="bg-white text-brand-charcoal text-[10px] font-bold uppercase tracking-widest py-2 px-6 rounded-sm shadow-lg hover:bg-brand-charcoal hover:text-white transition-colors w-full">Quick Add</button>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="font-serif text-brand-charcoal text-lg mb-1">Boho Tribal Necklace</h3>
+                        <p class="text-brand-terracotta font-sans font-medium">$75.00</p>
+                    </div>
+                </div>
+
+                <div class="group reveal reveal-delay-1">
+                    <div class="relative aspect-[4/5] overflow-hidden rounded-sm bg-white mb-4 img-zoom-container">
+                        <div class="absolute top-2 left-2 z-10 bg-brand-charcoal text-white text-[9px] uppercase tracking-widest px-2 py-1 rounded-sm">Sale</div>
+                        <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Lila Earrings" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 w-full p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 product-overlay flex justify-center">
+                            <button class="bg-white text-brand-charcoal text-[10px] font-bold uppercase tracking-widest py-2 px-6 rounded-sm shadow-lg hover:bg-brand-charcoal hover:text-white transition-colors w-full">Quick Add</button>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="font-serif text-brand-charcoal text-lg mb-1">Lila Earrings</h3>
+                        <div class="flex justify-center space-x-2">
+                            <p class="text-brand-charcoal/50 line-through text-sm">$35.00</p>
+                            <p class="text-brand-terracotta font-sans font-medium">$25.00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group reveal reveal-delay-2">
+                    <div class="relative aspect-[4/5] overflow-hidden rounded-sm bg-white mb-4 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cultivated Pearl Ring" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 w-full p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 product-overlay flex justify-center">
+                            <button class="bg-white text-brand-charcoal text-[10px] font-bold uppercase tracking-widest py-2 px-6 rounded-sm shadow-lg hover:bg-brand-charcoal hover:text-white transition-colors w-full">Quick Add</button>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="font-serif text-brand-charcoal text-lg mb-1">Cultivated Pearl Ring</h3>
+                        <p class="text-brand-terracotta font-sans font-medium">$55.00</p>
+                    </div>
+                </div>
+
+                <div class="group reveal reveal-delay-3">
+                    <div class="relative aspect-[4/5] overflow-hidden rounded-sm bg-white mb-4 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1599643478514-4a8e27dc5b49?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Boho Luxe Necklace" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 w-full p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 product-overlay flex justify-center">
+                            <button class="bg-white text-brand-charcoal text-[10px] font-bold uppercase tracking-widest py-2 px-6 rounded-sm shadow-lg hover:bg-brand-charcoal hover:text-white transition-colors w-full">Quick Add</button>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="font-serif text-brand-charcoal text-lg mb-1">Boho Luxe Necklace</h3>
+                        <p class="text-brand-terracotta font-sans font-medium">$88.00</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center sm:hidden reveal">
+                <a href="#" class="inline-block px-8 py-4 bg-brand-charcoal text-white font-sans text-xs font-bold uppercase tracking-widest rounded-sm">
+                    View All Products
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-brand-charcoal text-brand-sand">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-center">
+                <div class="reveal">
+                    <i class="fa-solid fa-hands-holding-circle text-4xl text-brand-gold mb-6"></i>
+                    <h3 class="font-serif text-xl font-bold mb-3">Handmade in Melbourne</h3>
+                    <p class="text-brand-sand/70 font-light text-sm">Crafted with love and precision right here in Australia.</p>
+                </div>
+                <div class="reveal reveal-delay-1">
+                    <i class="fa-regular fa-gem text-4xl text-brand-gold mb-6"></i>
+                    <h3 class="font-serif text-xl font-bold mb-3">Ethical Gemstones</h3>
+                    <p class="text-brand-sand/70 font-light text-sm">Sourced responsibly to harness the earth's natural healing properties.</p>
+                </div>
+                <div class="reveal reveal-delay-2">
+                    <i class="fa-solid fa-earth-americas text-4xl text-brand-gold mb-6"></i>
+                    <h3 class="font-serif text-xl font-bold mb-3">Mexican Heritage</h3>
+                    <p class="text-brand-sand/70 font-light text-sm">Traditional artisan skills blended with contemporary design.</p>
+                </div>
+                <div class="reveal reveal-delay-3">
+                    <i class="fa-solid fa-leaf text-4xl text-brand-gold mb-6"></i>
+                    <h3 class="font-serif text-xl font-bold mb-3">Nature Connected</h3>
+                    <p class="text-brand-sand/70 font-light text-sm">Designs inspired by the beauty and organic shapes of nature.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 reveal">
+                <a href="#" class="text-brand-charcoal hover:text-brand-terracotta transition-colors">
+                    <i class="fa-brands fa-instagram text-3xl mb-4"></i>
+                    <h2 class="text-2xl font-serif font-bold">#cocokaneladesign</h2>
+                    <p class="text-sm font-sans tracking-widest text-brand-sage uppercase mt-2">Follow our journey</p>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="aspect-square bg-brand-sand overflow-hidden group reveal">
+                    <img src="https://images.unsplash.com/photo-1599643478514-4a8e27dc5b49?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Instagram Post 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <div class="aspect-square bg-brand-sand overflow-hidden group reveal reveal-delay-1">
+                    <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Instagram Post 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <div class="aspect-square bg-brand-sand overflow-hidden group reveal reveal-delay-2">
+                    <img src="https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Instagram Post 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <div class="aspect-square bg-brand-sand overflow-hidden group reveal reveal-delay-3">
+                    <img src="https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Instagram Post 4" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-brand-clay relative overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-20">
+            <img src="https://images.unsplash.com/photo-1515562141207-7a8ea33b47fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Texture" class="w-full h-full object-cover">
+        </div>
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center glass-card p-12 rounded-lg">
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-4 reveal">Join the Coco Kanela Tribe</h2>
+            <p class="text-white/90 font-light mb-8 reveal reveal-delay-1">Subscribe to receive updates, access to exclusive deals, and more insight into crystal healing.</p>
+            
+            <form class="flex flex-col sm:flex-row gap-4 reveal reveal-delay-2" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+                <input type="email" placeholder="Enter your email address" required class="flex-1 bg-white/20 border border-white/40 text-white placeholder-white/70 px-6 py-4 rounded-sm focus:outline-none focus:border-white transition-colors">
+                <button type="submit" class="bg-brand-charcoal text-white font-bold uppercase tracking-widest text-xs px-8 py-4 rounded-sm hover:bg-white hover:text-brand-charcoal transition-colors duration-300">
+                    Subscribe
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-brand-sand pt-20 pb-10 border-t border-brand-charcoal/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                
+                <div class="lg:col-span-1">
+                    <a href="#" class="text-2xl font-serif font-bold tracking-widest text-brand-charcoal uppercase flex flex-col items-start mb-6">
+                        Coco Kanela
+                        <span class="text-[9px] font-sans tracking-[0.3em] font-normal text-brand-terracotta mt-1">Design</span>
+                    </a>
+                    <p class="text-sm font-light text-brand-charcoal/70 mb-6">
+                        Handmade Boho Jewellery for women who want to enhance their beauty and connect with nature.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-8 h-8 rounded-full border border-brand-charcoal/20 flex items-center justify-center text-brand-charcoal hover:bg-brand-terracotta hover:text-white hover:border-brand-terracotta transition-colors">
+                            <i class="fa-brands fa-instagram text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded-full border border-brand-charcoal/20 flex items-center justify-center text-brand-charcoal hover:bg-brand-terracotta hover:text-white hover:border-brand-terracotta transition-colors">
+                            <i class="fa-brands fa-tiktok text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded-full border border-brand-charcoal/20 flex items-center justify-center text-brand-charcoal hover:bg-brand-terracotta hover:text-white hover:border-brand-terracotta transition-colors">
+                            <i class="fa-brands fa-facebook-f text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-serif font-bold text-lg mb-6 text-brand-charcoal">Shop</h4>
+                    <ul class="space-y-3 text-sm font-light text-brand-charcoal/80">
+                        <li><a href="#" class="hover:text-brand-terracotta transition-colors">All Products</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Earrings</a></li>
+                        <li><a href="#" class="hover:text-brand-terracotta transition-colors">Necklaces</a></li>
+                        <li><a href="#" class="hover:text-brand-terracotta transition-colors">Rings</a></li>
+                        <li><a href="#" class="hover:text-brand-terracotta transition-colors">Sale Items</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-serif font-bold text-lg mb-6 text-brand-charcoal">Information</h4>
+                    <ul class="space-y-3 text-sm font-light text-brand-charcoal/80">
+                        <li><a href="#" class="hover:text-brand-terracotta transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-brand-terracotta transition-colors">Gemstones Guide</a></li>
+                        <li><a href="#" class="hover:text-brand-terracotta transition-colors">Contact</a></li>
+                        <li><a href="#" class="hover:text-brand-terracotta transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-serif font-bold text-lg mb-6 text-brand-charcoal">Customer Care</h4>
+                    <ul class="space-y-3 text-sm font-light text-brand-charcoal/80">
+                        <li><a href="#" class="hover:text-brand-terracotta transition-colors">Returns & Refund Policy</a></li>
+                        <li><a href="#" class="hover:text-brand-terracotta transition-colors">Shipping Information</a></li>
+                        <li><a href="#" class="hover:text-brand-terracotta transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-brand-terracotta transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="border-t border-brand-charcoal/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] font-sans tracking-widest uppercase text-brand-charcoal/50">
+                <p>&copy; 2026 Coco Kanela Design. All Rights Reserved.</p>
+                <p>Designed for the Earth.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sticky Navbar Effect
+        const navbar = document.getElementById('navbar');
+        const topBanner = document.querySelector('.bg-brand-charcoal.text-white');
+        const bannerHeight = topBanner.offsetHeight;
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > bannerHeight) {
+                navbar.classList.add('glass-nav');
+                navbar.classList.remove('py-4', 'top-[32px]');
+                navbar.classList.add('py-3', 'top-0');
+            } else {
+                navbar.classList.remove('glass-nav');
+                navbar.classList.add('py-4', 'top-[32px]');
+                navbar.classList.remove('py-3', 'top-0');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            const isClosed = mobileMenu.classList.contains('-translate-x-full');
+            if (isClosed) {
+                mobileMenu.classList.remove('-translate-x-full');
+                document.body.style.overflow = 'hidden'; 
+            } else {
+                mobileMenu.classList.add('-translate-x-full');
+                document.body.style.overflow = 'auto'; 
+            }
+        }
+
+        mobileBtn.addEventListener('click', toggleMenu);
+        closeMenuBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -50px 0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>

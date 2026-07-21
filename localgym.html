@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Local Gym Woombye | Sunshine Coast's Best Fitness Studio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        display: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            orange: '#E0532B',    /* Premium athletic orange from original logo */
+                            dark: '#0B0C10',      /* Deep obsidian background */
+                            surface: '#171A21',   /* Card surface tone */
+                            muted: '#242936',     /* Structural layout borders */
+                            accent: '#F37042'     /* Soft accent orange */
+                        }
+                    },
+                    boxShadow: {
+                        'premium': '0 12px 40px -12px rgba(224, 83, 43, 0.25)',
+                        'glow': '0 0 30px rgba(224, 83, 43, 0.15)',
+                        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.4)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0C10;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #242936;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #E0532B;
+        }
+
+        .glass-nav {
+            background: rgba(11, 12, 16, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .glass-card {
+            background: rgba(23, 26, 33, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(224, 83, 43, 0.3);
+            box-shadow: 0 0 35px rgba(224, 83, 43, 0.15);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-white font-sans overflow-x-hidden antialiased">
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="fixed top-0 left-0 w-full z-50 glass-nav py-4 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+            
+            <!-- Brand Identity Logo Layout -->
+            <a href="#" class="flex flex-col group">
+                <span class="font-display text-xl md:text-2xl font-extrabold tracking-tight text-white uppercase group-hover:text-brand-orange transition-colors">thelocal<span class="text-brand-orange">gym</span></span>
+                <span class="text-[9px] tracking-[0.45em] text-gray-400 uppercase -mt-1 font-bold">woombye</span>
+            </a>
+
+            <!-- Centralized Navigation Menu Links -->
+            <div class="hidden lg:flex items-center space-x-8 text-xs font-semibold uppercase tracking-[0.2em] text-gray-300">
+                <a href="#" class="text-brand-orange transition-colors">Home</a>
+                <a href="#about" class="hover:text-brand-orange transition-colors">About Us</a>
+                <a href="#classes" class="hover:text-brand-orange transition-colors">Classes</a>
+                <a href="#coaching" class="hover:text-brand-orange transition-colors">Coaching</a>
+                <a href="#blog" class="hover:text-brand-orange transition-colors">Blog</a>
+                <a href="#contact" class="hover:text-brand-orange transition-colors">Contact</a>
+            </div>
+
+            <!-- Urgent Call to Action Target Buttons -->
+            <div class="hidden sm:flex items-center space-x-4">
+                <a href="#book-now" class="bg-brand-orange hover:bg-white hover:text-brand-dark text-white font-extrabold text-xs uppercase tracking-[0.15em] px-6 py-3.5 rounded-xl transition-all duration-300 shadow-premium">Book Now</a>
+            </div>
+
+            <!-- Mobile Dropdown Navigation Trigger Toggle Button -->
+            <button id="menuBtn" class="lg:hidden text-white hover:text-brand-orange transition-colors focus:outline-none" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars-staggered text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Expandable Navigation Menu -->
+        <div id="mobileMenu" class="hidden absolute top-full left-0 w-full bg-brand-dark/95 border-b border-brand-muted backdrop-blur-xl transition-all duration-300">
+            <div class="flex flex-col p-6 space-y-4 text-sm font-semibold uppercase tracking-[0.15em] text-center">
+                <a href="#" class="py-2 text-brand-orange">Home</a>
+                <a href="#about" class="py-2 hover:text-brand-orange">About Us</a>
+                <a href="#classes" class="py-2 hover:text-brand-orange">Classes</a>
+                <a href="#coaching" class="py-2 hover:text-brand-orange">Coaching</a>
+                <a href="#blog" class="py-2 hover:text-brand-orange">Blog</a>
+                <a href="#contact" class="py-2 hover:text-brand-orange">Contact</a>
+                <a href="#book-now" class="py-3 text-brand-dark bg-brand-orange rounded-xl font-bold"><i class="fa-solid fa-calendar-check mr-2"></i>Book Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Luxury Athletic Hero Section -->
+    <header class="relative min-h-screen w-full flex items-center justify-center pt-24 overflow-hidden bg-gradient-to-b from-brand-dark via-brand-surface to-brand-dark">
+        <!-- Ambient Structural Decorative Elements -->
+        <div class="absolute w-[600px] h-[600px] rounded-full bg-brand-orange/5 blur-[150px] -top-64 -right-64 pointer-events-none"></div>
+        <div class="absolute w-[500px] h-[500px] rounded-full bg-brand-orange/5 blur-[120px] bottom-0 -left-64 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10 py-12">
+            <!-- Typography Copy Block Content -->
+            <div class="lg:col-span-7 text-center lg:text-left order-2 lg:order-1 flex flex-col justify-center">
+                <div class="inline-flex items-center space-x-2 justify-center lg:justify-start mb-4">
+                    <span class="h-[2px] w-8 bg-brand-orange"></span>
+                    <span class="text-xs uppercase tracking-[0.35em] font-bold text-brand-orange">Sunshine Coast's Best Small Fitness Studio</span>
+                </div>
+                <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight text-white mb-6 uppercase">
+                    The Local <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-brand-accent to-white">Gym Woombye</span>
+                </h1>
+                <p class="text-gray-400 text-sm sm:text-base leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8 font-medium">
+                    Private, individualised small group fitness and directly managed personal training options. Engineered cleanly to maximize your wellbeing, strength, and structural recovery in a supportive, zero-ego community space.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                    <a href="#book-now" class="w-full sm:w-auto text-center bg-brand-orange hover:bg-white hover:text-brand-dark text-white font-extrabold text-xs uppercase tracking-[0.2em] px-8 py-4 rounded-xl transition-all duration-300 shadow-premium">
+                        Book Intro Consultation
+                    </a>
+                    <a href="#classes" class="w-full sm:w-auto text-center border border-white/20 hover:border-brand-orange hover:text-brand-orange text-white font-bold text-xs uppercase tracking-[0.2em] px-8 py-4 rounded-xl transition-all duration-300 backdrop-blur-sm">
+                        Explore Classes
+                    </a>
+                </div>
+            </div>
+
+            <!-- Immersive Contextual Media Frame -->
+            <div class="lg:col-span-5 order-1 lg:order-2 flex justify-center items-center relative">
+                <div class="relative w-full aspect-video sm:aspect-square max-w-[440px] rounded-[2.5rem] p-3 bg-gradient-to-tr from-brand-orange/30 to-white/10 border border-white/10 shadow-2xl group overflow-hidden">
+                    <div class="w-full h-full rounded-[2rem] overflow-hidden relative bg-brand-surface">
+                        <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1000&auto=format&fit=crop" 
+                             alt="The Local Gym Woombye High Performance Studio Environment" 
+                             class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 filter brightness-95">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-black/30"></div>
+                        
+                        <div class="absolute bottom-6 left-6 right-6 glass-card p-4 rounded-xl border border-white/5 flex items-center justify-between">
+                            <div>
+                                <span class="text-[10px] uppercase tracking-widest text-brand-orange block font-bold mb-0.5">Premium Studio Space</span>
+                                <span class="text-xs text-white font-semibold">Private, Fully Equipped.</span>
+                            </div>
+                            <div class="w-8 h-8 rounded-full bg-brand-orange flex items-center justify-center text-white text-xs font-bold shadow-glow">
+                                <i class="fa-solid fa-bolt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="#about" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center space-y-2 group cursor-pointer">
+            <span class="text-[9px] uppercase tracking-[0.3em] text-gray-400 group-hover:text-brand-orange transition-colors">Discover Studio</span>
+            <div class="w-[1px] h-10 bg-gradient-to-b from-brand-orange to-transparent"></div>
+        </a>
+    </header>
+
+    <!-- Quick Studio Specifications Banner -->
+    <section class="py-12 bg-brand-surface border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="flex items-center space-x-4 p-4 border-b md:border-b-0 md:border-r border-white/5">
+                    <i class="fa-solid fa-location-dot text-2xl text-brand-orange"></i>
+                    <div>
+                        <h4 class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Studio Location</h4>
+                        <p class="text-xs text-white font-medium mt-0.5">5/25 Blackall Street, Woombye</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4 p-4 border-b md:border-b-0 md:border-r border-white/5">
+                    <i class="fa-solid fa-clock text-2xl text-brand-orange"></i>
+                    <div>
+                        <h4 class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Staffed Gym Hours</h4>
+                        <p class="text-xs text-white font-medium mt-0.5">Mon-Fri 5:15-10am, 3-6:30pm / Sat 7-10am</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4 p-4 border-b md:border-b-0 md:border-r border-white/5">
+                    <i class="fa-solid fa-envelope text-2xl text-brand-orange"></i>
+                    <div>
+                        <h4 class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Secure Mailbox</h4>
+                        <p class="text-xs text-white font-medium mt-0.5">info@thelocalgym.com.au</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4 p-4">
+                    <i class="fa-solid fa-phone text-2xl text-brand-orange"></i>
+                    <div>
+                        <h4 class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Direct Phone Line</h4>
+                        <p class="text-xs text-white font-medium mt-0.5">0422 204 562</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us / Introductory Blueprint Section -->
+    <section id="about" class="py-24 bg-brand-dark relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            
+            <div class="lg:col-span-5 relative reveal">
+                <!-- Stacked structural layout grid -->
+                <div class="grid grid-cols-12 gap-4">
+                    <div class="col-span-8 rounded-3xl overflow-hidden shadow-2xl relative h-[380px] group border border-white/5">
+                        <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=1000&auto=format&fit=crop" 
+                             alt="Gym training session layout" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-90">
+                    </div>
+                    <div class="col-span-4 rounded-3xl overflow-hidden shadow-2xl relative h-[260px] mt-auto group border border-white/5">
+                        <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=600&auto=format&fit=crop" 
+                             alt="Reformer Pilates equipment macro" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-90">
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-7 flex flex-col justify-center reveal">
+                <span class="text-xs uppercase tracking-[0.2em] font-bold text-brand-orange mb-3 block">Don't Where To Start?</span>
+                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase mb-6 leading-tight">Your Journey Begins <br>With a Strategy Meeting</h2>
+                <p class="text-gray-400 font-medium text-sm sm:text-base leading-relaxed mb-8">
+                    Book a complimentary 20-minute Fitness-Free Intro configuration session directly with one of our specialized coaches. We map out your target aspirations, evaluate individual considerations, and establish immediate milestones completely optimized to help get you started.
+                </p>
+
+                <!-- Premium Checklist / Core Competencies Index Matrix Grid -->
+                <div class="grid grid-cols-2 gap-y-4 gap-x-8 mb-8 border-t border-white/5 pt-8">
+                    <div class="flex items-center space-x-3 text-xs uppercase tracking-widest font-semibold text-gray-300">
+                        <i class="fa-solid fa-circle-check text-brand-orange"></i>
+                        <span>Gym Access</span>
+                    </div>
+                    <div class="flex items-center space-x-3 text-xs uppercase tracking-widest font-semibold text-gray-300">
+                        <i class="fa-solid fa-circle-check text-brand-orange"></i>
+                        <span>After Hours Access</span>
+                    </div>
+                    <div class="flex items-center space-x-3 text-xs uppercase tracking-widest font-semibold text-gray-300">
+                        <i class="fa-solid fa-circle-check text-brand-orange"></i>
+                        <span>Fitness Challenges</span>
+                    </div>
+                    <div class="flex items-center space-x-3 text-xs uppercase tracking-widest font-semibold text-gray-300">
+                        <i class="fa-solid fa-circle-check text-brand-orange"></i>
+                        <span>Group Fitness</span>
+                    </div>
+                    <div class="flex items-center space-x-3 text-xs uppercase tracking-widest font-semibold text-gray-300">
+                        <i class="fa-solid fa-circle-check text-brand-orange"></i>
+                        <span>Personal Training</span>
+                    </div>
+                    <div class="flex items-center space-x-3 text-xs uppercase tracking-widest font-semibold text-gray-300">
+                        <i class="fa-solid fa-circle-check text-brand-orange"></i>
+                        <span>Nutrition Coaching</span>
+                    </div>
+                    <div class="flex items-center space-x-3 text-xs uppercase tracking-widest font-semibold text-gray-300">
+                        <i class="fa-solid fa-circle-check text-brand-orange"></i>
+                        <span>Rehabilitation</span>
+                    </div>
+                    <div class="flex items-center space-x-3 text-xs uppercase tracking-widest font-semibold text-gray-300">
+                        <i class="fa-solid fa-circle-check text-brand-orange"></i>
+                        <span>Reformer Pilates</span>
+                    </div>
+                </div>
+
+                <div>
+                    <a href="#book-now" class="inline-block bg-white hover:bg-brand-orange hover:text-white text-brand-dark font-extrabold text-xs uppercase tracking-[0.2em] px-8 py-4 rounded-xl transition-all duration-300">Book Free Intro</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services / Program Profiles Section Grid -->
+    <section id="classes" class="py-24 bg-brand-surface relative">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 reveal">
+                <div>
+                    <span class="text-xs uppercase tracking-[0.2em] font-bold text-brand-orange block mb-2">Our Capabilities</span>
+                    <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase">Studio Class Architectures</h2>
+                </div>
+                <div>
+                    <span class="text-xs uppercase font-bold text-gray-400 tracking-widest">Select Your Vector</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Card 1: Classes -->
+                <div id="coaching" class="glass-card rounded-3xl p-6 flex flex-col justify-between group relative overflow-hidden transition-all duration-300 hover:-translate-y-2 reveal">
+                    <div>
+                        <div class="w-full aspect-video rounded-2xl overflow-hidden mb-6 relative border border-white/5 bg-brand-dark">
+                            <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=600&auto=format&fit=crop" alt="Small group fitness classes" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-brand-dark/20 mix-blend-multiply"></div>
+                        </div>
+                        <span class="text-[10px] font-bold tracking-widest uppercase text-brand-orange mb-1 block">Private & Individualised</span>
+                        <h3 class="font-display text-xl font-extrabold uppercase text-white mb-4">Small Group Classes</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed font-medium mb-8">
+                            Private, individualised, and focused strictly on improving your performance thresholds inside a highly supportive and engaging group framework.
+                        </p>
+                    </div>
+                    <a href="#book-now" class="w-full text-center border border-white/10 group-hover:border-brand-orange group-hover:bg-brand-orange group-hover:text-white text-white font-bold text-xs uppercase tracking-widest py-4 rounded-xl transition-all duration-300">Discover More</a>
+                </div>
+
+                <!-- Card 2: Coaching -->
+                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between group relative overflow-hidden transition-all duration-300 hover:-translate-y-2 reveal">
+                    <div>
+                        <div class="w-full aspect-video rounded-2xl overflow-hidden mb-6 relative border border-white/5 bg-brand-dark">
+                            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=600&auto=format&fit=crop" alt="Personal Training" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-brand-dark/20 mix-blend-multiply"></div>
+                        </div>
+                        <span class="text-[10px] font-bold tracking-widest uppercase text-brand-orange mb-1 block">Maximize Output</span>
+                        <h3 class="font-display text-xl font-extrabold uppercase text-white mb-4">Personal Coaching</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed font-medium mb-8">
+                            Work directly one-on-one with an expert coach. A full spectrum of personal training options modeled flawlessly to balance your budget and milestone specifications.
+                        </p>
+                    </div>
+                    <a href="#book-now" class="w-full text-center border border-white/10 group-hover:border-brand-orange group-hover:bg-brand-orange group-hover:text-white text-white font-bold text-xs uppercase tracking-widest py-4 rounded-xl transition-all duration-300">Discover More</a>
+                </div>
+
+                <!-- Card 3: Open Gym -->
+                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between group relative overflow-hidden transition-all duration-300 hover:-translate-y-2 reveal">
+                    <div>
+                        <div class="w-full aspect-video rounded-2xl overflow-hidden mb-6 relative border border-white/5 bg-brand-dark">
+                            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600&auto=format&fit=crop" alt="Open gym layout access" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-brand-dark/20 mix-blend-multiply"></div>
+                        </div>
+                        <span class="text-[10px] font-bold tracking-widest uppercase text-brand-orange mb-1 block">Flexible Scheduling</span>
+                        <h3 class="font-display text-xl font-extrabold uppercase text-white mb-4">Open Gym Access</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed font-medium mb-8">
+                            Access our premium wellness space on your own terms. Our gym offers a private and well equipped space that meets all of your training needs along with the support of a trainer when required.
+                        </p>
+                    </div>
+                    <a href="#book-now" class="w-full text-center border border-white/10 group-hover:border-brand-orange group-hover:bg-brand-orange group-hover:text-white text-white font-bold text-xs uppercase tracking-widest py-4 rounded-xl transition-all duration-300">Sign Up Instantly</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof / High-Fidelity Testimonials Section -->
+    <section class="py-24 bg-brand-dark relative">
+        <div class="max-w-5xl mx-auto px-6">
+            
+            <div class="text-center mb-16 reveal">
+                <span class="text-xs uppercase tracking-[0.25em] font-bold text-brand-orange block mb-2">Verified Transformations</span>
+                <h2 class="font-display text-3xl sm:text-4xl font-extrabold uppercase">What Our Happy Clients Are Saying</h2>
+                <div class="w-12 h-[2px] bg-brand-orange mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between relative reveal">
+                    <div>
+                        <div class="flex items-center space-x-1 text-amber-500 text-xs mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-400 text-xs leading-relaxed font-medium mb-6">
+                            "Thoroughly enjoy attending the group classes at this friendly local gym. A mixture of HIIT and weight training classes for a..."
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-white/5 pt-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-8 h-8 rounded-full bg-brand-orange/20 text-brand-orange font-bold text-xs flex items-center justify-center">D</div>
+                            <span class="text-xs font-bold text-white">Debbie</span>
+                        </div>
+                        <i class="fa-brands fa-google text-xs text-gray-500"></i>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between relative reveal">
+                    <div>
+                        <div class="flex items-center space-x-1 text-amber-500 text-xs mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-400 text-xs leading-relaxed font-medium mb-6">
+                            "Great staff, friendly atmosphere, each session is different."
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-white/5 pt-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-8 h-8 rounded-full bg-brand-orange/20 text-brand-orange font-bold text-xs flex items-center justify-center">M</div>
+                            <span class="text-xs font-bold text-white">Mike Dunham</span>
+                        </div>
+                        <i class="fa-brands fa-google text-xs text-gray-500"></i>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between relative reveal">
+                    <div>
+                        <div class="flex items-center space-x-1 text-amber-500 text-xs mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-400 text-xs leading-relaxed font-medium mb-6">
+                            "I would highly recommend The Local Gym Woombye. I retired at 30 June last year. After many years of sitting behind a desk..."
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-white/5 pt-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-8 h-8 rounded-full bg-brand-orange/20 text-brand-orange font-bold text-xs flex items-center justify-center">M</div>
+                            <span class="text-xs font-bold text-white">Mark Bray</span>
+                        </div>
+                        <i class="fa-brands fa-google text-xs text-gray-500"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10 text-[11px] uppercase tracking-widest text-gray-500 font-bold">
+                <span>Excellent Metric Ranking Based on 39 Google Reviews</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content / Editorial Blog Preview Block -->
+    <section id="blog" class="py-24 bg-brand-surface relative">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 reveal">
+                <div>
+                    <span class="text-xs uppercase tracking-[0.2em] font-bold text-brand-orange block mb-2">From Our Blog</span>
+                    <h2 class="font-display text-3xl sm:text-4xl font-extrabold uppercase">Health & Wellbeing Journey Insights</h2>
+                </div>
+                <button class="bg-brand-muted hover:bg-brand-orange hover:text-white px-6 py-3 rounded-xl text-xs font-bold uppercase tracking-widest transition-colors duration-300">View All Articles</button>
+            </div>
+
+            <!-- Single Showcase Premium Large Article Card Variant -->
+            <div class="glass-card rounded-[2.5rem] p-6 lg:p-8 flex flex-col lg:flex-row gap-12 items-center reveal">
+                <div class="w-full lg:w-1/2 aspect-video rounded-2xl overflow-hidden bg-brand-dark border border-white/5 shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop" alt="Community wellness article asset" class="w-full h-full object-cover filter brightness-90">
+                </div>
+                <div class="w-full lg:w-1/2 flex flex-col justify-center">
+                    <span class="text-[10px] font-bold tracking-widest uppercase text-brand-orange mb-2 block">Mindset Configuration</span>
+                    <h3 class="font-display text-2xl sm:text-3xl font-extrabold uppercase text-white mb-4 leading-tight">Why Gyms Aren't Just for 'Gym People'</h3>
+                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed font-medium mb-6">
+                        Everyone gets something different out of going to the gym. Don't let the idea of what other people get out of the gym stop you from achieving...
+                    </p>
+                    <div>
+                        <a href="#blog" class="inline-flex items-center space-x-2 text-xs uppercase tracking-widest font-bold text-brand-orange hover:text-white transition-colors">
+                            <span>Read Article Blueprint</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Smart Interactive Strategic CTA Framework Section -->
+    <section id="book-now" class="py-24 bg-brand-dark relative overflow-hidden border-t border-white/5">
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10 reveal">
+            <h2 class="font-display text-4xl sm:text-5xl font-extrabold uppercase mb-4">Initialize Your Training Trajectory</h2>
+            <p class="text-gray-400 text-sm font-medium max-w-xl mx-auto mb-10">
+                Align workflows directly with our coaches to lock down individual benchmarks and layout plans custom configured to match your schedule.
+            </p>
+            
+            <div class="glass-card p-6 rounded-3xl grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto border border-white/10">
+                <input type="text" placeholder="Your Full Name" class="bg-brand-dark border border-brand-muted focus:border-brand-orange rounded-xl px-4 py-3 text-xs text-white placeholder-gray-500 focus:outline-none transition-colors" required>
+                <input type="email" placeholder="Your Email Vector" class="bg-brand-dark border border-brand-muted focus:border-brand-orange rounded-xl px-4 py-3 text-xs text-white placeholder-gray-500 focus:outline-none transition-colors" required>
+                <button class="bg-brand-orange hover:bg-white hover:text-brand-dark text-white text-xs font-black uppercase tracking-widest py-3 rounded-xl transition-all duration-300 shadow-premium">Book Strategy Consultation</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Geographic & Corporate Coordinates Contact Section -->
+    <section id="contact" class="py-24 bg-brand-surface border-t border-white/5 relative">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-5 reveal">
+                <span class="text-xs uppercase tracking-[0.2em] font-bold text-brand-orange block mb-2">Connect Directly</span>
+                <h2 class="font-display text-3xl sm:text-4xl font-extrabold uppercase mb-6">Studio Coordinates</h2>
+                
+                <div class="space-y-6 text-sm font-medium">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-8 h-8 rounded-lg bg-brand-orange/10 flex items-center justify-center text-brand-orange shrink-0 mt-0.5"><i class="fa-solid fa-map-location-dot"></i></div>
+                        <div>
+                            <span class="text-white block uppercase text-xs tracking-wider font-bold mb-1">Physical Facility Address</span>
+                            <span class="text-gray-400 text-xs">5/25 Blackall Street, Woombye, QLD 4559</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-8 h-8 rounded-lg bg-brand-orange/10 flex items-center justify-center text-brand-orange shrink-0 mt-0.5"><i class="fa-solid fa-business-time"></i></div>
+                        <div>
+                            <span class="text-white block uppercase text-xs tracking-wider font-bold mb-1">Staffed Operating Architecture</span>
+                            <span class="text-gray-400 text-xs block">Monday - Friday: 5:15am-10am & 3pm-6:30pm</span>
+                            <span class="text-gray-400 text-xs block">Saturday: 7am - 10am</span>
+                            <span class="text-brand-orange text-[10px] uppercase font-bold block mt-1"><i class="fa-solid fa-unlock-keyhole mr-1"></i>After-Hours Access: 4am - 10pm</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-7 h-80 rounded-3xl overflow-hidden bg-brand-dark border border-brand-muted flex flex-col items-center justify-center text-center p-8 shadow-2xl reveal">
+                <i class="fa-solid fa-compass text-4xl text-brand-orange mb-4"></i>
+                <span class="text-xs tracking-widest uppercase font-bold text-white mb-2">Geographic Framework Map View</span>
+                <span class="text-[11px] text-gray-500 max-w-xs leading-relaxed">Direct Sunshine Coast mapping telemetry tracking cleanly at Woombye infrastructure sectors.</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- High-End Premium Structural Footer Component -->
+    <footer class="bg-brand-dark border-t border-white/5 text-gray-500 font-medium text-xs">
+        <div class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-12 gap-12">
+            
+            <div class="md:col-span-5 space-y-4">
+                <a href="#" class="flex flex-col">
+                    <span class="font-display text-xl font-extrabold tracking-tight text-white uppercase">thelocal<span class="text-brand-orange">gym</span></span>
+                    <span class="text-[9px] tracking-[0.45em] text-brand-orange uppercase -mt-1 font-bold">woombye</span>
+                </a>
+                <p class="text-gray-500 leading-relaxed text-xs max-w-sm font-medium">
+                    Sunshine Coast's premium fitness studio studio framework. Focused execution built cleanly for health longevity.
+                </p>
+                <div class="flex items-center space-x-3 pt-4 text-gray-500">
+                    <a href="#" class="w-8 h-8 rounded-xl border border-white/5 flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors"><i class="fa-brands fa-facebook-f text-xs"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-xl border border-white/5 flex items-center justify-center hover:border-brand-orange hover:text-brand-orange transition-colors"><i class="fa-brands fa-instagram text-xs"></i></a>
+                </div>
+            </div>
+
+            <div class="md:col-span-3 space-y-3">
+                <span class="text-[10px] uppercase tracking-[0.2em] font-bold text-white block mb-2">Studio Directories</span>
+                <a href="#about" class="block hover:text-brand-orange transition-colors">About Facility</a>
+                <a href="#classes" class="block hover:text-brand-orange transition-colors">Class Calendars</a>
+                <a href="#coaching" class="block hover:text-brand-orange transition-colors">Coaching Parameters</a>
+                <a href="#blog" class="block hover:text-brand-orange transition-colors">Media Publication</a>
+            </div>
+
+            <div class="md:col-span-4 space-y-4">
+                <span class="text-[10px] uppercase tracking-[0.2em] font-bold text-white block mb-2">Studio Updates Curation</span>
+                <p class="text-[11px] text-gray-500">Join our newsletter to receive strategic health metrics directly inside your inbox vector.</p>
+                <form class="flex items-center p-1 rounded-xl bg-brand-surface border border-white/5 focus-within:border-brand-orange transition-colors" onsubmit="event.preventDefault();">
+                    <input type="email" placeholder="Enter your email address" class="w-full bg-transparent px-4 py-2 text-xs text-white focus:outline-none placeholder-gray-600">
+                    <button type="submit" class="bg-brand-orange text-white text-[10px] uppercase font-bold tracking-widest px-4 py-2.5 rounded-lg transition-all duration-300">Subscribe</button>
+                </form>
+            </div>
+
+        </div>
+
+        <div class="border-t border-white/5 py-8 max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] text-gray-600 font-semibold tracking-wider">
+            <p>&copy; 2026 The Local Gym Woombye. All rights reserved globally.</p>
+            <div class="flex space-x-6">
+                <a href="#" class="hover:text-brand-orange transition-colors">Health & Fitness Calculators</a>
+                <a href="#" class="hover:text-brand-orange transition-colors">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Vanilla Javascript Logic Controller Loop -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuBtn = document.getElementById('menuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            const links = mobileMenu.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Reveal Animation Intersection Observer Core Loop Configuration
+            const elements = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -40px 0px'
+            });
+
+            elements.forEach(element => observer.observe(element));
+
+            setTimeout(() => {
+                window.dispatchEvent(new Event('scroll'));
+            }, 100);
+        });
+    </script>
+</body>
+</html>

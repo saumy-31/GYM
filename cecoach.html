@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CECO | The Corporate and Executive Coaching Organisation</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ceco: {
+                            purple: '#4B1A7A', // Deep primary purple from brand identity
+                            darkPurple: '#2C0F4A',
+                            lightPurple: '#F5EFFB',
+                            gold: '#D4AF37',
+                            slate: '#1E293B',
+                            grayBg: '#F8FAFC'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .dark-glass {
+            background: rgba(44, 15, 74, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-ceco-slate font-sans antialiased overflow-x-hidden">
+
+    <!-- Sticky Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300 glassmorphism border-b border-ceco-lightPurple/80 shadow-sm" id="main-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Identity Logo Grid -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="bg-ceco-purple text-white w-10 h-10 flex flex-col justify-center items-center rounded-lg font-bold text-xs tracking-tighter leading-none border border-ceco-purple/20 shadow-md transition-transform group-hover:scale-105">
+                        <span>C E</span>
+                        <span class="border-t border-white/30 mt-0.5 pt-0.5">C O</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-xl font-extrabold tracking-wider text-ceco-purple font-sans">CECO</span>
+                        <span class="text-[9px] uppercase tracking-widest text-slate-500 font-medium -mt-1 hidden sm:inline">Corporate & Executive Coaching</span>
+                    </div>
+                </a>
+                
+                <!-- Navigation Menu Links -->
+                <div class="hidden md:flex items-center space-x-8 font-semibold text-sm">
+                    <a href="#" class="text-ceco-purple hover:text-ceco-gold transition-colors">Home</a>
+                    <a href="#welcome" class="text-slate-600 hover:text-ceco-purple transition-colors">Welcome</a>
+                    <a href="#services" class="text-slate-600 hover:text-ceco-purple transition-colors">What We Deliver</a>
+                    <a href="#about" class="text-slate-600 hover:text-ceco-purple transition-colors">About Vicki</a>
+                    <a href="#testimonials" class="text-slate-600 hover:text-ceco-purple transition-colors">Clients</a>
+                </div>
+
+                <!-- Conversion Button / Action -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#contact" class="bg-ceco-purple hover:bg-ceco-darkPurple text-white font-bold text-xs uppercase tracking-wider px-5 py-3 rounded-xl transition-all shadow-md shadow-ceco-purple/20 hover:-translate-y-0.5">
+                        Contact CECO
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Icon Button -->
+                <div class="md:hidden">
+                    <button type="button" id="mobile-menu-btn" class="text-ceco-purple hover:text-ceco-gold focus:outline-none p-2" aria-label="Toggle Menu">
+                        <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dropout Menu Container -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-md border-t border-slate-100 w-full absolute top-20 left-0 shadow-xl">
+            <div class="px-4 pt-4 pb-6 space-y-2 font-semibold">
+                <a href="#" class="block px-4 py-2.5 rounded-xl text-ceco-purple hover:bg-ceco-lightPurple">Home</a>
+                <a href="#welcome" class="block px-4 py-2.5 rounded-xl text-slate-600 hover:bg-ceco-lightPurple hover:text-ceco-purple">Welcome</a>
+                <a href="#services" class="block px-4 py-2.5 rounded-xl text-slate-600 hover:bg-ceco-lightPurple hover:text-ceco-purple">What We Deliver</a>
+                <a href="#about" class="block px-4 py-2.5 rounded-xl text-slate-600 hover:bg-ceco-lightPurple hover:text-ceco-purple">About Vicki</a>
+                <a href="#testimonials" class="block px-4 py-2.5 rounded-xl text-slate-600 hover:bg-ceco-lightPurple hover:text-ceco-purple">Clients</a>
+                <div class="pt-4 border-t border-slate-100">
+                    <a href="#contact" class="block text-center py-3 font-bold text-white bg-ceco-purple rounded-xl hover:bg-ceco-darkPurple transition-colors shadow-md">Contact CECO</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen pt-28 flex items-center bg-ceco-darkPurple text-white overflow-hidden">
+        <!-- Structural Background Image Stack with Overlay Gradients -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80" alt="Premium Modern Corporate Architecture Skyline" class="w-full h-full object-cover object-center opacity-25 mix-blend-luminosity">
+            <div class="absolute inset-0 bg-gradient-to-tr from-ceco-darkPurple via-ceco-darkPurple/90 to-ceco-purple/40"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-16">
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                <!-- Hero Core Copywriting Block -->
+                <div class="lg:col-span-8 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest text-ceco-gold uppercase border border-white/10 mx-auto lg:mx-0">
+                        <i class="fa-solid fa-award"></i> Internationally Acknowledged Excellence
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-sans leading-tight">
+                        The Corporate and Executive <span class="text-gradient block mt-2 bg-gradient-to-r from-ceco-gold to-amber-200 bg-clip-text text-transparent">Coaching Organisation</span>
+                    </h1>
+                    <p class="text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+                        An award-winning coaching organisation with a <strong class="text-white font-medium">35+ year successful track record</strong> working alongside business leaders, executive teams, and supervising internal corporate coaches across 5 continents.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#contact" class="px-8 py-4 bg-ceco-purple hover:bg-ceco-purple/80 text-white font-bold rounded-xl shadow-xl shadow-ceco-purple/30 text-center transition-all border border-white/10 hover:-translate-y-0.5">
+                            Book Executive Consultation
+                        </a>
+                        <a href="#welcome" class="px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/20 transition-all backdrop-blur-sm text-center">
+                            Explore Our Framework
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Floating Premium Logo Graphic Accent Column -->
+                <div class="lg:col-span-4 flex justify-center relative">
+                    <div class="absolute inset-0 bg-ceco-purple rounded-full opacity-30 blur-3xl w-72 h-72 mx-auto"></div>
+                    <div class="relative bg-white/5 backdrop-blur-md p-10 rounded-3xl border border-white/10 shadow-2xl text-center max-w-xs w-full group hover:border-white/20 transition-all">
+                        <div class="bg-white/10 text-white w-24 h-24 flex flex-col justify-center items-center rounded-2xl font-bold text-2xl tracking-tighter leading-none border border-white/20 mx-auto mb-6 shadow-inner group-hover:scale-105 transition-transform duration-500">
+                            <span>C E</span>
+                            <span class="border-t border-white/20 mt-1.5 pt-1.5 w-16">C O</span>
+                        </div>
+                        <p class="text-xs uppercase tracking-widest text-ceco-gold font-bold">Est. Since 1990</p>
+                        <p class="text-[11px] text-slate-400 font-light mt-1">Forefront of Authentic Corporate Coaching</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Animated Scroll Down Indicator Line -->
+            <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 hidden lg:flex flex-col items-center gap-2 opacity-50">
+                <span class="text-[10px] uppercase tracking-widest text-white">Scroll to Discover</span>
+                <i class="fa-solid fa-chevron-down animate-bounce text-ceco-gold"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Welcome Section (Corporate Promise Background) -->
+    <section id="welcome" class="py-20 lg:py-28 bg-white border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Left Narrative Column -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="flex items-center gap-2 text-ceco-purple font-bold text-xs uppercase tracking-widest">
+                        <span class="w-8 h-[2px] bg-ceco-purple"></span> Built on Trust & Integrity
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-ceco-darkPurple font-sans">
+                        Enduring Commitment to Deliver Without Compromise
+                    </h2>
+                    <p class="text-slate-600 font-light leading-relaxed">
+                        CECO's leading-edge thinking, ongoing professional development, and willingness to speak out clearly about the development of coaching keeps us at the absolute forefront of authentic coaching.
+                    </p>
+                    <p class="text-slate-600 font-light leading-relaxed">
+                        We have built our industry reputation on trust and our enduring commitment to deliver what we promise without compromise, in every single corporate situation.
+                    </p>
+                </div>
+
+                <!-- Right Core Delivery Grid Framework Column -->
+                <div id="services" class="lg:col-span-7 bg-slate-50 border border-slate-200/60 rounded-3xl p-8 sm:p-10 space-y-6 shadow-inner">
+                    <h3 class="text-xs uppercase tracking-widest font-bold text-ceco-purple">This is exactly what you can expect from CECO:</h3>
+                    
+                    <div class="grid sm:grid-cols-2 gap-6 text-sm">
+                        <div class="bg-white p-5 rounded-xl border border-slate-100 shadow-sm space-y-2 group hover:border-ceco-purple/30 transition-all">
+                            <div class="w-8 h-8 bg-ceco-lightPurple text-ceco-purple rounded-lg flex items-center justify-center font-bold text-sm"><i class="fa-solid fa-layer-group"></i></div>
+                            <h4 class="font-bold text-ceco-darkPurple">Clear Frameworks</h4>
+                            <p class="text-xs text-slate-500 font-light">Includes strict measures of success and our proven framework for evaluation.</p>
+                        </div>
+
+                        <div class="bg-white p-5 rounded-xl border border-slate-100 shadow-sm space-y-2 group hover:border-ceco-purple/30 transition-all">
+                            <div class="w-8 h-8 bg-ceco-lightPurple text-ceco-purple rounded-lg flex items-center justify-center font-bold text-sm"><i class="fa-solid fa-compass"></i></div>
+                            <h4 class="font-bold text-ceco-darkPurple">Real-World Insight</h4>
+                            <p class="text-xs text-slate-500 font-light">Insight and understanding of the fast-moving business environment based on real experience.</p>
+                        </div>
+
+                        <div class="bg-white p-5 rounded-xl border border-slate-100 shadow-sm space-y-2 group hover:border-ceco-purple/30 transition-all">
+                            <div class="w-8 h-8 bg-ceco-lightPurple text-ceco-purple rounded-lg flex items-center justify-center font-bold text-sm"><i class="fa-solid fa-chart-line"></i></div>
+                            <h4 class="font-bold text-ceco-darkPurple">Measurable ROI</h4>
+                            <p class="text-xs text-slate-500 font-light">A commitment to provide you with a measurable Return on Investment based on initial metrics.</p>
+                        </div>
+
+                        <div class="bg-white p-5 rounded-xl border border-slate-100 shadow-sm space-y-2 group hover:border-ceco-purple/30 transition-all">
+                            <div class="w-8 h-8 bg-ceco-lightPurple text-ceco-purple rounded-lg flex items-center justify-center font-bold text-sm"><i class="fa-solid fa-clock"></i></div>
+                            <h4 class="font-bold text-ceco-darkPurple">Timeline Clarity</h4>
+                            <p class="text-xs text-slate-500 font-light">Absolute clarity around the assignment timeline (inception to completion) and total cost mapping.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-ceco-purple/5 p-4 rounded-xl border border-ceco-purple/10 flex items-center gap-3 text-xs text-ceco-darkPurple font-medium">
+                        <i class="fa-solid fa-graduation-cap text-lg text-ceco-purple"></i>
+                        <span>Coach CPD processes systematically keep CECO at the leading edge of corporate coaching thinking.</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Statistics Ribbon -->
+    <section class="bg-ceco-purple text-white py-12 border-y border-ceco-darkPurple">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center divide-x-0 divide-y lg:divide-y-0 lg:divide-x divide-white/10">
+                <div class="space-y-1">
+                    <p class="text-4xl font-extrabold tracking-tight text-ceco-gold">35+ Years</p>
+                    <p class="text-xs font-semibold uppercase tracking-wider text-ceco-lightPurple opacity-80">Successful Track Record</p>
+                </div>
+                <div class="space-y-1 pt-4 lg:pt-0">
+                    <p class="text-4xl font-extrabold tracking-tight text-ceco-gold">27,000+</p>
+                    <p class="text-xs font-semibold uppercase tracking-wider text-ceco-lightPurple opacity-80">Hours Senior Experience</p>
+                </div>
+                <div class="space-y-1 pt-4 lg:pt-0">
+                    <p class="text-4xl font-extrabold tracking-tight text-ceco-gold">5 Continents</p>
+                    <p class="text-xs font-semibold uppercase tracking-wider text-ceco-lightPurple opacity-80">Global Direct Engagement</p>
+                </div>
+                <div class="space-y-1 pt-4 lg:pt-0">
+                    <p class="text-4xl font-extrabold tracking-tight text-ceco-gold">100% ROI</p>
+                    <p class="text-xs font-semibold uppercase tracking-wider text-ceco-lightPurple opacity-80">Clear Pre-Agreed Metrics</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials / Client Impact Section -->
+    <section id="testimonials" class="py-20 lg:py-28 bg-gradient-to-br from-ceco-darkPurple to-ceco-purple text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-ceco-gold rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 text-center space-y-8">
+            <span class="text-xs uppercase tracking-widest font-bold text-ceco-gold px-3 py-1 bg-white/5 rounded-full border border-white/10">What Our Clients Say About Us</span>
+            
+            <div class="relative">
+                <i class="fa-solid fa-quote-left text-6xl text-white/5 absolute -top-10 -left-6 z-0"></i>
+                <blockquote class="text-xl sm:text-2xl font-serif font-light italic leading-relaxed relative z-10">
+                    "A mixture of challenge, structure and just sheer opportunity to reflect on the myriad of 'what ifs' has proved enormously useful. Vicki, coaching with you was life changing – thank you. I appreciated your flexibility, being held to task and challenged."
+                </blockquote>
+            </div>
+
+            <div class="pt-4 border-t border-white/10 max-w-xs mx-auto">
+                <p class="font-bold text-base tracking-wide">Regional Director</p>
+                <p class="text-xs text-ceco-gold font-medium uppercase tracking-wider mt-0.5">Telecommunications Industry</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Deep Dive / About Vicki Espin Section -->
+    <section id="about" class="py-20 lg:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                
+                <!-- Left Profile Image Stack -->
+                <div class="lg:col-span-4 relative order-2 lg:order-1">
+                    <div class="absolute -inset-4 bg-gradient-to-tr from-ceco-purple to-ceco-gold rounded-3xl opacity-10 blur-xl"></div>
+                    <div class="relative bg-slate-50 border border-slate-200 p-3 rounded-3xl shadow-xl overflow-hidden group">
+                        <!-- Replaced portrait placeholder to mimic executive aesthetics securely -->
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Vicki Espin MA, PGC Coaching Supervision" class="w-full h-[420px] object-cover rounded-2xl grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <div class="absolute bottom-6 left-6 right-6 p-4 dark-glass rounded-xl border border-white/10 text-white text-center">
+                            <h4 class="font-bold text-sm">Vicki Espin MA, PGC</h4>
+                            <p class="text-[10px] uppercase tracking-wider text-ceco-gold font-semibold mt-0.5">Co-founded CECO in 1996</p>
+                        </div>
+                    </div>
+
+                    <!-- Meta Bio Technical Details Card -->
+                    <div class="mt-6 bg-slate-50 rounded-2xl border border-slate-200 p-5 space-y-2.5 text-xs font-medium text-slate-700">
+                        <div class="flex justify-between border-b border-slate-200/60 pb-2">
+                            <span class="text-slate-400 font-normal">Location:</span>
+                            <span class="text-ceco-darkPurple font-bold">United Kingdom</span>
+                        </div>
+                        <div class="flex justify-between border-b border-slate-200/60 pb-2">
+                            <span class="text-slate-400 font-normal">Language:</span>
+                            <span class="text-ceco-darkPurple font-bold">English</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-400 font-normal">Global Experience:</span>
+                            <span class="text-ceco-darkPurple font-bold text-right">UK, Africa, Australia, Europe, SE Asia, USA</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Narrative Profile Column -->
+                <div class="lg:col-span-8 space-y-6 order-1 lg:order-2">
+                    <div class="flex items-center gap-2 text-ceco-purple font-bold text-xs uppercase tracking-widest">
+                        <span class="w-8 h-[2px] bg-ceco-purple"></span> Expert Leadership Profile
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-ceco-darkPurple">
+                        About Vicki Espin MA, PGC <span class="block text-sm font-semibold tracking-widest text-slate-400 uppercase mt-1">Coaching Supervision Masterclass Coach</span>
+                    </h2>
+                    
+                    <div class="space-y-4 text-sm text-slate-600 font-light leading-relaxed">
+                        <p>
+                            Known as one of the UK's leading and longest-standing executive coaches, Vicki trained as a professional corporate and executive coach in 1990 whilst Head of Leadership Development for BUPA, and now has <strong class="font-semibold text-ceco-darkPurple">35 years' and over 27,000 hours' experience</strong> of engaging senior business leaders in challenging conversations.
+                        </p>
+                        <p>
+                            Vicki holds an MA in Human Resource Strategy from the University of East Anglia, and a Post Graduate Certificate in Coaching Supervision from Oxford Brookes University. She co-founded the Corporate & Executive Coaching Organisation in 1996. Her specialized work includes 1:1 coaching and team coaching for senior business leaders, the training and supervision of coaches within organisations and professional coaches.
+                        </p>
+                        <p class="italic text-ceco-purple font-medium bg-ceco-lightPurple/40 p-4 rounded-xl border-l-4 border-ceco-purple">
+                            "It's been a pleasure and a privilege to have been invited to work with Business Leaders in organisations across the world. Working with individuals and teams on challenges which impact individual and organisation performance, I am trusted to ask the questions which others have not had the courage to ask with clarity and straightforwardness..."
+                        </p>
+                    </div>
+
+                    <!-- Meta Sub-businesses & Links Block -->
+                    <div class="pt-4 grid sm:grid-cols-2 gap-4 text-xs font-medium">
+                        <div class="p-4 border border-slate-100 rounded-xl bg-slate-50/50 space-y-1">
+                            <h5 class="font-bold text-ceco-darkPurple">Leadership with Momentum</h5>
+                            <p class="text-[11px] text-slate-500 font-light">Highly innovative corporate systemic leadership programs agreed upon with senior enterprise sponsors.</p>
+                        </div>
+                        <div class="p-4 border border-slate-100 rounded-xl bg-slate-50/50 space-y-1">
+                            <h5 class="font-bold text-ceco-darkPurple">Coaching Conversations at Work</h5>
+                            <p class="text-[11px] text-slate-500 font-light">Co-founded in 2010 to provide succinct conversation cards targeted globally toward HR development specialists.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section Component -->
+    <section class="py-20 bg-slate-50 border-y border-slate-200/60">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6">
+            <div class="text-center space-y-3 mb-12">
+                <h2 class="text-3xl font-bold tracking-tight text-ceco-darkPurple">Frequently Asked Questions</h2>
+                <p class="text-slate-500 text-sm font-light">Transparent details regarding strategic engagement parameters and timeline frameworks.</p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm transition-all">
+                    <button class="w-full text-left px-6 py-4.5 font-bold text-ceco-darkPurple flex justify-between items-center focus:outline-none gap-4 py-4" onclick="toggleFaq(this)">
+                        <span class="text-sm sm:text-base">How exactly does CECO measure ROI in an assignment?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-200"></i>
+                    </button>
+                    <div class="hidden px-6 pb-5 text-xs sm:text-sm text-slate-600 font-light leading-relaxed border-t border-slate-50 pt-3">
+                        Every single project initiation stage includes mandatory agreement metrics outlined clearly with business sponsors to anchor the absolute bottom-line parameters prior to delivery.
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm transition-all">
+                    <button class="w-full text-left px-6 py-4.5 font-bold text-ceco-darkPurple flex justify-between items-center focus:outline-none gap-4 py-4" onclick="toggleFaq(this)">
+                        <span class="text-sm sm:text-base">What industries does Vicki Espin have deep corporate tenure in?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-200"></i>
+                    </button>
+                    <div class="hidden px-6 pb-5 text-xs sm:text-sm text-slate-600 font-light leading-relaxed border-t border-slate-50 pt-3">
+                        Vicki possesses extensive multi-sector tenure spanning telecommunications, healthcare infrastructure (including BUPA leadership), international banking, and enterprise manufacturing lines across 5 continents.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CECO Section Form Grid -->
+    <section id="contact" class="py-20 lg:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-br from-ceco-darkPurple to-ceco-purple rounded-[2rem] shadow-2xl overflow-hidden relative">
+                
+                <div class="grid lg:grid-cols-12 relative z-10">
+                    <!-- Left Contact Metrics Column -->
+                    <div class="lg:col-span-5 p-8 sm:p-12 text-white flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-white/10">
+                        <div class="space-y-6">
+                            <h3 class="text-3xl font-bold tracking-tight">Contact CECO</h3>
+                            <p class="text-slate-300 font-light text-sm leading-relaxed">
+                                Get in touch directly to configure global corporate coaching agreements, establish executive supervision frameworks, or line up speaking schedules.
+                            </p>
+                            
+                            <div class="space-y-4 pt-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-ceco-gold"><i class="fa-solid fa-phone"></i></div>
+                                    <div class="text-sm">
+                                        <p class="text-white font-bold">07710 043550</p>
+                                        <p class="text-[10px] text-slate-400 font-light">Monday to Friday: 8am – 5pm</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-ceco-gold"><i class="fa-brands fa-linkedin-in"></i></div>
+                                    <div class="text-sm">
+                                        <a href="#" class="text-brand-orange hover:underline font-medium">Find me on LinkedIn</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="text-[11px] text-slate-400 font-light mt-8">
+                            All inbound form submissions are processed securely through validation filters to block malicious intent.
+                        </p>
+                    </div>
+
+                    <!-- Right Form Column -->
+                    <div class="lg:col-span-7 p-8 sm:p-12 bg-white/5 backdrop-blur-md">
+                        <form class="space-y-4" onsubmit="event.preventDefault(); alert('Your consultative message has been safely received by CECO.');">
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="space-y-1">
+                                    <label class="text-[10px] font-bold uppercase tracking-wider text-slate-300">Name</label>
+                                    <input type="text" required class="w-full bg-white/10 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-ceco-gold transition-all" placeholder="Alex Rivera">
+                                </div>
+                                <div class="space-y-1">
+                                    <label class="text-[10px] font-bold uppercase tracking-wider text-slate-300">Email Address</label>
+                                    <input type="email" required class="w-full bg-white/10 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-ceco-gold transition-all" placeholder="alex@company.com">
+                                </div>
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-[10px] font-bold uppercase tracking-wider text-slate-300">Telephone</label>
+                                <input type="tel" class="w-full bg-white/10 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-ceco-gold transition-all" placeholder="+44 0000 000000">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-[10px] font-bold uppercase tracking-wider text-slate-300">Message</label>
+                                <textarea rows="3" required class="w-full bg-white/10 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-ceco-gold transition-all" placeholder="Tell us about your organization's coaching objectives..."></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-4 bg-ceco-gold hover:bg-amber-500 text-ceco-darkPurple font-extrabold uppercase text-xs tracking-widest rounded-xl transition-all shadow-lg shadow-ceco-gold/20">
+                                Submit Form Communication
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Modern Premium Footer Section -->
+    <footer class="bg-ceco-darkPurple text-white pt-16 pb-8 border-t border-ceco-purple">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-8 pb-12 border-b border-white/5">
+            
+            <div class="col-span-2 md:col-span-1 space-y-4">
+                <div class="flex items-center gap-2">
+                    <div class="bg-white/10 text-white w-6 h-6 flex flex-col justify-center items-center rounded font-bold text-[8px] tracking-tighter leading-none border border-white/10">
+                        <span>C E</span>
+                        <span>C O</span>
+                    </div>
+                    <span class="text-lg font-bold tracking-wider">CECO</span>
+                </div>
+                <p class="text-xs text-slate-400 font-light leading-relaxed">Providing award winning executive corporate coaching frameworks, professional supervising structures, and leading-edge alignment strategy across 5 continents since 1990.</p>
+            </div>
+
+            <div class="space-y-3">
+                <h4 class="text-xs uppercase font-bold tracking-widest text-ceco-gold">Core Philosophy</h4>
+                <ul class="space-y-2 text-xs font-light text-slate-300">
+                    <li><a href="#welcome" class="hover:text-ceco-gold transition-colors">Clear Frameworks</a></li>
+                    <li><a href="#welcome" class="hover:text-ceco-gold transition-colors">Evaluation Measures</a></li>
+                    <li><a href="#welcome" class="hover:text-ceco-gold transition-colors">ROI Assessment</a></li>
+                    <li><a href="#about" class="hover:text-ceco-gold transition-colors">Supervision Strategy</a></li>
+                </ul>
+            </div>
+
+            <div class="space-y-3">
+                <h4 class="text-xs uppercase font-bold tracking-widest text-ceco-gold">Affiliated Links</h4>
+                <ul class="space-y-2 text-xs font-light text-slate-300">
+                    <li><a href="#" class="hover:text-ceco-gold transition-colors">Leadership with Momentum</a></li>
+                    <li><a href="#" class="hover:text-ceco-gold transition-colors">Conversations at Work</a></li>
+                    <li><a href="#" class="hover:text-ceco-gold transition-colors">Oxford Brookes Network</a></li>
+                    <li><a href="#" class="hover:text-ceco-gold transition-colors">BUPA Leadership Legacy</a></li>
+                </ul>
+            </div>
+
+            <div class="space-y-3">
+                <h4 class="text-xs uppercase font-bold tracking-widest text-ceco-gold">Secure Gateway</h4>
+                <ul class="space-y-2 text-xs font-light text-slate-300">
+                    <li><a href="#contact" class="hover:text-ceco-gold transition-colors">Consultation Form</a></li>
+                    <li><a href="#" class="hover:text-ceco-gold transition-colors">LinkedIn Profile</a></li>
+                    <li><a href="#" class="hover:text-ceco-gold transition-colors">Privacy Infrastructure</a></li>
+                    <li><a href="#" class="hover:text-ceco-gold transition-colors">Terms of Compliance</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 flex flex-col sm:flex-row justify-between items-center text-[11px] text-slate-500 font-light gap-4">
+            <p>&copy; 2026 CECO. All international corporate rights reserved without compromise.</p>
+            <p class="flex items-center gap-1">Protected by Google reCAPTCHA v3.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Cookie Banner Fixed Strip -->
+    <div class="fixed bottom-0 left-0 w-full z-50 bg-slate-900 text-white text-xs py-4 px-6 shadow-2xl border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-4 transition-all" id="cookie-banner">
+        <p class="text-slate-400 font-light text-center sm:text-left">We use cookies on this website to improve your experience; please click 'Accept' if you are happy with this.</p>
+        <button class="px-5 py-2 bg-ceco-purple hover:bg-ceco-purple/90 text-white font-bold rounded-lg whitespace-nowrap" onclick="document.getElementById('cookie-banner').remove();">Accept</button>
+    </div>
+
+    <!-- JavaScript Navigation & UI Logic Engine -->
+    <script>
+        // Responsive Menu Toggle System
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.className = "fa-solid fa-bars text-xl";
+            } else {
+                menuIcon.className = "fa-solid fa-xmark text-xl";
+            }
+        });
+
+        // Close dropdown securely upon clicking link targets
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.className = "fa-solid fa-bars text-xl";
+            });
+        });
+
+        // Sticky Navbar Depth Modifications
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('main-nav');
+            if (window.scrollY > 40) {
+                nav.classList.add('shadow-md', 'py-1');
+            } else {
+                nav.classList.remove('shadow-md', 'py-1');
+            }
+        });
+
+        // FAQ Toggle Logic block
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('i');
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+    </script>
+</body>
+</html>

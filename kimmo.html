@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kimmo's Kitchen | Luxury Multi-Cuisine Restaurant & Café, Varanasi</title>
+    <meta name="description" content="Experience premium multi-cuisine fine dining at Kimmo's Kitchen, Sigra, Varanasi. Serving Indian, Chinese, Italian, and Continental delicacies in a luxury modern atmosphere.">
+    
+    <!-- Premium Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- DESIGN CORE SYSTEM --- */
+        :root {
+            --gold: #D4AF37;            /* Luxury Classic Gold */
+            --gold-light: #F3E5AB;
+            --charcoal: #0B0B0D;        /* Deep Premium Black */
+            --surface: #141417;         /* Card Surface Elevation */
+            --neon-pink: #FF2E93;       /* Interior Neon Accent */
+            --text-light: #F3F4F6;
+            --text-muted: #9CA3AF;
+            --font-display: 'Cormorant Garamond', serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+            --border-glass: rgba(255, 255, 255, 0.06);
+            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* --- GLOBAL SETUP & SCROLL DESIGN --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--charcoal);
+            color: var(--text-light);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--charcoal);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #222226;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gold);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1320px;
+            margin: 0 auto;
+        }
+
+        /* --- TYPOGRAPHY SYSTEMS --- */
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .tagline {
+            color: var(--gold);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: block;
+            font-family: var(--font-body);
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 4.2rem);
+            line-height: 1.15;
+            color: var(--text-light);
+        }
+
+        .section-title span {
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        section {
+            padding: 140px 0;
+            position: relative;
+        }
+
+        /* --- INTERACTIVE ACTION BUTTONS --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 18px 40px;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            text-decoration: none;
+            border-radius: 0;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--charcoal);
+            border: 1px solid var(--gold);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border: 1px solid var(--border-glass);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        /* --- SCROLL REVEAL DRIVER CLASSES --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- STICKY TRANSPARENT NAVIGATION HEADER --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 35px 0;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 20px 0;
+            background: rgba(11, 11, 13, 0.9);
+            backdrop-filter: blur(25px);
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .nav-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-text {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--text-light);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .logo-text span {
+            color: var(--gold);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--gold);
+        }
+
+        .menu-toggle {
+            display: none;
+            color: var(--text-light);
+            font-size: 1.6rem;
+            cursor: pointer;
+        }
+
+        /* --- HERO DISPLAY ZONE --- */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(180deg, rgba(11,11,13,0.3) 0%, rgba(11,11,13,0.95) 100%), 
+                        url('https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+            padding-top: 120px;
+        }
+
+        .hero-inner {
+            max-width: 900px;
+        }
+
+        .hero-inner h1 {
+            font-size: clamp(3.5rem, 7vw, 6.5rem);
+            line-height: 1.05;
+            margin-bottom: 30px;
+        }
+
+        .hero-inner h1 span {
+            font-style: italic;
+            font-family: var(--font-display);
+            color: transparent;
+            -webkit-text-stroke: 1px var(--text-light);
+        }
+
+        .hero-description {
+            font-size: 1.3rem;
+            font-family: var(--font-display);
+            color: var(--text-muted);
+            margin-bottom: 45px;
+            max-width: 650px;
+        }
+
+        .hero-btn-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* --- ABOUT ARCHITECTURE SECTION --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 90px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .about-visuals {
+            position: relative;
+        }
+
+        .about-img-frame {
+            border: 1px solid var(--border-glass);
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.01);
+            backdrop-filter: blur(10px);
+        }
+
+        .about-visuals img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: grayscale(15%);
+            transition: var(--transition);
+        }
+
+        .about-visuals:hover img {
+            filter: grayscale(0%);
+        }
+
+        /* --- SERVICES / EXPERIENCES --- */
+        .services-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background: var(--surface);
+            border: 1px solid var(--border-glass);
+            padding: 60px 45px;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .service-card i {
+            font-size: 2.2rem;
+            color: var(--gold);
+            margin-bottom: 35px;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-size: 1.7rem;
+            margin-bottom: 20px;
+            letter-spacing: 0.01em;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* --- CULINARY HIGHLIGHTS MENU --- */
+        .menu-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+
+        .menu-tab-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px 20px;
+            transition: var(--transition);
+            border-bottom: 1px solid transparent;
+        }
+
+        .menu-tab-btn.active, .menu-tab-btn:hover {
+            color: var(--gold);
+            border-bottom-color: var(--gold);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px 80px;
+        }
+
+        .menu-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+            padding-bottom: 20px;
+        }
+
+        .menu-item-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 8px;
+        }
+
+        .menu-item h4 {
+            font-size: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .menu-item-price {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .menu-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- THE GALLERY ZONE --- */
+        .gallery-masonry {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 25px;
+        }
+
+        .gallery-card {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            border: 1px solid var(--border-glass);
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.06);
+        }
+
+        /* --- SOCIAL REVIEWS / TESTIMONIALS --- */
+        .rating-summary-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 70px;
+            background: rgba(255,255,255,0.01);
+            border: 1px solid var(--border-glass);
+            width: max-content;
+            margin: 0 auto 70px auto;
+            padding: 20px 45px;
+        }
+
+        .rating-large-digit {
+            font-family: var(--font-display);
+            font-size: 3.8rem;
+            color: var(--gold);
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .stars-row i {
+            color: #FFC72C;
+            font-size: 1.1rem;
+            margin-right: 2px;
+        }
+
+        .reviews-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .review-card {
+            background: var(--surface);
+            padding: 50px 40px;
+            border: 1px solid var(--border-glass);
+            position: relative;
+        }
+
+        .review-card::before {
+            content: '“';
+            position: absolute;
+            top: 25px;
+            right: 40px;
+            font-family: var(--font-display);
+            font-size: 5rem;
+            color: rgba(214, 175, 55, 0.08);
+            line-height: 1;
+        }
+
+        .review-card p {
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        .reviewer-meta h5 {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 4px;
+        }
+
+        .reviewer-meta span {
+            color: var(--gold);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* --- CONTACT & INTEGRATED MAP --- */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 80px;
+        }
+
+        .contact-details-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 45px;
+        }
+
+        .contact-info-block {
+            display: flex;
+            gap: 25px;
+        }
+
+        .contact-info-block i {
+            font-size: 1.6rem;
+            color: var(--gold);
+            margin-top: 4px;
+        }
+
+        .contact-info-block h4 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            letter-spacing: 0.01em;
+        }
+
+        .contact-info-block p, .contact-info-block a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 1.05rem;
+        }
+
+        .map-frame-box {
+            height: 100%;
+            min-height: 450px;
+            border: 1px solid var(--border-glass);
+        }
+
+        /* --- CTA BANNER --- */
+        .cta-banner {
+            background: linear-gradient(rgba(11,11,13,0.85), rgba(11,11,13,0.85)), 
+                        url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+            padding: 120px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-glass);
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .cta-banner h2 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            margin-bottom: 25px;
+        }
+
+        .cta-banner p {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+            font-family: var(--font-display);
+        }
+
+        /* --- LUXURY FOOTER STRUCTURE --- */
+        footer {
+            background: #070708;
+            padding: 90px 0 45px 0;
+            border-top: 1px solid var(--border-glass);
+        }
+
+        .footer-grid-box {
+            display: grid;
+            grid-template-columns: 1.4fr 0.8fr 0.8fr;
+            gap: 80px;
+            margin-bottom: 70px;
+        }
+
+        .footer-brand h3 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            max-width: 360px;
+        }
+
+        .footer-links h4 {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            margin-bottom: 25px;
+            letter-spacing: 0.02em;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+            padding-left: 5px;
+        }
+
+        .social-link-row {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-circle-item {
+            width: 42px;
+            height: 42px;
+            border: 1px solid var(--border-glass);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-circle-item:hover {
+            background: var(--gold);
+            color: var(--charcoal);
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom-row {
+            border-top: 1px solid rgba(255,255,255,0.04);
+            padding-top: 35px;
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE STRUCTURAL OVERRIDES --- */
+        @media (max-width: 992px) {
+            .menu-toggle {
+                display: block;
+            }
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background: #0E0E11;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 35px;
+                transition: 0.5s ease;
+                box-shadow: -15px 0 40px rgba(0,0,0,0.7);
+                border-left: 1px solid var(--border-glass);
+            }
+            .nav-menu.active {
+                right: 0;
+            }
+            .about-grid, .menu-grid, .contact-layout, .footer-grid-box {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+            .rating-summary-wrapper {
+                width: 100%;
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- --- HEADER AND NAVIGATION CONTROL --- -->
+    <header id="site-header">
+        <div class="container nav-flex">
+            <a href="#hero" class="logo-text">KIMMOS<span>.</span></a>
+            <ul class="nav-menu" id="nav-drawer">
+                <li><a href="#hero" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">Story</a></li>
+                <li><a href="#services" class="nav-link">Experience</a></li>
+                <li><a href="#menu" class="nav-link">Menu Highlights</a></li>
+                <li><a href="#gallery" class="nav-link">Ambience</a></li>
+                <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="menu-trigger">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- --- IMPACT HERO STAGE --- -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-inner">
+                <span class="tagline">Fine Dine Multi-Cuisine Café & Restaurant</span>
+                <h1>A SYMPHONY OF<br>GLOBAL <span>FLAVORS</span></h1>
+                <p class="hero-description">Immerse yourself in Sigra's premier fine-dining culinary sanctuary. Crafting unforgettable gastronomic journeys through signature Indian, Chinese, Italian, and Continental recipes.</p>
+                <div class="hero-btn-group">
+                    <a href="https://www.zomato.com" target="_blank" class="btn btn-primary">Order Online</a>
+                    <a href="#menu" class="btn btn-secondary">Explore Highlights</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- LEGACY STORY ABOUT --- -->
+    <section id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <span class="tagline">Our Culinary Identity</span>
+                    <h2 class="section-title">Authentic Spices Meet <span>Global Craft</span></h2>
+                    <p>Welcome to Kimmo's Kitchen, where every plate maps a dedicated journey of taste culture. Strategically established along Fatman Road in Varanasi, we focus on producing premium fine-dining experiences that seamlessly bridge traditional techniques with contemporary presentations.</p>
+                    <p>Whether assembling cozy family dinners or vibrant multi-course happy hour arrays, our extensive selection of authentic global recipes promises full culinary satisfaction.</p>
+                    <a href="#contact" class="btn btn-secondary">Reserve A Table</a>
+                </div>
+                <div class="about-visuals reveal">
+                    <div class="about-img-frame">
+                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=800&auto=format&fit=crop" alt="Luxury Culinary Prep at Kimmo's Kitchen">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- EXPERIENCES & SERVICES --- -->
+    <section id="services" style="background: rgba(255,255,255,0.01);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="tagline">The Kimmos Experience</span>
+                <h2 class="section-title">Curated For Your <span>Comfort</span></h2>
+            </div>
+            <div class="services-layout">
+                <div class="service-card reveal">
+                    <i class="fa-solid fa-utensils"></i>
+                    <h3>Luxury Fine Dining</h3>
+                    <p>An upscale experiential multi-cuisine layout perfectly configured to host modern families and larger groups up to 50+ people.</p>
+                </div>
+                <div class="service-card reveal">
+                    <i class="fa-solid fa-fire-burner"></i>
+                    <h3>Cozy Fireplace Setup</h3>
+                    <p>Relax within distinct design spaces featuring warm atmospheric elements alongside stunning neon interior details.</p>
+                </div>
+                <div class="service-card reveal">
+                    <i class="fa-solid fa-truck-ramp-box"></i>
+                    <h3>Swift Delivery Channels</h3>
+                    <p>Bring custom gourmet standard flavors home instantly through our top-rated integrations on Swiggy and Zomato.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- CULINARY SELECTION MENU --- -->
+    <section id="menu">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="tagline">The Gastronomy</span>
+                <h2 class="section-title">Signature <span>Menu Highlights</span></h2>
+            </div>
+            
+            <div class="menu-tabs reveal">
+                <button class="menu-tab-btn active" onclick="switchMenu('indian')">Traditional Indian</button>
+                <button class="menu-tab-btn" onclick="switchMenu('global')">Global Delicacies</button>
+            </div>
+
+            <div class="menu-grid reveal" id="menu-container">
+                <!-- Content injected dynamically via JS below -->
+            </div>
+        </div>
+    </section>
+
+    <!-- --- AMBIENCE GALLERY --- -->
+    <section id="gallery" style="background: rgba(255,255,255,0.01);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="tagline">The Sanctuary</span>
+                <h2 class="section-title">Architectural <span>Ambience</span></h2>
+            </div>
+            <div class="gallery-masonry">
+                <div class="gallery-card reveal">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=600&auto=format&fit=crop" alt="Luxury Table Settings and Neon Displays">
+                </div>
+                <div class="gallery-card reveal">
+                    <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?q=80&w=600&auto=format&fit=crop" alt="Premium Multi-Cuisine Presentation Platters">
+                </div>
+                <div class="gallery-card reveal">
+                    <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=600&auto=format&fit=crop" alt="Vibrant Experiential Dining Room Seating">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- VERIFIED TRUST TESTIMONIALS --- -->
+    <section id="testimonials">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="tagline">Verified Patron Feedback</span>
+                <h2 class="section-title">The Standard of <span>Excellence</span></h2>
+            </div>
+
+            <div class="rating-summary-wrapper reveal">
+                <div class="rating-large-digit">4.5</div>
+                <div>
+                    <div class="stars-row">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <div style="color: var(--text-muted); font-size: 0.95rem; margin-top: 5px;">980+ Real Google Customer Ratings</div>
+                </div>
+            </div>
+
+            <div class="reviews-layout">
+                <div class="review-card reveal">
+                    <p>"The best multi-cuisine venue in Sigra by far. Their Indian curries have unmatched authentic spice profiles, and the custom neons look incredibly sleek."</p>
+                    <div class="reviewer-meta">
+                        <h5>Aman Jaiswal</h5>
+                        <span>Verified Local Guide</span>
+                    </div>
+                </div>
+                <div class="review-card reveal">
+                    <p>"Incredible attention to detail across the interior curves and hospitality. The Italian pasta selection feels exceptionally premium."</p>
+                    <div class="reviewer-meta">
+                        <h5>Dr. Sneha Mishra</h5>
+                        <span>Regular Dining Guest</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- CTA CONVERSION ACCELERATOR --- -->
+    <section class="cta-banner">
+        <div class="container reveal">
+            <h2>Indulge In Premium Gastronomy</h2>
+            <p>Gather your family and friends for a tailored, memorable dining experience today.</p>
+            <a href="tel:08299230672" class="btn btn-primary">Call Desk: 082992 30672</a>
+        </div>
+    </section>
+
+    <!-- --- CONTACT PANEL & GEOLOCATION --- -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="tagline">Visit Our Kitchen</span>
+                <h2 class="section-title">Directions & <span>Reservations</span></h2>
+            </div>
+            <div class="contact-layout">
+                <div class="contact-details-panel reveal">
+                    <div class="contact-info-block">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <h4>Our Address</h4>
+                            <p>19/40 1, Fatman Rd, Kashi Vidyapith, Sigra, Varanasi, Uttar Pradesh 221002</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-block">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <h4>Helpline Phone Desk</h4>
+                            <p><a href="tel:08299230672">082992 30672</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-info-block">
+                        <i class="fa-solid fa-clock"></i>
+                        <div>
+                            <h4>Operating Shifts</h4>
+                            <p>Open Daily: 11:00 AM – 11:00 PM</p>
+                            <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 4px;">Lunch & Dinner Bookings</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-container reveal">
+                    <div class="map-frame-box">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3606.666986256247!2d82.9866876!3d25.3126742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e2deb3f7f0221%3A0xf657e2bbdcfbd4c2!2sKimmo&#39;s%20Kitchen!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" 
+                                width="100%" height="100%" style="border:0; filter: invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- FOOTER COMPONENT --- -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid-box">
+                <div class="footer-brand">
+                    <a href="#hero" class="logo-text">KIMMOS<span>.</span></a>
+                    <p style="margin-top: 20px;">Elevating multi-cuisine fine dining landscapes across Sigra through meticulous ingredient sourcing and upscale modern design execution.</p>
+                    <div class="social-link-row">
+                        <a href="#" class="social-circle-item"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-circle-item"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Discover</h4>
+                    <ul>
+                        <li><a href="#about">Our Identity Story</a></li>
+                        <li><a href="#services">The Guest Experience</a></li>
+                        <li><a href="#menu">Gourmet Selections</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Direct Channels</h4>
+                    <ul>
+                        <li><a href="#contact">Find Map Location</a></li>
+                        <li><a href="https://www.swiggy.com" target="_blank">Order via Swiggy</a></li>
+                        <li><a href="https://www.zomato.com" target="_blank">Order via Zomato</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom-row">
+                <p>&copy; 2026 Kimmo's Kitchen. All Rights Reserved.</p>
+                <p>Designed for Ultimate Gastronomic Luxury</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- --- VANILLA JS DRIVERS --- -->
+    <script>
+        // --- MOBILE MENU NAVIGATION CONTROL ---
+        const menuTrigger = document.getElementById('menu-trigger');
+        const navDrawer = document.getElementById('nav-drawer');
+        const internalLinks = document.querySelectorAll('.nav-link');
+
+        menuTrigger.addEventListener('click', () => {
+            navDrawer.classList.toggle('active');
+            const icon = menuTrigger.querySelector('i');
+            icon.classList.toggle('fa-bars-staggered');
+            icon.classList.toggle('fa-xmark');
+        });
+
+        internalLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navDrawer.classList.remove('active');
+                menuTrigger.querySelector('i').className = 'fa-solid fa-bars-staggered';
+            });
+        });
+
+        // --- SCROLL EFFECT NAVBAR TRANSFORM ---
+        const siteHeader = document.getElementById('site-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                siteHeader.classList.add('scrolled');
+            } else {
+                siteHeader.classList.remove('scrolled');
+            }
+        });
+
+        // --- MENU TABS DATA ENGINE ---
+        const menuData = {
+            indian: [
+                { name: "Signature Butter Chicken", price: "₹380", desc: "Tender tandoori chicken chunks simmered in a premium velvety cream and authentic spice curry." },
+                { name: "Kadhai Paneer Dum", price: "₹320", desc: "Fresh cottage cheese wedges tossed with crisp bell peppers, crushed coriander seeds, and rich gravy." },
+                { name: "Awadhi Dal Makhani", price: "₹260", desc: "Slow-cooked black lentils overnight on charcoal, finished with artisanal butter and fresh dairy cream." },
+                { name: "Khamiri Garlic Naan", price: "₹80", desc: "Traditional leavened flatbread topped with minced aromatic garlic and baked fresh in clay tandoor." }
+            ],
+            global: [
+                { name: "Exotic Continental Sizzler", price: "₹450", desc: "A premium assortment of grilled garden vegetables, herb rice, and paneer cutlets in signature pepper sauce." },
+                { name: "Fettuccine Alfredo Luxury", price: "₹390", desc: "Imported Italian ribbon pasta tossed in rich parmesan reduction sauce with toasted mushrooms." },
+                { name: "Indo-Chinese Chilli Garlic Noodles", price: "₹290", desc: "Wok-tossed fiery hakka noodles loaded with shredded farm greens and intense garlic oil infusions." },
+                { name: "Crispy Corn Salt & Pepper", price: "₹240", desc: "Golden sweet corn kernels fried crisp and seasoned with cracked white pepper and spring scallions." }
+            ]
+        };
+
+        function switchMenu(tier) {
+            const container = document.getElementById('menu-container');
+            const buttons = document.querySelectorAll('.menu-tab-btn');
+            
+            // Toggle active state for tab elements
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+            
+            // Inject structural layout strings safely
+            let htmlStr = '';
+            menuData[tier].forEach(item => {
+                htmlStr += `
+                    <div class="menu-item">
+                        <div class="menu-item-main">
+                            <h4>${item.name}</h4>
+                            <span class="menu-item-price">${item.price}</span>
+                        </div>
+                        <p>${item.desc}</p>
+                    </div>
+                `;
+            });
+            container.innerHTML = htmlStr;
+        }
+
+        // Initialize Menu Load state
+        window.addEventListener('DOMContentLoaded', () => {
+            const mockEvent = { currentTarget: document.querySelectorAll('.menu-tab-btn')[0] };
+            switchMenu('indian');
+        });
+
+        // --- UTILITY ENGINE SCROLL REVEALS ---
+        const itemsToReveal = document.querySelectorAll('.reveal');
+        
+        const scrollRevealTrigger = () => {
+            itemsToReveal.forEach(el => {
+                const innerHeightOffset = window.innerHeight;
+                const elementTopMargin = el.getBoundingClientRect().top;
+                const activatingThreshold = 80;
+
+                if (elementTopMargin < innerHeightOffset - activatingThreshold) {
+                    el.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', scrollRevealTrigger);
+        window.addEventListener('load', scrollRevealTrigger);
+
+        // --- SPY HIGHLIGHT DYNAMIC NAV-LINKS ---
+        const layoutSections = document.querySelectorAll('section');
+        window.addEventListener('scroll', () => {
+            let activeElementId = '';
+            layoutSections.forEach(s => {
+                const sTop = s.offsetTop;
+                if (window.pageYOffset >= (sTop - 250)) {
+                    activeElementId = s.getAttribute('id');
+                }
+            });
+
+            internalLinks.forEach(l => {
+                l.classList.remove('active');
+                if (l.getAttribute('href').includes(activeElementId)) {
+                    l.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
